@@ -1,0 +1,60 @@
+/**
+ * Created by ayden on 10/11/2017.
+ */
+
+import java.util.*;
+
+public class Painting extends Artwork{
+
+    private int width;
+    private int height;
+
+    public Painting(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+                     double reservePrice, int width, int height){
+        super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice);
+        this.width = width;
+        this.height = height;
+    }
+
+    public Painting(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+                    float reservePrice, int width, int height, String description){
+        super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice,description);
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getWidth(){
+        return this.width;
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
+
+    public void setWidth(int width){
+        this.width = width;
+    }
+
+    public void setHeight(int height){
+        this.height = height;
+    }
+
+    public String getTextFileOutput(){
+        String output = this.getName()+","+this.getSeller().getUsername()+","+this.getCreator()+","+this.getYearWasMade()+
+                ","+this.getNumberOfBids()+","+this.getReservePrice()+","+this.getWidth()+","+this.getHeight()+",";
+        return output;
+    }
+
+    public String toString(){
+        String output = "\nPainting Name: " + this.getName() +
+                "\nCreator: " + this.getCreator() +
+                "\nSeller: " + this.getSeller() +
+                "\nYear: " + this.getYearWasMade() +
+                "\nNumber of available bids: " + this.getNumberOfBids() +
+                "\nReserve price " + this.getReservePrice() +
+                "\nWidth: " + this.getWidth() +
+                "\nHeight: " + this.getHeight();
+        return output;
+    }
+
+}
