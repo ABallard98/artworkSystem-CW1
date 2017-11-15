@@ -202,4 +202,5 @@ public class Artwork {
             System.out.println("Error placing bid on artwork. Either price is lower or max bid aciheved.");
         }
     }
-}
+
+}//end of class
