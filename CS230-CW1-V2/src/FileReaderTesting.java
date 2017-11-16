@@ -15,29 +15,31 @@ public class FileReaderTesting {
 
         ArrayList<User> users = new ArrayList<>();
         ArrayList<Bid> bids = new ArrayList<>();
-        ArrayList<Sculpture> scluptures = new ArrayList<>();
+        ArrayList<Sculpture> sculptures = new ArrayList<>();
         ArrayList<Painting> paintings = new ArrayList<>();
 
         try{
-           users = FileReader.readUserFile();
-           for(User u : users){
+            users = FileReader.readUserFile();
+            for(User u : users){
                System.out.println(u.getUsername() + " was found and added to the system");
-           }
-        }
-        catch(FileNotFoundException e){
-            System.out.println("error, file not found exception");
-        }
+            }
 
-        System.out.println("\n");
+            System.out.println("\n");
 
-        try{
             paintings = FileReader.readPaintingFile();
             for(Painting p : paintings){
                 System.out.println(p.getName() + " was found and added to the system");
             }
+
+            System.out.println("\n");
+
+            sculptures = FileReader.readSculptureFile();
+            for(Sculpture s : sculptures){
+                System.out.println(s.getName() + " was found and added to the system");
+            }
         }
         catch(FileNotFoundException e){
-            System.out.println("error, file not found exception");
+            System.out.println("error, file not found");
         }
 
 

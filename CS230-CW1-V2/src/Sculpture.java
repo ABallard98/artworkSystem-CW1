@@ -21,7 +21,7 @@ public class Sculpture extends Artwork{
     }
 
     public Sculpture(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
-                     float reservePrice, int width, int height, int depth, String material, String description){
+                     double reservePrice, int width, int height, int depth, String material, String description){
         super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice,description);
         this.width = width;
         this.height = height;

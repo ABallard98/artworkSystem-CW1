@@ -50,7 +50,7 @@ public class Artwork {
      * @param description  - description of the artwork
      */
     public Artwork(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
-                   float reservePrice, String description){
+                   double reservePrice, String description){
         this.seller = seller;
         this.dateAdded = date;
         this.name = name;
