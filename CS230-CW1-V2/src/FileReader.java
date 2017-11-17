@@ -47,11 +47,10 @@ public class FileReader {
         return sculptures;
     }
 
-    //GOTTA CONSTRUCT THE BID, ADD THE BID TO THE ARTWORK AND ADD THE BID TO THE USER
+    //TODO GOTTA CONSTRUCT THE BID, ADD THE BID TO THE ARTWORK AND ADD THE BID TO THE USER
     public static ArrayList<Bid> readBidFile(String filename){
         ArrayList<Bid> bids = new ArrayList<>();
         final String BID_FILE = filename;
-
         return bids;
     }
 
@@ -143,8 +142,4 @@ public class FileReader {
         }
         return null;
     }
-
-
-
-
 }
