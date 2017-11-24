@@ -11,6 +11,7 @@ public class User {
     private String lastName; //last name of the user
     private String address; //address of the user
     private String postcode; //post code of the user
+    private String getFullAddress; //full address of user
     private long phonenumber; //phone number of the user
 
     private ArrayList<User> favouriteUsers; //array list of favourite users
@@ -87,6 +88,15 @@ public class User {
      */
     public String getPostcode() {
         return this.postcode;
+    }
+
+    /**
+     * Methods to get the user's full address
+     * @return
+     */
+    public String getGetFullAddress()
+    {
+        return getFullAddress + ",\n" + [postcode];
     }
 
     /**
