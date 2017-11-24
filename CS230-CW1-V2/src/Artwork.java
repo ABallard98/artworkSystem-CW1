@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Artwork {
 
-    protected User seller; //seller of the artwork
+    protected User seller; //seller of the artwork1
     protected Date dateAdded; //date added to the system
     protected String name; //name of the artwork
     protected String description; //description of the artwork
