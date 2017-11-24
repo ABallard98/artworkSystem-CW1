@@ -26,6 +26,7 @@ public class UserTesting {
             System.out.println("Error, creating file for " + testUser.getUsername());
         }
 
+        System.out.println();
         System.out.println("Attempting to create a text file for " + testUser2.getUsername());
         try{
             FileWriter.writeUserFile(testUser2);
