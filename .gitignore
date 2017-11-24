@@ -100,3 +100,4 @@ fabric.properties
 hs_err_pid*
 *.xml
 *.iml
+/bin/
