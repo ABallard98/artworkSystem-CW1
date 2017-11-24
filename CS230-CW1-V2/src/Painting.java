@@ -1,5 +1,3 @@
-package application;
-
 /**
 * Created by ayden on 10/11/2017.
 */
