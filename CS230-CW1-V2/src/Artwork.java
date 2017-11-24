@@ -1,3 +1,5 @@
+package application;
+
 /**
  * Created by ayden on 10/11/2017.
  */
@@ -6,15 +8,16 @@ import java.util.*;
 
 public class Artwork {
 
-    private User seller; //seller of the artwork
-    private Date dateAdded; //date added to the system
-    private String name; //name of the artwork
     private String description; //description of the artwork
-    private String creator; //name of creator of the artwork
-    private int yearWasMade; //year the artwork was made
-    private int numberOfBids; //number of the bids possible for this artwork
-    private double reservePrice; //reserve price for the artwork
-    private ArrayList<Bid> bids; //ArrayList of bids on this artwork
+    protected User seller; //seller of the artwork
+    protected Date dateAdded; //date added to the system
+    protected String name; //name of the artwork
+    protected String description; //description of the artwork
+    protected String creator; //name of creator of the artwork
+    protected int yearWasMade; //year the artwork was made
+    protected int numberOfBids; //number of the bids possible for this artwork
+    protected double reservePrice; //reserve price for the artwork
+    protected ArrayList<Bid> bids; //ArrayList of bids on this artwork
 
     /**
      * Constructor of artwork without a description
@@ -28,13 +31,13 @@ public class Artwork {
      */
     public Artwork(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
                    double reservePrice){
-        this.seller = seller;
-        this.dateAdded = date;
-        this.name = name;
-        this.creator = creator;
-        this.yearWasMade = yearWasMade;
-        this.numberOfBids = numberOfBids;
-        this.reservePrice = reservePrice;
+        setSeller(seller);
+        setDateAdded(date);
+        setName(name);
+        setCreator(creator);
+        setYearWasMade(yearWasMade);
+        setNumberOfBids(numberOfBids);
+        setReservePrice(reservePrice);
         this.bids = new ArrayList<>();
     }
 
@@ -51,15 +54,15 @@ public class Artwork {
      */
     public Artwork(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
                    double reservePrice, String description){
-        this.seller = seller;
-        this.dateAdded = date;
-        this.name = name;
-        this.creator = creator;
-        this.yearWasMade = yearWasMade;
-        this.numberOfBids = numberOfBids;
-        this.reservePrice = reservePrice;
+    	setSeller(seller);
+        setDateAdded(date);
+        setName(name);
+        setCreator(creator);
+        setYearWasMade(yearWasMade);
+        setNumberOfBids(numberOfBids);
+        setReservePrice(reservePrice);
         this.bids = new ArrayList<>();
-        this.description = description;
+        setDescription(description);
     }
 
     /**
