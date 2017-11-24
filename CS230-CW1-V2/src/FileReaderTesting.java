@@ -1,9 +1,13 @@
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
  * Created by ayden on 10/11/2017.
  */
+
+import java.util.*;
+import java.io.*;
 
 public class FileReaderTesting {
 
