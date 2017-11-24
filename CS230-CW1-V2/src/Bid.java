@@ -1,3 +1,5 @@
+package application;
+
 /**
  * Created by ayden on 10/11/2017.
  */
@@ -19,10 +21,10 @@ public class Bid {
      * @param bidDate - the date the bid was placed
      */
     public Bid(User bidder, double price, Artwork artwork, Date bidDate){
-        this.bidder = bidder;
-        this.price = price;
-        this.artwork = artwork;
-        this.bidDate = bidDate;
+        setBidder(bidder);
+        setPrice(price);
+        setArtwork(artwork);
+        setBidDate(bidDate);
     }
 
     /**

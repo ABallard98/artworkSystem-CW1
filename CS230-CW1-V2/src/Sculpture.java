@@ -1,3 +1,5 @@
+package application;
+
 /**
  * Created by ayden on 10/11/2017.
  */
@@ -14,19 +16,19 @@ public class Sculpture extends Artwork{
     public Sculpture(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
                      double reservePrice, int width, int height, int depth, String material){
         super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice);
-        this.width = width;
-        this.height = height;
-        this.depth = depth;
-        this.material = material;
+        setWidth(width);
+        setHeight(height);
+        setDepth(depth);
+        setMaterial(material);
     }
 
     public Sculpture(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
                      double reservePrice, int width, int height, int depth, String material, String description){
         super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice,description);
-        this.width = width;
-        this.height = height;
-        this.depth = depth;
-        this.material = material;
+        setWidth(width);
+        setHeight(height);
+        setDepth(depth);
+        setMaterial(material);
     }
 
     public int getWidth(){

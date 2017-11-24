@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Artwork {
 
-    private String description; //description of the artwork
     protected User seller; //seller of the artwork
     protected Date dateAdded; //date added to the system
     protected String name; //name of the artwork

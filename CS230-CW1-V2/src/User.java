@@ -1,3 +1,5 @@
+package application;
+
 /**
  * Created by ayden on 10/11/2017.
  */
@@ -11,7 +13,6 @@ public class User {
     private String lastName; //last name of the user
     private String address; //address of the user
     private String postcode; //post code of the user
-    private String getFullAddress; //full address of user
     private long phonenumber; //phone number of the user
 
     private ArrayList<User> favouriteUsers; //array list of favourite users
@@ -27,12 +28,12 @@ public class User {
      * @param phonenumber - phonenumber of the user
      */
     public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
-        this.username = username;
-        this.firstName = fname;
-        this.lastName = lname;
-        this.address = address;
-        this.postcode = postcode;
-        this.phonenumber = phonenumber;
+        setUsername(username);
+        setFirstName(fname);
+        setLastName(lname);
+        setAddress(address);
+        setPostcode(postcode);
+        setPhonenumber(phonenumber);
         this.favouriteUsers = new ArrayList<>();
     }
 
@@ -88,15 +89,6 @@ public class User {
      */
     public String getPostcode() {
         return this.postcode;
-    }
-
-    /**
-     * Methods to get the user's full address
-     * @return
-     */
-    public String getGetFullAddress()
-    {
-        return getFullAddress + ",\n" + [postcode];
     }
 
     /**
@@ -234,3 +226,4 @@ public class User {
 
 
 } //end of class
+
