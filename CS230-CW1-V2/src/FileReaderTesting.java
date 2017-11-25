@@ -28,14 +28,14 @@ public class FileReaderTesting {
 
             paintings = FileReader.readPaintingFile();
             for(Painting p : paintings){
-                System.out.println(p.getName() + " was found and added to the system");
+                System.out.println(p.getTitle() + " was found and added to the system");
             }
 
             System.out.println("\n");
 
             sculptures = FileReader.readSculptureFile();
             for(Sculpture s : sculptures){
-                System.out.println(s.getName() + " was found and added to the system");
+                System.out.println(s.getTitle() + " was found and added to the system");
             }
         }
         catch(FileNotFoundException e){

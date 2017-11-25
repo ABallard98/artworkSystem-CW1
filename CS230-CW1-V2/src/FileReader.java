@@ -76,7 +76,7 @@ public class FileReader {
 
             Painting painting = new Painting(seller, new Date(),name,creator,yearWasMade,numberOfBids,reservePrice,
                     width,height);
-            System.out.println("Painting " + painting.getName() + " was created");
+            System.out.println("Painting " + painting.getTitle() + " was created");
             in.close();
             return painting;
         }
@@ -105,7 +105,7 @@ public class FileReader {
             User seller = constructUser(username+".txt");
             Sculpture sculpture = new Sculpture(seller,new Date(),name,creator,yearWasMade,
                     numberOfBids,reservePrice,width,height,depth,material);
-            System.out.println("Sculpture " + sculpture.getName() + " was created");
+            System.out.println("Sculpture " + sculpture.getTitle() + " was created");
             in.close();
             return sculpture;
 

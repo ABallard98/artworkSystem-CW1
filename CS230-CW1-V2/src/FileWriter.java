@@ -28,7 +28,7 @@ public class FileWriter {
     }
 
     public static void writeBidFile(Bid bid) throws IOException{
-        String path = "bids//"+bid.getBidder().getUsername()+"-"+bid.getArtwork().getName()+"-"+bid.getPrice()+".txt";
+        String path = "bids//"+bid.getBidder().getUsername()+"-"+bid.getArtwork().getTitle()+"-"+bid.getPrice()+".txt";
         System.out.println(path);
         try{
             PrintWriter writer = new PrintWriter(path,"UTF-8");
@@ -41,26 +41,26 @@ public class FileWriter {
     }
 
     public static void writePaintingFile(Painting painting) throws IOException{
-        String path = "artworkFiles//paintings//"+painting.getName()+".txt";
+        String path = "artworkFiles//paintings//"+painting.getTitle()+".txt";
         try{
             PrintWriter writer = new PrintWriter(path,"UTF-8");
             writer.println(painting.getTextFileOutput());
             writer.close();
         }
         catch(IOException e){
-            throw new IOException("Error creating painting file for " + painting.getName());
+            throw new IOException("Error creating painting file for " + painting.getTitle());
         }
     }
 
     public static void writeSculptureFile(Sculpture sculpture) throws IOException{
-        String path = "artworkFiles//sculptures//"+sculpture.getName()+".txt";
+        String path = "artworkFiles//sculptures//"+sculpture.getTitle()+".txt";
         try{
             PrintWriter writer = new PrintWriter(path, "UTF-8");
             writer.println(sculpture.getTextFileOutput());
             writer.close();
         }
         catch(IOException e){
-            throw new IOException("Error creating sculpture file for " + sculpture.getName());
+            throw new IOException("Error creating sculpture file for " + sculpture.getTitle());
         }
     }
 

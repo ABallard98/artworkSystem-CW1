@@ -8,7 +8,7 @@ public class Artwork {
 
     protected User seller; //seller of the artwork1
     protected Date dateAdded; //date added to the system
-    protected String name; //name of the artwork
+    protected String title; //name of the artwork
     protected String description; //description of the artwork
     protected String creator; //name of creator of the artwork
     protected int yearWasMade; //year the artwork was made
@@ -82,8 +82,8 @@ public class Artwork {
      * Method to get the name of the artwork
      * @return String - name
      */
-    public String getName(){
-        return this.name;
+    public String getTitle(){
+        return this.title;
     }
 
     /**
@@ -144,10 +144,10 @@ public class Artwork {
 
     /**
      * Method to set the name of the artwork
-     * @param name
+     * @param title
      */
-    public void setName(String name){
-        this.name = name;
+    public void setName(String title){
+        this.title = title;
     }
 
     /**

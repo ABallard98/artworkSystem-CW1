@@ -40,13 +40,13 @@ public class Painting extends Artwork{
    }
 
    public String getTextFileOutput(){
-       String output = this.getName()+","+this.getSeller().getUsername()+","+this.getCreator()+","+this.getYearWasMade()+
+       String output = this.getTitle()+","+this.getSeller().getUsername()+","+this.getCreator()+","+this.getYearWasMade()+
                ","+this.getNumberOfBids()+","+this.getReservePrice()+","+this.getWidth()+","+this.getHeight()+",";
        return output;
    }
 
    public String toString(){
-       String output = "\nPainting Name: " + this.getName() +
+       String output = "\nPainting Name: " + this.getTitle() +
                "\nCreator: " + this.getCreator() +
                "\nSeller: " + this.getSeller() +
                "\nYear: " + this.getYearWasMade() +
