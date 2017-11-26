@@ -237,4 +237,55 @@ public class User {
 		return output;
 	}
 
+	public Date getTimeLastLoggedIn() {
+		return timeLastLoggedIn;
+	}
+
+	public void setTimeLastLoggedIn(Date timeLastLoggedIn) {
+		this.timeLastLoggedIn = timeLastLoggedIn;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+	public ArrayList<Artwork> getArtForSale() {
+		return artForSale;
+	}
+
+	public void setArtForSale(ArrayList<Artwork> artForSale) {
+		this.artForSale = artForSale;
+	}
+
+	public ArrayList<Artwork> getArtSold() {
+		return artSold;
+	}
+
+	public void setArtSold(ArrayList<Artwork> artSold) {
+		this.artSold = artSold;
+	}
+
+	public ArrayList<Artwork> getArtWon() {
+		return artWon;
+	}
+
+	public void setArtWon(ArrayList<Artwork> artWon) {
+		this.artWon = artWon;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
+		this.favouriteUsers = favouriteUsers;
+	}
+	
+	
+	
+
 } // end of class
