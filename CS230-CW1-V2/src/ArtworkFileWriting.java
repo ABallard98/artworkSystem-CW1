@@ -40,7 +40,7 @@ public class ArtworkFileWriting {
         paintings.add(painting2);
         try{
             for(Painting p : paintings){
-                FileWriter.writePaintingFile(p);
+            	Writer.writePaintingFile(p);
                 System.out.println("Success!");
             }
         }
@@ -64,7 +64,7 @@ public class ArtworkFileWriting {
         sculptures.add(sculp2);
         try {
             for (Sculpture s : sculptures) {
-                FileWriter.writeSculptureFile(s);
+            	Writer.writeSculptureFile(s);
                 System.out.println("Success!");
             }
         }
@@ -83,7 +83,7 @@ public class ArtworkFileWriting {
         bids.add(bid2);
         try{
             for(Bid b : bids){
-                FileWriter.writeBidFile(b);
+            	Writer.writeBidFile(b);
                 System.out.println(b.toString());
             }
         }

@@ -19,7 +19,7 @@ public class UserTesting {
 
         System.out.println("Attempting to create a text file for " + testUser.getUsername());
         try{
-            FileWriter.writeUserFile(testUser);
+            Writer.writeUserFile(testUser);
             System.out.println("Success!");
         }
         catch(IOException e){
@@ -29,7 +29,7 @@ public class UserTesting {
         System.out.println();
         System.out.println("Attempting to create a text file for " + testUser2.getUsername());
         try{
-            FileWriter.writeUserFile(testUser2);
+        	Writer.writeUserFile(testUser2);
             System.out.println("Success!");
         }
         catch(IOException e){
