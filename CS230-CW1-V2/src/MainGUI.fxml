@@ -11,6 +11,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -83,7 +84,10 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
+                     <tooltip>
+                        <Tooltip text="Empty Tooltip" />
+                     </tooltip></Button>
                   <Pane />
                </children>
                <padding>
