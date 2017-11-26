@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Created by ayden on 11/11/2017.
  */
-public class ArtworkFileWriting {
+public class ArtworkFileWritingTest {
 
     public static void main (String[] args){
 
