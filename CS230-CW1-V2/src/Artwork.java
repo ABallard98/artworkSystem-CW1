@@ -22,8 +22,6 @@ public class Artwork {
 	protected int numberOfBids;
 	private boolean bidIsOver;
 	
-
-	
 	/**
 	 * Constructor of artwork without a description
 	 * 
