@@ -138,7 +138,7 @@ public class FileReader {
             return user;
         }
         catch(FileNotFoundException e){
-            System.out.println("The system shat the bed and couldnt find the file");
+            System.out.println("The system couldn't find the file");
         }
         return null;
     }
