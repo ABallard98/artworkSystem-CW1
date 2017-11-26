@@ -50,15 +50,25 @@ public class Loader {
 
 	public void readArtworkFile(String filename) {
 		// to implement
-	} 
-	
-	
-	
+	}
+
+	public void readBidFile(String filename) {
+
+	}
+
+	public void readDataFromArtworkFile(String filename) {
+
+	}
+
+	public ArrayList<Bid> getUserBidHistory(String filename, String username) {
+		return null;
+
+	}
+
 	/*
 	 * 
 	 * 
 	 * 
-	 * +getFavouriteUsers(username: String) : ArrayList<User> -
 	 * readDataFromUserFile( in : Scanner) : ArrayList<User> + readArtworkFile(
 	 * filename : String) : void - readDataFromArtworkFile( in : Scanner) :
 	 * ArrayList<Artwork> + readBidFile(filename : String) : void -
