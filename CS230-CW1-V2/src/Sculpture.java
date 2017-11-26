@@ -62,8 +62,8 @@ public class Sculpture extends Artwork{
     }
 
     public String getTextFileOutput(){
-        String output = this.getTitle()+","+this.getSeller().getUsername()+","+this.getCreator()+","+
-                this.getYearWasMade()+","+this.getNumberOfBids()+","+this.getReservePrice()+","+
+        String output = this.getTitle()+","+this.getOwner().getUsername()+","+this.getCreator()+","+
+                this.getCreationYear()+","+this.getNumberOfBids()+","+this.getReservePrice()+","+
                 this.getWidth()+","+this.getHeight()+","+this.getDepth()+","+this.getMaterial()+",";
         return output;
     }
@@ -71,8 +71,8 @@ public class Sculpture extends Artwork{
     public String toString(){
         String output = "\nSculpture Name: " + this.getTitle() +
                 "\nCreator: " + this.getCreator() +
-                "\nSeller: " + this.getSeller() +
-                "\nYear: " + this.getYearWasMade() +
+                "\nSeller: " + this.getOwner() +
+                "\nYear: " + this.getCreationYear() +
                 "\nNumber of available bids: " + this.getNumberOfBids() +
                 "\nReserve price " + this.getReservePrice() +
                 "\nWidth: " + this.getWidth() +

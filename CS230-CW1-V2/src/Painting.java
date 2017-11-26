@@ -17,7 +17,7 @@ public class Painting extends Artwork{
    }
 
    public Painting(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
-                   float reservePrice, int width, int height, String description){
+                   double reservePrice, int width, int height, String description){
        super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice,description);
        setWidth(width);
        setHeight(height);
@@ -40,7 +40,7 @@ public class Painting extends Artwork{
    }
 
    public String getTextFileOutput(){
-       String output = this.getTitle()+","+this.getSeller().getUsername()+","+this.getCreator()+","+this.getYearWasMade()+
+       String output = this.getTitle()+","+this.getOwner().getUsername()+","+this.getCreator()+","+this.getCreationYear()+
                ","+this.getNumberOfBids()+","+this.getReservePrice()+","+this.getWidth()+","+this.getHeight()+",";
        return output;
    }
@@ -48,8 +48,8 @@ public class Painting extends Artwork{
    public String toString(){
        String output = "\nPainting Name: " + this.getTitle() +
                "\nCreator: " + this.getCreator() +
-               "\nSeller: " + this.getSeller() +
-               "\nYear: " + this.getYearWasMade() +
+               "\nSeller: " + this.getOwner() +
+               "\nYear: " + this.getCreationYear() +
                "\nNumber of available bids: " + this.getNumberOfBids() +
                "\nReserve price " + this.getReservePrice() +
                "\nWidth: " + this.getWidth() +
