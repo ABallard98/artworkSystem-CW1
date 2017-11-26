@@ -9,6 +9,7 @@ public class Loader {
 	private static ArrayList<Artwork> artworks;
 
 	public static void readUserFiles() {
+		System.out.print("");
 
 	}
 
