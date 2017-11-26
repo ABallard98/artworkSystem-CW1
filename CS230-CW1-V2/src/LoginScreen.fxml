@@ -5,41 +5,69 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
-   <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextField fx:id="loginField" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label alignment="TOP_RIGHT" text="Username" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="50.0" />
-               </GridPane.margin>
-            </Label>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLogin" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-            <Label alignment="BOTTOM_RIGHT" text="Enter your username" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-         </children>
-      </GridPane>
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(26, 40, 61, 0.9);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <top>
-      <Label text="Artatawe Login" BorderPane.alignment="CENTER">
+      <Label text="Artatawe Login" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
-            <Font size="35.0" />
+            <Font size="31.0" />
          </font>
+         <padding>
+            <Insets bottom="50.0" top="20.0" />
+         </padding>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="349.0" prefWidth="287.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Please log in" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </Label>
+            <Label text="Username" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField minWidth="-Infinity" prefHeight="25.0" prefWidth="172.0" promptText="enter your username" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Log in" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="70.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <Pane prefHeight="284.0" prefWidth="72.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <VBox prefHeight="349.0" prefWidth="190.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Not a member?" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label text="Create a new account and join our growing community!" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" text="Register" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
 </BorderPane>
