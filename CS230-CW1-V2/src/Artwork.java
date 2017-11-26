@@ -23,6 +23,7 @@ public class Artwork {
 	private boolean bidIsOver;
 	
 
+	
 	/**
 	 * Constructor of artwork without a description
 	 * 
