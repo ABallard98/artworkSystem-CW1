@@ -34,7 +34,7 @@ public class LoginController {
 		String username = loginField.getText();
 		System.out.println("User of name " + username + " is logging in");
 
-		User user = FileReader.constructUser(username);
+		User user = FileReader.constructUser(username+".txt");
 
 		if (user != null) {
 			System.out.println("Logging in was successful");
