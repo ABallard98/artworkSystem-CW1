@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController extends Application {
+public class LoginController  {
 
 	
     @FXML
@@ -13,20 +13,25 @@ public class LoginController extends Application {
     @FXML
     private Button loginButton;
 
+    @FXML
+    private Button registerButton;
 	
 	
-	@Override
-	public void start(Stage arg0) throws Exception {
+	public void initialize()  {
 		
 		
-		//loginButton.setOnAction(e-> handleLogin());
-		
+		loginButton.setOnAction(e-> handleLogin());
+		registerButton.setOnAction(e-> handleRegistration());
 	}
 
 	public void handleLogin() {
-		System.out.println(1);
+		System.out.println("User of name " + loginField.getText() + " is logging in");
+		//System.exit(1);
 		
 		
+	}
+	
+	public void handleRegistration() {
 		
 	}
 	

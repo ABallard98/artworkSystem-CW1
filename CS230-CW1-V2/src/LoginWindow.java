@@ -14,12 +14,6 @@ public class LoginWindow extends Application {
 
 	
 
-    @FXML
-    private TextField loginField;
-
-    @FXML
-    private Button loginButton;
-
 	
 	@Override
 	public void start(Stage stage) throws Exception {

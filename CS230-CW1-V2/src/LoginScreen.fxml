@@ -36,8 +36,8 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField minWidth="-Infinity" prefHeight="25.0" prefWidth="172.0" promptText="enter your username" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Log in" />
+            <TextField fx:id="loginField" minWidth="-Infinity" prefHeight="25.0" prefWidth="172.0" promptText="enter your username" />
+            <Button fx:id="loginButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Log in" />
          </children>
          <padding>
             <Insets bottom="20.0" left="70.0" right="20.0" top="20.0" />
@@ -60,7 +60,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" text="Register" />
+            <Button fx:id="registerButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" text="Register" />
          </children>
          <BorderPane.margin>
             <Insets />
