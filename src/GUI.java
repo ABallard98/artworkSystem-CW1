@@ -19,9 +19,7 @@ public class GUI extends Application {
 		stage.setTitle("Artatawe");
 		stage.setScene(scene);
 
-		
-		//loginButton.setOnAction(e-> handleLogin());
-		
+			
 		stage.show();
 
 	}

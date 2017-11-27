@@ -1,6 +1,8 @@
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -84,6 +86,8 @@ public class AddArtworkController {
 		System.out.println(user);
 
 		if (selectSculpture.isSelected()) {
+			
+			
 			Sculpture sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
 					widthI, heightI, depthI, materialA, descriptionA);
 			try {
@@ -102,6 +106,16 @@ public class AddArtworkController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			Alert alert = new  Alert(AlertType.INFORMATION);
+			alert.setTitle("Success");
+
+			alert.setHeaderText("Artwork has been added to the database");
+			alert.setContentText("Your new auction will appear immediately");
+
+			
+			alert.showAndWait();
+
 		}
 
 	}
