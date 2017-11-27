@@ -138,7 +138,7 @@ public class FileReader {
             return user;
         }
         catch(FileNotFoundException e){
-            System.out.println("The system couldn't find the file");
+            //todo something goes here, sometimes throws file not found exception even though it is :/
         }
         return null;
     }
