@@ -10,55 +10,57 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class LoginController  {
+public class LoginController {
 
-	
-    @FXML
-    private TextField loginField;
+	@FXML
+	private TextField loginField;
 
-    @FXML
-    private Button loginButton;
+	@FXML
+	private Button loginButton;
 
-    @FXML
-    private Button registerButton;
-	
-	
-	public void initialize()  {
-		
-		
-		loginButton.setOnAction(e-> handleLogin());
-		registerButton.setOnAction(e-> handleRegistration());
+	@FXML
+	private Button registerButton;
+
+	public void initialize() {
+
+		loginButton.setOnAction(e -> handleLogin());
+		registerButton.setOnAction(e -> handleRegistration());
 	}
 
 	public void handleLogin() {
-		System.out.println("User of name " + loginField.getText() + " is logging in");
-		//System.exit(1);
-		
-		
-	}
-	
-	public void handleRegistration() {
-		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("NewAccountCreator.fxml"));    
-		try {
-			BorderPane login = (BorderPane)fxmlL.load();
-			//NewAccountCreatorController newAccountController = fxmlL.<NewAccountCreatorController>getController();
 
-			Scene scene = new Scene(login,600 , 832);
-			
+		String username = loginField.getText();
+		System.out.println("User of name " + username + " is logging in");
+
+		User user = FileReader.constructUser(username);
+
+		if (user != null) {
+			System.out.println("Logging in was successful");
+		}
+
+	}
+
+	public void handleRegistration() {
+		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("NewAccountCreator.fxml"));
+		try {
+			BorderPane login = (BorderPane) fxmlL.load();
+			// NewAccountCreatorController newAccountController =
+			// fxmlL.<NewAccountCreatorController>getController();
+
+			Scene scene = new Scene(login, 600, 832);
+
 			Stage stage = new Stage();
 			stage.setScene(scene);
 			stage.initModality(Modality.APPLICATION_MODAL);
 
-			
 			stage.show();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}          
+		}
 		// Access the controller that was created by the FXML loader
 
-
 	}
-	
+
 }

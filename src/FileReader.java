@@ -121,11 +121,11 @@ public class FileReader {
      * @param filename - file name of the user
      * @return User
      */
-    private static User constructUser(String filename){
+    public static User constructUser(String filename){
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm a");
 
         try{
-            Scanner in = new Scanner(new File("userFiles//"+filename));
+            Scanner in = new Scanner(new File("userFiles//"+filename+".txt"));
             in.useDelimiter(",");
             String username = in.next();
             String firstname = in.next();

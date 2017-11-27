@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,15 +49,31 @@ public class NewAccountCreatorController {
 	
 	public void createAccount() {
 		
+		String username = usernameField.getText();
+		String firstName =  firstNameField.getText();
+		String lastName =  lastNameField.getText();
+		String address =  addressField.getText();
+		String postCode =  postcodeField.getText();
+		String phoneNumber =  phoneNumberField.getText();
+		
+		long phoneNumberLong = Long.parseLong(phoneNumber);
+		
 		String userdata = "";
-		userdata += "\n Username: " + usernameField.getText();
-		userdata += "\n First name: " + firstNameField.getText();
-		userdata += "\n Last name: " + lastNameField.getText();
-		userdata += "\n Address: " + addressField.getText();
-		userdata += "\n Post code: " + postcodeField.getText();
-		userdata += "\n Phone number: " + phoneNumberField.getText();
+		userdata += "\n Username: " + username;
+		userdata += "\n First name: " + firstName;
+		userdata += "\n Last name: " + lastName;
+		userdata += "\n Address: " + address;
+		userdata += "\n Post code: " + postCode;
+		userdata += "\n Phone number: " + phoneNumber;
 
+		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong);
 
+		try {
+			Writer.writeUserFile(user);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println(userdata);
 		
 	}
