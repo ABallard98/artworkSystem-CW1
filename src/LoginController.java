@@ -93,7 +93,6 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// Access the controller that was created by the FXML loader
 
 	}
 

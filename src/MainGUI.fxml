@@ -89,7 +89,7 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
+                  <Button fx:id="createNewArtworkButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
                      <tooltip>
                         <Tooltip text="Empty Tooltip" />
                      </tooltip></Button>
