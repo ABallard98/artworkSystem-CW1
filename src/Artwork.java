@@ -25,15 +25,15 @@ public class Artwork {
 	/**
 	 * Constructor of artwork without a description
 	 * 
-	 * @param seller
+	 * @param owner
 	 *            - seller of the artwork
 	 * @param date
 	 *            - date added to the system
-	 * @param name
+	 * @param title
 	 *            - name of the artwork
-	 * @param creator
+	 * @param creatorName
 	 *            - creator of the artwork
-	 * @param yearWasMade
+	 * @param creationYear
 	 *            - year the artwork was made
 	 * @param numberOfBids
 	 *            - number of bids possible for the artwork
@@ -57,15 +57,15 @@ public class Artwork {
 	/**
 	 * Constructor of artwork with a a description
 	 * 
-	 * @param seller
+	 * @param owner
 	 *            - seller of the artwork
 	 * @param date
 	 *            - date added to the system
-	 * @param name
+	 * @param title
 	 *            - name of the artwork
-	 * @param creator
+	 * @param creatorName
 	 *            - creator of the artwork
-	 * @param yearWasMade
+	 * @param creationYear
 	 *            - year the artwork was made
 	 * @param numberOfBids
 	 *            - number of bids possible for the artwork
@@ -90,12 +90,6 @@ public class Artwork {
 	
 	public void readPhoto(String imageFileName) {
 		// to implement
-	}
-	
-	
-	public String toString() {
-		// to implement
-		return null;
 	}
 	
 	/**
@@ -176,7 +170,7 @@ public class Artwork {
 	/**
 	 * Method to set the seller of the artwork
 	 * 
-	 * @param seller
+	 * @param owner
 	 */
 	public void setOwner(User owner) {
 		this.owner = owner;
@@ -185,7 +179,7 @@ public class Artwork {
 	/**
 	 * Method to set the date added of the artwork
 	 * 
-	 * @param date
+	 * @param timeAdded
 	 */
 	public void setTimeAdded(Date timeAdded) {
 		this.timeAdded = timeAdded;
@@ -251,7 +245,8 @@ public class Artwork {
 	 * @param bid
 	 */
 	public void addBidToItem(Bid bid) {
-		if (bidsOnItem.size() < numberOfBids && bid.getPrice() > bidsOnItem.get(bidsOnItem.size() - 1).getPrice()) {
+		if (bidsOnItem.size() < numberOfBids &&
+				bid.getPrice() > bidsOnItem.get(bidsOnItem.size() - 1).getPrice()) {
 			bidsOnItem.add(bid);
 		} else {
 			System.out.println("Error placing bid on artwork. Either price is lower or max bid aciheved.");
