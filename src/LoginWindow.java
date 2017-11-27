@@ -24,9 +24,7 @@ public class LoginWindow extends Application {
 		stage.setTitle("Log in");
 		stage.setScene(scene);
 
-		
-		//loginButton.setOnAction(e-> handleLogin());
-		
+
 		stage.show();
 
 	}
@@ -36,11 +34,7 @@ public class LoginWindow extends Application {
 	}
 
 	
-	public void handleLogin() {
-		System.out.println(1);
-		
-	}
-	
+
 	
 	
 }
