@@ -36,10 +36,10 @@ public class NewAccountCreatorController {
 
 	
 	
-	public void initalise() {
+	public void initialize() {
 		
 		createAccountButton.setOnAction(e-> createAccount());
-		
+		openGeneratorButton.setOnAction(e-> openCustomPictureCreator());
 		
 		
 	}
@@ -60,5 +60,9 @@ public class NewAccountCreatorController {
 		
 	}
 	
+	
+	public void openCustomPictureCreator() {
+		// for Ayden
+	}
 	
 }
