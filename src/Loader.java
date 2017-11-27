@@ -9,6 +9,13 @@ public class Loader {
 	private static ArrayList<User> users;
 	private static ArrayList<Artwork> artworks;
 
+	
+	public static void init() {
+		
+		//User user1 = new User();
+		
+	}
+	
 	public static void readUserFiles() {
 
 		// to implement
