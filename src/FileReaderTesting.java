@@ -21,7 +21,7 @@ public class FileReaderTesting {
         try{
             users = FileReader.readUserFile();
             for(User u : users){
-               System.out.println(u.getUsername() + " was found and added to the system");
+               System.out.println(u.getFullName() + " was found and added to the system");
             }
 
             System.out.println("\n");

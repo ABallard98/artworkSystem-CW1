@@ -123,9 +123,8 @@ public class FileReader {
      */
     public static User constructUser(String filename){
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm a");
-
         try{
-            Scanner in = new Scanner(new File("userFiles//"+filename+".txt"));
+            Scanner in = new Scanner(new File("userFiles//"+filename));
             in.useDelimiter(",");
             String username = in.next();
             String firstname = in.next();
@@ -138,7 +137,7 @@ public class FileReader {
             return user;
         }
         catch(FileNotFoundException e){
-            //todo something goes here, sometimes throws file not found exception even though it is :/
+            //TODO WHY DOES THIS ALWAYS CATCH EVEN WHEN IT WORKS
         }
         return null;
     }
