@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
+	
+	private static User user;
+	
+	
 	@FXML
 	private TextField loginField;
 
@@ -34,11 +38,11 @@ public class LoginController {
 		String username = loginField.getText();
 		System.out.println("User of name " + username + " is logging in");
 
-		User user = FileReader.constructUser(username+".txt");
+		User userA = FileReader.constructUser(username+".txt");
 
-		if (user != null) {
+		if (userA != null) {
 			System.out.println("Logging in was successful");
-			
+			user = userA;
 			FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("MainGUI.fxml"));
 			try {
 				BorderPane login = (BorderPane) fxmlL.load();
@@ -95,5 +99,13 @@ public class LoginController {
 		}
 
 	}
+
+	public static User getUser() {
+		return user;
+	}
+	
+	
+	
+	
 
 }

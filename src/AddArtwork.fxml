@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1008.0" style="-fx-background-color: rgb(26, 40, 61, 0.9);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1008.0" style="-fx-background-color: rgb(26, 40, 61, 0.9);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddArtworkController">
    <center>
       <VBox prefHeight="774.0" prefWidth="525.0" spacing="5.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -36,7 +36,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
+            <TextField fx:id="width" maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -49,7 +49,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
+            <TextField fx:id="height" maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -62,7 +62,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
+            <TextField fx:id="depth" maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -75,7 +75,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
+            <TextField fx:id="material" maxWidth="100.0" prefHeight="25.0" prefWidth="119.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -96,7 +96,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" text="Sculpture" textFill="WHITE">
+            <RadioButton fx:id="selectSculpture" mnemonicParsing="false" text="Sculpture" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -104,7 +104,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Painting" textFill="WHITE">
+            <RadioButton fx:id="selectPainting" mnemonicParsing="false" text="Painting" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -123,7 +123,7 @@
                   <Insets top="10.0" />
                </padding>
             </Label>
-            <TextField />
+            <TextField fx:id="title" />
             <Label text="Name of creator" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -135,7 +135,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField />
+            <TextField fx:id="creator" />
             <Label text="Year of creation" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -147,7 +147,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField />
+            <TextField fx:id="creationYear" />
             <Label text="Description" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -159,7 +159,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextArea prefHeight="66.0" prefWidth="258.0" />
+            <TextArea fx:id="description" prefHeight="66.0" prefWidth="258.0" />
             <Label text="Bids limit" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -171,7 +171,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField />
+            <TextField fx:id="bidLimit" />
             <Label text="Reserve price" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -183,7 +183,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField />
+            <TextField fx:id="reservePrice" />
          </children>
          <BorderPane.margin>
             <Insets right="50.0" top="80.0" />
@@ -255,7 +255,7 @@
       </VBox>
    </right>
    <bottom>
-      <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="239.0" text="Add artwork" BorderPane.alignment="CENTER">
+      <Button fx:id="addArtwork" mnemonicParsing="false" prefHeight="53.0" prefWidth="239.0" text="Add artwork" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" top="100.0" />
          </BorderPane.margin>

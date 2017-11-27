@@ -12,62 +12,57 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GUIController {
- 
-	
-    @FXML
-    private Hyperlink dashboardLink;
 
-    @FXML
-    private Hyperlink myAuctionsLink;
+	@FXML
+	private Hyperlink dashboardLink;
 
-    @FXML
-    private Hyperlink myBidsLink;
+	@FXML
+	private Hyperlink myAuctionsLink;
 
-    @FXML
-    private Hyperlink userSettingsLink;
+	@FXML
+	private Hyperlink myBidsLink;
 
-    @FXML
-    private Button createNewArtworkButton;
-    
-    
-    @FXML
-    private Label username;
+	@FXML
+	private Hyperlink userSettingsLink;
 
-    @FXML
-    private Label firstName;
+	@FXML
+	private Button createNewArtworkButton;
 
-    @FXML
-    private Label lastName;
+	@FXML
+	private Label username;
 
-    @FXML
-    private Label fullName;
+	@FXML
+	private Label firstName;
 
-    @FXML
-    private Label address;
+	@FXML
+	private Label lastName;
 
-    @FXML
-    private Label postcode;
+	@FXML
+	private Label fullName;
 
-    @FXML
-    private Label lastLogin;
+	@FXML
+	private Label address;
 
-    @FXML
-    private Label phoneNumber;
+	@FXML
+	private Label postcode;
 
+	@FXML
+	private Label lastLogin;
 
-	
+	@FXML
+	private Label phoneNumber;
 
-    @FXML
-    private BorderPane mainSection;
-    
+	@FXML
+	private BorderPane mainSection;
+
 	public void initialize() {
-		
-		userSettingsLink.setOnAction(e-> userSettings());
-	
-		createNewArtworkButton.setOnAction(e-> createNewArtwork());
-		
+
+		userSettingsLink.setOnAction(e -> userSettings());
+
+		createNewArtworkButton.setOnAction(e -> createNewArtwork());
+
 	}
-	
+
 	public void createNewArtwork() {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AddArtwork.fxml"));
 		try {
@@ -87,15 +82,11 @@ public class GUIController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	public void userSettings() {
-		
-		
-		
-		
+
 		BorderPane bp;
 		try {
 			bp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
@@ -105,11 +96,7 @@ public class GUIController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+
 	}
-	
-	
-	
+
 }
