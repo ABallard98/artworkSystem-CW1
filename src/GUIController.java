@@ -65,14 +65,14 @@ public class GUIController {
 		userSettingsLink.setOnAction(e -> userSettings());
 
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
-		favouriteUsers.setOnAction(e-> favouriteUsers());
+		favouriteUsers.setOnAction(e-> userSettings1());
 	}
 	
 	
 	public void favouriteUsers() {
 		BorderPane bp;
 		try {
-			bp = FXMLLoader.load(getClass().getResource("FavouriteUsers.fxml"));
+			bp = (BorderPane) FXMLLoader.load(getClass().getResource("FavouriteUsers.fxml"));
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
@@ -96,6 +96,7 @@ public class GUIController {
 			stage.setScene(scene);
 			stage.initModality(Modality.APPLICATION_MODAL);
 
+			stage.setTitle("Add a new artwork");
 			stage.show();
 
 		} catch (IOException e) {
@@ -110,6 +111,21 @@ public class GUIController {
 		BorderPane bp;
 		try {
 			bp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+			mainSection.getChildren().setAll(bp);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	public void userSettings1() {
+
+		BorderPane bp;
+		try {
+			bp = FXMLLoader.load(getClass().getResource("FavouriteUsers.fxml"));
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {

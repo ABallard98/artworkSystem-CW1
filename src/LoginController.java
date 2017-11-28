@@ -57,6 +57,7 @@ public class LoginController {
 				stage.initModality(Modality.APPLICATION_MODAL);
 
 				closeWindow();
+				stage.setTitle("Artatawe");
 				stage.show();
 				
 
