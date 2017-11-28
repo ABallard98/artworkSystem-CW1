@@ -16,10 +16,12 @@ public class FileReader {
 	private static ArrayList<Artwork> artworks;
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
+
 	private static ArrayList<Bid> bids = new ArrayList<Bid>();
 
 	
 	
+
 	
 	public static Painting getPainting(String str) {
 		
@@ -99,16 +101,8 @@ public class FileReader {
 		artworks.addAll(paintings);
 
 		
-		
-		
-		
 	}
-	
-	
 
-	
-	
-	
 	
     /**
      * Method to return an arrayList containing all of the users in the system
@@ -116,14 +110,56 @@ public class FileReader {
      * @throws FileNotFoundException
      */
     public static ArrayList<User> readUserFile() throws FileNotFoundException{
-        ArrayList<User> users1 = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
         File[] listOfFiles = new File("userFiles//").listFiles();
         for(File e : listOfFiles) {
-            users1.add(constructUser(e.getName()));
+            users.add(constructUser(e.getName()));
         }
-        return users1;
+        //favourites must be added here
+
+
+        users = readFavouritesFile(users);
+
+        return users;
+
  
-     }
+    }
+
+    /**
+     * THIS WRONG, DON'T REMOVE YET THOUGH PLEASE
+     */
+    public static ArrayList<User> readFavouritesFile(ArrayList<User> users) throws FileNotFoundException {
+        final String FAVOURITES_PATH = "favourites.txt";
+        Scanner in = new Scanner(new File(FAVOURITES_PATH));
+        in.useDelimiter(",");
+        while (in.hasNext()) {
+            User user1 = null;
+            User user2 = null;
+
+            for(User u : users){
+                System.out.println(u.getUsername());
+            }
+
+            String firstUser = in.next();
+            String secondUser = in.next();
+
+            //for loop to find the users
+            for(User u : users){
+                if(u.getUsername().equals(firstUser)){
+                    user1 = u;
+                }
+                if(u.getUsername().equals(secondUser)){
+                    user2 = u;
+                }
+            }
+
+            user1.addUserToFavourites(user2);
+            if(in.hasNext()){
+                in.nextLine();
+    }
+}
+        return users;
+    }
 
     
     public static void readUserFiles() throws FileNotFoundException{

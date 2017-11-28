@@ -233,7 +233,7 @@ public class User {
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
-				+ "\n" + "PhoneNumber: " + this.phonenumber + "\n";
+				+ "\n" + "PhoneNumber: " + this.phonenumber + "\n" + "Favourites: " + this.getFavouritesString() + "\n";
 		return output;
 	}
 
