@@ -20,9 +20,46 @@ public class FileReader {
         for(File e : listOfFiles) {
             users.add(constructUser(e.getName()));
         }
+
+        //favourites must be added here
+        users = readFavouritesFile(users);
+
         return users;
  
-     }
+    }
+
+    /**
+     * THIS WRONG, DON'T REMOVE YET THOUGH PLEASE
+     */
+    public static ArrayList<User> readFavouritesFile(ArrayList<User> users) throws FileNotFoundException {
+        final String FAVOURITES_PATH = "favourites.txt";
+        Scanner in = new Scanner(new File(FAVOURITES_PATH));
+        in.useDelimiter(",");
+        while (in.hasNext()) {
+            User user1 = null;
+            User user2 = null;
+
+
+            String firstUser = in.next();
+            String secondUser = in.next();
+
+            //for loop to find the users
+            for(User u : users){
+                if(u.getUsername().equals(firstUser)){
+                    user1 = u;
+                }
+                if(u.getUsername().equals(secondUser)){
+                    user2 = u;
+                }
+            }
+
+            user1.addUserToFavourites(user2);
+            if(in.hasNext()){
+                in.nextLine();
+    }
+}
+        return users;
+    }
 
     /**
      * Method to return an arrayList containing all of the paintings in the file

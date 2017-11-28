@@ -42,6 +42,8 @@ public class FileReaderTesting {
             System.out.println("error, file not found");
         }
 
+
+
         System.out.println("To String of users in system");
         for(User u : users){
             System.out.println("\n"+u.toString());

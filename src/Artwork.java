@@ -255,8 +255,7 @@ public class Artwork {
 	
 	
 	public double getValueOfHighestBid() {
-		Bid bid = bidsOnItem.get(bidsOnItem.size() -1);
-		return bid.getPrice();
+		return bidsOnItem.get(bidsOnItem.size() -1).getPrice();
 	}
 	
 	
