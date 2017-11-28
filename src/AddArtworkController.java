@@ -107,17 +107,26 @@ public class AddArtworkController {
 				e.printStackTrace();
 			}
 			
-			Alert alert = new  Alert(AlertType.INFORMATION);
-			alert.setTitle("Success");
 
-			alert.setHeaderText("Artwork has been added to the database");
-			alert.setContentText("Your new auction will appear immediately");
-
-			
-			alert.showAndWait();
 
 		}
+		
+		Alert alert = new  Alert(AlertType.INFORMATION);
+		alert.setTitle("Success");
 
+		alert.setHeaderText("Artwork has been added to the database");
+		alert.setContentText("Your new auction will appear immediately");
+
+		
+		alert.showAndWait();
+		
+		closeWindow();
+		
+
+	}
+	
+	public void closeWindow() {
+		addArtwork.getScene().getWindow().hide();
 	}
 
 }

@@ -27,6 +27,11 @@ public class GUIController {
 
 	@FXML
 	private Button createNewArtworkButton;
+	
+
+    @FXML
+    private Hyperlink favouriteUsers;
+	
 
 	@FXML
 	private Label username;
@@ -60,8 +65,23 @@ public class GUIController {
 		userSettingsLink.setOnAction(e -> userSettings());
 
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
-
+		favouriteUsers.setOnAction(e-> favouriteUsers());
 	}
+	
+	
+	public void favouriteUsers() {
+		BorderPane bp;
+		try {
+			bp = FXMLLoader.load(getClass().getResource("FavouriteUsers.fxml"));
+			mainSection.getChildren().setAll(bp);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+	}
+	
 
 	public void createNewArtwork() {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AddArtwork.fxml"));

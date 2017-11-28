@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <left>
+      <VBox prefHeight="312.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Number of favourite users" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="N/A" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <VBox prefHeight="71.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="100.0" text="Username" />
+                <TableColumn prefWidth="88.0" text="First name" />
+                  <TableColumn prefWidth="117.0" text="Last name" />
+                  <TableColumn prefWidth="138.0" text="Items on auctions" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

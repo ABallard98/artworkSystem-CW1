@@ -49,7 +49,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Hyperlink>
-            <Hyperlink prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Favourite users" textFill="WHITE">
+            <Hyperlink fx:id="favouriteUsers" prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Favourite users" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
