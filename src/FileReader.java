@@ -17,6 +17,20 @@ public class FileReader {
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
 
+	
+	public static Painting getPainting(String str) {
+		
+		for(Painting paint: paintings) {
+			if(paint.getTitle().equalsIgnoreCase(str)) {
+				return paint;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
 	public static void initialize() {
 		try {
 			readUserFiles();
@@ -119,7 +133,7 @@ public class FileReader {
      * @param filename - file name of the painting
      * @return Painting
      */
-    private static Painting constructPainting(String filename){
+    public static Painting constructPainting(String filename){
         final String PATH = "artworkFiles//paintings//"+filename;
         try{
             Scanner in = new Scanner(new File(PATH));

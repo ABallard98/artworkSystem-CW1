@@ -187,8 +187,15 @@ public class GUIController {
 		BorderPane bp; // Border Pane to load the new BorderPane in
 		
 		try {
+			Painting paint = FileReader.getPainting(s);
+
+			ArtworkController.setCurrentArtwork(paint);
+
 			bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
 			mainSection.getChildren().setAll(bp);
+			
+			System.out.println(paint.getTitle());
+			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
