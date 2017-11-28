@@ -103,6 +103,7 @@ public class GUIController {
 	public void initialize() {
 		paintingSelect.setSelected(true);
 		sculptureSelect.setSelected(true);
+		artworkSelect.setSelected(true);
 
 		searchButton.setOnAction(e-> handleSearch());
 

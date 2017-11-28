@@ -79,6 +79,8 @@ public class ArtworkController {
 		creatorA.setText(currentPainting.getCreator());
 		titleA.setText(currentPainting.getTitle());
 		titleA.setText(currentPainting.getTitle());
+		noOfBidsA.setText(currentPainting.getNumberOfBids()+"");
+		bidsLimitA.setText(currentPainting.getBidsAllowed()+"");
 	}
 
 	public void initializeSculpture() {
@@ -87,11 +89,15 @@ public class ArtworkController {
 
 		heightA.setText(currentSculpture.getHeight() + "");
 
+		depthA.setText(currentSculpture.getDepth()+"");
+		materialA.setText(currentSculpture.getMaterial());
 		yearA.setText(currentSculpture.getCreationYear() + "");
 
 		creatorA.setText(currentSculpture.getCreator());
 		titleA.setText(currentSculpture.getTitle());
 		titleA.setText(currentSculpture.getTitle());
+		noOfBidsA.setText(currentSculpture.getNumberOfBids()+"");
+		bidsLimitA.setText(currentSculpture.getBidsAllowed()+"");
 	}
 
 	public static void setCurrentPainting(Painting painting) {
