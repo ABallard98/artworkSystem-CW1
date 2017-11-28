@@ -11,18 +11,46 @@ public class FileReader {
 
 	
 	private ArrayList<File> userFiles;
-	private ArrayList<File> artworkList;
+	private static ArrayList<File> artworkList;
 	private static ArrayList<User> users;
 	private static ArrayList<Artwork> artworks;
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
 
 	
+	
+	
 	public static Painting getPainting(String str) {
 		
 		for(Painting paint: paintings) {
 			if(paint.getTitle().equalsIgnoreCase(str)) {
 				return paint;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public static Sculpture getSculpture(String str) {
+		
+		for(Sculpture sculpture: sculptures) {
+			if(sculpture.getTitle().equalsIgnoreCase(str)) {
+				return sculpture;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public static Artwork getArtwork(String str) {
+		
+		for(Artwork art: artworks) {
+			if(art.getTitle().equalsIgnoreCase(str)) {
+				return art;
 			}
 		}
 		
@@ -53,7 +81,21 @@ public class FileReader {
 			e.printStackTrace();
 		}
 		
+		artworks = new ArrayList<Artwork>();
+		artworks.addAll(sculptures);
+		artworks.addAll(paintings);
+
+		
+		
+		
+		
 	}
+	
+	
+
+	
+	
+	
 	
     /**
      * Method to return an arrayList containing all of the users in the system
