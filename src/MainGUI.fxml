@@ -202,19 +202,20 @@
             <TextField promptText="enter username / name of artwork" />
             <HBox spacing="30.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Artwork" textFill="WHITE" />
+                  <RadioButton fx:id="artworkSelect" mnemonicParsing="false" text="Artwork" textFill="WHITE" />
                   <Pane prefHeight="17.0" prefWidth="40.0" />
-                  <RadioButton mnemonicParsing="false" text="User" textFill="WHITE" />
+                  <RadioButton fx:id="userSelect" mnemonicParsing="false" text="User" textFill="WHITE" />
                </children>
             </HBox>
-            <CheckBox mnemonicParsing="false" text="Sculptures" textFill="WHITE" />
-            <CheckBox mnemonicParsing="false" text="Paintings" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" text="Search" />
-            <ListView prefHeight="1000.0" prefWidth="234.0">
+            <CheckBox fx:id="sculptureSelect" mnemonicParsing="false" text="Sculptures" textFill="WHITE" />
+            <CheckBox fx:id="paintingSelect" mnemonicParsing="false" text="Paintings" textFill="WHITE" />
+            <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" text="Search" />
+            <ListView fx:id="searchList" prefHeight="309.0" prefWidth="234.0">
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets />
                </VBox.margin>
             </ListView>
+            <Button fx:id="display" mnemonicParsing="false" text="Display" />
          </children>
          <BorderPane.margin>
             <Insets />
