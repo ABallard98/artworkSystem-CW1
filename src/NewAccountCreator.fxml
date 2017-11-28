@@ -10,10 +10,11 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="832.0" prefWidth="600.0" style="-fx-background-color: rgb(26, 40, 61, 0.9);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewAccountCreatorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="729.0" style="-fx-background-color: rgb(26, 40, 61, 0.9);" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewAccountCreatorController">
    <center>
       <VBox prefHeight="553.0" prefWidth="367.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
@@ -22,7 +23,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="130.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mainAvatar" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Desktop/av.png" />
                </image>
@@ -106,7 +107,7 @@
       </VBox>
    </top>
    <left>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="736.0" prefWidth="310.0" BorderPane.alignment="CENTER">
          <center>
             <GridPane BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -119,43 +120,70 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="113.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/1600.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="101.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/Files-Delete-File-icon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="112.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/people-icon--icon-search-engine-18.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="121.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/Tools.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="121.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/Data-Alphabetical-Sorting-Az-icon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="117.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../../../../Desktop/Icons/new-24-512.png" />
-                     </image>
-                  </ImageView>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="avatar1" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av1" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Button fx:id="avatar3" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av3" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Button fx:id="avatar2" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av2" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Button fx:id="avatar4" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av4" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="avatar5" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av5" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="avatar6" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+                           <graphic>
+                              <ImageView fx:id="av6" fitHeight="139.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
                </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </GridPane>
          </center>
          <bottom>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Create your own picture with our generator" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label text="Or create your own picture with generator" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -165,7 +193,7 @@
                   </Label>
                   <Button fx:id="openGeneratorButton" contentDisplay="TOP" mnemonicParsing="false" prefHeight="25.0" prefWidth="159.0" text="Open generator" textAlignment="CENTER">
                      <VBox.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="70.0" right="50.0" />
                      </VBox.margin>
                   </Button>
                </children>

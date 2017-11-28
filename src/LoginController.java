@@ -86,7 +86,7 @@ public class LoginController {
 			// NewAccountCreatorController newAccountController =
 			// fxmlL.<NewAccountCreatorController>getController();
 
-			Scene scene = new Scene(login, 600, 832);
+			Scene scene = new Scene(login, 800, 832);
 
 			Stage stage = new Stage();
 			stage.setScene(scene);
