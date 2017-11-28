@@ -235,7 +235,7 @@ public class FileReader {
 				if (typeOfArtwork.equalsIgnoreCase("painting")) {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
-					Bid bid = new Bid(seller, bidAmount, art, date);
+					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
 					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
 							+ " at " + dateString);
 
@@ -243,7 +243,7 @@ public class FileReader {
 				} else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
-					Bid bid = new Bid(seller, bidAmount, art, date);
+					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
 					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
 							+ " at " + dateString);
 					bids.add(bid);
