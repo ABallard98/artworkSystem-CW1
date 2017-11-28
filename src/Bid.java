@@ -5,7 +5,8 @@
 import java.util.*;
 
 public class Bid {
-
+	
+	private String typeOfArtwork;
     private User bidder; //user that placed the bid
     private double price; //price the user placed
     private Artwork artwork; //the artwork that the bid is placed on
@@ -18,14 +19,26 @@ public class Bid {
      * @param artwork - the artwork that the bid is placed on
      * @param bidDate - the date the bid was placed
      */
-    public Bid(User bidder, double price, Artwork artwork, Date bidDate){
-        this.bidder = bidder;
+    public Bid(String typeOfArtwork,User bidder, double price, Artwork artwork, Date bidDate){
+        this.typeOfArtwork = typeOfArtwork;
+    	this.bidder = bidder;
         this.price = price;
         this.artwork = artwork;
         this.bidDate = bidDate;
     }
 
+    
     /**
+     * Method to get the type of artwork
+     * @return String - type of artwork
+     */
+    public String getTypeOfArtwork() {
+		return this.typeOfArtwork;
+	}
+
+
+
+	/**
      * Method to get the bidder
      * @return User - bidder
      */

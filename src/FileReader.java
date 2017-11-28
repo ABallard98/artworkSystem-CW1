@@ -220,29 +220,41 @@ public class FileReader {
 			Scanner in = new Scanner(new File(BID_FILE));
 			while (in.hasNext()) {
 				in.useDelimiter(",");
+				String typeOfArtwork = in.next();
+
 				String username = in.next();
 				String artwork = in.next();
 				Double bidAmount = in.nextDouble();
+				in.useDelimiter("");
 				String dateString = in.nextLine();
 
-				// DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm:ss");
+				// DateFormat formatter = new SimpleDateFormat("MM/dd/yy
+				// h:mm:ss");
 				// Date date = formatter.parse(dateString);
 				Date date = new Date();
-				Painting art = constructPainting(artwork + ".txt");
-				System.out.println(users.size());
-				User seller = getUser(username);
+				if (typeOfArtwork.equalsIgnoreCase("painting")) {
+					Painting art = constructPainting(artwork + ".txt");
+					User seller = getUser(username);
+					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
+					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
+							+ " at " + dateString);
 
-				Bid bid = new Bid(seller, bidAmount, art, date);
-				System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
-						+ " at " + dateString);
-
-				bids.add(bid);
+					bids.add(bid);
+				} else {
+					Sculpture art = constructSculptures(artwork + ".txt");
+					User seller = getUser(username);
+					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
+					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
+							+ " at " + dateString);
+					bids.add(bid);
+				}
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("Error constructing Bid. File " + filename + " was not found");
 		}
 
 	}
+
 
 	/**
 	 * Method to construct an return a painting from a text file
