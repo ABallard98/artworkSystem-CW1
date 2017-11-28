@@ -108,15 +108,13 @@ public class FileReader {
         for(File e : listOfFiles) {
             users1.add(constructUser(e.getName()));
         }
-<<<<<<< HEAD
+
 
         //favourites must be added here
         users = readFavouritesFile(users);
 
         return users;
-=======
-        return users1;
->>>>>>> f54f873ef354e02f52740fd9be42f7332e85b7b4
+
  
     }
 
