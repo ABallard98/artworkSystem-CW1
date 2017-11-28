@@ -17,7 +17,6 @@ public class LoginController {
 	
 	private static User user;
 	
-	
 	@FXML
 	private TextField loginField;
 
@@ -38,7 +37,7 @@ public class LoginController {
 		String username = loginField.getText();
 		System.out.println("User of name " + username + " is logging in");
 
-		User userA = FileReader.constructUser(username+".txt");
+		User userA = FileReader.getUser(username);
 
 		if (userA != null) {
 			System.out.println("Logging in was successful");
@@ -86,7 +85,7 @@ public class LoginController {
 			// NewAccountCreatorController newAccountController =
 			// fxmlL.<NewAccountCreatorController>getController();
 
-			Scene scene = new Scene(login, 800, 832);
+			Scene scene = new Scene(login, 700, 832);
 
 			Stage stage = new Stage();
 			stage.setScene(scene);

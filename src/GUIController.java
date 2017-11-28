@@ -24,10 +24,9 @@ import javafx.stage.Stage;
 
 public class GUIController {
 
-    @FXML
-    private ListView<String> searchList;
-	
-	
+	@FXML
+	private ListView<String> searchList;
+
 	@FXML
 	private Hyperlink dashboardLink;
 
@@ -73,30 +72,26 @@ public class GUIController {
 	@FXML
 	private BorderPane mainSection;
 
-	
-    @FXML
-    private RadioButton artworkSelect;
+	@FXML
+	private RadioButton artworkSelect;
 
-    @FXML
-    private RadioButton userSelect;
+	@FXML
+	private RadioButton userSelect;
 
-    @FXML
-    private CheckBox sculptureSelect;
+	@FXML
+	private CheckBox sculptureSelect;
 
-    @FXML
-    private CheckBox paintingSelect;
-	
-	
-    private ObservableList<String> observableList;
+	@FXML
+	private CheckBox paintingSelect;
 
-    @FXML
-    private Button searchButton;
+	private ObservableList<String> observableList;
 
-    @FXML
-    private Button display;
+	@FXML
+	private Button searchButton;
 
-    
-	
+	@FXML
+	private Button display;
+
 	/**
 	 * Initialises the main elements of GUI
 	 */
@@ -105,67 +100,56 @@ public class GUIController {
 		sculptureSelect.setSelected(true);
 		artworkSelect.setSelected(true);
 
-		searchButton.setOnAction(e-> handleSearch());
+		searchButton.setOnAction(e -> handleSearch());
 
 		ToggleGroup tg = new ToggleGroup();
 		userSelect.setToggleGroup(tg);
 		artworkSelect.setToggleGroup(tg);
-
 
 		userSettingsLink.setOnAction(e -> userSettings());
 
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
 		favouriteUsers.setOnAction(e -> userSettings1());
 		myAuctionsLink.setOnAction(e -> showMyAuctions());
-		
 
-		display.setOnAction(e-> getSearchSelection());
-		
-		
+		display.setOnAction(e -> getSearchSelection());
 
-		//names.add(stringSet);
-		
+		// names.add(stringSet);
 
-		
 	}
-	
-	
+
 	public void handleSearch() {
-		
-		if(artworkSelect.isSelected()) {
+
+		if (artworkSelect.isSelected()) {
 			displayArtworks();
 		} else if (userSelect.isSelected()) {
 			displayUsers();
 		}
-		
+
 	}
-	
+
 	public void displayArtworks() {
 		ArrayList<String> sculptures = new ArrayList<>();
 		ArrayList<String> paintings = new ArrayList<>();
 		ArrayList<String> artworks = new ArrayList<>();
 
-		
-
-		for(Sculpture sculptureA : FileReader.getSculptures()) {
+		for (Sculpture sculptureA : FileReader.getSculptures()) {
 			sculptures.add(sculptureA.getTitle());
 		}
-		
 
-		for(Painting paintingA : FileReader.getPaintings()) {
+		for (Painting paintingA : FileReader.getPaintings()) {
 			paintings.add(paintingA.getTitle());
 		}
-		
-		
-		if(sculptureSelect.isSelected() && !paintingSelect.isSelected()) {
+
+		if (sculptureSelect.isSelected() && !paintingSelect.isSelected()) {
 			observableList = FXCollections.observableArrayList(sculptures);
 		} else if (!sculptureSelect.isSelected() && paintingSelect.isSelected()) {
 			observableList = FXCollections.observableArrayList(paintings);
 		} else if (sculptureSelect.isSelected() && paintingSelect.isSelected()) {
-			for(String paint: paintings ) {
+			for (String paint : paintings) {
 				artworks.add(paint);
 			}
-			for(String scul: sculptures ) {
+			for (String scul : sculptures) {
 				artworks.add(scul);
 			}
 
@@ -174,67 +158,58 @@ public class GUIController {
 			observableList = FXCollections.observableArrayList(new ArrayList<String>());
 
 		}
-		
+
 		searchList.setItems(observableList);
 
 	}
-	
-	
+
 	public void getSearchSelection() {
 		String s = searchList.getSelectionModel().getSelectedItem();
 
 		System.out.println("Selected " + s);
-		
+
 		BorderPane bp; // Border Pane to load the new BorderPane in
-		
+
 		try {
-			
-		
-			if(FileReader.getSculpture(s) != null) {
+
+			if (FileReader.getSculpture(s) != null) {
 				ArtworkController.setCurrentSculpture(FileReader.getSculpture(s));
-			} 
-			
+			}
+
 			if (FileReader.getPainting(s) != null) {
 				ArtworkController.setCurrentPainting(FileReader.getPainting(s));
 			}
-	
 
 			bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
 			mainSection.getChildren().setAll(bp);
-			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error");
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	public void displayUsers() {
 		ArrayList<String> users = new ArrayList<>();
-		
-		for(User user : FileReader.getUsers()) {
-			users.add(user.getUsername()+ " "+ user.getFirstName() + " "+ user.getLastName());
+
+		for (User user : FileReader.getUsers()) {
+			users.add(user.getUsername() + " " + user.getFirstName() + " " + user.getLastName());
 		}
-		
-		
+
 		observableList = FXCollections.observableArrayList(users);
 		searchList.setItems(observableList);
 
 	}
-	
 
 	/**
-	 * Switches Scene into one that  contains list of auctions
-	 * made by the user
+	 * Switches Scene into one that contains list of auctions made by the user
 	 */
 	public void showMyAuctions() {
-		
-		
+
 		BorderPane bp; // Border Pane to load the new BorderPane in
-		
+
 		try {
 			bp = (BorderPane) FXMLLoader.load(getClass().getResource("MyAuctions.fxml"));
 			mainSection.getChildren().setAll(bp);
@@ -247,8 +222,8 @@ public class GUIController {
 	}
 
 	/**
-	 * Switches Scene into one that  contains list of favourite users
-	 * added by the user
+	 * Switches Scene into one that contains list of favourite users added by the
+	 * user
 	 */
 	public void favouriteUsers() {
 		BorderPane bp;

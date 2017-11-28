@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FavouriteUsersController">
    <left>
       <VBox prefHeight="312.0" prefWidth="170.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,11 +20,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="N/A" textFill="WHITE">
+            <Label fx:id="favUsers" text="N/A" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
+            <Button fx:id="button1" mnemonicParsing="false" onAction="#getNumberOfFavourites" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets left="30.0" right="30.0" />
@@ -47,7 +48,7 @@
    <center>
       <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="454.0">
+            <TableView fx:id="table1" maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="454.0">
               <columns>
                 <TableColumn prefWidth="100.0" text="Username" />
                 <TableColumn prefWidth="88.0" text="First name" />
