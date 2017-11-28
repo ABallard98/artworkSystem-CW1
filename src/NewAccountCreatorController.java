@@ -80,6 +80,7 @@ public class NewAccountCreatorController {
 	private Image image4 = null;
 	private Image image5 = null;
 	private Image image6 = null;
+	
 
 	public void initialize() {
 		initialiseAvatars();
