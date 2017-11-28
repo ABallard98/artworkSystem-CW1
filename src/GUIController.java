@@ -101,7 +101,9 @@ public class GUIController {
 	 * Initialises the main elements of GUI
 	 */
 	public void initialize() {
-		
+		paintingSelect.setSelected(true);
+		sculptureSelect.setSelected(true);
+
 		searchButton.setOnAction(e-> handleSearch());
 
 		ToggleGroup tg = new ToggleGroup();
@@ -181,6 +183,19 @@ public class GUIController {
 		String s = searchList.getSelectionModel().getSelectedItem();
 
 		System.out.println("Selected " + s);
+		
+		BorderPane bp; // Border Pane to load the new BorderPane in
+		
+		try {
+			bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
+			mainSection.getChildren().setAll(bp);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
