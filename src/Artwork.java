@@ -81,7 +81,7 @@ public class Artwork {
 		this.title = title;
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
-		this.numberOfBids = 0;
+		this.numberOfBids = numberOfBids;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;

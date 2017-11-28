@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -116,6 +117,12 @@ public class AddArtworkController {
 
 		alert.setHeaderText("Artwork has been added to the database");
 		alert.setContentText("Your new auction will appear immediately");
+		try {
+			FileReader.readPaintingFiles();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		
 		alert.showAndWait();

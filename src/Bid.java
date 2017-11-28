@@ -19,10 +19,10 @@ public class Bid {
      * @param bidDate - the date the bid was placed
      */
     public Bid(User bidder, double price, Artwork artwork, Date bidDate){
-        setBidder(bidder);
-        setPrice(price);
-        setArtwork(artwork);
-        setBidDate(bidDate);
+        this.bidder = bidder;
+        this.price = price;
+        this.artwork = artwork;
+        this.bidDate = bidDate;
     }
 
     /**
@@ -57,37 +57,6 @@ public class Bid {
         return this.bidDate;
     }
 
-    /**
-     * Method to set the bidder
-     * @param bidder
-     */
-    public void setBidder(User bidder){
-        this.bidder = bidder;
-    }
-
-    /**
-     * Method to set the price
-     * @param price
-     */
-    public void setPrice(double price){
-        this.price = price;
-    }
-
-    /**
-     * Method to set the artwork
-     * @param artwork
-     */
-    public void setArtwork(Artwork artwork){
-        this.artwork = artwork;
-    }
-
-    /**
-     * Method to set the bid date
-     * @param date
-     */
-    public void setBidDate(Date date){
-        this.bidDate = date;
-    }
 
     /**
      * Method to get the text file output which will be used to store the bid
