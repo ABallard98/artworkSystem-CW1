@@ -7,14 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
-
-
 public class LoginWindow extends Application {
 
-	
-
-	
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));
@@ -24,23 +18,14 @@ public class LoginWindow extends Application {
 		stage.setTitle("Log in");
 		stage.setScene(scene);
 
-		
-		//loginButton.setOnAction(e-> handleLogin());
-		
 		stage.show();
 
 	}
 
 	public static void main(String[] args) {
+		FileReader.initialize();
 		launch(args);
+		System.out.println(FileReader.getUsers().size());
 	}
 
-	
-	public void handleLogin() {
-		System.out.println(1);
-		
-	}
-	
-	
-	
 }

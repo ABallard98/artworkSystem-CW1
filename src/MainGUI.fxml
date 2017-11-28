@@ -34,7 +34,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Hyperlink>
-            <Hyperlink prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="My auctions" textFill="WHITE">
+            <Hyperlink fx:id="myAuctionsLink" prefHeight="35.0" prefWidth="123.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="My auctions" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Hyperlink>
-            <Hyperlink prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Favourite users" textFill="WHITE">
+            <Hyperlink fx:id="favouriteUsers" prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Favourite users" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
+                  <Button fx:id="createNewArtworkButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
                      <tooltip>
                         <Tooltip text="Empty Tooltip" />
                      </tooltip></Button>
@@ -202,19 +202,20 @@
             <TextField promptText="enter username / name of artwork" />
             <HBox spacing="30.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Artwork" textFill="WHITE" />
+                  <RadioButton fx:id="artworkSelect" mnemonicParsing="false" text="Artwork" textFill="WHITE" />
                   <Pane prefHeight="17.0" prefWidth="40.0" />
-                  <RadioButton mnemonicParsing="false" text="User" textFill="WHITE" />
+                  <RadioButton fx:id="userSelect" mnemonicParsing="false" text="User" textFill="WHITE" />
                </children>
             </HBox>
-            <CheckBox mnemonicParsing="false" text="Sculptures" textFill="WHITE" />
-            <CheckBox mnemonicParsing="false" text="Paintings" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" text="Search" />
-            <ListView prefHeight="1000.0" prefWidth="234.0">
+            <CheckBox fx:id="sculptureSelect" mnemonicParsing="false" text="Sculptures" textFill="WHITE" />
+            <CheckBox fx:id="paintingSelect" mnemonicParsing="false" text="Paintings" textFill="WHITE" />
+            <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="234.0" text="Search" />
+            <ListView fx:id="searchList" prefHeight="309.0" prefWidth="234.0">
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets />
                </VBox.margin>
             </ListView>
+            <Button fx:id="display" mnemonicParsing="false" text="Display" />
          </children>
          <BorderPane.margin>
             <Insets />

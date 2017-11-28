@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="496.0" prefWidth="58.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox prefHeight="496.0" prefWidth="664.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="33.0" prefWidth="600.0" spacing="10.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="All auctions" textFill="WHITE" />
+                        <RadioButton mnemonicParsing="false" text="Active" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Finished" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <CheckBox mnemonicParsing="false" text="Sculptures" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Paintings" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <TableView prefHeight="329.0" prefWidth="692.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Title" />
+                <TableColumn prefWidth="117.0" text="Creator name" />
+                  <TableColumn prefWidth="97.0" text="Reserve price" />
+                  <TableColumn prefWidth="97.0" text="Placed bids" />
+                  <TableColumn prefWidth="107.0" text="Bid limit" />
+                  <TableColumn prefWidth="115.0" text="Current price" />
+                  <TableColumn prefWidth="92.0" text="Ongoing" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="496.0" prefWidth="131.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <VBox prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <VBox prefHeight="53.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

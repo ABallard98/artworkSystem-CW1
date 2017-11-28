@@ -9,22 +9,114 @@ import java.text.*;
 
 public class FileReader {
 
+	
+	private ArrayList<File> userFiles;
+	private static ArrayList<File> artworkList;
+	private static ArrayList<User> users;
+	private static ArrayList<Artwork> artworks;
+	private static ArrayList<Sculpture> sculptures;
+	private static ArrayList<Painting> paintings;
+
+	
+	
+	
+	public static Painting getPainting(String str) {
+		
+		for(Painting paint: paintings) {
+			if(paint.getTitle().equalsIgnoreCase(str)) {
+				return paint;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public static Sculpture getSculpture(String str) {
+		
+		for(Sculpture sculpture: sculptures) {
+			if(sculpture.getTitle().equalsIgnoreCase(str)) {
+				return sculpture;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public static Artwork getArtwork(String str) {
+		
+		for(Artwork art: artworks) {
+			if(art.getTitle().equalsIgnoreCase(str)) {
+				return art;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public static void initialize() {
+		try {
+			readUserFiles();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			readPaintingFiles();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			readSculptureFiles();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		artworks = new ArrayList<Artwork>();
+		artworks.addAll(sculptures);
+		artworks.addAll(paintings);
+
+		
+		
+		
+		
+	}
+	
+	
+
+	
+	
+	
+	
     /**
      * Method to return an arrayList containing all of the users in the system
      * @return ArrayList<User> - ArrayList of users
      * @throws FileNotFoundException
      */
     public static ArrayList<User> readUserFile() throws FileNotFoundException{
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> users1 = new ArrayList<>();
         File[] listOfFiles = new File("userFiles//").listFiles();
         for(File e : listOfFiles) {
-            users.add(constructUser(e.getName()));
+            users1.add(constructUser(e.getName()));
         }
+<<<<<<< HEAD
 
         //favourites must be added here
         users = readFavouritesFile(users);
 
         return users;
+=======
+        return users1;
+>>>>>>> f54f873ef354e02f52740fd9be42f7332e85b7b4
  
     }
 
@@ -61,22 +153,50 @@ public class FileReader {
         return users;
     }
 
+    
+    public static void readUserFiles() throws FileNotFoundException{
+        users = new ArrayList<>();
+        File[] listOfFiles = new File("userFiles//").listFiles();
+        for(File e : listOfFiles) {
+            users.add(constructUser(e.getName()));
+        }
+ 
+     }
     /**
      * Method to return an arrayList containing all of the paintings in the file
      * @return ArrayList<Painting> - ArrayList of paintings
      * @throws FileNotFoundException
      */
     public static ArrayList<Painting> readPaintingFile() throws FileNotFoundException{
-        ArrayList<Painting> paintings = new ArrayList<>();
+        ArrayList<Painting> paintings1 = new ArrayList<>();
+        File[] listOfFiles = new File("artworkFiles//paintings").listFiles();
+        for(File e : listOfFiles){
+           paintings1.add(constructPainting(e.getName()));
+        }
+        return paintings1;
+    }
+    
+    
+    public static void readPaintingFiles() throws FileNotFoundException{
+         paintings = new ArrayList<>();
         File[] listOfFiles = new File("artworkFiles//paintings").listFiles();
         for(File e : listOfFiles){
            paintings.add(constructPainting(e.getName()));
         }
-        return paintings;
     }
+    
 
     public static ArrayList<Sculpture> readSculptureFile() throws FileNotFoundException{
-        ArrayList<Sculpture> sculptures = new ArrayList<>();
+        ArrayList<Sculpture> sculptures1 = new ArrayList<>();
+        File[] listOfFiles = new File("artworkFiles//sculptures").listFiles();
+        for(File e : listOfFiles){
+            sculptures1.add(constructSculptures(e.getName()));
+        }
+        return sculptures1;
+    }
+    
+    public static ArrayList<Sculpture> readSculptureFiles() throws FileNotFoundException{
+      sculptures = new ArrayList<>();
         File[] listOfFiles = new File("artworkFiles//sculptures").listFiles();
         for(File e : listOfFiles){
             sculptures.add(constructSculptures(e.getName()));
@@ -96,7 +216,7 @@ public class FileReader {
      * @param filename - file name of the painting
      * @return Painting
      */
-    private static Painting constructPainting(String filename){
+    public static Painting constructPainting(String filename){
         final String PATH = "artworkFiles//paintings//"+filename;
         try{
             Scanner in = new Scanner(new File(PATH));
@@ -178,4 +298,33 @@ public class FileReader {
         }
         return null;
     }
+
+
+	public static ArrayList<User> getUsers() {
+		return users;
+	}
+
+
+	public static void setUsers(ArrayList<User> users) {
+		FileReader.users = users;
+	}
+
+
+	public static ArrayList<Artwork> getArtworks() {
+		return artworks;
+	}
+
+
+	public static ArrayList<Sculpture> getSculptures() {
+		return sculptures;
+	}
+
+
+	public static ArrayList<Painting> getPaintings() {
+		return paintings;
+	}
+    
+    
+    
+    
 }

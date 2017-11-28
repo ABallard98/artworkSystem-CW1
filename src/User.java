@@ -287,5 +287,10 @@ public class User {
 	
 	
 	
+	public void addArtwork(Artwork artwork) {
+		artForSale.add(artwork);
+	}
+	
+	
 
 } // end of class
