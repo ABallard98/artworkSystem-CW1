@@ -128,7 +128,12 @@ public class Artwork {
 	 * @return String - description
 	 */
 	public String getDescription() {
-		return this.description;
+		if(this.description == null){
+			return "";
+		}
+		else{
+			return this.description;
+		}
 	}
 
 	/**

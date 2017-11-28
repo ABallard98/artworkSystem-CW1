@@ -45,6 +45,7 @@ public class Painting extends Artwork{
        return output;
    }
 
+
    public String toString(){
        String output = "\nPainting Name: " + this.getTitle() +
                "\nCreator: " + this.getCreator() +
@@ -53,7 +54,8 @@ public class Painting extends Artwork{
                "\nNumber of available bids: " + this.getNumberOfBids() +
                "\nReserve price " + this.getReservePrice() +
                "\nWidth: " + this.getWidth() +
-               "\nHeight: " + this.getHeight();
+               "\nHeight: " + this.getHeight() +
+               "\nDescription: " + this.getDescription();
        return output;
    }
 

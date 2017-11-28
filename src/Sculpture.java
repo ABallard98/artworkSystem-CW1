@@ -78,7 +78,8 @@ public class Sculpture extends Artwork{
                 "\nWidth: " + this.getWidth() +
                 "\nHeight: " + this.getHeight() +
                 "\nDepth: " + this.getDepth() +
-                "\nMaterial: " + this.getMaterial();
+                "\nMaterial: " + this.getMaterial() +
+                "\nDescription: " + this.getDescription();
         return output;
     }
 

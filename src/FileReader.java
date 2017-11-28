@@ -280,15 +280,28 @@ public class FileReader {
             int height = in.nextInt();
             User seller = constructUser(username+".txt");
 
-            Painting painting = new Painting(seller, new Date(),name,creator,yearWasMade,numberOfBids,reservePrice,
-                    width,height);
-            System.out.println("Painting " + painting.getTitle() + " was created");
-            in.close();
-            return painting;
+            //checking if there is a description
+            String description = "";
+            if(in.hasNext()){
+                description = in.next();
+                Painting painting = new Painting(seller, new Date(), name,creator,yearWasMade,numberOfBids,reservePrice,
+                        width,height,description);
+                in.close();
+                return painting;
+            }
+            else{
+                Painting painting = new Painting(seller, new Date(),name,creator,yearWasMade,numberOfBids,reservePrice,
+                        width,height);
+                System.out.println("Painting " + painting.getTitle() + " was created");
+                in.close();
+                return painting;
+            }
         }
+
         catch(FileNotFoundException e){
             System.out.println("Error constructing painting. File " + filename + " was not found");
         }
+
         return null;
     }
 
@@ -309,6 +322,16 @@ public class FileReader {
             String material = in.next();
 
             User seller = constructUser(username+".txt");
+
+            String description = "";
+            if(in.hasNext()){
+                description = in.next();
+                Sculpture sculpture = new Sculpture(seller,new Date(),name,creator,yearWasMade,
+                        numberOfBids,reservePrice,width,height,depth,material,description);
+                in.close();
+                return sculpture;
+            }
+
             Sculpture sculpture = new Sculpture(seller,new Date(),name,creator,yearWasMade,
                     numberOfBids,reservePrice,width,height,depth,material);
             System.out.println("Sculpture " + sculpture.getTitle() + " was created");

@@ -21,35 +21,28 @@ public class FileReaderTesting {
         try{
         	FileReader.initialize();
         	bids = FileReader.readBidFile("aballard.txt");
-            //users = FileReader.readUserFile();
-            //for(User u : users){
-            //   System.out.println(u.getFullName() + " was found and added to the system");
-            //}
+            users = FileReader.readUserFile();
+            for(User u : users){
+               System.out.println(u.getFullName() + " was found and added to the system");
+            }
 
-            //System.out.println("\n");
+            System.out.println("\n");
 
-            //paintings = FileReader.readPaintingFile();
-            //for(Painting p : paintings){
-            //    System.out.println(p.getTitle() + " was found and added to the system");
-            //}
+            paintings = FileReader.readPaintingFile();
+            for(Painting p : paintings){
+                System.out.println(p.getTitle() + " was found and added to the system");
+            }
 
-            //System.out.println("\n");
+            System.out.println("\n");
 
-            //sculptures = FileReader.readSculptureFile();
-            //for(Sculpture s : sculptures){
-            //    System.out.println(s.getTitle() + " was found and added to the system");
-            //}
+            sculptures = FileReader.readSculptureFile();
+            for(Sculpture s : sculptures){
+                System.out.println(s.getTitle() + " was found and added to the system");
+            }
         }
         catch(FileNotFoundException e){
             System.out.println("error, file not found");
         }
-
-
-        //System.out.println("To String of users in system");
-        //for(User u : users){
-        //    System.out.println("\n"+u.toString());
-        //}
-
 
 
         System.out.println("To String of users in system");
@@ -57,7 +50,15 @@ public class FileReaderTesting {
             System.out.println("\n"+u.toString());
         }
 
+        System.out.println("To string of paintings in system");
+        for(Painting painting : paintings){
+            System.out.println(painting.toString());
+        }
 
+        System.out.println("To String of sculptures in system");
+        for(Sculpture sculpture : sculptures){
+            System.out.println(sculpture.toString());
+        }
 
 
 
