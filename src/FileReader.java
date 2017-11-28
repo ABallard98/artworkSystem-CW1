@@ -16,6 +16,7 @@ public class FileReader {
 	private static ArrayList<Artwork> artworks;
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
+	private static ArrayList<Bid> bids = new ArrayList<Bid>();
 
 	
 	
@@ -25,6 +26,18 @@ public class FileReader {
 		for(Painting paint: paintings) {
 			if(paint.getTitle().equalsIgnoreCase(str)) {
 				return paint;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	public static User getUser(String str) {
+		
+		for(User user : users) {
+			if(user.getUsername().equalsIgnoreCase(str)) {
+				return user;
 			}
 		}
 		
@@ -164,11 +177,52 @@ public class FileReader {
     }
 
     //TODO GOTTA CONSTRUCT THE BID, ADD THE BID TO THE ARTWORK AND ADD THE BID TO THE USER
-    public static ArrayList<Bid> readBidFile(String filename){
-        ArrayList<Bid> bids = new ArrayList<>();
-        final String BID_FILE = filename;
+    public static ArrayList<Bid> readBidFile(String filename) throws FileNotFoundException{
+       
+        
+        try {
+			constructBid(filename);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       
         return bids;
     }
+    
+    public static void constructBid(String filename) throws ParseException{
+    	 String BID_FILE = "bids//"+filename;
+    	 
+    	 try{
+             Scanner in = new Scanner(new File(BID_FILE));
+             while(in.hasNext()){
+             in.useDelimiter(",");
+             String username = in.next();
+             String artwork = in.next();
+             Double bidAmount = in.nextDouble();
+             String dateString = in.nextLine();
+             
+             //DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm:ss");
+             //Date date =  formatter.parse(dateString);
+             Date date = new Date();
+             Painting art = constructPainting(artwork+".txt");
+             System.out.println(users.size());
+             User seller = getUser(username);
+
+           
+
+            Bid bid = new Bid(seller, bidAmount, art, date);
+             System.out.println(seller.getFirstName() +  " placed a bid of "  + bidAmount + " on " + art.getTitle() + " at " + dateString);
+             
+             bids.add(bid);
+         }
+    	 }
+         catch(FileNotFoundException e){
+             System.out.println("Error constructing Bid. File " + filename + " was not found");
+         }
+         
+     }
+    	 
 
     /**
      * Method to construct an return a painting from a text file
