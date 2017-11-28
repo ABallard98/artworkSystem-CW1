@@ -58,6 +58,9 @@ public class GUIController {
 	@FXML
 	private BorderPane mainSection;
 
+	/**
+	 * Initialises the main elements of GUI
+	 */
 	public void initialize() {
 
 		userSettingsLink.setOnAction(e -> userSettings());
@@ -67,9 +70,15 @@ public class GUIController {
 		myAuctionsLink.setOnAction(e -> showMyAuctions());
 	}
 
+	/**
+	 * Switches Scene into one that  contains list of auctions
+	 * made by the user
+	 */
 	public void showMyAuctions() {
 		
-		BorderPane bp;
+		
+		BorderPane bp; // Border Pane to load the new BorderPane in
+		
 		try {
 			bp = (BorderPane) FXMLLoader.load(getClass().getResource("MyAuctions.fxml"));
 			mainSection.getChildren().setAll(bp);
@@ -81,6 +90,10 @@ public class GUIController {
 		}
 	}
 
+	/**
+	 * Switches Scene into one that  contains list of favourite users
+	 * added by the user
+	 */
 	public void favouriteUsers() {
 		BorderPane bp;
 		try {
@@ -94,6 +107,9 @@ public class GUIController {
 		}
 	}
 
+	/**
+	 * Opens a new window where user can input data for Artwork
+	 */
 	public void createNewArtwork() {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AddArtwork.fxml"));
 		try {
