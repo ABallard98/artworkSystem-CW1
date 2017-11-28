@@ -23,7 +23,9 @@ public class LoginWindow extends Application {
 	}
 
 	public static void main(String[] args) {
+		FileReader.initialize();
 		launch(args);
+		System.out.println(FileReader.getUsers().size());
 	}
 
 }
