@@ -25,7 +25,7 @@ public class FavouriteUsersController {
 	public void getNumberOfFavourites() {
 		System.out.println("aaaa");
 
-		favUsers.setText(LoginController.getUser().getFavouriteUsers().size()+ "mmm ");
+		favUsers.setText(LoginController.getUser().getFavouriteUsers().size()+ "");
 		System.out.println((LoginController.getUser().getFavouriteUsers().size()));
 	}
 }

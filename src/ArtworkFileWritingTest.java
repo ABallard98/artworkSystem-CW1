@@ -73,8 +73,8 @@ public class ArtworkFileWritingTest {
         }
 
         //MAKING BIDS ON ITEMS
-        Bid bid1 = new Bid(testUser1,999999,sculp,new Date());
-        Bid bid2 = new Bid(testUser2, 10000, sculp2, new Date());
+        Bid bid1 = new Bid("sculpture",testUser1,999999,sculp,new Date());
+        Bid bid2 = new Bid("sculpture", testUser2, 10000, sculp2, new Date());
 
         //ATTEMPTING TO USE FILE WRITER ON BIDS
         System.out.println("Attempting to create files for the bids");

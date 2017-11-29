@@ -173,9 +173,9 @@ public class User {
 	 *            - user
 	 */
 	public void addUserToFavourites(User u) {
-		if (u != this) {
+		
 			this.favouriteUsers.add(u);
-		}
+		
 	}
 
 	/**

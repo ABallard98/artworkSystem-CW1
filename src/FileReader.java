@@ -1,3 +1,4 @@
+
 /**
  * Created by ayden on 10/11/2017.
  */
@@ -66,6 +67,8 @@ public class FileReader {
 	}
 
 	public static void initialize() {
+		
+
 		try {
 			readUserFiles();
 		} catch (FileNotFoundException e) {
@@ -87,6 +90,14 @@ public class FileReader {
 			e.printStackTrace();
 		}
 
+		try {
+			readFavouritesFiles();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 		artworks = new ArrayList<Artwork>();
 		artworks.addAll(sculptures);
 		artworks.addAll(paintings);
@@ -147,6 +158,39 @@ public class FileReader {
 			}
 		}
 		return users;
+	}
+
+	public static void readFavouritesFiles() throws FileNotFoundException {
+		final String FAVOURITES_PATH = "favourites.txt";
+		Scanner fileScanner = new Scanner(new File(FAVOURITES_PATH));
+		
+
+		while (fileScanner.hasNextLine()) {
+			String line = fileScanner.nextLine();
+			
+			Scanner in = new Scanner(line);
+			in.useDelimiter(",");
+			User user1 = null;
+			User user2 = null;
+
+			String firstUser = in.next();
+			String secondUser = in.next();
+
+			// for loop to find the users
+			for (User u : users) {
+				if (u.getUsername().equals(firstUser)) {
+					user1 = u;
+				}
+				if (u.getUsername().equals(secondUser)) {
+					user2 = u;
+				}
+			}
+
+			user1.addUserToFavourites(user2);
+			if (in.hasNext()) {
+				in.nextLine();
+			}
+		}
 	}
 
 	public static void readUserFiles() throws FileNotFoundException {
@@ -235,7 +279,7 @@ public class FileReader {
 				if (typeOfArtwork.equalsIgnoreCase("painting")) {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
+					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
 							+ " at " + dateString);
 
@@ -243,7 +287,7 @@ public class FileReader {
 				} else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork,seller, bidAmount, art, date);
+					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
 							+ " at " + dateString);
 					bids.add(bid);
@@ -254,7 +298,6 @@ public class FileReader {
 		}
 
 	}
-
 
 	/**
 	 * Method to construct an return a painting from a text file
