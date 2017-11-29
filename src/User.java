@@ -3,6 +3,8 @@
  * Created by ayden on 10/11/2017.
  */
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import javafx.scene.image.Image;
@@ -24,6 +26,7 @@ public class User {
 	private ArrayList<User> favouriteUsers; // array list of favourite users
 	private Integer sellingArtworks;
 	private boolean customImage;
+	private int avatarIndex;
 
 	/**
 	 * Constructor for user object
@@ -52,12 +55,26 @@ public class User {
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
 	}
-	
-	
+
+	public boolean isCustomImage() {
+		return customImage;
+	}
+
 	public void resolvePicture() {
 		
+		if(!isCustomImage()) {
+			
+			try {
+				image = new Image(new FileInputStream("avatars/avatar"+avatarIndex+".png"));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
 	}
-	
 
 	/**
 	 * Method to get the user's username
@@ -302,8 +319,5 @@ public class User {
 	public int getSellingArtworks() {
 		return artForSale.size();
 	}
-	
-	
-	
 
 } // end of class
