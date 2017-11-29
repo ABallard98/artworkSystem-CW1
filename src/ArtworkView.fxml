@@ -21,7 +21,7 @@
    <left>
       <VBox prefHeight="426.0" prefWidth="294.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="172.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mainPic" fitHeight="172.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Desktop/gradient-wallpaper-4.jpg" />
                </image>
@@ -47,22 +47,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="88.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pic1" fitHeight="88.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Desktop/gradient-wallpaper-4.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="83.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                  <ImageView fx:id="pic2" fitHeight="83.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../../Desktop/gradient-wallpaper-4.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="84.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                  <ImageView fx:id="pic3" fitHeight="84.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <image>
                         <Image url="@../../../Desktop/gradient-wallpaper-4.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="87.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ImageView fx:id="pic4" fitHeight="87.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
                         <Image url="@../../../Desktop/gradient-wallpaper-4.jpg" />
                      </image>

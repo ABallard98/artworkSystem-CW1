@@ -77,14 +77,12 @@ public class AddArtworkController {
 
 	@FXML
 	private ImageView pic4;
-	
+
 	private Image img1;
 	private Image img2;
 	private Image img3;
 	private Image img4;
 	private ArrayList<Image> images1;
-
-	
 
 	private List<File> list;
 	private ArrayList<ImageView> imagesView;
@@ -96,8 +94,8 @@ public class AddArtworkController {
 		selectSculpture.setToggleGroup(group);
 		selectPainting.setToggleGroup(group);
 		imagesView = new ArrayList<ImageView>();
-		images1 =  new ArrayList<Image>();
-		
+		images1 = new ArrayList<Image>();
+
 		imagesView.add(pic1);
 		imagesView.add(pic2);
 		imagesView.add(pic3);
@@ -120,22 +118,21 @@ public class AddArtworkController {
 		Stage stage = new Stage();
 		list = fileChooser.showOpenMultipleDialog(stage);
 		// stage.show();
-		
-		//for(int i = 0; i< list.size(); i++) {
-		//	Image imgA = images1.get(i);
-		//	System.out.println(list.get(i).getPath());
-		//	try {
-		//		imgA = new Image(new FileInputStream(list.get(i).getPath()));
-		//	} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-		//		e.printStackTrace();
-		//	}
-		//	imagesView.get(i).setImage(img1);
-		//}
 
-		
-		for(int i = 0; i< list.size() && i<4; i++) {
-			
+		// for(int i = 0; i< list.size(); i++) {
+		// Image imgA = images1.get(i);
+		// System.out.println(list.get(i).getPath());
+		// try {
+		// imgA = new Image(new FileInputStream(list.get(i).getPath()));
+		// } catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		// imagesView.get(i).setImage(img1);
+		// }
+
+		for (int i = 0; i < list.size() && i < 4; i++) {
+
 			Image imgA = images1.get(i);
 			ImageView picA = imagesView.get(i);
 			try {
@@ -145,21 +142,18 @@ public class AddArtworkController {
 				e.printStackTrace();
 			}
 			picA.setImage(imgA);
-			
-		}
-		
-		
 
+		}
 
 	}
-	
+
 	public void copyPictures(String name) {
-		
+
 		int counter = 0;
 		for (File file : list) {
-			File file1 = new File("artworkImages/"+name);
+			File file1 = new File("artworkImages/" + name);
 			file1.mkdir();
-			Path path = Paths.get("artworkImages/"+name+"/"+counter+".png");
+			Path path = Paths.get("artworkImages/" + name + "/" + counter + ".png");
 			try {
 				Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
@@ -173,6 +167,8 @@ public class AddArtworkController {
 	}
 
 	public void createArtwork() {
+		Painting painting = null;
+		Sculpture sculpture = null;
 		String widthA = width.getText();
 		String heightA = height.getText();
 		String depthA = depth.getText();
@@ -200,20 +196,24 @@ public class AddArtworkController {
 
 		if (selectSculpture.isSelected()) {
 
-			Sculpture sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
+			 sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
 					widthI, heightI, depthI, materialA, descriptionA);
 			try {
 				Writer.writeSculptureFile(sculpture);
+				copyPictures(titleA);
+				sculpture.resolveImage();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		} else if (selectPainting.isSelected()) {
-			Painting painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
+			 painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
 					widthI, heightI, descriptionA);
 			try {
 				Writer.writePaintingFile(painting);
+				copyPictures(titleA);
+				painting.resolveImage();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -221,7 +221,7 @@ public class AddArtworkController {
 
 		}
 
-		copyPictures(titleA);
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
 

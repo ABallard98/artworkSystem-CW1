@@ -4,6 +4,9 @@
  */
 
 import java.util.*;
+
+import javafx.scene.image.Image;
+
 import java.io.*;
 import java.text.*;
 
@@ -430,5 +433,22 @@ public class FileReader {
 	public static ArrayList<Painting> getPaintings() {
 		return paintings;
 	}
+	
+	public static Image retrieveImage(String name) {
+		Image image;
+		try {
+			image = new Image(new FileInputStream("artworkImages/"+name+"/0.png"));
+			return image;
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+		
+	}
+	
 
 }

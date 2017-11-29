@@ -52,8 +52,17 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
+		
 	}
 
+	
+	public void resolveImage() {
+		this.image = FileReader.retrieveImage(title);
+		//System.out.println("image "+ image.toString());
+	}
+	
+
+	
 	/**
 	 * Constructor of artwork with a a description
 	 * 

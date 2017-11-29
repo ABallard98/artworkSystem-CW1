@@ -2,6 +2,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class ArtworkController {
 
@@ -52,6 +53,21 @@ public class ArtworkController {
 
 	@FXML
 	private Button placeBid;
+	
+    @FXML
+    private ImageView mainPic;
+
+    @FXML
+    private ImageView pic1;
+
+    @FXML
+    private ImageView pic2;
+
+    @FXML
+    private ImageView pic3;
+
+    @FXML
+    private ImageView pic4;
 
 	private static Painting currentPainting;
 	private static Sculpture currentSculpture;
@@ -69,6 +85,7 @@ public class ArtworkController {
 	}
 
 	public void initializePainting() {
+		currentPainting.resolveImage();
 		titleA.setText(currentPainting.getTitle());
 		widthA.setText(currentPainting.getWidth() + "");
 		heightA.setText(currentPainting.getHeight() + "");
@@ -78,9 +95,13 @@ public class ArtworkController {
 		titleA.setText(currentPainting.getTitle());
 		noOfBidsA.setText(currentPainting.getNumberOfBids() + "");
 		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
+		mainPic.setImage(currentPainting.getImage());
+
 	}
 
 	public void initializeSculpture() {
+		currentSculpture.resolveImage();
+
 		titleA.setText(currentSculpture.getTitle());
 		widthA.setText(currentSculpture.getWidth() + "");
 		heightA.setText(currentSculpture.getHeight() + "");
@@ -92,6 +113,7 @@ public class ArtworkController {
 		titleA.setText(currentSculpture.getTitle());
 		noOfBidsA.setText(currentSculpture.getNumberOfBids() + "");
 		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
+
 	}
 
 	public static void setCurrentPainting(Painting painting) {
