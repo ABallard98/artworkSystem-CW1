@@ -50,10 +50,10 @@
          <children>
             <TableView fx:id="table1" maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="454.0">
               <columns>
-                <TableColumn prefWidth="100.0" text="Username" />
-                <TableColumn prefWidth="88.0" text="First name" />
-                  <TableColumn prefWidth="117.0" text="Last name" />
-                  <TableColumn prefWidth="138.0" text="Items on auctions" />
+                <TableColumn fx:id="usernameColumn" prefWidth="100.0" text="Username" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="88.0" text="First name" />
+                  <TableColumn fx:id="lastNameColumn" prefWidth="117.0" text="Last name" />
+                  <TableColumn fx:id="itemsColumn" prefWidth="138.0" text="Items on auctions" />
               </columns>
                <VBox.margin>
                   <Insets right="30.0" />

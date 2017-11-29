@@ -22,6 +22,7 @@ public class User {
 	private ArrayList<Artwork> artSold;
 	private ArrayList<Artwork> artWon;
 	private ArrayList<User> favouriteUsers; // array list of favourite users
+	private Integer sellingArtworks;
 
 	/**
 	 * Constructor for user object
@@ -47,6 +48,8 @@ public class User {
 		setPostcode(postcode);
 		setPhonenumber(phonenumber);
 		this.favouriteUsers = new ArrayList<>();
+		this.sellingArtworks = 0;
+		artForSale = new ArrayList<>();
 	}
 
 	/**
@@ -173,9 +176,9 @@ public class User {
 	 *            - user
 	 */
 	public void addUserToFavourites(User u) {
-		
-			this.favouriteUsers.add(u);
-		
+
+		this.favouriteUsers.add(u);
+
 	}
 
 	/**
@@ -284,13 +287,13 @@ public class User {
 	public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
 		this.favouriteUsers = favouriteUsers;
 	}
-	
-	
-	
+
 	public void addArtwork(Artwork artwork) {
 		artForSale.add(artwork);
 	}
-	
-	
+
+	public int getSellingArtworks() {
+		return artForSale.size();
+	}
 
 } // end of class
