@@ -82,6 +82,7 @@ public class AddArtworkController {
 	private Image img2;
 	private Image img3;
 	private Image img4;
+	
 	private ArrayList<Image> images1;
 
 	private List<File> list;
