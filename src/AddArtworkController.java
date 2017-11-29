@@ -126,19 +126,7 @@ public class AddArtworkController {
 		fileChooser.setTitle("Open Resource File");
 		Stage stage = new Stage();
 		list = fileChooser.showOpenMultipleDialog(stage);
-		// stage.show();
 
-		// for(int i = 0; i< list.size(); i++) {
-		// Image imgA = images1.get(i);
-		// System.out.println(list.get(i).getPath());
-		// try {
-		// imgA = new Image(new FileInputStream(list.get(i).getPath()));
-		// } catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		// imagesView.get(i).setImage(img1);
-		// }
 
 		for (int i = 0; i < list.size() && i < 4; i++) {
 
@@ -179,15 +167,13 @@ public class AddArtworkController {
 		
 		Painting painting = null;
 		Sculpture sculpture = null;
+		
 		String widthA = width.getText();
 		String heightA = height.getText();
-		String depthA = depth.getText();
 
 		int widthI = Integer.parseInt(widthA);
 		int heightI = Integer.parseInt(heightA);
-		int depthI = Integer.parseInt(depthA);
 
-		String materialA = material.getText();
 		String titleA = title.getText();
 		String creatorA = creator.getText();
 		String creationYearA = creationYear.getText();
@@ -205,7 +191,11 @@ public class AddArtworkController {
 		System.out.println(user);
 
 		if (selectSculpture.isSelected()) {
+			String depthA = depth.getText();
+			int depthI = Integer.parseInt(depthA);
+			String materialA = material.getText();
 
+			
 			sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, depthI, materialA, descriptionA);
 			try {

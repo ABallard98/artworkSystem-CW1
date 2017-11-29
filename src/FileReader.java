@@ -70,7 +70,6 @@ public class FileReader {
 	}
 
 	public static void initialize() {
-		
 
 		try {
 			readUserFiles();
@@ -99,8 +98,7 @@ public class FileReader {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
+
 		artworks = new ArrayList<Artwork>();
 		artworks.addAll(sculptures);
 		artworks.addAll(paintings);
@@ -166,11 +164,10 @@ public class FileReader {
 	public static void readFavouritesFiles() throws FileNotFoundException {
 		final String FAVOURITES_PATH = "favourites.txt";
 		Scanner fileScanner = new Scanner(new File(FAVOURITES_PATH));
-		
 
 		while (fileScanner.hasNextLine()) {
 			String line = fileScanner.nextLine();
-			
+
 			Scanner in = new Scanner(line);
 			in.useDelimiter(",");
 			User user1 = null;
@@ -433,22 +430,42 @@ public class FileReader {
 	public static ArrayList<Painting> getPaintings() {
 		return paintings;
 	}
-	
+
 	public static Image retrieveImage(String name) {
 		Image image;
 		try {
-			image = new Image(new FileInputStream("artworkImages/"+name+"/0.png"));
+			image = new Image(new FileInputStream("artworkImages/" + name + "/0.png"));
 			return image;
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
-		
-		
+
 	}
-	
+
+	public static ArrayList<Image> retrieveAdditionalImages(String name) {
+		ArrayList<Image> images = new ArrayList<>();
+
+		Image image;
+		
+		for(int i = 1; i<4; i++) {
+			try {
+				image = new Image(new FileInputStream("artworkImages/" + name + "/"+i+".png"));
+				images.add(image);
+
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("No picture found");
+			}
+		}
+		
+
+
+		return images;
+
+	}
 
 }

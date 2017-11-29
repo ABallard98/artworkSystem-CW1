@@ -35,6 +35,21 @@ public class Sculpture extends Artwork {
 		additionalImages = new ArrayList<>();
 
 	}
+	
+	public void resolveAdditionalImages() {
+		additionalImages = FileReader.retrieveAdditionalImages(title);
+	}
+	
+	
+	
+
+	public ArrayList<Image> getAdditionalImages() {
+		return additionalImages;
+	}
+
+	public void setAdditionalImages(ArrayList<Image> additionalImages) {
+		this.additionalImages = additionalImages;
+	}
 
 	public int getWidth() {
 		return this.width;
