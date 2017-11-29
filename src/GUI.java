@@ -8,8 +8,6 @@ public class GUI extends Application {
 
 	private Stage stage;
 
-	
-	
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
@@ -19,11 +17,8 @@ public class GUI extends Application {
 		stage.setTitle("Artatawe");
 		stage.setScene(scene);
 
-			
 		stage.show();
 
 	}
-
-	
 
 }

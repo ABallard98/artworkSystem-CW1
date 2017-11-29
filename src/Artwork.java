@@ -21,7 +21,7 @@ public class Artwork {
 	protected ArrayList<Bid> bidsOnItem; // ArrayList of bids on this artwork
 	protected int numberOfBids;
 	private boolean bidIsOver;
-	
+
 	/**
 	 * Constructor of artwork without a description
 	 * 
@@ -86,12 +86,11 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
 	}
-	
-	
+
 	public void readPhoto(String imageFileName) {
 		// to implement
 	}
-	
+
 	/**
 	 * Method to get the name of the artwork
 	 * 
@@ -100,7 +99,6 @@ public class Artwork {
 	public String getTitle() {
 		return this.title;
 	}
-	
 
 	/**
 	 * Method to get the seller of the artwork
@@ -120,18 +118,15 @@ public class Artwork {
 		return this.timeAdded;
 	}
 
-
-
 	/**
 	 * Method to get the description of the artwork
 	 * 
 	 * @return String - description
 	 */
 	public String getDescription() {
-		if(this.description == null){
+		if (this.description == null) {
 			return "";
-		}
-		else{
+		} else {
 			return this.description;
 		}
 	}
@@ -250,25 +245,21 @@ public class Artwork {
 	 * @param bid
 	 */
 	public void addBidToItem(Bid bid) {
-		if (bidsOnItem.size() < numberOfBids &&
-				bid.getPrice() > bidsOnItem.get(bidsOnItem.size() - 1).getPrice()) {
+		if (bidsOnItem.size() < numberOfBids && bid.getPrice() > bidsOnItem.get(bidsOnItem.size() - 1).getPrice()) {
 			bidsOnItem.add(bid);
 		} else {
 			System.out.println("Error placing bid on artwork. Either price is lower or max bid aciheved.");
 		}
 	}
-	
-	
+
 	public double getValueOfHighestBid() {
-		return bidsOnItem.get(bidsOnItem.size() -1).getPrice();
+		return bidsOnItem.get(bidsOnItem.size() - 1).getPrice();
 	}
-	
-	
+
 	public Bid getHighestBid() {
-		Bid bid = bidsOnItem.get(bidsOnItem.size() -1);
+		Bid bid = bidsOnItem.get(bidsOnItem.size() - 1);
 		return bid;
 	}
-	
 
 	public boolean isBidIsOver() {
 		return bidIsOver;
@@ -277,15 +268,13 @@ public class Artwork {
 	public void setBidIsOver(boolean bidIsOver) {
 		this.bidIsOver = bidIsOver;
 	}
-	
-	
+
 	public int getBidsAllowed() {
-		int allowed = bidsAllowed -  bidsOnItem.size();
+		int allowed = bidsAllowed - bidsOnItem.size();
 		return allowed;
-		
+
 	}
-	
-	
+
 	public void saveChanges() {
 		// to implement
 	}
@@ -297,10 +286,5 @@ public class Artwork {
 	public void setImage(Image image) {
 		this.image = image;
 	}
-	
-	
-	
-	
-	
 
 }// end of class

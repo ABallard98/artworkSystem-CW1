@@ -35,6 +35,7 @@ public class NewAccountCreatorController {
 
 	@FXML
 	private Button openGeneratorButton;
+	
 	@FXML
 	private Button avatar1;
 
@@ -80,7 +81,6 @@ public class NewAccountCreatorController {
 	private Image image4 = null;
 	private Image image5 = null;
 	private Image image6 = null;
-	
 
 	public void initialize() {
 		initialiseAvatars();
@@ -93,7 +93,6 @@ public class NewAccountCreatorController {
 		avatar4.setOnAction(e -> updateAvatar(4));
 		avatar5.setOnAction(e -> updateAvatar(5));
 		avatar6.setOnAction(e -> updateAvatar(6));
-
 
 	}
 
@@ -112,7 +111,7 @@ public class NewAccountCreatorController {
 			mainAvatar.setImage(image5);
 		} else if (i == 6) {
 			mainAvatar.setImage(image6);
-		} 
+		}
 
 	}
 

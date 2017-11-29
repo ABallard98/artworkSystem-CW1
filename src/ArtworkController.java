@@ -60,8 +60,8 @@ public class ArtworkController {
 		if (currentPainting != null) {
 			initializePainting();
 
-		} 
-		
+		}
+
 		if (currentSculpture != null) {
 			initializeSculpture();
 		}
@@ -71,33 +71,27 @@ public class ArtworkController {
 	public void initializePainting() {
 		titleA.setText(currentPainting.getTitle());
 		widthA.setText(currentPainting.getWidth() + "");
-
 		heightA.setText(currentPainting.getHeight() + "");
-
 		yearA.setText(currentPainting.getCreationYear() + "");
-
 		creatorA.setText(currentPainting.getCreator());
 		titleA.setText(currentPainting.getTitle());
 		titleA.setText(currentPainting.getTitle());
-		noOfBidsA.setText(currentPainting.getNumberOfBids()+"");
-		bidsLimitA.setText(currentPainting.getBidsAllowed()+"");
+		noOfBidsA.setText(currentPainting.getNumberOfBids() + "");
+		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
 	}
 
 	public void initializeSculpture() {
 		titleA.setText(currentSculpture.getTitle());
 		widthA.setText(currentSculpture.getWidth() + "");
-
 		heightA.setText(currentSculpture.getHeight() + "");
-
-		depthA.setText(currentSculpture.getDepth()+"");
+		depthA.setText(currentSculpture.getDepth() + "");
 		materialA.setText(currentSculpture.getMaterial());
 		yearA.setText(currentSculpture.getCreationYear() + "");
-
 		creatorA.setText(currentSculpture.getCreator());
 		titleA.setText(currentSculpture.getTitle());
 		titleA.setText(currentSculpture.getTitle());
-		noOfBidsA.setText(currentSculpture.getNumberOfBids()+"");
-		bidsLimitA.setText(currentSculpture.getBidsAllowed()+"");
+		noOfBidsA.setText(currentSculpture.getNumberOfBids() + "");
+		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
 	}
 
 	public static void setCurrentPainting(Painting painting) {
@@ -107,7 +101,7 @@ public class ArtworkController {
 	}
 
 	public static void setCurrentSculpture(Sculpture sculpture) {
-		currentPainting= null;
+		currentPainting = null;
 
 		currentSculpture = sculpture;
 
