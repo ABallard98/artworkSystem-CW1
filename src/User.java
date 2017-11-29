@@ -23,6 +23,7 @@ public class User {
 	private ArrayList<Artwork> artWon;
 	private ArrayList<User> favouriteUsers; // array list of favourite users
 	private Integer sellingArtworks;
+	private boolean customImage;
 
 	/**
 	 * Constructor for user object
@@ -51,6 +52,12 @@ public class User {
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
 	}
+	
+	
+	public void resolvePicture() {
+		
+	}
+	
 
 	/**
 	 * Method to get the user's username
@@ -295,5 +302,8 @@ public class User {
 	public int getSellingArtworks() {
 		return artForSale.size();
 	}
+	
+	
+	
 
 } // end of class
