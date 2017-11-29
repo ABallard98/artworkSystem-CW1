@@ -199,7 +199,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <TextField promptText="enter username / name of artwork" />
+            <TextField fx:id="searching" promptText="enter username / name of artwork" />
             <HBox spacing="30.0">
                <children>
                   <RadioButton fx:id="artworkSelect" mnemonicParsing="false" text="Artwork" textFill="WHITE" />

@@ -106,6 +106,15 @@ public class AddArtworkController {
 		images1.add(img3);
 		images1.add(img4);
 
+		selectPainting.setOnAction(e-> {
+			depth.setDisable(true);
+			material.setDisable(true);
+		});
+		
+		selectSculpture.setOnAction(e-> {
+			depth.setDisable(false);
+			material.setDisable(false);
+		});
 		addImages.setOnAction(e -> addPictures());
 
 	}
@@ -167,6 +176,7 @@ public class AddArtworkController {
 	}
 
 	public void createArtwork() {
+		
 		Painting painting = null;
 		Sculpture sculpture = null;
 		String widthA = width.getText();
@@ -196,8 +206,8 @@ public class AddArtworkController {
 
 		if (selectSculpture.isSelected()) {
 
-			 sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
-					widthI, heightI, depthI, materialA, descriptionA);
+			sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
+					heightI, depthI, materialA, descriptionA);
 			try {
 				Writer.writeSculptureFile(sculpture);
 				copyPictures(titleA);
@@ -208,8 +218,11 @@ public class AddArtworkController {
 			}
 
 		} else if (selectPainting.isSelected()) {
-			 painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD,
-					widthI, heightI, descriptionA);
+
+
+
+			painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
+					heightI, descriptionA);
 			try {
 				Writer.writePaintingFile(painting);
 				copyPictures(titleA);
@@ -220,7 +233,6 @@ public class AddArtworkController {
 			}
 
 		}
-
 
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");

@@ -17,6 +17,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -47,7 +48,6 @@ public class GUIController {
 
 	@FXML
 	private Label username;
-
 	@FXML
 	private Label firstName;
 
@@ -89,6 +89,10 @@ public class GUIController {
 	@FXML
 	private Button searchButton;
 
+    @FXML
+    private TextField searching;
+
+	
 	@FXML
 	private Button display;
 
@@ -96,6 +100,7 @@ public class GUIController {
 	 * Initialises the main elements of GUI
 	 */
 	public void initialize() {
+		searching.setDisable(true);
 		paintingSelect.setSelected(true);
 		sculptureSelect.setSelected(true);
 		artworkSelect.setSelected(true);
@@ -108,6 +113,9 @@ public class GUIController {
 
 		userSettingsLink.setOnAction(e -> userSettings());
 
+		
+		
+		
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
 		favouriteUsers.setOnAction(e -> userSettings1());
 		myAuctionsLink.setOnAction(e -> showMyAuctions());
