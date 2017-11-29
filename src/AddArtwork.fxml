@@ -6,7 +6,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -205,23 +204,15 @@
                </VBox.margin>
             </Label>
             <Label text="Choose up to 4 images" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Add image(s)">
+            <Button fx:id="addImages" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="Add image(s)">
                <VBox.margin>
                   <Insets bottom="30.0" top="50.0" />
                </VBox.margin>
             </Button>
             <HBox prefHeight="184.0" prefWidth="329.0" spacing="15.0">
                <children>
-                  <ImageView fitHeight="196.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Desktop/Vincent_Willem_van_Gogh_128.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="196.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Desktop/Vincent_Willem_van_Gogh_128.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="pic1" fitHeight="196.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="pic2" fitHeight="196.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -229,16 +220,8 @@
             </HBox>
             <HBox prefHeight="184.0" prefWidth="393.0" spacing="15.0">
                <children>
-                  <ImageView fitHeight="196.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Desktop/Vincent_Willem_van_Gogh_128.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="196.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Desktop/Vincent_Willem_van_Gogh_128.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="pic3" fitHeight="196.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="pic4" fitHeight="196.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />

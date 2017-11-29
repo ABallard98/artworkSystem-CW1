@@ -289,6 +289,16 @@ public class Artwork {
 	public void saveChanges() {
 		// to implement
 	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+	
+	
 	
 	
 	

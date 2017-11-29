@@ -1,5 +1,11 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,6 +15,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class AddArtworkController {
 
@@ -50,6 +59,23 @@ public class AddArtworkController {
 
 	@FXML
 	private Button addArtwork;
+	
+
+    @FXML
+    private Button addImages;
+
+    @FXML
+    private ImageView pic1;
+
+    @FXML
+    private ImageView pic2;
+
+    @FXML
+    private ImageView pic3;
+
+    @FXML
+    private ImageView pic4;
+	
 
 	public void initialize() {
 		addArtwork.setOnAction(e -> createArtwork());
@@ -57,7 +83,38 @@ public class AddArtworkController {
 
 		selectSculpture.setToggleGroup(group);
 		selectPainting.setToggleGroup(group);
+		
+		addImages.setOnAction(e-> addPictures());
 
+	}
+	
+	
+	public void addPictures() {
+		
+		FileChooser fileChooser = new FileChooser();
+		
+		
+		fileChooser.setTitle("Open Resource File");
+		Stage stage = new Stage();
+		List<File> list =  fileChooser.showOpenMultipleDialog(stage);
+		//stage.show();
+		for(File file : list) {
+			Path path = Paths.get("artworkImages/img.png");
+			try {
+				Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+			System.out.println(file.getPath());
+		}
+		
+		
+		
+		
+		
 	}
 
 	public void createArtwork() {
