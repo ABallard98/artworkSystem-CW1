@@ -451,7 +451,7 @@ public class FileReader {
 
 		Image image;
 		
-		for(int i = 1; i<4; i++) {
+		for(int i = 0; i<4; i++) {
 			try {
 				image = new Image(new FileInputStream("artworkImages/" + name + "/"+i+".png"));
 				images.add(image);

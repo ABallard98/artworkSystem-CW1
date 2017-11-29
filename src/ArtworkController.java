@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ArtworkController {
@@ -101,6 +104,21 @@ public class ArtworkController {
 
 	public void initializeSculpture() {
 		currentSculpture.resolveImage();
+		currentSculpture.resolveAdditionalImages();
+
+		ArrayList<Image> additionalImages = currentSculpture.getAdditionalImages();
+		ArrayList<ImageView> imageViews = new ArrayList<>();
+		
+		imageViews.add(pic1);
+		imageViews.add(pic2);
+		imageViews.add(pic3);
+		imageViews.add(pic4);
+
+		
+		for(int i = 0; i< additionalImages.size(); i++) {
+			imageViews.get(i).setImage((additionalImages.get(i)));
+		}
+		mainPic.setImage(currentSculpture.getImage());
 
 		titleA.setText(currentSculpture.getTitle());
 		widthA.setText(currentSculpture.getWidth() + "");
