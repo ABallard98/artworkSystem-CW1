@@ -133,19 +133,33 @@ public class AddArtworkController {
 		//	imagesView.get(i).setImage(img1);
 		//}
 
-		try {
-			img1 = new Image(new FileInputStream(list.get(0).getPath()));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		for(int i = 0; i< list.size() && i<4; i++) {
+			
+			Image imgA = images1.get(i);
+			ImageView picA = imagesView.get(i);
+			try {
+				imgA = new Image(new FileInputStream(list.get(i).getPath()));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			picA.setImage(imgA);
+			
 		}
-		pic1.setImage(img1);
+		
+		
+
 
 	}
 	
 	public void copyPictures(String name) {
+		
+		int counter = 0;
 		for (File file : list) {
-			Path path = Paths.get("artworkImages/"+name+".png");
+			File file1 = new File("artworkImages/"+name);
+			file1.mkdir();
+			Path path = Paths.get("artworkImages/"+name+"/"+counter+".png");
 			try {
 				Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
@@ -154,6 +168,7 @@ public class AddArtworkController {
 			}
 
 			System.out.println(file.getPath());
+			counter++;
 		}
 	}
 
