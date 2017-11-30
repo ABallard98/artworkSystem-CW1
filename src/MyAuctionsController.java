@@ -1,14 +1,19 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MyAuctionsController {
 
+    @FXML
+    private Button refreshButton;
+	
     @FXML
     private RadioButton allAuctions;
 
@@ -43,7 +48,7 @@ public class MyAuctionsController {
     private TableColumn<Artwork, String> bidLimitColumn;
 
     @FXML
-    private TableColumn<Artwork, String> currentPriceColumn;
+    private TableColumn<Artwork, Double> currentPriceColumn;
 
     @FXML
     private TableColumn<Artwork, String> ongoingColumn;
@@ -55,6 +60,11 @@ public class MyAuctionsController {
     
     public void initialize() {
     	
+    	ToggleGroup tg = new ToggleGroup();
+    	allAuctions.setToggleGroup(tg);
+    	finished.setToggleGroup(tg);
+    	active.setToggleGroup(tg);
+    	
     	artworks =  FXCollections.observableArrayList(LoginController.getUser().getArtForSale());
 
     	titleColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
@@ -62,7 +72,7 @@ public class MyAuctionsController {
     	reservePriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("reservePrice"));
     	placedBidsColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("numberOfBids"));
     	bidLimitColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("bidsAllowed"));
-    	currentPriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
+    	//currentPriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,Double>("highestBid"));
     	ongoingColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
     	
     	System.out.println(artworks.size());
