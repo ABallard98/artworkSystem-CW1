@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyAuctionsController">
    <left>
       <VBox prefHeight="496.0" prefWidth="58.0" BorderPane.alignment="CENTER" />
    </left>
@@ -20,36 +20,36 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="All auctions" textFill="WHITE" />
-                        <RadioButton mnemonicParsing="false" text="Active" textFill="WHITE">
+                        <RadioButton fx:id="allAuctions" mnemonicParsing="false" text="All auctions" textFill="WHITE" />
+                        <RadioButton fx:id="active" mnemonicParsing="false" text="Active" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Finished" textFill="WHITE" />
+                        <RadioButton fx:id="finished" mnemonicParsing="false" text="Finished" textFill="WHITE" />
                      </children>
                   </HBox>
-                  <CheckBox mnemonicParsing="false" text="Sculptures" textFill="WHITE">
+                  <CheckBox fx:id="sculptures" mnemonicParsing="false" text="Sculptures" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="Paintings" textFill="WHITE">
+                  <CheckBox fx:id="paintings" mnemonicParsing="false" text="Paintings" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </CheckBox>
                </children>
             </VBox>
-            <TableView prefHeight="329.0" prefWidth="692.0">
+            <TableView fx:id="table" prefHeight="329.0" prefWidth="692.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Title" />
-                <TableColumn prefWidth="117.0" text="Creator name" />
-                  <TableColumn prefWidth="97.0" text="Reserve price" />
-                  <TableColumn prefWidth="97.0" text="Placed bids" />
-                  <TableColumn prefWidth="107.0" text="Bid limit" />
-                  <TableColumn prefWidth="115.0" text="Current price" />
-                  <TableColumn prefWidth="92.0" text="Ongoing" />
+                <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="creatonNameColumn" prefWidth="117.0" text="Creator name" />
+                  <TableColumn fx:id="reservePriceColumn" prefWidth="97.0" text="Reserve price" />
+                  <TableColumn fx:id="placedBidsColumn" prefWidth="97.0" text="Placed bids" />
+                  <TableColumn fx:id="bidLimitColumn" prefWidth="107.0" text="Bid limit" />
+                  <TableColumn fx:id="currentPriceColumn" prefWidth="115.0" text="Current price" />
+                  <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Ongoing" />
               </columns>
                <VBox.margin>
                   <Insets top="20.0" />

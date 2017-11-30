@@ -319,7 +319,7 @@ public class FileReader {
 			double reservePrice = in.nextDouble();
 			int width = in.nextInt();
 			int height = in.nextInt();
-			User seller = constructUser(username + ".txt");
+			User seller = getUser(username);
 
 			// checking if there is a description
 			String description = "";
@@ -327,11 +327,16 @@ public class FileReader {
 				description = in.next();
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height, description);
+				seller.addArtwork(painting);
 				in.close();
 				return painting;
 			} else {
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height);
+				
+				if(seller != null) {
+					seller.addArtwork(painting);
+				}
 				System.out.println("Painting " + painting.getTitle() + " was created");
 				in.close();
 				return painting;
@@ -438,8 +443,14 @@ public class FileReader {
 			return image;
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+				try {
+					return image = new Image(new FileInputStream("artworkImages/notfound.png"));
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
 		}
 
 		return null;

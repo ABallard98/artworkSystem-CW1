@@ -3,6 +3,8 @@
  * Created by ayden on 10/11/2017.
  */
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import javafx.scene.image.Image;
@@ -21,6 +23,7 @@ public class Artwork {
 	protected ArrayList<Bid> bidsOnItem; // ArrayList of bids on this artwork
 	protected int numberOfBids;
 	private boolean bidIsOver;
+	private double highestBid;
 
 	/**
 	 * Constructor of artwork without a description
@@ -52,12 +55,15 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
+		this.highestBid = 0;
 		
 	}
 
 	
 	public void resolveImage() {
 		this.image = FileReader.retrieveImage(title);
+		
+
 		//System.out.println("image "+ image.toString());
 	}
 	
@@ -94,6 +100,7 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
+		this.highestBid = 0;
 	}
 
 	public void readPhoto(String imageFileName) {
@@ -295,5 +302,24 @@ public class Artwork {
 	public void setImage(Image image) {
 		this.image = image;
 	}
+
+
+	public String getCreatorName() {
+		return creatorName;
+	}
+
+
+	public ArrayList<Bid> getBidsOnItem() {
+		return bidsOnItem;
+	}
+
+
+	public void setHighestBid(double highestBid) {
+		this.highestBid = highestBid;
+	}
+	
+	
+	
+	
 
 }// end of class

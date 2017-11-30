@@ -31,6 +31,9 @@ public class FavouriteUsersController {
 
 	@FXML
 	private TableColumn<User, Integer> itemsColumn;
+	
+	
+	
 
 	public void initalize() {
 

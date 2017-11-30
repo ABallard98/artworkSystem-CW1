@@ -9,9 +9,9 @@ public class Painting extends Artwork{
    private int width;
    private int height;
 
-   public Painting(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+   public Painting(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
                     double reservePrice, int width, int height){
-       super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice);
+       super(seller,date,name,creatorName,yearWasMade,numberOfBids,reservePrice);
        setWidth(width);
        setHeight(height);
    }
