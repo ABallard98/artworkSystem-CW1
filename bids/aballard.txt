@@ -1,4 +1,0 @@
-painting,elmarko,231,999999.0,Wed Nov 15 12:28:22 GMT 2017
-painting,aballard,aaa,458.0,Wed Nov 15 12:28:22 GMT 2017
-painting,aballard,Starry night,460.0,Wed Nov 15 12:28:22 GMT 2017
-sculpture,aballard,the thinker,460.0,Wed Nov 15 12:28:22 GMT 2017

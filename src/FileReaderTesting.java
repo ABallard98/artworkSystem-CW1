@@ -20,7 +20,12 @@ public class FileReaderTesting {
 
         try{
         	FileReader.initialize();
-        	bids = FileReader.readBidFile("aballard.txt");
+        	bids = FileReader.readBidFile("elmarko.txt");
+        	for(Bid b : bids){
+        		System.out.println(b.getBidder().getFirstName() + " placed a bid of " + b.getPrice() + " on " + b.getArtwork().getTitle()
+				+ " at " + b.getBidDate());
+        	}
+        	 System.out.println("\n");
             users = FileReader.readUserFile();
             for(User u : users){
                System.out.println(u.getFullName() + " was found and added to the system");
@@ -45,10 +50,10 @@ public class FileReaderTesting {
         }
 
 
-        System.out.println("To String of users in system");
+        /**System.out.println("To String of users in system");
         for(User u : users){
             System.out.println("\n"+u.toString());
-        }
+        }*/
 
         System.out.println("To string of paintings in system");
         for(Painting painting : paintings){

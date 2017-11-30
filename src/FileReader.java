@@ -288,8 +288,6 @@ public class FileReader {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
-							+ " at " + dateString);
 					bids.add(bid);
 				}
 			}

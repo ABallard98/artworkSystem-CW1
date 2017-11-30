@@ -76,7 +76,7 @@ public class Bid {
      * @return String - data on the bid
      */
     public String getTextFileOutput(){
-        String output = this.getBidder().getUsername() + "," + this.artwork.getTitle()+ "," + this.getPrice() +
+        String output = this.getTypeOfArtwork() + "," + this.getBidder().getUsername() + "," + this.artwork.getTitle()+ "," + this.getPrice() +
                 "," + this.bidDate;
         return output;
     }

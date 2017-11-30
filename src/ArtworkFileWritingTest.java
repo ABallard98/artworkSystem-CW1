@@ -13,10 +13,10 @@ public class ArtworkFileWritingTest {
         ArrayList<User> users = new ArrayList<>();
         try{
             users = FileReader.readUserFile();
-            System.out.println(users.size());
+            /**System.out.println(users.size());
             for(User u : users){
                 System.out.println(u.toString() + "\n");
-            }
+            }*/
         }
         catch(FileNotFoundException e){
             System.out.println("error, file not found exception");
@@ -24,6 +24,7 @@ public class ArtworkFileWritingTest {
 
         User testUser1 = users.get(0);
         User testUser2 = users.get(1);
+        User testUser3 = users.get(2);
 
         //CREATING PAINTINGS FOR FILE WRITING TEST
         Painting painting = new Painting(testUser1, new Date(), "Starry night",
@@ -73,8 +74,8 @@ public class ArtworkFileWritingTest {
         }
 
         //MAKING BIDS ON ITEMS
-        Bid bid1 = new Bid("sculpture",testUser1,999999,sculp,new Date());
-        Bid bid2 = new Bid("sculpture", testUser2, 10000, sculp2, new Date());
+        Bid bid1 = new Bid("Sculpture",testUser2,999999,sculp,new Date());
+        Bid bid2 = new Bid("Sculpture",testUser2, 10000, sculp2, new Date());
 
         //ATTEMPTING TO USE FILE WRITER ON BIDS
         System.out.println("Attempting to create files for the bids");
