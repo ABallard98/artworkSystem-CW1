@@ -269,13 +269,9 @@ public class FileReader {
 				String username = in.next();
 				String artwork = in.next();
 				Double bidAmount = in.nextDouble();
-				in.useDelimiter("");
 				String dateString = in.nextLine();
-
-				// DateFormat formatter = new SimpleDateFormat("MM/dd/yy
-				// h:mm:ss");
-				// Date date = formatter.parse(dateString);
-				Date date = new Date();
+				Date date = new Date(dateString);
+				
 				if (typeOfArtwork.equalsIgnoreCase("painting")) {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
