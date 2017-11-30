@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -89,16 +91,24 @@ public class GUIController {
 	@FXML
 	private Button searchButton;
 
-    @FXML
-    private TextField searching;
+	@FXML
+	private TextField searching;
 
-	
 	@FXML
 	private Button display;
+	
+	
+    @FXML
+    private Label user1;
+
+    @FXML
+    private Label today;
+
 
 	/**
 	 * Initialises the main elements of GUI
 	 */
+	@SuppressWarnings("deprecation")
 	public void initialize() {
 		searching.setDisable(true);
 		paintingSelect.setSelected(true);
@@ -111,17 +121,19 @@ public class GUIController {
 		userSelect.setToggleGroup(tg);
 		artworkSelect.setToggleGroup(tg);
 
+		user1.setText("Nice to see you "+ LoginController.getUser().getFullName());
+		LocalDate date = LocalDate.now();
+		today.setText("Today is "+ date.getDayOfMonth()+"."+ date.getMonthValue() + "."+ date.getYear());
+		//eelm
 		userSettingsLink.setOnAction(e -> userSettings());
 
-		
-		
-		
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
 		favouriteUsers.setOnAction(e -> userSettings1());
 		myAuctionsLink.setOnAction(e -> showMyAuctions());
 
 		display.setOnAction(e -> getSearchSelection());
 
+		dashboardLink.setOnAction(e-> displayMainDashboard());
 		// names.add(stringSet);
 
 	}
@@ -284,6 +296,19 @@ public class GUIController {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void displayMainDashboard() {
+
+		BorderPane bp;
+		try {
+			bp = FXMLLoader.load(getClass().getResource("MainDashboard.fxml"));
+			mainSection.getChildren().setAll(bp);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void userSettings1() {
