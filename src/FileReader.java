@@ -19,8 +19,6 @@ public class FileReader {
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
 
-	
-	
 	private static ArrayList<Bid> bids = new ArrayList<Bid>();
 
 	public static Painting getPainting(String str) {
@@ -273,22 +271,23 @@ public class FileReader {
 				Double bidAmount = in.nextDouble();
 				String dateString = in.nextLine();
 				Date date = new Date(dateString);
-				
+
 				if (typeOfArtwork.equalsIgnoreCase("painting")) {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
 							+ " at " + dateString);
-
 					bids.add(bid);
+					seller.addBid(bid);
 				} else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					bids.add(bid);
+					seller.addBid(bid);
 				}
-				
+
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
@@ -331,8 +330,8 @@ public class FileReader {
 			} else {
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height);
-				
-				if(seller != null) {
+
+				if (seller != null) {
 					seller.addArtwork(painting);
 				}
 				System.out.println("Painting " + painting.getTitle() + " was created");
@@ -441,14 +440,14 @@ public class FileReader {
 			return image;
 
 		} catch (FileNotFoundException e) {
-			
-				try {
-					return image = new Image(new FileInputStream("artworkImages/notfound.png"));
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			
+
+			try {
+				return image = new Image(new FileInputStream("artworkImages/notfound.png"));
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
 		}
 
 		return null;
@@ -459,10 +458,10 @@ public class FileReader {
 		ArrayList<Image> images = new ArrayList<>();
 
 		Image image;
-		
-		for(int i = 0; i<4; i++) {
+
+		for (int i = 0; i < 4; i++) {
 			try {
-				image = new Image(new FileInputStream("artworkImages/" + name + "/"+i+".png"));
+				image = new Image(new FileInputStream("artworkImages/" + name + "/" + i + ".png"));
 				images.add(image);
 
 			} catch (FileNotFoundException e) {
@@ -470,8 +469,6 @@ public class FileReader {
 				System.out.println("No picture found");
 			}
 		}
-		
-
 
 		return images;
 
@@ -484,7 +481,5 @@ public class FileReader {
 	public static void setBids(ArrayList<Bid> bids) {
 		FileReader.bids = bids;
 	}
-	
-	
 
 }

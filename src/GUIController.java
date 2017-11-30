@@ -131,11 +131,26 @@ public class GUIController {
 
 		display.setOnAction(e -> getSearchSelection());
 
+		//myBidsLink.setOnAction(e-> displayMyBids());
 		dashboardLink.setOnAction(e -> displayMainDashboard());
 		// names.add(stringSet);
 
 	}
 
+	public void displayMyBids() {
+		BorderPane bp; // Border Pane to load the new BorderPane in
+
+		try {
+			bp = (BorderPane) FXMLLoader.load(getClass().getResource("MyBids.fxml"));
+			mainSection.getChildren().setAll(bp);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error");
+			e.printStackTrace();
+		}
+	}
+	
 	public void handleSearch() {
 
 		if (artworkSelect.isSelected()) {
