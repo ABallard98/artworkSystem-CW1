@@ -1,0 +1,4 @@
+painting,elmarko,323123,11.0,Thu Nov 30 16:33:36 GMT 2017
+painting,elmarko,323123,11.0,Thu Nov 30 16:33:50 GMT 2017
+painting,elmarko,aaa,90.0,Thu Nov 30 16:34:31 GMT 2017
+sculpture,elmarko,1,33.0,Thu Nov 30 16:34:55 GMT 2017

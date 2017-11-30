@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
+import java.util.*;
+
+
 public class ArtworkController {
 
 	@FXML
@@ -84,6 +88,8 @@ public class ArtworkController {
 		if (currentSculpture != null) {
 			initializeSculpture();
 		}
+		
+		placeBid.setOnAction(e-> addBid());
 
 	}
 
@@ -139,6 +145,38 @@ public class ArtworkController {
 		currentSculpture = null;
 
 	}
+	
+	
+	public void addBid() {
+		
+		String type = "";
+		Bid bid = null;
+		
+		if(currentSculpture != null) {
+			type = "sculpture";
+			String amountStr = bidAmount.getText();
+			double amount = Double.parseDouble(amountStr);
+			Date date = new Date();
+			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
+			
+		} else if (currentPainting != null) {
+			type = "painting";
+			String amountStr = bidAmount.getText();
+			double amount = Double.parseDouble(amountStr);
+			Date date = new Date();
+			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
+		}
+		
+
+		try {
+			Writer.writeBidFile(bid);
+			System.out.println("Bid saved successfully");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 	public static void setCurrentSculpture(Sculpture sculpture) {
 		currentPainting = null;

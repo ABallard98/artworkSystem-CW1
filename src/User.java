@@ -61,19 +61,18 @@ public class User {
 	}
 
 	public void resolvePicture() {
-		
-		if(!isCustomImage()) {
-			
+
+		if (!isCustomImage()) {
+
 			try {
-				image = new Image(new FileInputStream("avatars/avatar"+avatarIndex+".png"));
+				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+
 		}
-		
+
 	}
 
 	/**
@@ -235,10 +234,15 @@ public class User {
 	 */
 	public String getFavouritesString() {
 		String output = "";
-		for (User e : favouriteUsers) {
-			output = e.getUsername() + " " + output;
+		if (!favouriteUsers.isEmpty()) {
+			for (User e : favouriteUsers) {
+				output = e.getUsername() + " " + output;
+			}
+			return output;
+		} else {
+			return "";
 		}
-		return output;
+
 	}
 
 	/**

@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -6,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -68,6 +71,22 @@ public class LoginController {
 
 			
 			
+		} else {
+
+
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Could not log in");
+
+			alert.setHeaderText("The account with a given username does not exist");
+			alert.setContentText("Try again or create a new account");
+			try {
+				FileReader.readPaintingFiles();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			alert.showAndWait();
 		}
 
 	}
@@ -85,7 +104,7 @@ public class LoginController {
 			// NewAccountCreatorController newAccountController =
 			// fxmlL.<NewAccountCreatorController>getController();
 
-			Scene scene = new Scene(login, 700, 832);
+			Scene scene = new Scene(login, 768, 832);
 
 			Stage stage = new Stage();
 			stage.setScene(scene);

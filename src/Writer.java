@@ -37,6 +37,12 @@ public class Writer {
             throw new IOException("Error creating bid file");
         }
     }
+    
+    public static void saveBid(Bid bid) {
+    	
+    	
+    	
+    }
 
     public static void writePaintingFile(Painting painting) throws IOException{
         String path = "artworkFiles//paintings//"+painting.getTitle()+".txt";

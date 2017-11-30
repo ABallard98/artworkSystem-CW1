@@ -286,7 +286,9 @@ public class FileReader {
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					bids.add(bid);
 				}
+				
 			}
+			in.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Error constructing Bid. File " + filename + " was not found");
 		}

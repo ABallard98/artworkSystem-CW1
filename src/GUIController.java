@@ -268,7 +268,7 @@ public class GUIController {
 			// NewAccountCreatorController newAccountController =
 			// fxmlL.<NewAccountCreatorController>getController();
 
-			Scene scene = new Scene(root, 1009, 867);
+			Scene scene = new Scene(root, 1009, 750);
 
 			Stage stage = new Stage();
 			stage.setScene(scene);
