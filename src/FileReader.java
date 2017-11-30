@@ -19,6 +19,8 @@ public class FileReader {
 	private static ArrayList<Sculpture> sculptures;
 	private static ArrayList<Painting> paintings;
 
+	
+	
 	private static ArrayList<Bid> bids = new ArrayList<Bid>();
 
 	public static Painting getPainting(String str) {
@@ -474,5 +476,15 @@ public class FileReader {
 		return images;
 
 	}
+
+	public static ArrayList<Bid> getBids() {
+		return bids;
+	}
+
+	public static void setBids(ArrayList<Bid> bids) {
+		FileReader.bids = bids;
+	}
+	
+	
 
 }

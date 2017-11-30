@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -90,7 +91,13 @@ public class ArtworkController {
 		}
 		
 		placeBid.setOnAction(e-> addBid());
-
+		try {
+			FileReader.constructBid(LoginController.getUser().getUsername()+ ".txt");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		System.out.println("Total no. of bids "+ FileReader.getBids().size());
 	}
 
 	public void initializePainting() {
@@ -158,13 +165,15 @@ public class ArtworkController {
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
-			
+			LoginController.getUser().addBid(bid);
+
 		} else if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
+			LoginController.getUser().addBid(bid);
 		}
 		
 
@@ -175,6 +184,8 @@ public class ArtworkController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("Number of bids of user "+ LoginController.getUser() +" is "+ LoginController.getUser().getPlacedBids().size());
 	}
 	
 

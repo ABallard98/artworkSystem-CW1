@@ -27,6 +27,8 @@ public class User {
 	private Integer sellingArtworks;
 	private boolean customImage;
 	private int avatarIndex;
+	private int bidsPlaced;
+	private ArrayList<Bid> placedBids;
 
 	/**
 	 * Constructor for user object
@@ -54,6 +56,7 @@ public class User {
 		this.favouriteUsers = new ArrayList<>();
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
+		placedBids = new ArrayList<>();
 	}
 
 	public boolean isCustomImage() {
@@ -323,5 +326,20 @@ public class User {
 	public int getSellingArtworks() {
 		return artForSale.size();
 	}
+
+	public ArrayList<Bid> getPlacedBids() {
+		return placedBids;
+	}
+
+	public void setPlacedBids(ArrayList<Bid> placedBids) {
+		this.placedBids = placedBids;
+	}
+
+
+	public void addBid(Bid bid) {
+		placedBids.add(bid);
+	}
+	
+	
 
 } // end of class

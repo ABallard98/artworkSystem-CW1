@@ -96,14 +96,12 @@ public class GUIController {
 
 	@FXML
 	private Button display;
-	
-	
-    @FXML
-    private Label user1;
 
-    @FXML
-    private Label today;
+	@FXML
+	private Label user1;
 
+	@FXML
+	private Label today;
 
 	/**
 	 * Initialises the main elements of GUI
@@ -121,10 +119,10 @@ public class GUIController {
 		userSelect.setToggleGroup(tg);
 		artworkSelect.setToggleGroup(tg);
 
-		user1.setText("Nice to see you "+ LoginController.getUser().getFullName());
+		user1.setText("Nice to see you " + LoginController.getUser().getFullName());
 		LocalDate date = LocalDate.now();
-		today.setText("Today is "+ date.getDayOfMonth()+"."+ date.getMonthValue() + "."+ date.getYear());
-		//eelm
+		today.setText("Today is " + date.getDayOfMonth() + "." + date.getMonthValue() + "." + date.getYear());
+		// eelm
 		userSettingsLink.setOnAction(e -> userSettings());
 
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
@@ -133,7 +131,7 @@ public class GUIController {
 
 		display.setOnAction(e -> getSearchSelection());
 
-		dashboardLink.setOnAction(e-> displayMainDashboard());
+		dashboardLink.setOnAction(e -> displayMainDashboard());
 		// names.add(stringSet);
 
 	}
