@@ -1,5 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class DashboardSettingsController {
 
@@ -26,6 +27,11 @@ public class DashboardSettingsController {
 
 	@FXML
 	private Label phoneNumber;
+	
+	
+    @FXML
+    private ImageView avatar;
+
 
 	private User user;
 
@@ -45,6 +51,8 @@ public class DashboardSettingsController {
 
 		//lastLogin.setText(user.getLastLogin());
 		phoneNumber.setText(""+user.getPhonenumber());
+		avatar.setImage(user.getImage());
+		
 	}
 
 }
