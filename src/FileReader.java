@@ -32,6 +32,10 @@ public class FileReader {
 		return null;
 
 	}
+	
+	public static void addUser(User user) {
+		users.add(user);
+	}
 
 	public static User getUser(String str) {
 

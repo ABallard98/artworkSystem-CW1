@@ -339,6 +339,14 @@ public class User {
 	public void addBid(Bid bid) {
 		placedBids.add(bid);
 	}
+
+	public int getAvatarIndex() {
+		return avatarIndex;
+	}
+
+	public void setAvatarIndex(int avatarIndex) {
+		this.avatarIndex = avatarIndex;
+	}
 	
 	
 

@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -75,6 +77,8 @@ public class NewAccountCreatorController {
 	@FXML
 	private ImageView mainAvatar;
 
+
+	private int avatarIndex;
 	private Image image1 = null;
 	private Image image2 = null;
 	private Image image3 = null;
@@ -100,17 +104,23 @@ public class NewAccountCreatorController {
 
 		if (i == 1) {
 			mainAvatar.setImage(image1);
+			avatarIndex = 1;
 		} else if (i == 2) {
 			mainAvatar.setImage(image2);
+			avatarIndex = 2;
 		} else if (i == 3) {
 			mainAvatar.setImage(image3);
-
+			avatarIndex = 3;
 		} else if (i == 4) {
 			mainAvatar.setImage(image4);
+			avatarIndex = 4;
 		} else if (i == 5) {
 			mainAvatar.setImage(image5);
+			avatarIndex = 5;
 		} else if (i == 6) {
 			mainAvatar.setImage(image6);
+			avatarIndex = 6;
+
 		}
 
 	}
@@ -147,14 +157,45 @@ public class NewAccountCreatorController {
 
 	public void createAccount() {
 
+
+		
+		
 		String username = usernameField.getText();
 		String firstName = firstNameField.getText();
 		String lastName = lastNameField.getText();
 		String address = addressField.getText();
 		String postCode = postcodeField.getText();
 		String phoneNumber = phoneNumberField.getText();
+		long phoneNumberLong = 0;
+		if(username.isEmpty() 	|| firstName.isEmpty() 	|| lastName.isEmpty()
+				|| address.isEmpty() 	|| postCode.isEmpty() 	|| phoneNumber.isEmpty()) {
 
-		long phoneNumberLong = Long.parseLong(phoneNumber);
+			
+			try {
+				phoneNumberLong = Long.parseLong(phoneNumber);
+			} catch (Exception e) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Error");
+
+				alert.setHeaderText("Wrong format of phone number");
+				alert.setContentText("Please enter correct phone number");
+				alert.showAndWait();				
+				return;
+			}
+			
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+
+			alert.setHeaderText("Could not create an user");
+			alert.setContentText("Make sure you fill all fields and press button again");
+			alert.showAndWait();
+
+			return;
+		}
+		
+		
+
+		
 
 		String userdata = "";
 		userdata += "\n Username: " + username;
@@ -165,7 +206,15 @@ public class NewAccountCreatorController {
 		userdata += "\n Phone number: " + phoneNumber;
 
 		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong);
+		user.setAvatarIndex(avatarIndex);
+		user.resolvePicture();
+		
+		FileReader.addUser(user);
+		
 
+		
+		//user
+		
 		try {
 			Writer.writeUserFile(user);
 		} catch (IOException e) {
@@ -173,6 +222,17 @@ public class NewAccountCreatorController {
 			e.printStackTrace();
 		}
 		System.out.println(userdata);
+		
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Success");
+
+		alert.setHeaderText("The user has been created");
+		alert.setContentText("Close this window to return to login screen");
+		alert.showAndWait();
+		
+		
+		createAccountButton.getScene().getWindow().hide();
 
 	}
 
