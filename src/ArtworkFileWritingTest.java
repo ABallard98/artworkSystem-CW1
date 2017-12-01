@@ -7,11 +7,13 @@ import java.util.*;
 public class ArtworkFileWritingTest {
 
     public static void main (String[] args) throws IOException{
-
+    	User spongeBob = new User("SpongeGod1", "Spongebob", "Squarepants", "bikini bottom", "p1n3ap113", 1111);
     	User dan = new User("Daniel123", "dan", "hart", "123", "4567", 123456);
     	User dan2 = new User("Daniel321", "dan", "hart", "123", "CF7654", 654321);
     	Writer.writeUserFile(dan);
     	Writer.writeUserFile(dan2);
+    	spongeBob.setAvatarIndex(5);
+    	Writer.writeUserFile(spongeBob);
         //GETTING USERS FOR TESTING
        /** ArrayList<User> users = new ArrayList<>();
         try{
