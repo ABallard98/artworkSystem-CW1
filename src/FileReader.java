@@ -136,10 +136,6 @@ public class FileReader {
 			User user1 = null;
 			User user2 = null;
 
-			for (User u : users) {
-				System.out.println(u.getUsername());
-			}
-
 			String firstUser = in.next();
 			String secondUser = in.next();
 

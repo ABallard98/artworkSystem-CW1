@@ -49,7 +49,7 @@ public class Painting extends Artwork{
    public String toString(){
        String output = "\nPainting Name: " + this.getTitle() +
                "\nCreator: " + this.getCreator() +
-               "\nSeller: " + this.getOwner() +
+               "\nSeller: " + this.getOwner().getFullName() +
                "\nYear: " + this.getCreationYear() +
                "\nNumber of available bids: " + this.getNumberOfBids() +
                "\nReserve price " + this.getReservePrice() +

@@ -7,7 +7,7 @@ public class Writer {
 
 
     /**
-     * Method to write a user text   file containing all of the users information
+     * Method to write a user text file containing all of the users information
      * @param user - user of the file
      * @throws IOException
      */
