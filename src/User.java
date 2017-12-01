@@ -256,7 +256,7 @@ public class User {
 	 */
 	public String getTextFileOutput() {
 		String output = this.username + "," + this.firstName + "," + this.lastName + "," + this.address + ","
-				+ this.phonenumber + "," + this.postcode;
+				+ this.phonenumber + "," + this.avatarIndex + "," + this.postcode;
 		return output;
 	}
 
@@ -267,7 +267,7 @@ public class User {
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
-				+ "\n" + "PhoneNumber: " + this.phonenumber + "\n" + "Favourites: " + this.getFavouritesString() + "\n";
+				+ "\n" + "PhoneNumber: " + this.phonenumber + "\n" /*+ "Favourites: " + this.getFavouritesString() + "\n"*/;
 		return output;
 	}
 

@@ -276,8 +276,8 @@ public class FileReader {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
-							+ " at " + dateString);
+					/**System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
+							+ " at " + dateString);*/
 					bids.add(bid);
 					seller.addBid(bid);
 				} else {
@@ -403,8 +403,11 @@ public class FileReader {
 			String lastname = in.next();
 			String address = in.next();
 			long phonenumber = in.nextLong();
+			int avatarIndex = in.nextInt();
 			String postcode = in.next();
+			
 			User user = new User(username, firstname, lastname, address, postcode, phonenumber);
+			System.out.println(user + "," + avatarIndex);
 			in.close();
 			return user;
 		} catch (FileNotFoundException e) {

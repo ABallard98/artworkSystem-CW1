@@ -20,7 +20,7 @@ public class FileReaderTesting {
 
         try{
         	FileReader.initialize();
-        	bids = FileReader.readBidFile("ayylmao.txt");
+        	bids = FileReader.readBidFile("elmarko.txt");
         	for(Bid b : bids){
         		System.out.println(b.getBidder().getFirstName() + " placed a bid of " + b.getReservePrice() + " on " + b.getArtwork().getTitle()
 				+ " at " + b.getBidDate());

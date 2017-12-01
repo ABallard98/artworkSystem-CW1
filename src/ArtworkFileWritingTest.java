@@ -6,17 +6,20 @@ import java.util.*;
  */
 public class ArtworkFileWritingTest {
 
-    public static void main (String[] args){
+    public static void main (String[] args) throws IOException{
 
-
+    	User dan = new User("Daniel123", "dan", "hart", "123", "4567", 123456);
+    	User dan2 = new User("Daniel321", "dan", "hart", "123", "CF7654", 654321);
+    	Writer.writeUserFile(dan);
+    	Writer.writeUserFile(dan2);
         //GETTING USERS FOR TESTING
-        ArrayList<User> users = new ArrayList<>();
+       /** ArrayList<User> users = new ArrayList<>();
         try{
             users = FileReader.readUserFile();
-            /**System.out.println(users.size());
+            System.out.println(users.size());
             for(User u : users){
                 System.out.println(u.toString() + "\n");
-            }*/
+            }
         }
         catch(FileNotFoundException e){
             System.out.println("error, file not found exception");
@@ -92,9 +95,7 @@ public class ArtworkFileWritingTest {
             System.out.println("Error creating bid file");
         }
 
-
-
-
+*/
     }
 
 
