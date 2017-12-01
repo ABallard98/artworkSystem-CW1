@@ -8,21 +8,21 @@ public class Bid {
 	
 	private String typeOfArtwork;
     private User bidder; //user that placed the bid
-    private double price; //price the user placed
+    private double reservePrice; //price the user placed
     private Artwork artwork; //the artwork that the bid is placed on
     private Date bidDate; //the date the bid was placed
 
     /**
      * Constructor of Bid
      * @param bidder - user that placed the bid
-     * @param price - price the user placed
+     * @param reservePrice - price the user placed
      * @param artwork - the artwork that the bid is placed on
      * @param bidDate - the date the bid was placed
      */
-    public Bid(String typeOfArtwork,User bidder, double price, Artwork artwork, Date bidDate){
+    public Bid(String typeOfArtwork,User bidder, double reservePrice, Artwork artwork, Date bidDate){
         this.typeOfArtwork = typeOfArtwork;
     	this.bidder = bidder;
-        this.price = price;
+        this.reservePrice = reservePrice;
         this.artwork = artwork;
         this.bidDate = bidDate;
     }
@@ -50,8 +50,8 @@ public class Bid {
      * Method to get the price
      * @return double - price
      */
-    public double getPrice(){
-        return this.price;
+    public double getReservePrice(){
+        return this.reservePrice;
     }
 
     /**
@@ -76,7 +76,8 @@ public class Bid {
      * @return String - data on the bid
      */
     public String getTextFileOutput(){
-        String output = this.getTypeOfArtwork() + "," + this.getBidder().getUsername() + "," + this.artwork.getTitle()+ "," + this.getPrice() +
+        String output = this.getTypeOfArtwork() + "," + this.getBidder().getUsername()
+                + "," + this.artwork.getTitle()+ "," + this.getReservePrice() +
                 "," + this.bidDate;
         return output;
     }
@@ -87,7 +88,7 @@ public class Bid {
      */
     public String toString(){
         String output = "Bid made by " + this.getBidder().getUsername() + " for the artwork " +
-                this.getArtwork().getTitle() + " for " + this.getPrice() + " on " + this.getBidDate();
+                this.getArtwork().getTitle() + " for " + this.getReservePrice() + " on " + this.getBidDate();
         return output;
     }
 
