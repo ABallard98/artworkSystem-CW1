@@ -1,5 +1,9 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class UserDisplayController {
@@ -16,8 +20,17 @@ public class UserDisplayController {
 
     
     public void initialize() {
-    	avatar.setImage(user.getImage());
     	username.setText(user.getUsername());
+    	try {
+			Image image = new Image(new FileInputStream("avatars/avatar"+user.getAvatarIndex()+".png"));
+	    	avatar.setImage(image);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
     }
 
 

@@ -191,6 +191,7 @@ public class FileReader {
 				in.nextLine();
 			}
 		}
+		fileScanner.close();
 	}
 
 	public static void readUserFiles() throws FileNotFoundException {
@@ -407,7 +408,7 @@ public class FileReader {
 			String postcode = in.next();
 			
 			User user = new User(username, firstname, lastname, address, postcode, phonenumber);
-			System.out.println(user + "," + avatarIndex);
+			System.out.println(user.getUsername() + "," + avatarIndex);
 			in.close();
 			return user;
 		} catch (FileNotFoundException e) {

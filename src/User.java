@@ -57,6 +57,7 @@ public class User {
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
+		avatarIndex= 1;
 	}
 
 	public boolean isCustomImage() {
@@ -68,7 +69,7 @@ public class User {
 		if (!isCustomImage()) {
 
 			try {
-				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
+				image = new Image(new FileInputStream("/avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -346,6 +347,7 @@ public class User {
 
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;
+		resolvePicture();
 	}
 	
 	

@@ -240,7 +240,7 @@ public class GUIController {
 					ArtworkController.setCurrentPainting(FileReader.getPainting(s));
 				}
 
-				bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
+				bp = (BorderPane) FXMLLoader.load(getClass().getResource("/ArtworkView.fxml"));
 				mainSection.getChildren().setAll(bp);
 			}
 
