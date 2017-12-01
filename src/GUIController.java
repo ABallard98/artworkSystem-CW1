@@ -204,17 +204,48 @@ public class GUIController {
 		BorderPane bp; // Border Pane to load the new BorderPane in
 
 		try {
+			
+			if(FileReader.getUser(s) != null) {
+				User user = FileReader.getUser(s);
+				UserDisplayController.setUser(user);
+				
 
-			if (FileReader.getSculpture(s) != null) {
-				ArtworkController.setCurrentSculpture(FileReader.getSculpture(s));
+				FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("/UserDisplay.fxml"));
+				try {
+					Parent root = fxmlL.load();
+					// NewAccountCreatorController newAccountController =
+					// fxmlL.<NewAccountCreatorController>getController();
+
+					Scene scene = new Scene(root, 300, 300);
+
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.initModality(Modality.APPLICATION_MODAL);
+
+					stage.setTitle(user.getUsername());
+					stage.show();
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				
+			} else {
+				if (FileReader.getSculpture(s) != null) {
+					ArtworkController.setCurrentSculpture(FileReader.getSculpture(s));
+				}
+
+				if (FileReader.getPainting(s) != null) {
+					ArtworkController.setCurrentPainting(FileReader.getPainting(s));
+				}
+
+				bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
+				mainSection.getChildren().setAll(bp);
 			}
 
-			if (FileReader.getPainting(s) != null) {
-				ArtworkController.setCurrentPainting(FileReader.getPainting(s));
-			}
 
-			bp = (BorderPane) FXMLLoader.load(getClass().getResource("ArtworkView.fxml"));
-			mainSection.getChildren().setAll(bp);
+
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -228,7 +259,7 @@ public class GUIController {
 		ArrayList<String> users = new ArrayList<>();
 
 		for (User user : FileReader.getUsers()) {
-			users.add(user.getUsername() + " " + user.getFirstName() + " " + user.getLastName());
+			users.add(user.getUsername());
 		}
 
 		observableList = FXCollections.observableArrayList(users);
