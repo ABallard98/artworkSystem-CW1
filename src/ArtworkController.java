@@ -12,6 +12,12 @@ import java.util.*;
 
 public class ArtworkController {
 
+
+    @FXML
+    private Label noOfBids;
+    
+    
+	
 	@FXML
 	private Label categoryA;
 
@@ -109,7 +115,7 @@ public class ArtworkController {
 		creatorA.setText(currentPainting.getCreator());
 		titleA.setText(currentPainting.getTitle());
 		titleA.setText(currentPainting.getTitle());
-		noOfBidsA.setText(currentPainting.getNumberOfBids() + "");
+		noOfBidsA.setText(currentPainting.getNumberOfPlacedBids() + "");
 		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
 		mainPic.setImage(currentPainting.getImage());
 
@@ -142,7 +148,7 @@ public class ArtworkController {
 		creatorA.setText(currentSculpture.getCreator());
 		titleA.setText(currentSculpture.getTitle());
 		titleA.setText(currentSculpture.getTitle());
-		noOfBidsA.setText(currentSculpture.getNumberOfBids() + "");
+		noOfBidsA.setText(currentSculpture.getNumberOfPlacedBids() + "");
 		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
 
 	}
@@ -166,7 +172,7 @@ public class ArtworkController {
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
 			LoginController.getUser().addBid(bid);
-
+			currentSculpture.addBidToItem(bid);
 		} else if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
@@ -174,6 +180,7 @@ public class ArtworkController {
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
 			LoginController.getUser().addBid(bid);
+			currentPainting.addBidToItem(bid);
 		}
 		
 

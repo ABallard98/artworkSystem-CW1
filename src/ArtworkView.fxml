@@ -263,6 +263,19 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
+            <Label text="Number of bids" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="noOfBids" text="N/A" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </right>

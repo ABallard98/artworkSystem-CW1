@@ -246,6 +246,11 @@ public class Artwork {
 		this.numberOfBids = bids;
 	}
 
+	
+	public int getNumberOfPlacedBids() {
+		return bidsOnItem.size();
+	} 
+	
 	/**
 	 * Method to set the reservePrice of the artwork
 	 * 
@@ -261,14 +266,19 @@ public class Artwork {
 	 * @param bid
 	 */
 	public void addBidToItem(Bid bid) {
-		if (bidsOnItem.size() < numberOfBids && bid.getReservePrice() > bidsOnItem.get(bidsOnItem.size() - 1).getReservePrice()) {
-			bidsOnItem.add(bid);
-			if(bidsOnItem.size() == this.numberOfBids){ //setting the artwork is over to true
-				this.setBidIsOver(true);
+		
+		if(!bidsOnItem.isEmpty()) {
+			if (bidsOnItem.size() < numberOfBids && bid.getReservePrice() > bidsOnItem.get(bidsOnItem.size() - 1).getReservePrice()) {
+				bidsOnItem.add(bid);
+				if(bidsOnItem.size() == this.numberOfBids){ //setting the artwork is over to true
+					this.setBidIsOver(true);
+				}
+			} else {
+				System.out.println("Error placing bid on artwork. Either price is lower or max bid aciheved.");
 			}
-		} else {
-			System.out.println("Error placing bid on artwork. Either price is lower or max bid aciheved.");
 		}
+		
+
 	}
 
 	public double getValueOfHighestBid() {

@@ -32,7 +32,7 @@ public class FileReader {
 		return null;
 
 	}
-	
+
 	public static void addUser(User user) {
 		users.add(user);
 	}
@@ -106,6 +106,14 @@ public class FileReader {
 		artworks = new ArrayList<Artwork>();
 		artworks.addAll(sculptures);
 		artworks.addAll(paintings);
+
+		try {
+			readBidFiles();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -277,8 +285,10 @@ public class FileReader {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					/**System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount + " on " + art.getTitle()
-							+ " at " + dateString);*/
+					/**
+					 * System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount +
+					 * " on " + art.getTitle() + " at " + dateString);
+					 */
 					bids.add(bid);
 					seller.addBid(bid);
 				} else {
@@ -292,7 +302,54 @@ public class FileReader {
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
+			// e.printStackTrace();
 			System.out.println("Error constructing Bid. File " + filename + " was not found");
+		}
+
+	}
+
+	public static void readBidFiles() throws FileNotFoundException {
+
+		File[] listOfFiles = new File("bids/").listFiles();
+		for (File e : listOfFiles) {
+
+			Scanner sc = new Scanner(e);
+
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				Scanner linear = new Scanner(line);
+				linear.useDelimiter(",");
+				String type = linear.next();
+				String username = linear.next();
+				String artwork = linear.next();
+				String amount = linear.next();
+
+				Double amount1 = Double.parseDouble(amount);
+
+				User user = FileReader.getUser(username);
+
+				if (type.equalsIgnoreCase("sculpture")) {
+					Sculpture sculpture = FileReader.getSculpture(artwork);
+					Date date = new Date();
+					Bid bid = new Bid(type, user, 0, sculpture, date);
+					user.addBid(bid);
+					sculpture.addBidToItem(bid);
+					// System.out.println(bid.toString());
+					bids.add(bid);
+
+				} else if (type.equalsIgnoreCase("painting")) {
+					Painting painting = FileReader.getPainting(artwork);
+					Date date = new Date();
+					Bid bid = new Bid(type, user, amount1, painting, date);
+					user.addBid(bid);
+					painting.addBidToItem(bid);
+					// System.out.println(bid.toString());
+					bids.add(bid);
+
+				}
+
+			}
+
 		}
 
 	}
@@ -406,7 +463,7 @@ public class FileReader {
 			long phonenumber = in.nextLong();
 			int avatarIndex = in.nextInt();
 			String postcode = in.next();
-			
+
 			User user = new User(username, firstname, lastname, address, postcode, phonenumber);
 			System.out.println(user.getUsername() + "," + avatarIndex);
 			in.close();
