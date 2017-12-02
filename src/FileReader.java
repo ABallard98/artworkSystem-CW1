@@ -324,13 +324,18 @@ public class FileReader {
 				String artwork = linear.next();
 				String amount = linear.next();
 
+				String dateString = linear.next();
+				
+				Date date = new Date(dateString);
+
+				
 				Double amount1 = Double.parseDouble(amount);
 
 				User user = FileReader.getUser(username);
 
 				if (type.equalsIgnoreCase("sculpture")) {
 					Sculpture sculpture = FileReader.getSculpture(artwork);
-					Date date = new Date();
+					//Date date = new Date();
 					Bid bid = new Bid(type, user, 0, sculpture, date);
 					user.addBid(bid);
 					sculpture.addBidToItem(bid);
@@ -339,7 +344,7 @@ public class FileReader {
 
 				} else if (type.equalsIgnoreCase("painting")) {
 					Painting painting = FileReader.getPainting(artwork);
-					Date date = new Date();
+					//Date date = new Date();
 					Bid bid = new Bid(type, user, amount1, painting, date);
 					user.addBid(bid);
 					painting.addBidToItem(bid);
