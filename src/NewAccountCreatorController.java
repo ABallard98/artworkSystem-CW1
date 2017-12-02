@@ -81,6 +81,8 @@ public class NewAccountCreatorController {
 	@FXML
 	private ImageView mainAvatar;
 
+	private static boolean custom;
+
 	private int avatarIndex;
 	private Image image1 = null;
 	private Image image2 = null;
@@ -100,6 +102,23 @@ public class NewAccountCreatorController {
 		avatar4.setOnAction(e -> updateAvatar(4));
 		avatar5.setOnAction(e -> updateAvatar(5));
 		avatar6.setOnAction(e -> updateAvatar(6));
+
+	}
+
+	public void setImg() {
+		if (custom) {
+			Image img1;
+			try {
+				img1 = new Image(new FileInputStream("tmpImg.png"));
+				mainAvatar.setImage(img1);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void refreshImg() {
 
 	}
 
@@ -241,12 +260,38 @@ public class NewAccountCreatorController {
 			stage.setScene(scene);
 			stage.initModality(Modality.APPLICATION_MODAL);
 
-			stage.show();
+			stage.showAndWait();
+			
+			if(custom) {
+				setImg();
+			}
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+
+	public ImageView getMainAvatar() {
+		return mainAvatar;
+	}
+
+	public void setMainAvatar(ImageView mainAvatar) {
+		String path = "tmpImg.png";
+
+		try {
+			Image img = new Image(new FileInputStream(path));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// this.mainAvatar.
+	}
+
+	public static void setCustom(boolean val) {
+		custom = val;
 
 	}
 

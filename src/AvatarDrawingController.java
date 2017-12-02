@@ -8,9 +8,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -42,7 +44,7 @@ public class AvatarDrawingController {
 	private double startY;
 	private double endX;
 	private double endY;
-	private GraphicsContext gc;
+	private GraphicsContext gc; 
 
 	private EventHandler<MouseEvent> pressed1;
 	private EventHandler<MouseEvent> released1;
@@ -161,7 +163,7 @@ public class AvatarDrawingController {
 
 		WritableImage writableImg = new WritableImage(200, 200);
 
-		File file = new File("CanvasImage.png");
+		File file = new File("tmpImg.png");
 
 		canvas.snapshot(null, writableImg);
 
@@ -169,6 +171,22 @@ public class AvatarDrawingController {
 			ImageIO.write(SwingFXUtils.fromFXImage(writableImg, null), "png", file);
 		} catch (Exception s) {
 		}
+		
+		
+		NewAccountCreatorController.setCustom(true);
+		
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Success");
+
+		alert.setHeaderText("The image has been created");
+		alert.setContentText("Now you can use it as your avatar");
+		alert.showAndWait();
+		
+		
+		
+		save.getScene().getWindow().hide();
+		
 	}
 
 	public void clearCanvas() {
@@ -177,8 +195,8 @@ public class AvatarDrawingController {
 	}
 
 	public void initDraw(GraphicsContext gc) {
-		gc.setFill(Color.YELLOW);
-		gc.setStroke(Color.YELLOW);
+		gc.setFill(Color.BLUEVIOLET);
+		gc.setStroke(Color.BLUEVIOLET);
 
 		gc.fill();
 
