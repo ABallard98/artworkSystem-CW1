@@ -4,12 +4,16 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class NewAccountCreatorController {
@@ -37,7 +41,7 @@ public class NewAccountCreatorController {
 
 	@FXML
 	private Button openGeneratorButton;
-	
+
 	@FXML
 	private Button avatar1;
 
@@ -76,7 +80,6 @@ public class NewAccountCreatorController {
 
 	@FXML
 	private ImageView mainAvatar;
-
 
 	private int avatarIndex;
 	private Image image1 = null;
@@ -157,9 +160,6 @@ public class NewAccountCreatorController {
 
 	public void createAccount() {
 
-
-		
-		
 		String username = usernameField.getText();
 		String firstName = firstNameField.getText();
 		String lastName = lastNameField.getText();
@@ -167,10 +167,9 @@ public class NewAccountCreatorController {
 		String postCode = postcodeField.getText();
 		String phoneNumber = phoneNumberField.getText();
 		long phoneNumberLong = 0;
-		if(username.isEmpty() 	|| firstName.isEmpty() 	|| lastName.isEmpty()
-				|| address.isEmpty() 	|| postCode.isEmpty() 	|| phoneNumber.isEmpty()) {
+		if (username.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || postCode.isEmpty()
+				|| phoneNumber.isEmpty()) {
 
-			
 			try {
 				phoneNumberLong = Long.parseLong(phoneNumber);
 			} catch (Exception e) {
@@ -179,10 +178,10 @@ public class NewAccountCreatorController {
 
 				alert.setHeaderText("Wrong format of phone number");
 				alert.setContentText("Please enter correct phone number");
-				alert.showAndWait();				
+				alert.showAndWait();
 				return;
 			}
-			
+
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 
@@ -192,10 +191,6 @@ public class NewAccountCreatorController {
 
 			return;
 		}
-		
-		
-
-		
 
 		String userdata = "";
 		userdata += "\n Username: " + username;
@@ -206,15 +201,13 @@ public class NewAccountCreatorController {
 		userdata += "\n Phone number: " + phoneNumberLong;
 
 		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
-		//user.setAvatarIndex(avatarIndex);
-		//user.resolvePicture();
+		// user.setAvatarIndex(avatarIndex);
+		// user.resolvePicture();
 		System.out.println(user.getTextFileOutput());
 		FileReader.addUser(user);
-		
 
-		
-		//user
-		
+		// user
+
 		try {
 			Writer.writeUserFile(user);
 		} catch (IOException e) {
@@ -222,22 +215,39 @@ public class NewAccountCreatorController {
 			e.printStackTrace();
 		}
 		System.out.println(userdata);
-		
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
 
 		alert.setHeaderText("The user has been created");
 		alert.setContentText("Close this window to return to login screen");
 		alert.showAndWait();
-		
-		
+
 		createAccountButton.getScene().getWindow().hide();
 
 	}
 
 	public void openCustomPictureCreator() {
-		// for Ayden
+
+		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AvatarDrawingTool.fxml"));
+		try {
+			BorderPane login = (BorderPane) fxmlL.load();
+			// NewAccountCreatorController newAccountController =
+			// fxmlL.<NewAccountCreatorController>getController();
+
+			Scene scene = new Scene(login, 768, 832);
+
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.initModality(Modality.APPLICATION_MODAL);
+
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }

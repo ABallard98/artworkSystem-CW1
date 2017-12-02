@@ -1,70 +1,185 @@
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Line;
 
 public class AvatarDrawingController {
 
-    @FXML
-    private Canvas canvas;
+	@FXML
+	private Canvas canvas;
 
-    
-    public void initialize() {
-    
-    	GraphicsContext gc = canvas.getGraphicsContext2D();
-    	drawCircle(gc);
-    	
-    	
-        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, 
-                new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                gc.beginPath();
-                gc.moveTo(event.getX(), event.getY());
-                gc.stroke();
-                
-            }
-        });
+	@FXML
+	private RadioButton selectLine;
 
-        canvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, 
-                new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                gc.lineTo(event.getX(), event.getY());
-                gc.stroke();
-                gc.closePath();
-                gc.beginPath();
-                gc.moveTo(event.getX(), event.getY());
-            }
-        });
-        
-        canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, 
-                new EventHandler<MouseEvent>(){
-            @Override
-            public void handle(MouseEvent event) {
-                gc.lineTo(event.getX(), event.getY());
-                gc.stroke();
-                gc.closePath();
-            }
-        });
+	@FXML
+	private RadioButton selectCircle;
 
-    }
-    
-    
-    
-    
-    public void drawCircle(GraphicsContext gc) {
-    	Circle circle = new Circle();
-    	gc.setFill(Color.YELLOW);
-    	gc.setStroke(Color.YELLOW);
-    	
-    	gc.fill();
-    	
-    	
-    	
-    }
-    
+	@FXML
+	private Button save;
+
+	@FXML
+	private Button clear;
+
+	private ArrayList<Ellipse> ovals;
+	private ArrayList<Line> lines;
+
+	private double startX;
+	private double startY;
+	private double endX;
+	private double endY;
+	private GraphicsContext gc;
+
+	private EventHandler<MouseEvent> pressed1;
+	private EventHandler<MouseEvent> released1;
+
+	private EventHandler<MouseEvent> pressed2;
+	private EventHandler<MouseEvent> released2;
+
+	public void initialize() {
+
+		clear.setOnAction(e -> clearCanvas());
+
+		gc = canvas.getGraphicsContext2D();
+		initDraw(gc);
+
+		// gc.lineTo(startX, startY);
+		// gc.stroke();
+		gc.closePath();
+		gc.beginPath();
+
+		ToggleGroup tg = new ToggleGroup();
+		selectCircle.setToggleGroup(tg);
+		selectLine.setToggleGroup(tg);
+
+		selectLine.setOnAction(e -> generateLines());
+		selectCircle.setOnAction(e -> generateCircles());
+
+		save.setOnAction(e -> saveImg());
+
+	}
+
+	public void generateLines() {
+
+		if (pressed2 != null && released2 != null) {
+			canvas.removeEventHandler(MouseEvent.MOUSE_PRESSED, pressed2);
+			canvas.removeEventHandler(MouseEvent.MOUSE_RELEASED, released2);
+
+		}
+
+		pressed1 = new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				gc.beginPath();
+				gc.moveTo(event.getX(), event.getY());
+				startX = event.getX();
+				startY = event.getY();
+			}
+		};
+
+		released1 = new EventHandler<MouseEvent>() {
+
+			public void handle(MouseEvent event) {
+				gc.lineTo(event.getX(), event.getY());
+
+				endX = event.getX();
+				endY = event.getY();
+				gc.strokeLine(startX, startY, endX, endY);
+				gc.closePath();
+			}
+		};
+
+		if (selectLine.isSelected()) {
+
+			canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, pressed1);
+
+			canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, released1);
+		}
+
+	}
+
+	public void generateCircles() {
+
+		if (pressed1 != null && released1 != null) {
+			canvas.removeEventHandler(MouseEvent.MOUSE_PRESSED, pressed1);
+			canvas.removeEventHandler(MouseEvent.MOUSE_RELEASED, released1);
+		}
+
+		startX = 0;
+		startY = 0;
+		endX = 0;
+		endY = 0;
+		
+		
+		pressed2 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				gc.beginPath();
+				gc.moveTo(event.getX(), event.getY());
+				startX = event.getX();
+				startY = event.getY();
+			}
+		};
+		
+		released2 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				gc.lineTo(event.getX(), event.getY());
+
+				endX = event.getX();
+				endY = event.getY();
+				gc.fillOval(startX, startY, endX - startX, endY - startY);
+				gc.closePath();
+			}
+		};
+
+		if (selectCircle.isSelected()) {
+
+			canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, pressed2);
+
+			canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, released2);
+		}
+
+	}
+
+	public void saveImg() {
+
+		WritableImage writableImg = new WritableImage(200, 200);
+
+		File file = new File("CanvasImage.png");
+
+		canvas.snapshot(null, writableImg);
+
+		try {
+			ImageIO.write(SwingFXUtils.fromFXImage(writableImg, null), "png", file);
+		} catch (Exception s) {
+		}
+	}
+
+	public void clearCanvas() {
+		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+	}
+
+	public void initDraw(GraphicsContext gc) {
+		gc.setFill(Color.YELLOW);
+		gc.setStroke(Color.YELLOW);
+
+		gc.fill();
+
+	}
+
 }
