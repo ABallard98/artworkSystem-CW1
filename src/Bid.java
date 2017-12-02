@@ -4,6 +4,9 @@
 
 import java.util.*;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Bid {
 	
 	private String typeOfArtwork;
@@ -11,6 +14,9 @@ public class Bid {
     private double reservePrice; //price the user placed
     private Artwork artwork; //the artwork that the bid is placed on
     private Date bidDate; //the date the bid was placed
+    private ImageView imgView;
+    private String title;
+    private String bidDateString;
 
     /**
      * Constructor of Bid
@@ -25,8 +31,21 @@ public class Bid {
         this.reservePrice = reservePrice;
         this.artwork = artwork;
         this.bidDate = bidDate;
+        Image img = artwork.getImage();
+        this.title = artwork.getTitle();
     }
 
+    
+    public Bid(String typeOfArtwork,User bidder, double reservePrice, Artwork artwork, String bid){
+        this.typeOfArtwork = typeOfArtwork;
+    	this.bidder = bidder;
+        this.reservePrice = reservePrice;
+        this.artwork = artwork;
+        this.bidDateString = bid;
+        Image img = artwork.getImage();
+        this.title = artwork.getTitle();
+    }
+    
     
     /**
      * Method to get the type of artwork
@@ -35,7 +54,39 @@ public class Bid {
     public String getTypeOfArtwork() {
 		return this.typeOfArtwork;
 	}
+    
+    
+    
 
+
+    
+    public String getBidDateString() {
+		return bidDateString;
+	}
+
+
+	public void setBidDateString(String bidDateString) {
+		this.bidDateString = bidDateString;
+	}
+
+
+	public ImageView getImgView() {
+ 
+    	
+    	return imgView;
+    }
+    
+    
+    
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 
 	/**

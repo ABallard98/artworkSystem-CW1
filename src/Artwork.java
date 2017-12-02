@@ -56,7 +56,7 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
 		this.highestBid = 0;
-		
+		resolveImage();
 	}
 
 	
@@ -101,6 +101,7 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
 		this.highestBid = 0;
+		resolveImage();
 	}
 
 	public void readPhoto(String imageFileName) {

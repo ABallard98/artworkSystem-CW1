@@ -44,7 +44,7 @@ public class AvatarDrawingController {
 	private double startY;
 	private double endX;
 	private double endY;
-	private GraphicsContext gc; 
+	private GraphicsContext gc;
 
 	private EventHandler<MouseEvent> pressed1;
 	private EventHandler<MouseEvent> released1;
@@ -54,8 +54,8 @@ public class AvatarDrawingController {
 
 	public void initialize() {
 
-		//canvas.setStyle("border-color: red; border-width: 5px");
-		
+		// canvas.setStyle("border-color: red; border-width: 5px");
+
 		clear.setOnAction(e -> clearCanvas());
 
 		gc = canvas.getGraphicsContext2D();
@@ -126,8 +126,7 @@ public class AvatarDrawingController {
 		startY = 0;
 		endX = 0;
 		endY = 0;
-		
-		
+
 		pressed2 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -137,7 +136,7 @@ public class AvatarDrawingController {
 				startY = event.getY();
 			}
 		};
-		
+
 		released2 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -171,22 +170,18 @@ public class AvatarDrawingController {
 			ImageIO.write(SwingFXUtils.fromFXImage(writableImg, null), "png", file);
 		} catch (Exception s) {
 		}
-		
-		
+
 		NewAccountCreatorController.setCustom(true);
-		
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
 
 		alert.setHeaderText("The image has been created");
 		alert.setContentText("Now you can use it as your avatar");
 		alert.showAndWait();
-		
-		
-		
+
 		save.getScene().getWindow().hide();
-		
+
 	}
 
 	public void clearCanvas() {

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyBidsController">
    <left>
       <VBox prefHeight="496.0" prefWidth="58.0" BorderPane.alignment="CENTER" />
    </left>
@@ -47,13 +47,14 @@
             </VBox>
             <TableView fx:id="table" prefHeight="329.0" prefWidth="692.0">
                <columns>
-                  <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
+                  <TableColumn fx:id="picture" prefWidth="75.0" text="Picture" />
                   <TableColumn fx:id="creatonNameColumn" prefWidth="117.0" text="Creator name" />
                   <TableColumn fx:id="bidLimitColumn" prefWidth="107.0" text="Bid limit" />
                   <TableColumn fx:id="currentPriceColumn" prefWidth="115.0" text="Current price" />
                   <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Winning" />
-                  <TableColumn prefWidth="132.0" text="Placed amount" />
-                  <TableColumn prefWidth="72.0" text="Date" />
+                  <TableColumn prefWidth="32.0" text="Placed amount" />
+                  <TableColumn prefWidth="100.0" text="Date" />
+                  <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
                </columns>
                <VBox.margin>
                   <Insets top="20.0" />
