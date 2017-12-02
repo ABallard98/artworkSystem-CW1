@@ -91,6 +91,10 @@ public class MyBidsController {
     	picture.setMinWidth(100);
     	table.setItems(bids);
 
+    	dateColumn.setMinWidth(200);
+    	dateColumn.setSortType(TableColumn.SortType.DESCENDING);
+    	table.getSortOrder().add(dateColumn);
+
     	
     }
 }

@@ -34,3 +34,4 @@ painting,elmarko,uuuu,33.0,Sat Dec 02 20:47:53 GMT 2017
 sculpture,elmarko,sculpture,11.0,Sat Dec 02 20:48:01 GMT 2017
 painting,elmarko,323123,10.0,Sat Dec 02 21:14:28 GMT 2017
 painting,elmarko,uuuu,90.0,Sat Dec 02 21:35:28 GMT 2017
+painting,elmarko,777,909999.0,Sat Dec 02 22:19:23 GMT 2017
