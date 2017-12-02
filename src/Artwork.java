@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Artwork {
 
@@ -24,6 +25,7 @@ public class Artwork {
 	protected int numberOfBids;
 	private boolean bidIsOver;
 	private double highestBid;
+	private ImageView imageView;
 
 	/**
 	 * Constructor of artwork without a description
@@ -57,6 +59,9 @@ public class Artwork {
 		this.bidIsOver = false;
 		this.highestBid = 0;
 		resolveImage();
+		imageView = new ImageView();
+		//imageView.setImage(image);
+
 	}
 
 	
@@ -101,7 +106,10 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
 		this.highestBid = 0;
+		
 		resolveImage();
+		imageView = new ImageView();
+
 	}
 
 	public void readPhoto(String imageFileName) {
@@ -303,6 +311,12 @@ public class Artwork {
 	public Image getImage() {
 		return image;
 	}
+	
+	public ImageView getImageView() {
+		imageView.setImage(image);
+		return imageView;
+	}
+	
 
 	public void setImage(Image image) {
 		this.image = image;

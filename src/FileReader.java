@@ -500,23 +500,28 @@ public class FileReader {
 	}
 
 	public static Image retrieveImage(String name) {
-		Image image;
+		Image image = null;
 		try {
 			image = new Image(new FileInputStream("artworkImages/" + name + "/0.png"));
+			System.out.println("How?"+ image.getUrl());
+			
 			return image;
 
 		} catch (FileNotFoundException e) {
 
 			try {
-				return image = new Image(new FileInputStream("artworkImages/notfound.png"));
+				image = new Image(new FileInputStream("artworkImages/notfound.png"));
+				return image;
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
-		}
+		} 
+		
+		
 
-		return null;
+		return image;
 
 	}
 

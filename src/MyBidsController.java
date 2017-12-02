@@ -10,6 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class MyBidsController {
@@ -66,6 +67,15 @@ public class MyBidsController {
     	titleColumn.setCellValueFactory(new PropertyValueFactory<Bid,String>("title"));
     	bidLimitColumn.setCellValueFactory(new PropertyValueFactory<Bid,Date>("bidDate"));
 
+    	for(Bid bid: bids) {
+        	System.out.println("come on"+ bid.getArtwork().getImage().getHeight());
+        	System.out.println("opacity"+ bid.getArtwork().getImageView().getOpacity());
+
+
+    	}
+    	
+    	
+    	picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
 
     	table.setItems(bids);
 
