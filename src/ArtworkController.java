@@ -5,19 +5,24 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
 
-
 public class ArtworkController {
 
+	@FXML
+	private ImageView sellerAvatar;
 
-    @FXML
-    private Label noOfBids;
-    
-    
-	
+	@FXML
+	private Button addToFav;
+
+	@FXML
+	private Label noOfBids;
+
 	@FXML
 	private Label categoryA;
 
@@ -65,21 +70,21 @@ public class ArtworkController {
 
 	@FXML
 	private Button placeBid;
-	
-    @FXML
-    private ImageView mainPic;
 
-    @FXML
-    private ImageView pic1;
+	@FXML
+	private ImageView mainPic;
 
-    @FXML
-    private ImageView pic2;
+	@FXML
+	private ImageView pic1;
 
-    @FXML
-    private ImageView pic3;
+	@FXML
+	private ImageView pic2;
 
-    @FXML
-    private ImageView pic4;
+	@FXML
+	private ImageView pic3;
+
+	@FXML
+	private ImageView pic4;
 
 	private static Painting currentPainting;
 	private static Sculpture currentSculpture;
@@ -92,17 +97,18 @@ public class ArtworkController {
 
 		if (currentSculpture != null) {
 			initializeSculpture();
+
 		}
-		
-		placeBid.setOnAction(e-> addBid());
+
+		placeBid.setOnAction(e -> addBid());
 		try {
 			FileReader.constructBid(LoginController.getUser().getUsername());
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println("Total no. of bids "+ FileReader.getBids().size());
-		System.out.println("Total no. of users "+ FileReader.getUsers().size());
+		System.out.println("Total no. of bids " + FileReader.getBids().size());
+		System.out.println("Total no. of users " + FileReader.getUsers().size());
 
 	}
 
@@ -118,7 +124,10 @@ public class ArtworkController {
 		noOfBidsA.setText(currentPainting.getNumberOfPlacedBids() + "");
 		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
 		mainPic.setImage(currentPainting.getImage());
+		// sellerAvatar.setImage(currentPainting.getOwner().getImage());
 
+		System.out.println(currentPainting.getOwner().getImagePath());
+		sellerA.setText(currentPainting.getOwner().getUsername());
 	}
 
 	public void initializeSculpture() {
@@ -127,14 +136,13 @@ public class ArtworkController {
 
 		ArrayList<Image> additionalImages = currentSculpture.getAdditionalImages();
 		ArrayList<ImageView> imageViews = new ArrayList<>();
-		
+
 		imageViews.add(pic1);
 		imageViews.add(pic2);
 		imageViews.add(pic3);
 		imageViews.add(pic4);
 
-		
-		for(int i = 0; i< additionalImages.size(); i++) {
+		for (int i = 0; i < additionalImages.size(); i++) {
 			imageViews.get(i).setImage((additionalImages.get(i)));
 		}
 		mainPic.setImage(currentSculpture.getImage());
@@ -152,6 +160,22 @@ public class ArtworkController {
 		System.out.println("Number of bids----------------------- is " + currentSculpture.getNumberOfPlacedBids());
 		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
 
+		User owner = currentSculpture.getOwner();
+		String path = "avatars/avatar" + owner.getAvatarIndex() + ".png";
+		System.out.println("Avatar path is " + path);
+		Image image;
+		try {
+			image = new Image(new FileInputStream(path));
+			sellerAvatar.setImage(image);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// sellerAvatar.setImage(currentSculpture.getOwner().getImage());
+		sellerA.setText(currentSculpture.getOwner().getUsername());
+
 	}
 
 	public static void setCurrentPainting(Painting painting) {
@@ -159,14 +183,13 @@ public class ArtworkController {
 		currentSculpture = null;
 
 	}
-	
-	
+
 	public void addBid() {
-		
+
 		String type = "";
 		Bid bid = null;
-		
-		if(currentSculpture != null) {
+
+		if (currentSculpture != null) {
 			type = "sculpture";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
@@ -183,7 +206,6 @@ public class ArtworkController {
 			LoginController.getUser().addBid(bid);
 			currentPainting.addBidToItem(bid);
 		}
-		
 
 		try {
 			Writer.writeBidFile(bid);
@@ -192,10 +214,10 @@ public class ArtworkController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println("Number of bids of user "+ LoginController.getUser() +" is "+ LoginController.getUser().getPlacedBids().size());
+
+		System.out.println("Number of bids of user " + LoginController.getUser() + " is "
+				+ LoginController.getUser().getPlacedBids().size());
 	}
-	
 
 	public static void setCurrentSculpture(Sculpture sculpture) {
 		currentPainting = null;

@@ -48,6 +48,8 @@ public class User {
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
 		setUsername(username);
+		customImage = false;
+
 		setFirstName(fname);
 		setLastName(lname);
 		setAddress(address);
@@ -58,10 +60,16 @@ public class User {
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
 		avatarIndex= 1;
-	}
+		try {
+			image = new Image(new FileInputStream("avatars/avatar6.png"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	}
 	
 	
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber, int index) {
+		customImage = false;
 		setUsername(username);
 		setFirstName(fname);
 		setLastName(lname);
@@ -73,7 +81,12 @@ public class User {
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
 		avatarIndex= index;
-	}
+		try {
+			image = new Image(new FileInputStream("avatars/avatar6.png"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	}
 
 	public boolean isCustomImage() {
 		return customImage;
@@ -81,10 +94,10 @@ public class User {
 
 	public void resolvePicture() {
 
-		if (!isCustomImage()) {
+		if (!isCustomImage() && avatarIndex > 0) {
 
 			try {
-				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
+				image = new Image(new FileInputStream("avatars/avatar6.png"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -92,6 +105,15 @@ public class User {
 
 		}
 
+	}
+	
+	public Image getImage() {
+		return image;
+	}
+
+	
+	public String getImagePath() {
+		return image.getUrl();
 	}
 
 	/**
@@ -295,9 +317,7 @@ public class User {
 		this.timeLastLoggedIn = timeLastLoggedIn;
 	}
 
-	public Image getImage() {
-		return image;
-	}
+
 
 	public void setImage(Image image) {
 		this.image = image;
