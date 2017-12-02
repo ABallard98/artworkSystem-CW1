@@ -64,7 +64,28 @@ public class Writer {
     }
 
 
+    public static void addToFavourites(User user1, User user2) {
+    	String path = "favourites.txt";
+    	
+		File file = new File("favourites.txt");
+		PrintWriter writer;
+		try {
+			writer = new PrintWriter(new FileWriter(file, true));
 
+		    writer.println(user1.getUsername() + "," +user2.getUsername());
+		    writer.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	
+    	
+    }
+
+    
 
 
 }

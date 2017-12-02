@@ -543,4 +543,15 @@ public class FileReader {
 		FileReader.bids = bids;
 	}
 
+	public static boolean checkIfInFavouriteList(User user1, User user2) {
+
+		for (User favUser : user1.getFavouriteUsers()) {
+			if (favUser.getUsername().equals(user2.getUsername())) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}
 }
