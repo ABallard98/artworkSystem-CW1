@@ -24,23 +24,24 @@ import javafx.stage.Stage;
 
 public class AddArtworkController {
 
+	
 	@FXML
-	private TextField width;
+	private TextField width;  // Field for width of the artwork
 
 	@FXML
-	private TextField height;
+	private TextField height; // Field for height of the artwork
 
 	@FXML
-	private TextField depth;
+	private TextField depth; // Field for depth of the artwork 
 
 	@FXML
-	private TextField material;
+	private TextField material; // Field for material of the artwork 
 
 	@FXML
-	private RadioButton selectSculpture;
+	private RadioButton selectSculpture; // Radio button to choose a sculpture type
 
 	@FXML
-	private RadioButton selectPainting;
+	private RadioButton selectPainting; // Radio button to choose a painting type 
 
 	@FXML
 	private TextField title;

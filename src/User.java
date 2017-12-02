@@ -59,6 +59,21 @@ public class User {
 		placedBids = new ArrayList<>();
 		avatarIndex= 1;
 	}
+	
+	
+	public User(String username, String fname, String lname, String address, String postcode, long phonenumber, int index) {
+		setUsername(username);
+		setFirstName(fname);
+		setLastName(lname);
+		setAddress(address);
+		setPostcode(postcode);
+		setPhonenumber(phonenumber);
+		this.favouriteUsers = new ArrayList<>();
+		this.sellingArtworks = 0;
+		artForSale = new ArrayList<>();
+		placedBids = new ArrayList<>();
+		avatarIndex= index;
+	}
 
 	public boolean isCustomImage() {
 		return customImage;
@@ -69,7 +84,7 @@ public class User {
 		if (!isCustomImage()) {
 
 			try {
-				image = new Image(new FileInputStream("/avatars/avatar" + avatarIndex + ".png"));
+				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -347,7 +362,7 @@ public class User {
 
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;
-		resolvePicture();
+		//resolvePicture();
 	}
 	
 	

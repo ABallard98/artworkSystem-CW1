@@ -203,12 +203,12 @@ public class NewAccountCreatorController {
 		userdata += "\n Last name: " + lastName;
 		userdata += "\n Address: " + address;
 		userdata += "\n Post code: " + postCode;
-		userdata += "\n Phone number: " + phoneNumber;
+		userdata += "\n Phone number: " + phoneNumberLong;
 
-		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong);
-		user.setAvatarIndex(avatarIndex);
-		user.resolvePicture();
-		
+		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
+		//user.setAvatarIndex(avatarIndex);
+		//user.resolvePicture();
+		System.out.println(user.getTextFileOutput());
 		FileReader.addUser(user);
 		
 

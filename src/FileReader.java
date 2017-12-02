@@ -464,7 +464,7 @@ public class FileReader {
 			int avatarIndex = in.nextInt();
 			String postcode = in.next();
 
-			User user = new User(username, firstname, lastname, address, postcode, phonenumber);
+			User user = new User(username, firstname, lastname, address, postcode, phonenumber, avatarIndex);
 			System.out.println(user.getUsername() + "," + avatarIndex);
 			in.close();
 			return user;

@@ -22,7 +22,10 @@ public class UserDisplayController {
     public void initialize() {
     	username.setText(user.getUsername());
     	try {
-			Image image = new Image(new FileInputStream("avatars/avatar"+user.getAvatarIndex()+".png"));
+    		System.out.println(user.getFullName() + "   "+ user.getAvatarIndex());
+    		String path = "avatars/avatar"+user.getAvatarIndex()+".png";
+    		System.out.println("Avatar path is " + path);
+			Image image = new Image(new FileInputStream(path));
 	    	avatar.setImage(image);
 
 		} catch (FileNotFoundException e) {
