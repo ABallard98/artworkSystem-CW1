@@ -48,13 +48,9 @@
             <TableView fx:id="table" prefHeight="329.0" prefWidth="692.0">
                <columns>
                   <TableColumn fx:id="picture" prefWidth="75.0" text="Picture" />
-                  <TableColumn fx:id="creatonNameColumn" prefWidth="117.0" text="Creator name" />
-                  <TableColumn fx:id="bidLimitColumn" prefWidth="107.0" text="Bid limit" />
-                  <TableColumn fx:id="currentPriceColumn" prefWidth="115.0" text="Current price" />
-                  <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Winning" />
-                  <TableColumn prefWidth="32.0" text="Placed amount" />
-                  <TableColumn prefWidth="100.0" text="Date" />
-                  <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
+                  <TableColumn fx:id="titleColumn" prefWidth="117.0" text="Title" />
+                  <TableColumn fx:id="dateColumn" prefWidth="107.0" text="Date" />
+                  <TableColumn fx:id="amountColumn" prefWidth="115.0" text="Amount" />
                </columns>
                <VBox.margin>
                   <Insets top="20.0" />

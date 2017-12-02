@@ -282,7 +282,7 @@ public class Artwork {
 	}
 
 	public double getValueOfHighestBid() {
-		return bidsOnItem.get(bidsOnItem.size() - 1).getReservePrice();
+		return bidsOnItem.get(bidsOnItem.size() - 1).getAmount();
 	}
 
 	public Bid getHighestBid() {

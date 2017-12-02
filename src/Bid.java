@@ -12,7 +12,7 @@ public class Bid {
 
 	private String typeOfArtwork;
 	private User bidder; // user that placed the bid
-	private double reservePrice; // price the user placed
+	private double amount; // price the user placed
 	private Artwork artwork; // the artwork that the bid is placed on
 	private Date bidDate; // the date the bid was placed
 	private ImageView imgView;
@@ -35,7 +35,7 @@ public class Bid {
 	public Bid(String typeOfArtwork, User bidder, double reservePrice, Artwork artwork, Date bidDate) {
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
-		this.reservePrice = reservePrice;
+		this.amount = reservePrice;
 		this.artwork = artwork;
 		this.bidDate = bidDate;
 		System.out.println( artwork.getImage().getUrl());
@@ -47,7 +47,7 @@ public class Bid {
 	public Bid(String typeOfArtwork, User bidder, double reservePrice, Artwork artwork, String bid) {
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
-		this.reservePrice = reservePrice;
+		this.amount = reservePrice;
 		this.artwork = artwork;
 		imgView = new ImageView();
 
@@ -114,8 +114,8 @@ public class Bid {
 	 * 
 	 * @return double - price
 	 */
-	public double getReservePrice() {
-		return this.reservePrice;
+	public double getAmount() {
+		return this.amount;
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class Bid {
 	 */
 	public String getTextFileOutput() {
 		String output = this.getTypeOfArtwork() + "," + this.getBidder().getUsername() + "," + this.artwork.getTitle()
-				+ "," + this.getReservePrice() + "," + this.bidDate;
+				+ "," + this.getAmount() + "," + this.bidDate;
 		return output;
 	}
 
@@ -154,7 +154,7 @@ public class Bid {
 	 */
 	public String toString() {
 		String output = "Bid made by " + this.getBidder().getUsername() + " for the artwork "
-				+ this.getArtwork().getTitle() + " for " + this.getReservePrice() + " on " + this.getBidDate();
+				+ this.getArtwork().getTitle() + " for " + this.getAmount() + " on " + this.getBidDate();
 		return output;
 	}
 

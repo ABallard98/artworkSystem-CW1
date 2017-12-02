@@ -22,7 +22,7 @@ public class FileReaderTesting {
         	FileReader.initialize();
         	bids = FileReader.readBidFile("elmarko.txt");
         	for(Bid b : bids){
-        		System.out.println(b.getBidder().getFirstName() + " placed a bid of " + b.getReservePrice() + " on " + b.getArtwork().getTitle()
+        		System.out.println(b.getBidder().getFirstName() + " placed a bid of " + b.getAmount() + " on " + b.getArtwork().getTitle()
 				+ " at " + b.getBidDate());
         	}
         	 System.out.println("\n");

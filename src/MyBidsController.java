@@ -53,6 +53,16 @@ public class MyBidsController {
 
     @FXML
     private TableColumn<Bid,String> titleColumn;
+    
+    
+
+    @FXML
+    private TableColumn<Bid,Date>dateColumn;
+
+    @FXML
+    private TableColumn<Bid, Double> amountColumn;
+
+    
 
 
 	private ObservableList<Bid> bids;
@@ -65,7 +75,8 @@ public class MyBidsController {
     	System.out.println("Number of placed bids "+LoginController.getUser().getPlacedBids().size());
     	//picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
     	titleColumn.setCellValueFactory(new PropertyValueFactory<Bid,String>("title"));
-    	bidLimitColumn.setCellValueFactory(new PropertyValueFactory<Bid,Date>("bidDate"));
+    	dateColumn.setCellValueFactory(new PropertyValueFactory<Bid,Date>("bidDate"));
+    	amountColumn.setCellValueFactory(new PropertyValueFactory<Bid,Double>("amount"));
 
     	for(Bid bid: bids) {
         	System.out.println("come on"+ bid.getArtwork().getImage().getHeight());
@@ -77,6 +88,7 @@ public class MyBidsController {
     	
     	picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
 
+    	picture.setMinWidth(100);
     	table.setItems(bids);
 
     	
