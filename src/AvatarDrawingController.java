@@ -52,6 +52,8 @@ public class AvatarDrawingController {
 
 	public void initialize() {
 
+		//canvas.setStyle("border-color: red; border-width: 5px");
+		
 		clear.setOnAction(e -> clearCanvas());
 
 		gc = canvas.getGraphicsContext2D();
