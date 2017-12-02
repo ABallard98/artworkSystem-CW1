@@ -149,6 +149,7 @@ public class ArtworkController {
 		titleA.setText(currentSculpture.getTitle());
 		titleA.setText(currentSculpture.getTitle());
 		noOfBidsA.setText(currentSculpture.getNumberOfPlacedBids() + "");
+		System.out.println("Number of bids----------------------- is " + currentSculpture.getNumberOfPlacedBids());
 		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
 
 	}
