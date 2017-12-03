@@ -45,7 +45,7 @@
                   <Button fx:id="refreshButton" mnemonicParsing="false" text="Refresh" />
                </children>
             </VBox>
-            <TableView fx:id="table" prefHeight="329.0" prefWidth="692.0">
+            <TableView fx:id="table" prefHeight="392.0" prefWidth="711.0">
                <columns>
                   <TableColumn fx:id="picture" prefWidth="75.0" text="Picture" />
                   <TableColumn fx:id="titleColumn" prefWidth="117.0" text="Title" />
@@ -63,7 +63,7 @@
       <VBox prefHeight="496.0" prefWidth="131.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <VBox prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="0.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <VBox prefHeight="53.0" prefWidth="900.0" BorderPane.alignment="CENTER">
