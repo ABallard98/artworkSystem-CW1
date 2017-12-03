@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FavouriteUsersController">
    <left>
-      <VBox prefHeight="312.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="543.0" prefWidth="327.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Number of favourite users" textFill="WHITE">
                <font>
@@ -25,7 +25,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button1" mnemonicParsing="false" onAction="#getNumberOfFavourites" text="Button" />
+            <Button fx:id="button1" mnemonicParsing="false" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets left="30.0" right="30.0" />
@@ -48,12 +48,10 @@
    <center>
       <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="table1" maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="454.0">
+            <TableView fx:id="table1" maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="287.0">
               <columns>
-                <TableColumn fx:id="usernameColumn" prefWidth="100.0" text="Username" />
-                <TableColumn fx:id="firstNameColumn" prefWidth="88.0" text="First name" />
-                  <TableColumn fx:id="lastNameColumn" prefWidth="117.0" text="Last name" />
-                  <TableColumn fx:id="itemsColumn" prefWidth="138.0" text="Items on auctions" />
+                <TableColumn fx:id="avatar" prefWidth="145.0" text="Avatar" />
+                <TableColumn fx:id="usernameColumn" prefWidth="151.0" text="Username" />
               </columns>
                <VBox.margin>
                   <Insets right="30.0" />

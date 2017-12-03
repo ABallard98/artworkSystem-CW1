@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class User {
 
@@ -29,6 +30,7 @@ public class User {
 	private int avatarIndex;
 	private int bidsPlaced;
 	private ArrayList<Bid> placedBids;
+	private ImageView imgView;
 
 	/**
 	 * Constructor for user object
@@ -49,6 +51,7 @@ public class User {
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
 		setUsername(username);
 		customImage = false;
+		imgView = new ImageView();
 
 		setFirstName(fname);
 		setLastName(lname);
@@ -59,17 +62,20 @@ public class User {
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
-		avatarIndex= 1;
+		avatarIndex = 1;
 		try {
-			image = new Image(new FileInputStream("avatars/avatar6.png"));
+			image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	}
-	
-	
-	public User(String username, String fname, String lname, String address, String postcode, long phonenumber, int index) {
+		}
+	}
+
+	public User(String username, String fname, String lname, String address, String postcode, long phonenumber,
+			int index) {
 		customImage = false;
+		imgView = new ImageView();
+
 		setUsername(username);
 		setFirstName(fname);
 		setLastName(lname);
@@ -80,13 +86,16 @@ public class User {
 		this.sellingArtworks = 0;
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
-		avatarIndex= index;
+		avatarIndex = index;
+		
 		try {
-			image = new Image(new FileInputStream("avatars/avatar6.png"));
+			image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	}
+		}
+		
+	}
 
 	public boolean isCustomImage() {
 		return customImage;
@@ -97,7 +106,7 @@ public class User {
 		if (!isCustomImage() && avatarIndex > 0) {
 
 			try {
-				image = new Image(new FileInputStream("avatars/avatar6.png"));
+				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -107,11 +116,22 @@ public class User {
 
 	}
 	
+	public ImageView getImgView() {
+
+		imgView.setImage(image);
+
+		imgView.setFitWidth(100);
+		imgView.setFitHeight(100);
+		return imgView;
+	}
+	
+
 	public Image getImage() {
 		return image;
 	}
-
 	
+	
+
 	public String getImagePath() {
 		return image.getUrl();
 	}
@@ -305,7 +325,8 @@ public class User {
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
-				+ "\n" + "PhoneNumber: " + this.phonenumber + "\n" /*+ "Favourites: " + this.getFavouritesString() + "\n"*/;
+				+ "\n" + "PhoneNumber: " + this.phonenumber
+				+ "\n" /* + "Favourites: " + this.getFavouritesString() + "\n" */;
 		return output;
 	}
 
@@ -316,8 +337,6 @@ public class User {
 	public void setTimeLastLoggedIn(Date timeLastLoggedIn) {
 		this.timeLastLoggedIn = timeLastLoggedIn;
 	}
-
-
 
 	public void setImage(Image image) {
 		this.image = image;
@@ -371,7 +390,6 @@ public class User {
 		this.placedBids = placedBids;
 	}
 
-
 	public void addBid(Bid bid) {
 		placedBids.add(bid);
 	}
@@ -382,9 +400,7 @@ public class User {
 
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;
-		//resolvePicture();
+		// resolvePicture();
 	}
-	
-	
 
 } // end of class

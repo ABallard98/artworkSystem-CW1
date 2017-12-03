@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 
 public class FavouriteUsersController {
 
@@ -24,35 +25,18 @@ public class FavouriteUsersController {
 	private TableColumn<User, String> usernameColumn;
 
 	@FXML
-	private TableColumn<User, String>firstNameColumn;
+	private TableColumn<User, ImageView> avatar;
 
-	@FXML
-	private TableColumn<User, String> lastNameColumn;
+	public void initialize() {
 
-	@FXML
-	private TableColumn<User, Integer> itemsColumn;
-	
-	
-	
+		favourites = FXCollections.observableArrayList(LoginController.getUser().getFavouriteUsers());
+		usernameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("username"));
 
-	public void initalize() {
-
-
-	}
-
-	public void getNumberOfFavourites() {
-		System.out.println("aaaa");
-
-		favUsers.setText(LoginController.getUser().getFavouriteUsers().size() + "");
-		System.out.println((LoginController.getUser().getFavouriteUsers().size()));
-		
-		
-		
-		favourites =  FXCollections.observableArrayList(LoginController.getUser().getFavouriteUsers());
-		usernameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("username"));
-		firstNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("firstName"));
-		lastNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("lastName"));
-		itemsColumn.setCellValueFactory(new PropertyValueFactory<User,Integer>("sellingArtworks"));
+		avatar.setCellValueFactory(new PropertyValueFactory<User, ImageView>("imgView"));
 		table1.setItems(favourites);
+		favUsers.setText(LoginController.getUser().getFavouriteUsers().size() + "");
+
+
 	}
+
 }

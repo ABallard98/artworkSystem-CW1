@@ -295,6 +295,7 @@ public class GUIController {
 			bp = (BorderPane) FXMLLoader.load(getClass().getResource("FavouriteUsers.fxml"));
 			mainSection.getChildren().setAll(bp);
 
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error");
