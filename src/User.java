@@ -384,6 +384,10 @@ public class User {
 		this.artSold = artSold;
 	}
 
+	/**
+	 * Method to get a list of artworks won.
+	 * @return ArrayList<Artwork> - artWon.
+	 */
 	public ArrayList<Artwork> getArtWon() {
 		return artWon;
 	}
