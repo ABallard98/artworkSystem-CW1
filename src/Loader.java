@@ -13,19 +13,15 @@ public class Loader {
 	private static ArrayList<Artwork> artworks;
 
 	public static void init() {
-
 		// User user1 = new User();
-
 	}
 
 	public static void readUserFiles() {
-
 		users = new ArrayList<>();
 		File[] listOfFiles = new File("userFiles//").listFiles();
 		for (File e : listOfFiles) {
 			users.add(constructUser(e.getName()));
 		}
-
 	}
 
 	public void readUserFile(String filename) {
@@ -78,8 +74,15 @@ public class Loader {
 		return null;
 
 	}
-	
-	
+
+	/**
+	 * Reads a file and gathers attributes in order to try and create
+	 * a new user. If file containing data is not found then the
+	 * exception is caught and handled appropriately.
+	 * @param filename
+	 * @return Either a User or an exception depending on whether the
+	 * file containing the data is found.
+	 */
     public static User constructUser(String filename){
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm a");
         try{
@@ -97,6 +100,7 @@ public class Loader {
         }
         catch(FileNotFoundException e){
             //TODO WHY DOES THIS ALWAYS CATCH EVEN WHEN IT WORKS
+			//the file you are looking for may be under different directories for each of us.
         }
         return null;
     }

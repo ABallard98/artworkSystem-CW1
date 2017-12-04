@@ -10,15 +10,15 @@ import javafx.scene.image.ImageView;
 
 public class Bid {
 
-	private String typeOfArtwork;
-	private User bidder; // user that placed the bid
-	private double amount; // price the user placed
-	private Artwork artwork; // the artwork that the bid is placed on
-	private Date bidDate; // the date the bid was placed
-	private ImageView imgView;
-	private String title;
-	private String bidDateString;
-	private Image image;
+	private String typeOfArtwork; // Type artwork (painting or structure).
+	private User bidder; // User that placed the bid.
+	private double amount; // Price the user placed.
+	private Artwork artwork; // The artwork that the bid is placed on.
+	private Date bidDate; // The date the bid was placed.
+	private ImageView imgView;//?
+	private String title;//?
+	private String bidDateString; //?
+	private Image image;//?
 
 	/**
 	 * Creates a new bid object.
