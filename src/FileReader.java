@@ -199,9 +199,7 @@ public class FileReader {
 			if (in.hasNext()) {
 				in.nextLine();
 			}
-			in.close();
 		}
-
 		fileScanner.close();
 	}
 
@@ -357,7 +355,7 @@ public class FileReader {
 				}
 
 			}
-			sc.close();
+
 		}
 
 	}
@@ -508,6 +506,7 @@ public class FileReader {
 		try {
 			image = new Image(new FileInputStream("artworkImages/" + name + "/0.png"));
 			System.out.println("How?"+ image.getUrl());
+
 			return image;
 
 		} catch (FileNotFoundException e) {
@@ -516,25 +515,36 @@ public class FileReader {
 				image = new Image(new FileInputStream("artworkImages/notfound.png"));
 				return image;
 			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+
 		}
+
+
+
 		return image;
 
 	}
 
 	public static ArrayList<Image> retrieveAdditionalImages(String name) {
 		ArrayList<Image> images = new ArrayList<>();
+
 		Image image;
+
 		for (int i = 0; i < 4; i++) {
 			try {
 				image = new Image(new FileInputStream("artworkImages/" + name + "/" + i + ".png"));
 				images.add(image);
+
 			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
 				System.out.println("No picture found");
 			}
 		}
+
 		return images;
+
 	}
 
 	public static ArrayList<Bid> getBids() {
@@ -546,11 +556,14 @@ public class FileReader {
 	}
 
 	public static boolean checkIfInFavouriteList(User user1, User user2) {
+
 		for (User favUser : user1.getFavouriteUsers()) {
 			if (favUser.getUsername().equals(user2.getUsername())) {
 				return true;
 			}
 		}
+
 		return false;
+
 	}
 }

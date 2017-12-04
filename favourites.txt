@@ -6,9 +6,4 @@ elmarko,ayylmao
 elmarko,elmarko
 aballard,ayylmao
 aballard,jamesbond
-aballard,elmarko1
-test1,test2
-test1,test2
-test1,test2
-test1,test2
-test1,test2
+aballard,elmarko
