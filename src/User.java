@@ -12,41 +12,34 @@ import javafx.scene.image.ImageView;
 
 public class User {
 
-	private String username; // username of the user
-	private String firstName; // first name of the user
-	private String lastName; // last name of the user
-	private String fullName;
-	private long phonenumber; // phone number of the user
-	private String address; // address of the user
-	private String postcode; // post code of the user
-	private Date timeLastLoggedIn;
-	private Image image;
-	private ArrayList<Artwork> artForSale;
-	private ArrayList<Artwork> artSold;
-	private ArrayList<Artwork> artWon;
-	private ArrayList<User> favouriteUsers; // array list of favourite users
-	private Integer sellingArtworks;
-	private boolean customImage;
-	private int avatarIndex;
-	private int bidsPlaced;
-	private ArrayList<Bid> placedBids;
+	private String username; // Username of the user.
+	private String firstName; // First name of the user.
+	private String lastName; // Last name of the user.
+	private String fullName; // Full name of the user.
+	private long phonenumber; // Phone number of the user.
+	private String address; // Address of the user.
+	private String postcode; // Post code of the user.
+	private Date timeLastLoggedIn; // Time of last login.
+	private Image image; // Image associated with the user.
+	private ArrayList<Artwork> artForSale; // List of Artworks put up for auction.
+	private ArrayList<Artwork> artSold; // List of Artworks sold.
+	private ArrayList<Artwork> artWon; // List of Artworks won.
+	private ArrayList<User> favouriteUsers; // List of favourite users.
+	private Integer sellingArtworks; // Number of Artworks currently being sold.
+	private boolean customImage; // True or false depending on image type.
+	private int avatarIndex; // Index of the avatar chosen.
+	private int bidsPlaced; // Number of bid the user has placed.
+	private ArrayList<Bid> placedBids; // List of bids placed by the user.
 	private ImageView imgView;
 
 	/**
-	 * Constructor for user object
-	 *
-	 * @param username
-	 *            - username of the user
-	 * @param fname
-	 *            - first name of the user
-	 * @param lname
-	 *            - last name of the user
-	 * @param address
-	 *            - address of the user
-	 * @param postcode
-	 *            - postcode of the user
-	 * @param phonenumber
-	 *            - phonenumber of the user
+	 * Makes a new User object with an ....
+	 * @param username - username of the user.
+	 * @param fname - first name of the user.
+	 * @param lname - last name of the user.
+	 * @param address - address of the user.
+	 * @param postcode - postcode of the user.
+	 * @param phonenumber - phonenumber of the user.
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
 		setUsername(username);
@@ -71,8 +64,19 @@ public class User {
 		}
 	}
 
-	public User(String username, String fname, String lname, String address, String postcode, long phonenumber,
-			int index) {
+	/**
+	 * Makes a new User object with a pre-made avatar as the
+	 * associated image.
+	 * @param username
+	 * @param fname
+	 * @param lname
+	 * @param address
+	 * @param postcode
+	 * @param phonenumber
+	 * @param index
+	 */
+	public User(String username, String fname, String lname,
+				String address, String postcode, long phonenumber, int index) {
 		customImage = false;
 		imgView = new ImageView();
 
@@ -97,10 +101,19 @@ public class User {
 		
 	}
 
+	/**
+	 * Check if a custom image is being used.
+	 * @return true if a custom image is being used or false otherwise
+	 */
 	public boolean isCustomImage() {
 		return customImage;
 	}
 
+	/**
+	 * Checks if a custom image is being used first. If no
+	 * custom image is being used then it tries to find a default avatar
+	 * and sets that as the associated image.
+	 */
 	public void resolvePicture() {
 
 		if (!isCustomImage() && avatarIndex > 0) {
@@ -124,84 +137,81 @@ public class User {
 		imgView.setFitHeight(100);
 		return imgView;
 	}
-	
 
+	/**
+	 * Method to get the image.
+	 * @return Image - image.
+	 */
 	public Image getImage() {
 		return image;
 	}
-	
-	
 
+	/**
+	 * Method to get the file path of the image.
+	 * @return String - file path.
+	 */
 	public String getImagePath() {
 		return image.getUrl();
 	}
 
 	/**
-	 * Method to get the user's username
-	 *
-	 * @return username
+	 * Method to get the user's username.
+	 * @return String - username.
 	 */
 	public String getUsername() {
 		return this.username;
 	}
 
 	/**
-	 * Method to get the user's first name
-	 *
-	 * @return fistname
+	 * Method to get the user's first name.
+	 * @return String - firstName.
 	 */
 	public String getFirstName() {
 		return this.firstName;
 	}
 
 	/**
-	 * Method to get the user's last name
-	 *
-	 * @return lastname
+	 * Method to get the user's last name.
+	 * @return String - lastName.
 	 */
 	public String getLastName() {
 		return this.lastName;
 	}
 
 	/**
-	 * Method to get the user's fullname
-	 *
-	 * @return full name of the user
+	 * Method to get the user's full name.
+	 * @return String - fullName.
 	 */
 	public String getFullName() {
 		return this.firstName + " " + this.lastName;
 	}
 
 	/**
-	 * Method to get the user's address
-	 *
-	 * @return address
+	 * Method to get the user's address.
+	 * @return String - address.
 	 */
 	public String getAddress() {
 		return this.address;
 	}
 
 	/**
-	 * Method to get the user's postcode
-	 *
-	 * @return postcode
+	 * Method to get the user's postcode.
+	 * @return String - postcode.
 	 */
 	public String getPostcode() {
 		return this.postcode;
 	}
 
 	/**
-	 * Method to get the user's phone number
-	 *
-	 * @return phone number
+	 * Method to get the user's phone number.
+	 * @return long - phonenumber.
 	 */
 	public long getPhonenumber() {
 		return this.phonenumber;
 	}
 
 	/**
-	 * Method to set the user's username
-	 *
+	 * Method to set the user's username.
 	 * @param username
 	 */
 	public void setUsername(String username) {
@@ -209,17 +219,15 @@ public class User {
 	}
 
 	/**
-	 * Method to set the user's first name
-	 *
-	 * @param fname
+	 * Method to set the user's first name.
+	 * @param fname - firstName.
 	 */
 	public void setFirstName(String fname) {
 		this.firstName = fname;
 	}
 
 	/**
-	 * Method to set the user's last name
-	 *
+	 * Method to set the user's last name.
 	 * @param lname
 	 */
 	public void setLastName(String lname) {
@@ -227,8 +235,7 @@ public class User {
 	}
 
 	/**
-	 * Method to set the user's address
-	 *
+	 * Method to set the user's address.
 	 * @param address
 	 */
 	public void setAddress(String address) {
@@ -236,8 +243,7 @@ public class User {
 	}
 
 	/**
-	 * Method to set the user's postcode
-	 *
+	 * Method to set the user's postcode.
 	 * @param postcode
 	 */
 	public void setPostcode(String postcode) {
@@ -245,8 +251,7 @@ public class User {
 	}
 
 	/**
-	 * Method to set the users phone number
-	 *
+	 * Method to set the users phone number.
 	 * @param phonenumber
 	 */
 	public void setPhonenumber(long phonenumber) {
@@ -254,44 +259,39 @@ public class User {
 	}
 
 	/**
-	 * Method to add a user to this user's favourites
-	 *
-	 * @param u
-	 *            - user
+	 * Method to add a user to this user's favourites.
+	 * @param u - User.
 	 */
 	public void addUserToFavourites(User u) {
-
 		this.favouriteUsers.add(u);
-
 	}
 
 	/**
-	 * Method to remove a user from this user's favourites
-	 *
-	 * @param u
-	 *            - user
+	 * Method to remove a user from this user's favourites. Tries to
+	 * find the user that should be removed but if that user cannot be found
+	 * then an exception is caught and handled.
+	 * @param u- User.
 	 */
 	public void removeUserFromFavourites(User u) {
 		try {
 			this.favouriteUsers.remove(u);
 		} catch (NullPointerException e) {
-			throw new NullPointerException("Error, user not found in favourites");
+			throw new NullPointerException("Error, user not found in favourites.");
 		}
 	}
 
 	/**
-	 * Method to get this user's favourites
-	 *
-	 * @return ArrayList of users
+	 * Method to get this user's favourites.
+	 * @return ArrayList<User> - favouriteUsers.
 	 */
 	public ArrayList<User> getFavouriteUsers() {
 		return this.favouriteUsers;
 	}
 
 	/**
-	 * Method to get a string containing the usernames of this user's favourites
-	 *
-	 * @return String of favourite user's usernames
+	 * Method to get a string containing the usernames of this user's favourite
+	 * users.
+	 * @return String - output.
 	 */
 	public String getFavouritesString() {
 		String output = "";
@@ -308,9 +308,8 @@ public class User {
 
 	/**
 	 * Method to get the text file output which will be used to store the user's
-	 * information
-	 *
-	 * @return String textFileOutput
+	 * information.
+	 * @return String - textFileOutput.
 	 */
 	public String getTextFileOutput() {
 		String output = this.username + "," + this.firstName + "," + this.lastName + "," + this.address + ","
@@ -319,9 +318,8 @@ public class User {
 	}
 
 	/**
-	 * Method to get a string containing all of the user's information
-	 *
-	 * @return String toString
+	 * Method to get a string containing all of the user's information.
+	 * @return String - toString.
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
@@ -330,30 +328,58 @@ public class User {
 		return output;
 	}
 
+	/**
+	 * Method to return the time date and time last logged in.
+	 * @return Date - timeLastLoggedIn.
+	 */
 	public Date getTimeLastLoggedIn() {
 		return timeLastLoggedIn;
 	}
 
+	/**
+	 * Allows setting of time last logged in.
+	 * @param timeLastLoggedIn
+	 */
 	public void setTimeLastLoggedIn(Date timeLastLoggedIn) {
 		this.timeLastLoggedIn = timeLastLoggedIn;
 	}
 
+	/**
+	 * Allows setting of an image to a user.
+	 * @param image
+	 */
 	public void setImage(Image image) {
 		this.image = image;
 	}
 
+	/**
+	 * Gets the list of artworks for sale.
+	 * @return ArrayList<Artwork> - artsForSale.
+	 */
 	public ArrayList<Artwork> getArtForSale() {
 		return artForSale;
 	}
 
+	/**
+	 * Allows setting of artworks for sale
+	 * @param artForSale
+	 */
 	public void setArtForSale(ArrayList<Artwork> artForSale) {
 		this.artForSale = artForSale;
 	}
 
+	/**
+	 * Method to get the list of artworks sold by the user.
+	 * @return ArrayList<Artwork> - artSold.
+	 */
 	public ArrayList<Artwork> getArtSold() {
 		return artSold;
 	}
 
+	/**
+	 * Allows the setting of a list of artworkds sold by the user.
+	 * @param artSold
+	 */
 	public void setArtSold(ArrayList<Artwork> artSold) {
 		this.artSold = artSold;
 	}
