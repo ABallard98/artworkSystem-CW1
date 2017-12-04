@@ -2,6 +2,8 @@
  */
 
 import java.io.*;
+import java.io.FileReader;
+import java.util.*;
 
 public class Writer {
 
@@ -79,10 +81,34 @@ public class Writer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-    	
-    	
-    	
+    }
+
+    public static boolean removeFromFavourites(User user1, User user2){
+        final String FAVOURITES_FILE = "favourites.txt";
+        final File FAVOURITES = new File("favourites.txt");
+        final File TEMP_FILE = new File("temp-favourites.txt");
+        String toRemove = user1.getUsername()+","+user2.getUsername();
+
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(FAVOURITES));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(TEMP_FILE));
+            String currentLine;
+
+
+            while((currentLine = reader.readLine()) != null){
+                if(null!=currentLine && !currentLine.equalsIgnoreCase(toRemove)){
+                    writer.write(currentLine+ System.getProperty("line.separator"));
+                }
+            }
+            writer.close();
+            reader.close();
+            boolean successful = TEMP_FILE.renameTo(FAVOURITES);
+            System.out.println(successful);
+            return successful;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 
     

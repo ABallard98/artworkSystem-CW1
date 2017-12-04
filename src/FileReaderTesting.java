@@ -50,21 +50,12 @@ public class FileReaderTesting {
         }
 
 
-        /**System.out.println("To String of users in system");
+        System.out.println("To String of users in system");
         for(User u : users){
             System.out.println("\n"+u.toString());
-        }*/
-
-        System.out.println("To string of paintings in system");
-        for(Painting painting : paintings){
-            System.out.println(painting.toString());
         }
 
-        System.out.println("To String of sculptures in system");
-        for(Sculpture sculpture : sculptures){
-            System.out.println(sculpture.toString());
-        }
-
+        System.out.println("\nATTEMPTING TO REMOVE A USER FROM FAVOURITES");
 
 
     }

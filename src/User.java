@@ -275,6 +275,11 @@ public class User {
 	public void removeUserFromFavourites(User u) {
 		try {
 			this.favouriteUsers.remove(u);
+			Writer.removeFromFavourites(this,u);
+
+
+
+
 		} catch (NullPointerException e) {
 			throw new NullPointerException("Error, user not found in favourites.");
 		}
@@ -295,15 +300,10 @@ public class User {
 	 */
 	public String getFavouritesString() {
 		String output = "";
-		if (!favouriteUsers.isEmpty()) {
-			for (User e : favouriteUsers) {
+		for (User e : favouriteUsers) {
 				output = e.getUsername() + " " + output;
-			}
-			return output;
-		} else {
-			return "";
 		}
-
+		return output;
 	}
 
 	/**
@@ -323,8 +323,7 @@ public class User {
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
-				+ "\n" + "PhoneNumber: " + this.phonenumber
-				+ "\n" /* + "Favourites: " + this.getFavouritesString() + "\n" */;
+				+ "\n" + "PhoneNumber: " + this.phonenumber;
 		return output;
 	}
 
