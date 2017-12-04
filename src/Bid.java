@@ -53,9 +53,6 @@ public class Bid {
 		image = artwork.getImage();
 		this.title = artwork.getTitle();
 	}
-	
-	
-	
 
 	public Image getImage() {
 		return image;
@@ -94,65 +91,66 @@ public class Bid {
 		return title;
 	}
 
+	/**
+	 *
+	 * @param title
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
-	 * Method to get the bidder
-	 * 
-	 * @return User - bidder
+	 * Method to get the bidder.
+	 * @return User - bidder.
 	 */
 	public User getBidder() {
 		return this.bidder;
 	}
 
 	/**
-	 * Method to get the price
-	 * 
-	 * @return double - price
+	 * Method to get the price.
+	 * @return double - price.
 	 */
 	public double getAmount() {
 		return this.amount;
 	}
 
 	/**
-	 * Method to get the artwork
-	 * 
-	 * @return Artwork - artwork
+	 * Method to get the artwork.
+	 * @return Artwork - artwork.
 	 */
 	public Artwork getArtwork() {
 		return this.artwork;
 	}
 
 	/**
-	 * Method to get the date the bid was placed
-	 * 
-	 * @return Date - bidDate
+	 * Method to get the date the bid was placed.
+	 * @return Date - bidDate.
 	 */
 	public Date getBidDate() {
 		return this.bidDate;
 	}
 
 	/**
-	 * Method to get the text file output which will be used to store the bid
-	 * 
-	 * @return String - data on the bid
+	 * Method to get the text file output which will be used to store the bid.
+	 * @return String - data on the bid.
 	 */
 	public String getTextFileOutput() {
-		String output = this.getTypeOfArtwork() + "," + this.getBidder().getUsername() + "," + this.artwork.getTitle()
-				+ "," + this.getAmount() + "," + this.bidDate;
+		String output = this.getTypeOfArtwork() + "," +
+				this.getBidder().getUsername() + "," +
+				this.artwork.getTitle() + "," + this.getAmount() +
+				"," + this.bidDate;
 		return output;
 	}
 
 	/**
-	 * Method to get a string containing all of the information on the bid
-	 * 
-	 * @return
+	 * Method to get a string containing all of the information on the bid.
+	 * @return String - all of the bid's attributes turned into a string.
 	 */
 	public String toString() {
-		String output = "Bid made by " + this.getBidder().getUsername() + " for the artwork "
-				+ this.getArtwork().getTitle() + " for " + this.getAmount() + " on " + this.getBidDate();
+		String output = "Bid made by " + this.getBidder().getUsername() +
+				" for the artwork " + this.getArtwork().getTitle() + " for " +
+				this.getAmount() + " on " + this.getBidDate();
 		return output;
 	}
 

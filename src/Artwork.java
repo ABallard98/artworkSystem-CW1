@@ -77,7 +77,7 @@ public class Artwork {
 	public Artwork(User owner, Date date, String title, String creatorName,
 				   int creationYear, int numberOfBids, double reservePrice,
 				   String description) {
-		
+
 		this.owner = owner;
 		this.timeAdded = date;
 		this.title = title;
