@@ -28,25 +28,18 @@ public class Artwork {
 	private ImageView imageView;
 
 	/**
-	 * Constructor of artwork without a description
-	 * 
-	 * @param owner
-	 *            - seller of the artwork
-	 * @param date
-	 *            - date added to the system
-	 * @param title
-	 *            - name of the artwork
-	 * @param creatorName
-	 *            - creator of the artwork
-	 * @param creationYear
-	 *            - year the artwork was made
-	 * @param numberOfBids
-	 *            - number of bids possible for the artwork
-	 * @param reservePrice
-	 *            - reserve price of the artwork
+	 * Creates a new general Artwork object without a description. Also
+	 * creates the imageview.
+	 * @param owner - seller of the artwork.
+	 * @param date - date added to the system.
+	 * @param title - name of the artwork.
+	 * @param creatorName - creator of the artwork.
+	 * @param creationYear - year the artwork was made.
+	 * @param numberOfBids - number of bids possible for the artwork.
+	 * @param reservePrice - reserve price of the artwork.
 	 */
-	public Artwork(User owner, Date date, String title, String creatorName, int creationYear, int numberOfBids,
-			double reservePrice) {
+	public Artwork(User owner, Date date, String title, String creatorName,
+				   int creationYear, int numberOfBids, double reservePrice) {
 
 		this.owner = owner;
 		this.timeAdded = date;
@@ -70,8 +63,8 @@ public class Artwork {
 	}
 
 	/**
-	 * Creates a new general Artwork object without a type( painting or structure )
-	 * and with the given parameters. Also creates the ImageView.
+	 * Creates a new general Artwork object with a description. Also
+	 * creates the ImageView.
 	 * @param owner - seller of the artwork.
 	 * @param date - date added to the system.
 	 * @param title - name of the artwork.
@@ -81,8 +74,9 @@ public class Artwork {
 	 * @param reservePrice - reserve price of the artwork.
 	 * @param description - description of the artwork.
 	 */
-	public Artwork(User owner, Date date, String title, String creatorName, int creationYear, int numberOfBids,
-			double reservePrice, String description) {
+	public Artwork(User owner, Date date, String title, String creatorName,
+				   int creationYear, int numberOfBids, double reservePrice,
+				   String description) {
 		this.owner = owner;
 		this.timeAdded = date;
 		this.title = title;

@@ -15,7 +15,7 @@ public class ArtworkFileWritingTest {
     	spongeBob.setAvatarIndex(5);
     	Writer.writeUserFile(spongeBob);
         //GETTING USERS FOR TESTING
-       /** ArrayList<User> users = new ArrayList<>();
+       /* ArrayList<User> users = new ArrayList<>();
         try{
             users = FileReader.readUserFile();
             System.out.println(users.size());
