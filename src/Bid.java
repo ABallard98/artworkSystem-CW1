@@ -21,18 +21,15 @@ public class Bid {
 	private Image image;
 
 	/**
-	 * Constructor of Bid
-	 * 
-	 * @param bidder
-	 *            - user that placed the bid
-	 * @param reservePrice
-	 *            - price the user placed
-	 * @param artwork
-	 *            - the artwork that the bid is placed on
-	 * @param bidDate
-	 *            - the date the bid was placed
+	 * Creates a new bid object.
+	 * @param bidder - user that placed the bid.
+	 * @param reservePrice - price the user placed.
+	 * @param artwork - the artwork that the bid is placed on.
+	 * @param bidDate - the date the bid was placed.
 	 */
-	public Bid(String typeOfArtwork, User bidder, double reservePrice, Artwork artwork, Date bidDate) {
+	public Bid(String typeOfArtwork, User bidder, double reservePrice,
+			   Artwork artwork, Date bidDate) {
+
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
 		this.amount = reservePrice;
@@ -44,7 +41,9 @@ public class Bid {
 		this.title = artwork.getTitle();
 	}
 
-	public Bid(String typeOfArtwork, User bidder, double reservePrice, Artwork artwork, String bid) {
+	public Bid(String typeOfArtwork, User bidder, double reservePrice,
+			   Artwork artwork, String bid) {
+
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
 		this.amount = reservePrice;
@@ -67,9 +66,8 @@ public class Bid {
 	}
 
 	/**
-	 * Method to get the type of artwork
-	 * 
-	 * @return String - type of artwork
+	 * Method to get the type of artwork.
+	 * @return String - type of artwork.
 	 */
 	public String getTypeOfArtwork() {
 		return this.typeOfArtwork;
