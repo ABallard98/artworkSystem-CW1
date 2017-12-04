@@ -79,10 +79,8 @@ public class Bid {
 	}
 
 	public ImageView getImgView() {
-
 		imgView.setFitWidth(100);
 		imgView.setFitHeight(100);
-
 		imgView.setImage(image);
 		return imgView;
 	}

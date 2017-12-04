@@ -77,7 +77,6 @@ public class Artwork {
 	public Artwork(User owner, Date date, String title, String creatorName,
 				   int creationYear, int numberOfBids, double reservePrice,
 				   String description) {
-
 		this.owner = owner;
 		this.timeAdded = date;
 		this.title = title;
@@ -88,10 +87,8 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
 		this.highestBid = 0;
-		
 		resolveImage();
 		imageView = new ImageView();
-
 	}
 
 	public void readPhoto(String imageFileName) {

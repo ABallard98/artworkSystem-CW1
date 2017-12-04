@@ -115,24 +115,17 @@ public class User {
 	 * and sets that as the associated image.
 	 */
 	public void resolvePicture() {
-
 		if (!isCustomImage() && avatarIndex > 0) {
-
 			try {
 				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
-
 	}
 	
 	public ImageView getImgView() {
-
 		imgView.setImage(image);
-
 		imgView.setFitWidth(100);
 		imgView.setFitHeight(100);
 		return imgView;
@@ -276,10 +269,6 @@ public class User {
 		try {
 			this.favouriteUsers.remove(u);
 			Writer.removeFromFavourites(this,u);
-
-
-
-
 		} catch (NullPointerException e) {
 			throw new NullPointerException("Error, user not found in favourites.");
 		}

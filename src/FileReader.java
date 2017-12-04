@@ -12,8 +12,6 @@ import java.text.*;
 
 public class FileReader {
 
-	private ArrayList<File> userFiles;
-	private static ArrayList<File> artworkList;
 	private static ArrayList<User> users;
 	private static ArrayList<Artwork> artworks;
 	private static ArrayList<Sculpture> sculptures;
@@ -286,10 +284,7 @@ public class FileReader {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					/**
-					 * System.out.println(seller.getFirstName() + " placed a bid of " + bidAmount +
-					 * " on " + art.getTitle() + " at " + dateString);
-					 */
+
 					bids.add(bid);
 					seller.addBid(bid);
 				} else {
@@ -324,12 +319,8 @@ public class FileReader {
 				String username = linear.next();
 				String artwork = linear.next();
 				String amount = linear.next();
-
 				String dateString = linear.next();
-				
 				Date date = new Date(dateString);
-
-				
 				Double amount1 = Double.parseDouble(amount);
 
 				User user = FileReader.getUser(username);
@@ -353,11 +344,8 @@ public class FileReader {
 					bids.add(bid);
 
 				}
-
 			}
-
 		}
-
 	}
 
 	/**
@@ -506,45 +494,32 @@ public class FileReader {
 		try {
 			image = new Image(new FileInputStream("artworkImages/" + name + "/0.png"));
 			System.out.println("How?"+ image.getUrl());
-
 			return image;
 
 		} catch (FileNotFoundException e) {
-
 			try {
 				image = new Image(new FileInputStream("artworkImages/notfound.png"));
 				return image;
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
 		}
-
-
-
 		return image;
-
 	}
 
 	public static ArrayList<Image> retrieveAdditionalImages(String name) {
 		ArrayList<Image> images = new ArrayList<>();
-
 		Image image;
-
 		for (int i = 0; i < 4; i++) {
 			try {
 				image = new Image(new FileInputStream("artworkImages/" + name + "/" + i + ".png"));
 				images.add(image);
-
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				System.out.println("No picture found");
 			}
 		}
-
 		return images;
-
 	}
 
 	public static ArrayList<Bid> getBids() {
@@ -556,13 +531,11 @@ public class FileReader {
 	}
 
 	public static boolean checkIfInFavouriteList(User user1, User user2) {
-
 		for (User favUser : user1.getFavouriteUsers()) {
 			if (favUser.getUsername().equals(user2.getUsername())) {
 				return true;
 			}
 		}
-
 		return false;
 
 	}
