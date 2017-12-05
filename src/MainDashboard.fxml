@@ -2,7 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -10,10 +11,6 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <VBox prefHeight="470.0" prefWidth="166.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Label" />
-            <Slider />
-         </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
@@ -30,7 +27,7 @@
    <top>
       <VBox prefHeight="53.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" prefHeight="55.0" prefWidth="900.0" text="My dashboard" textFill="WHITE">
+            <Label alignment="TOP_CENTER" prefHeight="55.0" prefWidth="900.0" text="Browse through the database" textFill="WHITE">
                <font>
                   <Font size="27.0" />
                </font>
@@ -41,4 +38,13 @@
          </children>
       </VBox>
    </top>
+   <center>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Image" />
+          <TableColumn fx:id="title" prefWidth="75.0" text="Title" />
+            <TableColumn fx:id="description" prefWidth="75.0" text="Description" />
+        </columns>
+      </TableView>
+   </center>
 </BorderPane>
