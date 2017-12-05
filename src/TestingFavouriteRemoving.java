@@ -1,7 +1,8 @@
 import java.io.FileWriter;
 
 /**
- * Created by ayden on 04/12/2017.
+ * @author Software Engineering Team Three
+ * @version 1.0
  */
 public class TestingFavouriteRemoving {
 
@@ -22,7 +23,7 @@ public class TestingFavouriteRemoving {
         
         User user1 = FileReader.getUser("elmarko");
         
-        User user2 = FileReader.getUser("33");
+        User user2 = FileReader.getUser("asd");
 
         if(user1 != null && user2 != null) {
         	System.out.println("Users loaded");

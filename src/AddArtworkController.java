@@ -22,6 +22,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Software Engineering Team Three
+ * @version 1.0
+ */
 public class AddArtworkController {
 
 	
@@ -244,6 +249,9 @@ public class AddArtworkController {
 
 	}
 
+	/**
+	 * Closes the window for adding artworks
+	 */
 	public void closeWindow() {
 		addArtwork.getScene().getWindow().hide();
 	}

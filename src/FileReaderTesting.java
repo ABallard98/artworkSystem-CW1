@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.*;
 import java.io.*;
 
+/**
+ * @author Software Engineering Team Three
+ * @version 1.0
+ *
+ */
 public class FileReaderTesting {
 
     public static void main (String[] args){

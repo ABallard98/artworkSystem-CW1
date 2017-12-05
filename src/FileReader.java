@@ -10,6 +10,12 @@ import javafx.scene.image.Image;
 import java.io.*;
 import java.text.*;
 
+/**
+ * 
+ * @author Software Engineering Team Three
+ * @version 1.0
+ * 
+ */
 public class FileReader {
 
 	private static ArrayList<User> users;
