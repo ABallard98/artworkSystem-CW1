@@ -221,13 +221,8 @@ public class NewAccountCreatorController {
 			userdata += "\n Phone number: " + phoneNumberLong;
 
 			User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
-			// user.setAvatarIndex(avatarIndex);
-			// user.resolvePicture();
 			System.out.println(user.getTextFileOutput());
 			FileReader.addUser(user);
-
-
-			// user
 
 			try {
 				Writer.writeUserFile(user);
@@ -254,8 +249,6 @@ public class NewAccountCreatorController {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AvatarDrawingTool.fxml"));
 		try {
 			BorderPane login = (BorderPane) fxmlL.load();
-			// NewAccountCreatorController newAccountController =
-			// fxmlL.<NewAccountCreatorController>getController();
 
 			Scene scene = new Scene(login, 600, 400);
 
