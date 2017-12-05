@@ -443,7 +443,6 @@ public class User {
 		switch (b.checkBid()) {
 			case 0: {
 				placedBids.add(b);
-
 				System.out.println("Bid placed.");
 				break;
 			}
