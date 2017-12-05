@@ -550,7 +550,7 @@ public class FileReader {
 
 	/**
 	 * Method to set the users ArrayList
-	 * @param ArrayList<User> - users in the system
+	 * @param users - an arraylist of users in the system
 	 */
 	public static void setUsers(ArrayList<User> users) {
 		FileReader.users = users;
