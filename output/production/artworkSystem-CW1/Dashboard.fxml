@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardSettingsController">
+    <padding>
+       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+    <center>
+       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+          <children>
+             <HBox prefHeight="154.0" prefWidth="540.0">
+                <children>
+                   <VBox prefHeight="216.0" prefWidth="154.0">
+                      <children>
+                         <Label text="Username" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="First name" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="Last name" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="Full name" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="Address" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="Postcode" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                         <Label text="Phone number" textFill="WHITE">
+                            <font>
+                               <Font name="System Bold" size="16.0" />
+                            </font>
+                         </Label>
+                      </children>
+                   </VBox>
+                   <VBox prefHeight="189.0" prefWidth="211.0">
+                      <children>
+                         <Label fx:id="username" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                           </font>
+                         </Label>
+                         <Label fx:id="firstName" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                           </font>
+                         </Label>
+                         <Label fx:id="lastName" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                            </font>
+                         </Label>
+                         <Label fx:id="fullName" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                            </font>
+                         </Label>
+                         <Label fx:id="address" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                            </font>
+                         </Label>
+                         <Label fx:id="postcode" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                          </font>
+                        </Label>
+                         <Label fx:id="phoneNumber" text="N/A" textFill="WHITE">
+                            <font>
+                               <Font size="16.0" />
+                            </font>
+                         </Label>
+                      </children>
+                   </VBox>
+            </children>
+           </HBox>
+         </children>
+       </VBox>
+    </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+      </HBox>
+   </top>
+ </BorderPane>

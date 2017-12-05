@@ -24,7 +24,8 @@ public class Artwork {
 	protected ArrayList<Bid> bidsOnItem; // ArrayList of bids on this artwork.
 	protected int numberOfBids; // Number of bids that have been placed.
 	private boolean bidIsOver; //Boolean depending on whether the bid is over or not.
-	private double highestBid; // Current highest bid placed on the artwork.
+	private Bid highestBid;
+	private double highestBidAmount; // Current highest bid placed on the artwork.
 	private ImageView imageView;
 
 	/**
@@ -46,11 +47,11 @@ public class Artwork {
 		this.title = title;
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
-		this.numberOfBids = 0;
+		this.numberOfBids = numberOfBids;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
-		this.highestBid = 0;
+		highestBidAmount = reservePrice;
 		resolveImage();
 		imageView = new ImageView();
 		//imageView.setImage(image);
@@ -82,7 +83,7 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
-		this.highestBid = 0;
+		highestBidAmount = reservePrice;
 		resolveImage();
 		imageView = new ImageView();
 	}
@@ -247,17 +248,35 @@ public class Artwork {
 	 * Method returns value of the highest current bid.
 	 * @return double - value of highest bid.
 	 */
-	public double getValueOfHighestBid() {
-		return bidsOnItem.get(bidsOnItem.size() - 1).getAmount();
+	public double getHighestBidAmount() {
+		double i = highestBidAmount;
+		for (Bid b : bidsOnItem) {
+			if (b.getAmount() > i) {
+				i = b.getAmount();
+			} else {
+
+			}
+		}
+		return i;
 	}
 
 	/**
 	 * Methods returns the highest bid.
-	 * @return Bid - last bid placed.
+	 * @return Bid - bid with the highest amount.
 	 */
 	public Bid getHighestBid() {
-		Bid bid = bidsOnItem.get(bidsOnItem.size() - 1);
-		return bid;
+		Bid biggest = null;
+		for (Bid b : bidsOnItem) {
+			double i = 0;
+			if (b.getAmount() > i) {
+				i = b.getAmount();
+				biggest = b;
+			}
+			else {
+
+			}
+		}
+		return biggest;
 	}
 
 	/**
@@ -339,7 +358,11 @@ public class Artwork {
 	 * Method to allow the setting of a new highest bid.
 	 * @param highestBid
 	 */
-	public void setHighestBid(double highestBid) {
+	public void setHighestBid(Bid highestBid) {
 		this.highestBid = highestBid;
+	}
+
+	public void setHighestBidAmount(double highestBidAmount) {
+		this.highestBidAmount = highestBidAmount;
 	}
 }// end of class

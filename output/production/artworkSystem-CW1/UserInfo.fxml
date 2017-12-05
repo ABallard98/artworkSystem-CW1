@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+ <BorderPane style="-fx-background-color: rgb(26, 40, 61, 0.7);" BorderPane.alignment="CENTER">
+         <top>
+            <HBox minWidth="90.0" prefHeight="41.0" prefWidth="888.0" spacing="10.0" style="-fx-background-color: rgb(26, 40, 61, 0.7);" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="createNewArtworkButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Create a new artwork">
+                     <tooltip>
+                        <Tooltip text="Empty Tooltip" />
+                     </tooltip></Button>
+                  <Pane />
+               </children>
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <BorderPane minWidth="10.0" BorderPane.alignment="CENTER">
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: rgb(26, 40, 61, 0.2);" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="artworkPicture" fitHeight="204.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Vincent_Willem_van_Gogh_128.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </left>
+               <top>
+                  <VBox prefHeight="132.0" prefWidth="436.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="nameOfArtworkT" text="Name of artwork" textFill="WHITE">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="authorArtwork" text="Author" textFill="WHITE">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="yearOfCreation" text="Year of creation" textFill="WHITE">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label style="-fx-border-color: rgb(26, 40, 61, 0.2);" text="Lorem ipsum dolor sit amet, pri ut mundi vituperatoribus. In vix zril nobis accommodare. Qui wisi diceret mandamus an. Pri ut praesent ullamcorper, per id autem intellegat dissentiet, duo hinc signiferumque id. Ad qui possim alienum, ex eam omnis lucilius, usu ea ludus inermis verterem.Qui ne dignissim percipitur, pro fabellas tincidunt no. Eu vel error possit, eam id vero novum, ei audire sententiae consequuntur vim. His ex solet graece oportere. Te usu vocibus evertitur similique, periculis ocurreret pri in, per ad numquam postulant. In vel quas putent. Sit vidisse sensibus consectetuer ea.Detracto inimicus reprehendunt sit ut, scripta luptatum id quo. Delicata mnesarchum at qui, cum molestie adipisci accommodare no. Feugiat salutatus vis te, ius in sale eripuit recteque. In mei alterum evertitur, mea laoreet lobortis ne, error vitae veniam an vel. Usu cu erroribus assueverit, utinam diceret nec ex, usu id ridens possit. Ad dolor bonorum appetere vel, quod referrentur qui ex.Ne eum possit legimus moderatius. Consul omnesque accommodare vis et, cu qui melius concludaturque, an eius atqui instructior has. Populo fierent delicatissimi in quo, ea corpora fabellas mel. Ut consulatu theophrastus per, iudico veniam ancillae te vim. Ei sit ferri suavitate efficiantur, qualisque definitiones qui te. An voluptatum appellantur eam, ei utinam nullam abhorreant sed.Pertinax interpretaris ad mea. Et per omnes accumsan, sed scripta honestatis ex. Etiam delenit pri in, te graeci nominati forensibus pro. Usu porro nullam no. Mel minimum omittantur complectitur ex, in idque vivendo vituperata qui, alia numquam convenire in nam. Elit laudem omnium quo te, quo alia errem persius ne, amet aeterno referrentur at est.No per minim dictas imperdiet, habeo rebum recusabo ut mel, vidisse oporteat consectetuer nec cu. Qui ut antiopam reprimique vituperatoribus, no qui quodsi argumentum. Usu id quem suavitate. Vel insolens atomorum theophrastus te, duo solet nonumy at.Est cu integre molestie scripserit. Sea omnesque deleniti ad, quot admodum necessitatibus est te, ne magna nostrum pri. Eam senserit concludaturque eu, solum dissentiunt an pri. Clita reprimique vituperatoribus usu an, et congue tollit vim, no insolens recteque forensibus mea.Nec eu meis civibus fuisset, sint postulant tractatos at eos, tota ipsum integre at has. Sed ea nibh mucius instructior, vel elit aeque sententiae ne. Case latine mediocrem ea vix. Duo eu modo accommodare, cum alterum iracundia contentiones te. Facer latine mnesarchum mel ea, malorum forensibus efficiendi nam ut. No eam sanctus volutpat interpretaris.In graece malorum eam, per ne sapientem dignissim voluptatibus. Id mel dico voluptaria. Vis eu impedit torquatos, quo et ancillae explicari. Cibo omittam abhorreant cum at, his exerci propriae ei, agam eirmod has eu. Ei ridens aliquid nec, mea ad unum expetenda. Ea pri vero voluptatum, id probo elitr suscipit mel. Quot similique qui at, nec id modo eloquentiam, no vis modo quaestio.At quem volumus eos. Qui at iusto soluta, per ne aperiam persecuti, melius fuisset salutandi et pro. Aeque utamur equidem usu et, mel cu vidit imperdiet. Te mea enim explicari. Quo mazim aliquam ad, est illum offendit signiferumque ea." textFill="WHITE" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </center>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <right>
+                  <VBox prefHeight="372.0" prefWidth="179.0" spacing="10.0" style="-fx-border-color: rgb(26, 40, 61, 0.2);" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Current price" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Number of bids" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Seller:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="NEW BID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField promptText="your offer" />
+                        <Button mnemonicParsing="false" text="Confirm" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="20.0" right="10.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </right></BorderPane>
+         </center>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </BorderPane>
