@@ -244,7 +244,39 @@ public class Artwork {
 	 * @param bid
 	 */
 	public void addBidToItem(Bid bid) {
-		bidsOnItem.add(bid);
+		String error1 = "Bidder cannot bid on their own artwork." + "\n";
+		String error2 = "Maximum number of bids has been reached." + "\n";
+		String error3 = "Bid must be higher than current bid." + "\n";
+		switch (bid.checkBid()) {
+			case 0: {
+				bidsOnItem.add(bid);
+				owner.addBid(bid);
+				System.out.println("Bid placed.");
+				break;
+			}
+			case 1: {
+				System.out.println(error1);
+				break;
+			}
+			case 2: {
+				System.out.println(error2);
+			}
+			case 3: {
+				System.out.println(error3);
+			}
+			case 4: {
+				System.out.println(error1 + error2);
+			}
+			case 5: {
+				System.out.println(error1 + error3);
+			}
+			case 6: {
+				System.out.println(error2 + error3);
+			}
+			default: {
+				System.out.println(error1 + error2 + error3);
+			}
+		}
 	}
 
 	/**
@@ -252,15 +284,7 @@ public class Artwork {
 	 * @return double - value of highest bid.
 	 */
 	public double getHighestBidAmount() {
-		double i = highestBidAmount;
-		for (Bid b : bidsOnItem) {
-			if (b.getAmount() > i) {
-				i = b.getAmount();
-			} else {
-
-			}
-		}
-		return i;
+		return getHighestBid().getAmount();
 	}
 
 	/**

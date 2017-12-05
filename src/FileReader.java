@@ -347,73 +347,18 @@ public class FileReader {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					switch (bid.checkBid()) {
-						case 0: {
+
 							bids.add(bid);
 							seller.addBid(bid);
-							System.out.println("Bid placed.");
-							break;
-						}
-						case 1: {
-							System.out.println(error1);
-							break;
-						}
-						case 2: {
-							System.out.println(error2);
-						}
-						case 3: {
-							System.out.println(error3);
-						}
-						case 4: {
-							System.out.println(error1 + error2);
-						}
-						case 5: {
-							System.out.println(error1 + error3);
-						}
-						case 6: {
-							System.out.println(error2 + error3);
-						}
-						default: {
-							System.out.println(error1 + error2 + error3);
-						}
 
-					}
 				}
 				//If the bid was on a sculpture then this block of code is used
 				else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					switch (bid.checkBid()) {
-						case 0: {
-							bids.add(bid);
-							seller.addBid(bid);
-							System.out.println("Bid placed.");
-							break;
-						}
-						case 1: {
-							System.out.println(error1);
-							break;
-						}
-						case 2: {
-							System.out.println(error2);
-						}
-						case 3: {
-							System.out.println(error3);
-						}
-						case 4: {
-							System.out.println(error1 + error2);
-						}
-						case 5: {
-							System.out.println(error1 + error3);
-						}
-						case 6: {
-							System.out.println(error2 + error3);
-						}
-						default: {
-							System.out.println(error1 + error2 + error3);
-						}
-					}
+					bids.add(bid);
+					seller.addBid(bid);
 				}
 				in.close();
 			}

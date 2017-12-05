@@ -434,11 +434,44 @@ public class User {
 
 	/**
 	 * Method to add a bid to the users placedBids ArrayList
-	 * @param bid - the bid the user has made
+	 * @param b - the bid the user has made
 	 */
-	public void addBid(Bid bid) {
-		placedBids.add(bid);
+	public void addBid(Bid b) {
+		String error1 = "Bidder cannot bid on their own artwork." + "\n";
+		String error2 = "Maximum number of bids has been reached." + "\n";
+		String error3 = "Bid must be higher than current bid." + "\n";
+		switch (b.checkBid()) {
+			case 0: {
+				placedBids.add(b);
+
+				System.out.println("Bid placed.");
+				break;
+			}
+			case 1: {
+				System.out.println(error1);
+				break;
+			}
+			case 2: {
+				System.out.println(error2);
+			}
+			case 3: {
+				System.out.println(error3);
+			}
+			case 4: {
+				System.out.println(error1 + error2);
+			}
+			case 5: {
+				System.out.println(error1 + error3);
+			}
+			case 6: {
+				System.out.println(error2 + error3);
+			}
+			default: {
+				System.out.println(error1 + error2 + error3);
+			}
+		}
 	}
+
 
 	/**
 	 * Method to return the avatar index of a user
