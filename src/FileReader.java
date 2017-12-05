@@ -509,7 +509,6 @@ public class FileReader {
 		Image image = null;
 		try {
 			image = new Image(new FileInputStream("artworkImages/" + name + "/0.png"));
-			System.out.println("How?"+ image.impl_getUrl());
 			return image;
 
 		} catch (FileNotFoundException e) {

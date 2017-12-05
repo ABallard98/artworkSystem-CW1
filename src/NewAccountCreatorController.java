@@ -185,10 +185,21 @@ public class NewAccountCreatorController {
 		String address = addressField.getText();
 		String postCode = postcodeField.getText();
 		String phoneNumber = phoneNumberField.getText();
-		long phoneNumberLong = 0;
+		long phoneNumberLong;
 		if (username.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || postCode.isEmpty()
 				|| phoneNumber.isEmpty()) {
 
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+
+			alert.setHeaderText("Could not create an user");
+			alert.setContentText("Make sure you fill all fields and press button again");
+			alert.showAndWait();
+
+			return;
+		}
+
+		else {
 			try {
 				phoneNumberLong = Long.parseLong(phoneNumber);
 			} catch (Exception e) {
@@ -201,48 +212,40 @@ public class NewAccountCreatorController {
 				return;
 			}
 
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error");
+			String userdata = "";
+			userdata += "\n Username: " + username;
+			userdata += "\n First name: " + firstName;
+			userdata += "\n Last name: " + lastName;
+			userdata += "\n Address: " + address;
+			userdata += "\n Post code: " + postCode;
+			userdata += "\n Phone number: " + phoneNumberLong;
 
-			alert.setHeaderText("Could not create an user");
-			alert.setContentText("Make sure you fill all fields and press button again");
+			User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
+			// user.setAvatarIndex(avatarIndex);
+			// user.resolvePicture();
+			System.out.println(user.getTextFileOutput());
+			FileReader.addUser(user);
+
+
+			// user
+
+			try {
+				Writer.writeUserFile(user);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(userdata);
+
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Success");
+
+			alert.setHeaderText("The user has been created");
+			alert.setContentText("Close this window to return to login screen");
 			alert.showAndWait();
 
-			return;
+			createAccountButton.getScene().getWindow().hide();
 		}
-
-		String userdata = "";
-		userdata += "\n Username: " + username;
-		userdata += "\n First name: " + firstName;
-		userdata += "\n Last name: " + lastName;
-		userdata += "\n Address: " + address;
-		userdata += "\n Post code: " + postCode;
-		userdata += "\n Phone number: " + phoneNumberLong;
-
-		User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
-		// user.setAvatarIndex(avatarIndex);
-		// user.resolvePicture();
-		System.out.println(user.getTextFileOutput());
-		FileReader.addUser(user);
-
-		// user
-
-		try {
-			Writer.writeUserFile(user);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(userdata);
-
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Success");
-
-		alert.setHeaderText("The user has been created");
-		alert.setContentText("Close this window to return to login screen");
-		alert.showAndWait();
-
-		createAccountButton.getScene().getWindow().hide();
 
 	}
 

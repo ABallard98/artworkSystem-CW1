@@ -140,14 +140,6 @@ public class User {
 	}
 
 	/**
-	 * Method to get the file path of the image.
-	 * @return String - file path.
-	 */
-	public String getImagePath() {
-		return image.impl_getUrl();
-	}
-
-	/**
 	 * Method to get the user's username.
 	 * @return String - username.
 	 */

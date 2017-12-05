@@ -125,8 +125,6 @@ public class ArtworkController {
 		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
 		mainPic.setImage(currentPainting.getImage());
 		// sellerAvatar.setImage(currentPainting.getOwner().getImage());
-
-		System.out.println(currentPainting.getOwner().getImagePath());
 		sellerA.setText(currentPainting.getOwner().getUsername());
 	}
 
