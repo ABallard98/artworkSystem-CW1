@@ -25,7 +25,7 @@ public class Artwork {
 	protected int numberOfBids; // Number of bids that have been placed.
 	private boolean bidIsOver; //Boolean depending on whether the bid is over or not.
 	private double highestBid; // Current highest bid placed on the artwork.
-	private ImageView imageView;
+	private ImageView imageView; // image view of the artwork
 
 
 	/**
@@ -309,6 +309,9 @@ public class Artwork {
 	 */
 	public ImageView getImageView() {
 		imageView.setImage(image);
+		imageView.setFitHeight(100);
+		imageView.setFitWidth(100);
+
 		return imageView;
 	}
 

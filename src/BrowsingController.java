@@ -1,6 +1,8 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,9 +29,24 @@ public class BrowsingController {
     private ObservableList<Artwork> artworks;
 
     
+    @FXML
+    private CheckBox paintingSelected;
+
+    @FXML
+    private CheckBox sculptureSelected;
+
+    @FXML
+    private Button refresh;
+
+    
     
     public void initialize() {
     
+    	sculptureSelected.setSelected(true);
+    	paintingSelected.setSelected(true);
+    	
+    	image.setMinWidth(100);
+    	
     	artworks =  FXCollections.observableArrayList(FileReader.getArtworks());
 
     	System.out.println("Artworks number: " + artworks.size());
@@ -38,7 +55,24 @@ public class BrowsingController {
     	description.setCellValueFactory(new PropertyValueFactory<Artwork,String>("description"));
     	
     	table.setItems(artworks);
+    	refresh.setOnAction(e-> update());
     	
+    }
+    
+    
+    public void update() {
+    	if(sculptureSelected.isSelected() && paintingSelected.isSelected()) {
+        	artworks =  FXCollections.observableArrayList(FileReader.getArtworks());
+    	} else if (!sculptureSelected.isSelected() && paintingSelected.isSelected())  {
+    		artworks =  FXCollections.observableArrayList(FileReader.getSculptures());
+    	} else if (sculptureSelected.isSelected() && !paintingSelected.isSelected())  {
+    		artworks =  FXCollections.observableArrayList(FileReader.getPaintings());
+    	} else {
+    		artworks = null;
+    	}
+    	
+    	table.setItems(artworks);
+
     }
     
     
