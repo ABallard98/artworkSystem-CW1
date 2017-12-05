@@ -15,6 +15,7 @@ public class Bid {
 	private double amount; // Price the user placed.
 	private Artwork artwork; // The artwork that the bid is placed on.
 	private Date bidDate; // The date the bid was placed.
+
 	private ImageView imgView;//?
 	private String title;//?
 	private String bidDateString; //?
@@ -22,33 +23,32 @@ public class Bid {
 
 	/**
 	 * Creates a new bid object.
-	 * @param bidder - user that placed the bid.
-	 * @param reservePrice - price the user placed.
-	 * @param artwork - the artwork that the bid is placed on.
-	 * @param bidDate - the date the bid was placed.
+	 * @param typeOfArtwork
+	 * @param bidder
+	 * @param artwork
+	 * @param bidDate
 	 */
-	public Bid(String typeOfArtwork, User bidder, double reservePrice,
-			   Artwork artwork, Date bidDate) {
+	public Bid(String typeOfArtwork, User bidder, double amount, Artwork artwork, Date bidDate) {
 
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
-		this.amount = reservePrice;
 		this.artwork = artwork;
 		this.bidDate = bidDate;
+		this.amount = amount;
 		System.out.println( artwork.getImage().impl_getUrl());
 		imgView = new ImageView();
 		image = artwork.getImage();
 		this.title = artwork.getTitle();
 	}
 
-	public Bid(String typeOfArtwork, User bidder, double reservePrice,
-			   Artwork artwork, String bid) {
+	public Bid(String typeOfArtwork, User bidder,double amount, Artwork artwork, String bid) {
 
 		this.typeOfArtwork = typeOfArtwork;
 		this.bidder = bidder;
-		this.amount = reservePrice;
 		this.artwork = artwork;
+		this.amount = amount;
 		imgView = new ImageView();
+
 
 		image = artwork.getImage();
 		this.title = artwork.getTitle();
@@ -83,6 +83,21 @@ public class Bid {
 		imgView.setFitHeight(100);
 		imgView.setImage(image);
 		return imgView;
+	}
+
+	public void setAmount(double amount)
+	{
+		this.amount = amount;
+	}
+
+	public boolean checkBid() {
+		if ((amount > artwork.getReservePrice()) &&
+				(artwork.getBidsAllowed() > artwork.getNumberOfBids())) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public String getTitle() {

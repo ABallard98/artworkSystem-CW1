@@ -290,15 +290,25 @@ public class FileReader {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
+					if (bid.checkBid() == true) {
+						bids.add(bid);
+						seller.addBid(bid);
+					}
+					else {
+						System.out.println("Error placing bid.");
+					}
 
-					bids.add(bid);
-					seller.addBid(bid);
 				} else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					bids.add(bid);
-					seller.addBid(bid);
+					if (bid.checkBid() == true) {
+						bids.add(bid);
+						seller.addBid(bid);
+					}
+					else {
+						System.out.println("Error placing bid.");
+					}
 				}
 
 			}
