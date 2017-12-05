@@ -338,42 +338,91 @@ public class FileReader {
 				String dateString = in.nextLine();
 				Date date = new Date(dateString);
 
+				String error1 = "Bidder cannot bid on their own artwork." + "\n";
+				String error2 = "Maximum number of bids has been reached." + "\n";
+				String error3 = "Bid must be higher than current bid." + "\n";
+
 				//If the bid was on a painting this block of code is used
-				if (typeOfArtwork.equalsIgnoreCase("painting")) { 
+				if (typeOfArtwork.equalsIgnoreCase("painting")) {
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					if (bid.checkBid() == true) {
-						bids.add(bid);
-						seller.addBid(bid);
+					switch (bid.checkBid()) {
+						case 0: {
+							bids.add(bid);
+							seller.addBid(bid);
+							System.out.println("Bid placed.");
+							break;
+						}
+						case 1: {
+							System.out.println(error1);
+							break;
+						}
+						case 2: {
+							System.out.println(error2);
+						}
+						case 3: {
+							System.out.println(error3);
+						}
+						case 4: {
+							System.out.println(error1 + error2);
+						}
+						case 5: {
+							System.out.println(error1 + error3);
+						}
+						case 6: {
+							System.out.println(error2 + error3);
+						}
+						default: {
+							System.out.println(error1 + error2 + error3);
+						}
+
 					}
-					else {
-						System.out.println("Error placing bid.");
-					}
+				}
 				//If the bid was on a sculpture then this block of code is used
-				} else {
+				else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					if (bid.checkBid() == true) {
-						bids.add(bid);
-						seller.addBid(bid);
-					}
-					else {
-						System.out.println("Error placing bid.");
+					switch (bid.checkBid()) {
+						case 0: {
+							bids.add(bid);
+							seller.addBid(bid);
+							System.out.println("Bid placed.");
+							break;
+						}
+						case 1: {
+							System.out.println(error1);
+							break;
+						}
+						case 2: {
+							System.out.println(error2);
+						}
+						case 3: {
+							System.out.println(error3);
+						}
+						case 4: {
+							System.out.println(error1 + error2);
+						}
+						case 5: {
+							System.out.println(error1 + error3);
+						}
+						case 6: {
+							System.out.println(error2 + error3);
+						}
+						default: {
+							System.out.println(error1 + error2 + error3);
+						}
 					}
 				}
-
+				in.close();
 			}
-			in.close();
 		} catch (FileNotFoundException e) {
-			// e.printStackTrace();
-			System.out.println("Error constructing Bid. File " + filename + " was not found");
+			e.printStackTrace();
 		}
-
 	}
 
-	//ANOTHER DUPLICATE METHOD??
+		//ANOTHER DUPLICATE METHOD??
 	public static void readBidFiles() throws FileNotFoundException {
 
 		File[] listOfFiles = new File("bids/").listFiles();
