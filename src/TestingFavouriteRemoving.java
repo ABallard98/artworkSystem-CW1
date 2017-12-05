@@ -13,10 +13,24 @@ public class TestingFavouriteRemoving {
         User testUser2 = new User("test2","taylor","stevens",
                 "26 beechwood road","sa20jd",118118);
 
-        testUser.addUserToFavourites(testUser2);
+     /*   testUser.addUserToFavourites(testUser2);
         Writer.addToFavourites(testUser,testUser2);
         System.out.println("favourite added");
-        testUser.removeUserFromFavourites(testUser2);
+        testUser.removeUserFromFavourites(testUser2); */
+        
+        FileReader.initialize();
+        
+        User user1 = FileReader.getUser("elmarko");
+        
+        User user2 = FileReader.getUser("33");
+
+        if(user1 != null && user2 != null) {
+        	System.out.println("Users loaded");
+        }
+        
+        user1.removeUserFromFavourites(user2);
+        
+        
         System.out.println("favourite removed");
 
 

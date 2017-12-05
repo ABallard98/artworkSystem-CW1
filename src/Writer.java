@@ -102,6 +102,7 @@ public class Writer {
             }
             writer.close();
             reader.close();
+            FAVOURITES.delete();
             boolean successful = TEMP_FILE.renameTo(FAVOURITES);
             System.out.println(successful);
             return successful;
