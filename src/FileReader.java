@@ -221,8 +221,12 @@ public class FileReader {
 			String firstUser = in.next();
 			String secondUser = in.next();
 
-			// for loop to find the users
+			
+			
+			// for loop to find the users1
 			for (User u : users) {
+				System.out.println("user" + u.getAddress());
+				
 				if (u.getUsername().equals(firstUser)) {
 					user1 = u;
 				}
