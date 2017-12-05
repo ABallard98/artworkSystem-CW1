@@ -27,6 +27,7 @@ public class Artwork {
 	private double highestBid; // Current highest bid placed on the artwork.
 	private ImageView imageView;
 
+
 	/**
 	 * Creates a new general Artwork object without a description. Also
 	 * creates the imageview.
