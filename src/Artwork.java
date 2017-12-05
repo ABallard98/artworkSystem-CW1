@@ -28,6 +28,7 @@ public class Artwork {
 	private ImageView imageView; // image view of the artwork
 
 
+	
 	/**
 	 * Creates a new general Artwork object without a description. Also
 	 * creates the imageview.
