@@ -25,6 +25,11 @@ public class Writer {
         }
     }
 
+    /**
+     * Method to create and append a text file of a unique users bid history
+     * @param bid - the bids a user has made
+     * @throws IOException
+     */
     public static void writeBidFile(Bid bid) throws IOException{
         String path = "bids//"+bid.getBidder().getUsername() +".txt";
         System.out.println(path);
@@ -40,7 +45,11 @@ public class Writer {
         }
     }
 
-
+    /**
+     * Method to write a painting text file containing all of the paintings information
+     * @param painting - painting of the file
+     * @throws IOException
+     */
     public static void writePaintingFile(Painting painting) throws IOException{
         String path = "artworkFiles//paintings//"+painting.getTitle()+".txt";
         try{
@@ -53,6 +62,11 @@ public class Writer {
         }
     }
 
+    /**
+     * Method to write a sculpture text file containing all of the sculptures information
+     * @param sculpture - sculpture of the file
+     * @throws IOException
+     */
     public static void writeSculptureFile(Sculpture sculpture) throws IOException{
         String path = "artworkFiles//sculptures//"+sculpture.getTitle()+".txt";
         try{
@@ -66,6 +80,11 @@ public class Writer {
     }
 
 
+    /**
+     * Method to add 2 users into a favourites text file
+     * @param user1 - the main user
+     * @param user2 - the user that the main user wants to favourite
+     */
     public static void addToFavourites(User user1, User user2) {
     	String path = "favourites.txt";
     	
@@ -83,6 +102,12 @@ public class Writer {
 		}
     }
 
+    /**
+     * Method to remove users from the favourite text file
+     * @param user1 - one of the user that needs to be removed
+     * @param user2 - the other user that needs to be removed
+     * @return boolean - true if users were successfully removed, false otherwise
+     */
     public static boolean removeFromFavourites(User user1, User user2){
         final String FAVOURITES_FILE = "favourites.txt";
         final File FAVOURITES = new File("favourites.txt");
@@ -115,4 +140,4 @@ public class Writer {
     
 
 
-}
+}//end of class

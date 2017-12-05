@@ -33,7 +33,7 @@ public class User {
 	private ImageView imgView;
 
 	/**
-	 * Makes a new User object with an ....
+	 * Constructor for a new User object
 	 * @param username - username of the user.
 	 * @param fname - first name of the user.
 	 * @param lname - last name of the user.
@@ -124,6 +124,10 @@ public class User {
 		}
 	}
 	
+	/**
+	 * Method used to display an image inside an ImageView
+	 * @return ImageView - containing the image
+	 */
 	public ImageView getImgView() {
 		imgView.setImage(image);
 		imgView.setFitWidth(100);
@@ -372,42 +376,82 @@ public class User {
 		return artWon;
 	}
 
+	/**
+	 * Method to set the list of artwork's a user has won
+	 * @param artWon
+	 */
 	public void setArtWon(ArrayList<Artwork> artWon) {
 		this.artWon = artWon;
 	}
 
+	/**
+	 * Method to set the full name of a user
+	 * @param fullName - first name and last name
+	 */
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
 
+	/**
+	 * Method to set a users favourite users
+	 * @param favouriteUsers
+	 */
 	public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
 		this.favouriteUsers = favouriteUsers;
 	}
 
+	/**
+	 * Method to add an artwork to a user's auctions
+	 * @param artwork
+	 */
 	public void addArtwork(Artwork artwork) {
 		artForSale.add(artwork);
 	}
 
+	/**
+	 * Method to get number the artworks that are being sold by the user
+	 * @return int - how many artworks are in the ArrayList
+	 */
 	public int getSellingArtworks() {
 		return artForSale.size();
 	}
 
+	/**
+	 * Method to get the bids that a user has placed
+	 * @return ArrayList<Bid> - bids placed by user
+	 */
 	public ArrayList<Bid> getPlacedBids() {
 		return placedBids;
 	}
 
+	/**
+	 * Method to set the bids placed by a user
+	 * @param placedBids
+	 */
 	public void setPlacedBids(ArrayList<Bid> placedBids) {
 		this.placedBids = placedBids;
 	}
 
+	/**
+	 * Method to add a bid to the users placedBids ArrayList
+	 * @param bid - the bid the user has made
+	 */
 	public void addBid(Bid bid) {
 		placedBids.add(bid);
 	}
 
+	/**
+	 * Method to return the avatar index of a user
+	 * @return int - the index of the selected avatar
+	 */
 	public int getAvatarIndex() {
 		return avatarIndex;
 	}
 
+	/**
+	 * Method to set the avatar index of a user
+	 * @param avatarIndex - index of the selected avatar
+	 */
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;
 		// resolvePicture();
