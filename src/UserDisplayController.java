@@ -40,8 +40,6 @@ public class UserDisplayController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 
 	}
 
@@ -65,13 +63,20 @@ public class UserDisplayController {
 	}
 
 	public void handleFavourites() {
+		User loggedUser = LoginController.getUser();
+
 		if (favourite.isSelected()) {
-			User loggedUser = LoginController.getUser();
 			if (!FileReader.checkIfInFavouriteList(loggedUser, user)) {
 				LoginController.getUser().addUserToFavourites(user);
 				Writer.addToFavourites(loggedUser, user);
+			} else {
+
 			}
 		} else {
+			if (FileReader.checkIfInFavouriteList(loggedUser, user)) {
+				loggedUser.removeUserFromFavourites(user);
+				Writer.removeFromFavourites(loggedUser, user);
+			}
 
 		}
 	}

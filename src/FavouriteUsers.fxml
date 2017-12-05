@@ -25,7 +25,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button1" mnemonicParsing="false" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets left="30.0" right="30.0" />
