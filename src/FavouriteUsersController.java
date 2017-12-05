@@ -16,8 +16,6 @@ public class FavouriteUsersController {
 	@FXML
 	private TableView<User> table1;
 
-	@FXML
-	private Button button1;
 
 	private ObservableList<User> favourites;
 
