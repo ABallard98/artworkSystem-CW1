@@ -58,8 +58,8 @@
             </TableView>
             <HBox prefHeight="46.0" prefWidth="484.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Add user" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Delete user" />
+                  <Button fx:id="displayUser" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" text="Display user" />
+                  <Button fx:id="deleteUser" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Delete user" />
                </children>
             </HBox>
          </children>
