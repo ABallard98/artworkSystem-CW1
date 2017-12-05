@@ -103,9 +103,9 @@ public class ArtworkController {
 		placeBid.setOnAction(e -> addBid());
 		try {
 			FileReader.constructBid(LoginController.getUser().getUsername());
-		} catch (ParseException e1) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
 		System.out.println("Total no. of bids " + FileReader.getBids().size());
 		System.out.println("Total no. of users " + FileReader.getUsers().size());

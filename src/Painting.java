@@ -17,7 +17,7 @@ public class Painting extends Artwork{
     * @param creatorName - name of who created the painting
     * @param yearWasMade - year of paintings creation
     * @param numberOfBids - how many bids allowed
-    * @param reservePrice - minimum price for painting in £'s
+    * @param reservePrice - minimum price for bids on painting
     * @param width - width of the painting in cm
     * @param height - height of the painting in cm
     */
@@ -36,14 +36,14 @@ public class Painting extends Artwork{
     * @param creatorName - name of who created the painting
     * @param yearWasMade - year of paintings creation
     * @param numberOfBids - how many bids allowed
-    * @param reservePrice - minimum price for painting in £'s
+    * @param reservePrice - minimum price for bids on painting
     * @param width - width of the painting in cm
     * @param height - height of the painting in cm
     * @param description - brief description of painting
     */
-   public Painting(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+   public Painting(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
                    double reservePrice, int width, int height, String description){
-       super(seller,date,name,creator,yearWasMade,numberOfBids,reservePrice,description);
+       super(seller,date,name,creatorName,yearWasMade,numberOfBids,reservePrice,description);
        setWidth(width);
        setHeight(height);
    }

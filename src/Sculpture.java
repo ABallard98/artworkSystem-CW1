@@ -23,15 +23,15 @@ public class Sculpture extends Artwork {
     * @param creatorName - name of who created the sculpture
     * @param yearWasMade - year of sculptures creation
     * @param numberOfBids - how many bids allowed
-    * @param reservePrice - minimum price for sculpture in £'s
+    * @param reservePrice - minimum price for bid on sculpture
     * @param width - width of the sculpture in cm
     * @param height - height of the sculpture in cm
     * @param depth - depth of the sculpture in cm
     * @param material - what the sculpture is made out of
 	 */
-	public Sculpture(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+	public Sculpture(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
 			double reservePrice, int width, int height, int depth, String material) {
-		super(seller, date, name, creator, yearWasMade, numberOfBids, reservePrice);
+		super(seller, date, name, creatorName, yearWasMade, numberOfBids, reservePrice);
 		setWidth(width);
 		setHeight(height);
 		setDepth(depth);
@@ -47,16 +47,16 @@ public class Sculpture extends Artwork {
     * @param creatorName - name of who created the sculpture
     * @param yearWasMade - year of sculptures creation
     * @param numberOfBids - how many bids allowed
-    * @param reservePrice - minimum price for sculpture in £'s
+    * @param reservePrice - minimum price for bid on sculpture
     * @param width - width of the sculpture in cm
     * @param height - height of the sculpture in cm
     * @param depth - depth of the sculpture in cm
     * @param material - what the sculpture is made out of
     * @param description - brief description of the sculpture
 	 */
-	public Sculpture(User seller, Date date, String name, String creator, int yearWasMade, int numberOfBids,
+	public Sculpture(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
 			double reservePrice, int width, int height, int depth, String material, String description) {
-		super(seller, date, name, creator, yearWasMade, numberOfBids, reservePrice, description);
+		super(seller, date, name, creatorName, yearWasMade, numberOfBids, reservePrice, description);
 		setWidth(width);
 		setHeight(height);
 		setDepth(depth);
