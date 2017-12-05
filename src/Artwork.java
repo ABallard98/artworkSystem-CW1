@@ -24,11 +24,13 @@ public class Artwork {
 	protected ArrayList<Bid> bidsOnItem; // ArrayList of bids on this artwork.
 	protected int numberOfBids; // Number of bids that have been placed.
 	private boolean bidIsOver; //Boolean depending on whether the bid is over or not.
-	private Bid highestBid;
+	private double highestBid; // Current highest bid placed on the artwork.
+	private ImageView imageView; // image view of the artwork
 	private double highestBidAmount; // Current highest bid placed on the artwork.
-	private ImageView imageView;
 
 
+
+	
 	/**
 	 * Creates a new general Artwork object without a description. Also
 	 * creates the imageview.
@@ -328,6 +330,9 @@ public class Artwork {
 	 */
 	public ImageView getImageView() {
 		imageView.setImage(image);
+		imageView.setFitHeight(100);
+		imageView.setFitWidth(100);
+
 		return imageView;
 	}
 
@@ -360,7 +365,7 @@ public class Artwork {
 	 * @param highestBid
 	 */
 	public void setHighestBid(Bid highestBid) {
-		this.highestBid = highestBid;
+		this.highestBid = highestBidAmount;
 	}
 
 	public void setHighestBidAmount(double highestBidAmount) {

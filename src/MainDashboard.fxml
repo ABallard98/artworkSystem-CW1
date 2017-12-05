@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -16,7 +18,24 @@
          </BorderPane.margin>
          <padding>
             <Insets left="20.0" />
-         </padding></VBox>
+         </padding>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <CheckBox fx:id="paintingSelected" mnemonicParsing="false" text="Paintings" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="sculptureSelected" mnemonicParsing="false" text="Artworks" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="refresh" mnemonicParsing="false" text="Refresh" />
+               </children>
+            </VBox>
+         </children></VBox>
    </left>
    <right>
       <VBox prefHeight="496.0" prefWidth="131.0" BorderPane.alignment="CENTER" />

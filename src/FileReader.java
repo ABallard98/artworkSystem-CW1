@@ -497,12 +497,15 @@ public class FileReader {
 				description = in.next();
 				Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height, depth, material, description);
+				seller.addArtwork(sculpture);
 				in.close();
 				return sculpture;
 			}
 
 			Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 					reservePrice, width, height, depth, material);
+			seller.addArtwork(sculpture);
+
 			System.out.println("Sculpture " + sculpture.getTitle() + " was created");
 			in.close();
 			return sculpture;
