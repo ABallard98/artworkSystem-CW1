@@ -29,7 +29,7 @@
                   <Image url="@Icons/people-icon--icon-search-engine-18.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="dashboardLink" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Dashboard" textFill="WHITE">
+            <Hyperlink fx:id="dashboardLink" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: rgb(18, 95, 222  ,0);" text="Browse" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

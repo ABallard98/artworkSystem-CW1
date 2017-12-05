@@ -119,14 +119,49 @@ public class Bid {
 	 * Method to check if the bid is acceptable or not
 	 * @return boolean - True if bid is acceptable, false if not
 	 */
-	public boolean checkBid() {
-		if ((amount > artwork.getHighestBid().amount) &&
-				(artwork.getBidsAllowed() > artwork.getNumberOfBids())) {
-			return true;
+	public int checkBid() {
+		if ((amount > artwork.getHighestBid().amount)
+				&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& (bidder != artwork.getOwner())) {
+			return 0;
+		}
+		else if ((amount > artwork.getHighestBid().amount)
+				&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& !(bidder != artwork.getOwner())){
+
+			return 1;
+		}
+		else if ((amount > artwork.getHighestBid().amount)
+				&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& (bidder != artwork.getOwner())){
+
+			return 2;
+		}
+		else if (!(amount > artwork.getHighestBid().amount)
+				&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& (bidder != artwork.getOwner())){
+
+			return 3;
+		}
+		else if (!(amount > artwork.getHighestBid().amount)
+				&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& (bidder != artwork.getOwner())){
+			return 4;
+		}
+		else if (!(amount > artwork.getHighestBid().amount)
+				&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& !(bidder != artwork.getOwner())) {
+			return 5;
+		}
+		else if ((amount > artwork.getHighestBid().amount)
+				&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+				&& !(bidder != artwork.getOwner())) {
+			return 6;
 		}
 		else {
-			return false;
+			return 7;
 		}
+
 	}
 	
 	/**
