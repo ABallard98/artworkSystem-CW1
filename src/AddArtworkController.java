@@ -84,11 +84,13 @@ public class AddArtworkController {
 	@FXML
 	private ImageView pic4;
 
+	// Images for artworks
 	private Image img1;
 	private Image img2;
 	private Image img3;
 	private Image img4;
 	
+	// ArrayList of images
 	private ArrayList<Image> images1;
 
 	private List<File> list;

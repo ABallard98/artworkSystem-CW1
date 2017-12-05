@@ -57,10 +57,6 @@ public class Artwork {
 
 	}
 
-	public void resolveImage() {
-		this.image = FileReader.retrieveImage(title);
-		//System.out.println("image "+ image.toString());
-	}
 
 	/**
 	 * Creates a new general Artwork object with a description. Also
@@ -90,10 +86,13 @@ public class Artwork {
 		resolveImage();
 		imageView = new ImageView();
 	}
+	
 
-	public void readPhoto(String imageFileName) {
-		// to implement
+	public void resolveImage() {
+		this.image = FileReader.retrieveImage(title);
+		//System.out.println("image "+ image.toString());
 	}
+	
 
 	/**
 	 * Method to get the name of the artwork.

@@ -10,6 +10,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
@@ -35,10 +36,11 @@ public class AvatarDrawingController {
 	private Button save;
 
 	@FXML
-	private Button clear;
+	private Button clear;	
 
-	private ArrayList<Ellipse> ovals;
-	private ArrayList<Line> lines;
+    @FXML
+    private ColorPicker colorPicker;
+
 
 	private double startX;
 	private double startY;
@@ -51,9 +53,25 @@ public class AvatarDrawingController {
 
 	private EventHandler<MouseEvent> pressed2;
 	private EventHandler<MouseEvent> released2;
+	private Color color;
+	
+
+    @FXML
+    private Button confirmColor;
+
 
 	public void initialize() {
+		//color = Color.PURPLE;
 
+		colorPicker.setOnAction(e-> {
+			
+			color = colorPicker.getValue();
+			
+			gc.setFill(color);
+			gc.setStroke(color);
+					
+		});
+		
 		// canvas.setStyle("border-color: red; border-width: 5px");
 
 		clear.setOnAction(e -> clearCanvas());
@@ -188,10 +206,15 @@ public class AvatarDrawingController {
 		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
 	}
+	
+	
 
 	public void initDraw(GraphicsContext gc) {
-		gc.setFill(Color.BLUEVIOLET);
-		gc.setStroke(Color.BLUEVIOLET);
+		
+		//color = colorPicker.getValue();
+		
+		gc.setFill(color);
+		gc.setStroke(color);
 
 		gc.fill();
 
