@@ -18,16 +18,21 @@ import java.text.*;
  */
 public class FileReader {
 
-	private static ArrayList<User> users;
-	private static ArrayList<Artwork> artworks;
-	private static ArrayList<Sculpture> sculptures;
-	private static ArrayList<Painting> paintings;
+	private static ArrayList<User> users; // arrayList of User objects
+	private static ArrayList<Artwork> artworks; // arrayList of Artwork objects
+	private static ArrayList<Sculpture> sculptures; // arrayList of Sculpture objects
+	private static ArrayList<Painting> paintings; // arrayList of Painting objects
 
-	private static ArrayList<Bid> bids = new ArrayList<Bid>();
+	private static ArrayList<Bid> bids = new ArrayList<Bid>(); // arrayList of Bid objects
 
+	/**
+	 * Method to return a specific painting object
+	 * @param str - the title of the required painting
+	 * @return Painting - the painting with the required title
+	 */
 	public static Painting getPainting(String str) {
 
-		for (Painting paint : paintings) {
+		for (Painting paint : paintings) { //searches the arrayList
 			if (paint.getTitle().equalsIgnoreCase(str)) {
 				return paint;
 			}
@@ -37,10 +42,19 @@ public class FileReader {
 
 	}
 
+	/**
+	 * Method to add a User object to the User ArrayList
+	 * @param user - A User object
+	 */
 	public static void addUser(User user) {
 		users.add(user);
 	}
 
+	/**
+	 * Method to return a specific User object
+	 * @param str - username of the required User
+	 * @return user - the User object with the specific username
+	 */
 	public static User getUser(String str) {
 
 		for (User user : users) {
@@ -53,6 +67,11 @@ public class FileReader {
 
 	}
 
+	/**
+	 * Method to return a specific Sculpture object
+	 * @param str - title of the required Sculpture
+	 * @return user - the Sculpture object with the specific title
+	 */
 	public static Sculpture getSculpture(String str) {
 
 		for (Sculpture sculpture : sculptures) {
@@ -65,6 +84,11 @@ public class FileReader {
 
 	}
 
+	/**
+	 * Method to return a specific Artwork object
+	 * @param str - title of the required Artwork
+	 * @return user - the Artwork object with the specific title
+	 */
 	public static Artwork getArtwork(String str) {
 
 		for (Artwork art : artworks) {
@@ -77,6 +101,9 @@ public class FileReader {
 
 	}
 
+	/**
+	 * Initializes all the file readers ready for use
+	 */
 	public static void initialize() {
 
 		try {
@@ -173,7 +200,12 @@ public class FileReader {
 		in.close();
 		return users;
 	}
-
+	
+	/**
+	 * Method to read the favourite user text file and 
+	 * adds 2 users to an ArrayList of favourite users
+	 * @throws FileNotFoundException - if file doesn't exist
+	 */
 	public static void readFavouritesFiles() throws FileNotFoundException {
 		final String FAVOURITES_PATH = "favourites.txt";
 		Scanner fileScanner = new Scanner(new File(FAVOURITES_PATH));
@@ -207,6 +239,12 @@ public class FileReader {
 		fileScanner.close();
 	}
 
+	/**
+	 * Method that creates a list of the user files
+	 * and then calls the constructUser method to 
+	 * add all users in the system into an ArrayList of Users
+	 * @throws FileNotFoundException - if file doesn't exist
+	 */
 	public static void readUserFiles() throws FileNotFoundException {
 		users = new ArrayList<>();
 		File[] listOfFiles = new File("userFiles//").listFiles();
@@ -230,7 +268,7 @@ public class FileReader {
 		}
 		return paintings1;
 	}
-
+	//WHY ARE THERE TWO OF THESE METHODS??
 	public static void readPaintingFiles() throws FileNotFoundException {
 		paintings = new ArrayList<>();
 		File[] listOfFiles = new File("artworkFiles//paintings").listFiles();
@@ -248,6 +286,13 @@ public class FileReader {
 		return sculptures1;
 	}
 
+	/**
+	 * Method to return an arrayList containing all of the sculptures in the list
+	 * of files
+	 * 
+	 * @return ArrayList<Sculpture> - ArrayList of sculptures
+	 * @throws FileNotFoundException - if the file doesn't exist
+	 */
 	public static ArrayList<Sculpture> readSculptureFiles() throws FileNotFoundException {
 		sculptures = new ArrayList<>();
 		File[] listOfFiles = new File("artworkFiles//sculptures").listFiles();
@@ -257,21 +302,24 @@ public class FileReader {
 		return sculptures;
 	}
 
-	// TODO GOTTA CONSTRUCT THE BID, ADD THE BID TO THE ARTWORK AND ADD THE BID TO
-	// THE USER
+	/**
+	 * Method to return an ArrayList of Bids using the constructBid() method
+	 * @param filename
+	 * @return ArrayList<Bid> - an arrayList of all bids made by a user
+	 * @throws FileNotFoundException - if file doesn't exist
+	 */
 	public static ArrayList<Bid> readBidFile(String filename) throws FileNotFoundException {
 
-		try {
-			constructBid(filename);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		constructBid(filename);
 
 		return bids;
 	}
-
-	public static void constructBid(String filename) throws ParseException {
+	/**
+	 * Method to read the user's bid files and create bid objects which
+	 * are then added to an ArrayList
+	 * @param filename - name of the user whose bids you wants
+	 */
+	public static void constructBid(String filename) {
 		String BID_FILE = "bids//" + filename;
 
 		try {
@@ -286,7 +334,8 @@ public class FileReader {
 				String dateString = in.nextLine();
 				Date date = new Date(dateString);
 
-				if (typeOfArtwork.equalsIgnoreCase("painting")) {
+				//If the bid was on a painting this block of code is used
+				if (typeOfArtwork.equalsIgnoreCase("painting")) { 
 					Painting art = constructPainting(artwork + ".txt");
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
@@ -297,7 +346,7 @@ public class FileReader {
 					else {
 						System.out.println("Error placing bid.");
 					}
-
+				//If the bid was on a sculpture then this block of code is used
 				} else {
 					Sculpture art = constructSculptures(artwork + ".txt");
 					User seller = getUser(username);
@@ -320,6 +369,7 @@ public class FileReader {
 
 	}
 
+	//ANOTHER DUPLICATE METHOD??
 	public static void readBidFiles() throws FileNotFoundException {
 
 		File[] listOfFiles = new File("bids/").listFiles();
@@ -415,6 +465,11 @@ public class FileReader {
 		return null;
 	}
 
+	/**
+	 * Method to read a text file and create a Sculpture object
+	 * @param filename - name of the sculpture file
+	 * @return Sculpture - Sculpture object made from the text file info
+	 */
 	private static Sculpture constructSculptures(String filename) {
 		final String PATH = "artworkFiles//sculptures//" + filename;
 		try {
@@ -485,26 +540,52 @@ public class FileReader {
 		return null;
 	}
 
+	/**
+	 * Method to return the users ArrayList
+	 * @return ArrayList<User> - all users in the system
+	 */
 	public static ArrayList<User> getUsers() {
 		return users;
 	}
 
+	/**
+	 * Method to set the users ArrayList
+	 * @param ArrayList<User> - users in the system
+	 */
 	public static void setUsers(ArrayList<User> users) {
 		FileReader.users = users;
 	}
 
+	/**
+	 * Method to return the artwork ArrayList
+	 * @return ArrayList<Artwork> - all artworks in the system
+	 */
 	public static ArrayList<Artwork> getArtworks() {
 		return artworks;
 	}
 
+	/**
+	 * Method to return the sculptures ArrayList
+	 * @return ArrayList<Sculpture> - all sculptures in the system
+	 */
 	public static ArrayList<Sculpture> getSculptures() {
 		return sculptures;
 	}
 
+	/**
+	 * Method to return the painting ArrayList
+	 * @return ArrayList<Painting> - all paintings in the system
+	 */
 	public static ArrayList<Painting> getPaintings() {
 		return paintings;
 	}
 
+	/**
+	 * Method to get the image of an artwork
+	 * @param name - name of the artwork 
+	 * @return Image - the picture associated with the selected
+	 * artwork
+	 */
 	public static Image retrieveImage(String name) {
 		Image image = null;
 		try {
@@ -523,6 +604,10 @@ public class FileReader {
 		return image;
 	}
 
+	/**
+	 * Method to return the ArrayList of additional images
+	 * @return ArrayList<Image> - all additional sculpture images
+	 */
 	public static ArrayList<Image> retrieveAdditionalImages(String name) {
 		ArrayList<Image> images = new ArrayList<>();
 		Image image;
@@ -537,6 +622,10 @@ public class FileReader {
 		return images;
 	}
 
+	/**
+	 * Method to return the bids ArrayList
+	 * @return ArrayList<Bids> - all bids in the system
+	 */
 	public static ArrayList<Bid> getBids() {
 		return bids;
 	}
@@ -545,6 +634,12 @@ public class FileReader {
 		FileReader.bids = bids;
 	}
 
+	/**
+	 * Method to check if 2 users are one anothers favourite user
+	 * @param user1 - one of the the users
+	 * @param user2 - another one of the users
+	 * @return boolean - True if they are favourites, false otherwise
+	 */
 	public static boolean checkIfInFavouriteList(User user1, User user2) {
 		for (User favUser : user1.getFavouriteUsers()) {
 			if (favUser.getUsername().equals(user2.getUsername())) {

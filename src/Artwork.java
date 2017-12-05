@@ -261,9 +261,9 @@ public class Artwork {
 	}
 
 	/**
-	 * Checks if the bid is over
+	 * Checks if the auction is over
 	 * @return boolean - true or false depending on whether
-	 * the bid is over or not.
+	 * the auction is over or not.
 	 */
 	public boolean isBidIsOver() {
 		return bidIsOver;
@@ -271,7 +271,7 @@ public class Artwork {
 
 	/**
 	 * Allows the setting of a boolean, true or false, to determine
-	 * if the bid is over.
+	 * if the auction is over.
 	 * @param bidIsOver
 	 */
 	public void setBidIsOver(boolean bidIsOver) {
@@ -293,14 +293,19 @@ public class Artwork {
 	}
 
 	/**
-	 *
-	 * @return
+	 * Method to get the image assigned to an artwork
+	 * @return image - the picture the user uploads for
+	 * the artwork
 	 */
 	public Image getImage() {
 		return image;
 	}
 
-	//Javadoc needs to be written.
+	/**
+	 * Method to display the image assigned to the artwork
+	 * in an imageView window
+	 * @return imageView - display window containing the image
+	 */
 	public ImageView getImageView() {
 		imageView.setImage(image);
 		return imageView;

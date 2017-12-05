@@ -53,10 +53,19 @@ public class Bid {
 		this.title = artwork.getTitle();
 	}
 
+	/**
+	 * This method returns an image of the art that the bid was 
+	 * placed upon
+	 * @return image - picture of the artwork
+	 */
 	public Image getImage() {
 		return image;
 	}
 
+	/**
+	 * This method sets the image of the art that was bid on
+	 * @param image - picture of the artwork
+	 */
 	public void setImage(Image image) {
 		this.image = image;
 	}
@@ -69,14 +78,27 @@ public class Bid {
 		return this.typeOfArtwork;
 	}
 
+	/**
+	 * Method to get the date of the bid in String form
+	 * @return String - bidDateString
+	 */
 	public String getBidDateString() {
 		return bidDateString;
 	}
 
+	/**
+	 * Method to set the date of the bid in String form
+	 * @param bidDateString - date bid was placed
+	 */
 	public void setBidDateString(String bidDateString) {
 		this.bidDateString = bidDateString;
 	}
 
+	/**
+	 * Method to display an ImageView window containing the 
+	 * image of the art
+	 * @return imgView - a display of the art image
+	 */
 	public ImageView getImgView() {
 		imgView.setFitWidth(100);
 		imgView.setFitHeight(100);
@@ -84,11 +106,19 @@ public class Bid {
 		return imgView;
 	}
 
+	/**
+	 * Method to set the amount of the bid being placed
+	 * @param amount - how much the bid is worth in pounds
+	 */
 	public void setAmount(double amount)
 	{
 		this.amount = amount;
 	}
 
+	/**
+	 * Method to check if the bid is acceptable or not
+	 * @return boolean - True if bid is acceptable, false if not
+	 */
 	public boolean checkBid() {
 		if ((amount > artwork.getReservePrice()) &&
 				(artwork.getBidsAllowed() > artwork.getNumberOfBids())) {
@@ -98,14 +128,18 @@ public class Bid {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Method to return the title of the artwork being bid upon
+	 * @return String - title of the artwork
+	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 *
-	 * @param title
+	 * Method to set the title of the artwork being bid upon
+	 * @param title - title of the artwork
 	 */
 	public void setTitle(String title) {
 		this.title = title;
