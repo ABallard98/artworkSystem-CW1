@@ -120,7 +120,6 @@ public class Bid {
 	 * @return boolean - True if bid is acceptable, false if not
 	 */
 	public int checkBid() {
-		try {
 			if ((amount > artwork.getHighestBid().amount)
 					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& (bidder != artwork.getOwner())) {
@@ -155,11 +154,7 @@ public class Bid {
 			} else {
 				return 7;
 			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return 7;
-		}
+
 	}
 	
 	/**
