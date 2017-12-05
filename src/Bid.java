@@ -35,7 +35,6 @@ public class Bid {
 		this.artwork = artwork;
 		this.bidDate = bidDate;
 		this.amount = amount;
-		System.out.println( artwork.getImage().impl_getUrl());
 		imgView = new ImageView();
 		image = artwork.getImage();
 		this.title = artwork.getTitle();

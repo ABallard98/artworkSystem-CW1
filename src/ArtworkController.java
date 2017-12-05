@@ -193,16 +193,27 @@ public class ArtworkController {
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
-			LoginController.getUser().addBid(bid);
-			currentSculpture.addBidToItem(bid);
+			if (bid.checkBid() == true) {
+				LoginController.getUser().addBid(bid);
+				currentSculpture.addBidToItem(bid);
+			}
+			else {
+				System.out.println("Error placing bid.");
+			}
 		} else if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-			LoginController.getUser().addBid(bid);
-			currentPainting.addBidToItem(bid);
+			if (bid.checkBid() == true) {
+				LoginController.getUser().addBid(bid);
+				currentPainting.addBidToItem(bid);
+			}
+			else
+			{
+				System.out.println("Error placing bid.");
+			}
 		}
 
 		try {

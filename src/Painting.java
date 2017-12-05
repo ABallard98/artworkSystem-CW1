@@ -40,8 +40,10 @@ public class Painting extends Artwork{
    }
 
    public String getTextFileOutput(){
-       String output = this.getTitle()+","+this.getOwner().getUsername()+","+this.getCreator()+","+this.getCreationYear()+
-               ","+this.getNumberOfBids()+","+this.getReservePrice()+","+this.getWidth()+","+this.getHeight()+",";
+       String output = this.getTitle() + "#" + this.getOwner().getUsername()
+               + "#" + this.getCreator() + "#" + this.getCreationYear() +
+               "#" + this.getNumberOfBids() + "#" + this.getReservePrice() +
+               "#" + this.getWidth() + "#" + this.getHeight() + "#";
        return output;
    }
 

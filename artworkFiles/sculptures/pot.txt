@@ -1,1 +1,0 @@
-pot,elmarko,marcin,2017,10,10.0,10,5,5,stone,

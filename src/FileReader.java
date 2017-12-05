@@ -375,7 +375,7 @@ public class FileReader {
 		final String PATH = "artworkFiles//paintings//" + filename;
 		try {
 			Scanner in = new Scanner(new File(PATH));
-			in.useDelimiter(",");
+			in.useDelimiter("#");
 			String name = in.next();
 			String username = in.next();
 			String creator = in.next();
@@ -419,7 +419,7 @@ public class FileReader {
 		final String PATH = "artworkFiles//sculptures//" + filename;
 		try {
 			Scanner in = new Scanner(new File(PATH));
-			in.useDelimiter(",");
+			in.useDelimiter("#");
 			String name = in.next();
 			String username = in.next();
 			String creator = in.next();

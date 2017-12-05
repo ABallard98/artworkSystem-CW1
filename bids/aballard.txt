@@ -1,3 +1,0 @@
-painting,aballard,123456789,232323.0,Mon Dec 04 16:33:40 GMT 2017
-painting,aballard,123456789,900.0,Mon Dec 04 19:12:03 GMT 2017
-painting,aballard,123456789,-900.0,Mon Dec 04 19:12:14 GMT 2017

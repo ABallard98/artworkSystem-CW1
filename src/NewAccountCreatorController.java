@@ -103,6 +103,8 @@ public class NewAccountCreatorController {
 		avatar5.setOnAction(e -> updateAvatar(5));
 		avatar6.setOnAction(e -> updateAvatar(6));
 
+		avatarIndex = 1;
+
 	}
 
 	public void setImg() {
@@ -142,7 +144,6 @@ public class NewAccountCreatorController {
 		} else if (i == 6) {
 			mainAvatar.setImage(image6);
 			avatarIndex = 6;
-
 		}
 
 	}
