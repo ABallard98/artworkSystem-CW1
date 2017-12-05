@@ -144,7 +144,7 @@ public class User {
 	 * @return String - file path.
 	 */
 	public String getImagePath() {
-		return image.getUrl();
+		return image.impl_getUrl();
 	}
 
 	/**
