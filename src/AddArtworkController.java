@@ -207,6 +207,7 @@ public class AddArtworkController {
 			
 			sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, depthI, materialA, descriptionA);
+			user.addArtwork(sculpture);
 			try {
 				Writer.writeSculptureFile(sculpture);
 				copyPictures(titleA);
@@ -222,6 +223,7 @@ public class AddArtworkController {
 
 			painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, descriptionA);
+			user.addArtwork(painting);
 			try {
 				Writer.writePaintingFile(painting);
 				copyPictures(titleA);

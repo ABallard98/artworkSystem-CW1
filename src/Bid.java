@@ -120,7 +120,7 @@ public class Bid {
 	 * @return boolean - True if bid is acceptable, false if not
 	 */
 	public boolean checkBid() {
-		if ((amount > artwork.getReservePrice()) &&
+		if ((amount > artwork.getHighestBid().amount) &&
 				(artwork.getBidsAllowed() > artwork.getNumberOfBids())) {
 			return true;
 		}

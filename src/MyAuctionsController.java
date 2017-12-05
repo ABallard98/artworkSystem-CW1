@@ -75,7 +75,7 @@ public class MyAuctionsController {
     	//currentPriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,Double>("highestBid"));
     	ongoingColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
     	
-    	System.out.println(artworks.size());
+    	System.out.println("No of my artworks is" + artworks.size());
     	
 		table.setItems(artworks);
 
