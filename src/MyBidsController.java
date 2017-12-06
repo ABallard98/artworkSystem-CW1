@@ -64,9 +64,8 @@ public class MyBidsController {
 	private ObservableList<Bid> bids;
 
 	public void initialize() {
-		FileReader.constructBid(LoginController.getUser().getUsername());
 		
-		ArrayList<Bid> bids11 = FileReader.constructBids(LoginController.getUser().getUsername());
+		ArrayList<Bid> bids11 = FileReader.getBidsOfUser(LoginController.getUser());
 
 		bids = FXCollections.observableArrayList(bids11);
 
@@ -76,13 +75,6 @@ public class MyBidsController {
 		titleColumn.setCellValueFactory(new PropertyValueFactory<Bid, String>("title"));
 		dateColumn.setCellValueFactory(new PropertyValueFactory<Bid, Date>("bidDate"));
 		amountColumn.setCellValueFactory(new PropertyValueFactory<Bid, Double>("amount"));
-
-		for (Bid bid : bids) {
-			System.out.println("come on" + bid.getArtwork().getImage().getHeight());
-			System.out.println("opacity" + bid.getArtwork().getImageView().getOpacity());
-
-		}
-
 		picture.setCellValueFactory(new PropertyValueFactory<Bid, ImageView>("imgView"));
 
 		picture.setMinWidth(100);

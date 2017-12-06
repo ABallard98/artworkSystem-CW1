@@ -251,12 +251,10 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="sellerAvatar" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Button fx:id="addToFav" alignment="CENTER" mnemonicParsing="false" prefHeight="71.0" prefWidth="67.0" text="Add to favourite users" wrapText="true" />
+                  <Button fx:id="addToFav" alignment="CENTER" mnemonicParsing="false" prefHeight="71.0" prefWidth="67.0" wrapText="true">
+                     <graphic>
+                        <ImageView fx:id="sellerAvatar" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic></Button>
                </children>
             </HBox>
             <Label text="Place a new bid" textFill="WHITE">

@@ -396,7 +396,7 @@ public class FileReader {
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 
 					listOfBids.add(bid);
-					seller.addBid(bid);
+					//seller.addBid(bid);
 
 				}
 				//If the bid was on a sculpture then this block of code is used
@@ -405,7 +405,7 @@ public class FileReader {
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 					listOfBids.add(bid);
-					seller.addBid(bid);
+					//seller.addBid(bid);
 				}
 				
 			}
@@ -417,7 +417,10 @@ public class FileReader {
 		return listOfBids;
 	}
 
-	
+	public static ArrayList<Artwork> getUserArtworks() {
+		ArrayList<Artwork> arts = new ArrayList<>();
+		return null;
+	}
 
 		//ANOTHER DUPLICATE METHOD??
 	public static void readBidFiles() throws FileNotFoundException {
@@ -466,7 +469,7 @@ public class FileReader {
 	}
 	
 	
-	public static ArrayList<Bid> loadBidFiles() throws FileNotFoundException {
+	public static ArrayList<Bid> loadBidFile1s() throws FileNotFoundException {
 
 		ArrayList<Bid> bids1 = new ArrayList<Bid>();
 		File[] listOfFiles = new File("bids/").listFiles();
@@ -570,8 +573,17 @@ public class FileReader {
 		return null;
 	}
 	
-	public ArrayList<Bid> getBidsOfUser(){
-		return null;
+	public static ArrayList<Bid> getBidsOfUser(User user){
+		
+		ArrayList<Bid> userBid = new ArrayList<>();
+		
+		for(Bid b: bids) {
+			if(user.equals(b.getBidder())) {
+				userBid.add(b);
+			}
+		}
+		
+		return userBid;
 	}
 	
 

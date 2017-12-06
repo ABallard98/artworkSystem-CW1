@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -115,6 +120,45 @@ public class ArtworkController {
 		System.out.println("Total no. of bids " + FileReader.getBids().size());
 		System.out.println("Total no. of users " + FileReader.getUsers().size());
 
+		addToFav.setOnAction(e -> showUser());
+
+	}
+
+	public void showUser() {
+
+		User user = null;
+
+		if (currentSculpture != null) {
+			if (currentSculpture.getOwner() != null) {
+				user = currentSculpture.getOwner();
+			} else if (currentPainting != null) {
+			
+			}
+
+		}else if (currentPainting!= null) {
+			user = currentPainting.getOwner();
+		}
+		UserDisplayController.setUser(user);
+
+		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("/UserDisplay.fxml"));
+		try {
+			Parent root = fxmlL.load();
+			// NewAccountCreatorController newAccountController =
+			// fxmlL.<NewAccountCreatorController>getController();
+
+			Scene scene = new Scene(root, 450, 300);
+
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.initModality(Modality.APPLICATION_MODAL);
+
+			stage.setTitle(user.getUsername());
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void initializePainting() {
@@ -279,14 +323,13 @@ public class ArtworkController {
 				alert.showAndWait();
 			}
 
-	
 		} else if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-			
+
 			if (bid.checkBid() == 0) {
 				System.out.println("its okay");
 				LoginController.getUser().addBid(bid);
@@ -357,23 +400,21 @@ public class ArtworkController {
 
 				alert.showAndWait();
 			}
-			
+
 		}
-		
 
-	try
+		try
 
-	{
-		Writer.writeBidFile(bid);
-		System.out.println("Bid saved successfully");
-	}catch(
-	IOException e)
-	{
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		{
+			Writer.writeBidFile(bid);
+			System.out.println("Bid saved successfully");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	System.out.println("Number of bids of user "+LoginController.getUser()+" is "+LoginController.getUser().getPlacedBids().size());
+		System.out.println("Number of bids of user " + LoginController.getUser() + " is "
+				+ LoginController.getUser().getPlacedBids().size());
 	}
 
 	public static void setCurrentSculpture(Sculpture sculpture) {

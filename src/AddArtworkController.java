@@ -83,6 +83,7 @@ public class AddArtworkController {
 	@FXML
 	private ImageView pic4;
 
+
 	// Images for artworks
 	private Image img1;
 	private Image img2;
@@ -96,6 +97,7 @@ public class AddArtworkController {
 	private ArrayList<ImageView> imagesView;
 
 	public void initialize() {
+		
 		addArtwork.setOnAction(e -> createArtwork());
 		final ToggleGroup group = new ToggleGroup();
 
@@ -170,6 +172,9 @@ public class AddArtworkController {
 		}
 	}
 
+	
+
+	
 	public void createArtwork() {
 
 		Painting painting = null;

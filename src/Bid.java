@@ -35,8 +35,8 @@ public class Bid {
 		this.artwork = artwork;
 		this.bidDate = bidDate;
 		this.amount = amount;
-		imgView = new ImageView();
-		image = artwork.getImage();
+		this.imgView = new ImageView();
+		this.image = artwork.getImage();
 		this.title = artwork.getTitle();
 	}
 

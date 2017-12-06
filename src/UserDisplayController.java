@@ -2,9 +2,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -31,7 +33,7 @@ public class UserDisplayController {
 			String path = "avatars/avatar" + user.getAvatarIndex() + ".png";
 			System.out.println("Avatar path is " + path);
 			Image image = new Image(new FileInputStream(path));
-			avatar.setImage(image);
+			avatar.setImage(user.getImage());
 
 			confirm.setOnAction(e -> handleFavourites());
 			checkboxes();
@@ -64,11 +66,22 @@ public class UserDisplayController {
 
 	public void handleFavourites() {
 		User loggedUser = LoginController.getUser();
+		
+		
 
 		if (favourite.isSelected()) {
 			if (!FileReader.checkIfInFavouriteList(loggedUser, user)) {
 				LoginController.getUser().addUserToFavourites(user);
 				Writer.addToFavourites(loggedUser, user);
+				
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success ");
+
+				alert.setHeaderText("User has been added to your list");
+				alert.showAndWait();
+				
+				favourite.getScene().getWindow().hide();
+				
 			} else {
 
 			}
