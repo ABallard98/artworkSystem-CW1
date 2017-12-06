@@ -20,3 +20,5 @@ sculpture,elmarko,hhhh,231231.0,Wed Dec 06 05:07:05 GMT 2017
 sculpture,elmarko,gggg,1233213.0,Wed Dec 06 05:07:11 GMT 2017
 painting,elmarko,1223123,123.0,Wed Dec 06 05:07:21 GMT 2017
 painting,elmarko,4,23.0,Wed Dec 06 05:08:26 GMT 2017
+painting,elmarko,lol,9.0,Wed Dec 06 05:18:38 GMT 2017
+painting,elmarko,1223123,3123.0,Wed Dec 06 05:18:49 GMT 2017

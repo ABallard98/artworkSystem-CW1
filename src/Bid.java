@@ -17,9 +17,9 @@ public class Bid {
 	private Date bidDate; // The date the bid was placed.
 
 	private ImageView imgView;//?
-	private String title;//?
-	private String bidDateString; //?
-	private Image image;//?
+	private String title;// Title of the artwork bid is placed on
+	private String bidDateString; // date when bid was placed
+	private Image image;// image of the artwork bid was placed on
 
 	/**
 	 * Creates a new bid object.

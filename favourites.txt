@@ -1,3 +1,6 @@
 Marko,Marko
 l,elmarko1
 elmarko,l
+mk,elmarko
+0,elmarko1
+0,elmarko
