@@ -1,1 +1,1 @@
-elmarko,Marcin,Kolber,Unknown in Swansea,789132321,2,SA2 5SD,
+elmarko,Marcin,Kolber,Swansea,123,1,SA1

@@ -29,24 +29,23 @@ import javafx.stage.Stage;
  */
 public class AddArtworkController {
 
-	
 	@FXML
-	private TextField width;  // Field for width of the artwork
+	private TextField width; // Field for width of the artwork
 
 	@FXML
 	private TextField height; // Field for height of the artwork
 
 	@FXML
-	private TextField depth; // Field for depth of the artwork 
+	private TextField depth; // Field for depth of the artwork
 
 	@FXML
-	private TextField material; // Field for material of the artwork 
+	private TextField material; // Field for material of the artwork
 
 	@FXML
 	private RadioButton selectSculpture; // Radio button to choose a sculpture type
 
 	@FXML
-	private RadioButton selectPainting; // Radio button to choose a painting type 
+	private RadioButton selectPainting; // Radio button to choose a painting type
 
 	@FXML
 	private TextField title;
@@ -89,7 +88,7 @@ public class AddArtworkController {
 	private Image img2;
 	private Image img3;
 	private Image img4;
-	
+
 	// ArrayList of images
 	private ArrayList<Image> images1;
 
@@ -115,12 +114,12 @@ public class AddArtworkController {
 		images1.add(img3);
 		images1.add(img4);
 
-		selectPainting.setOnAction(e-> {
+		selectPainting.setOnAction(e -> {
 			depth.setDisable(true);
 			material.setDisable(true);
 		});
-		
-		selectSculpture.setOnAction(e-> {
+
+		selectSculpture.setOnAction(e -> {
 			depth.setDisable(false);
 			material.setDisable(false);
 		});
@@ -135,7 +134,6 @@ public class AddArtworkController {
 		fileChooser.setTitle("Open Resource File");
 		Stage stage = new Stage();
 		list = fileChooser.showOpenMultipleDialog(stage);
-
 
 		for (int i = 0; i < list.size() && i < 4; i++) {
 
@@ -173,10 +171,10 @@ public class AddArtworkController {
 	}
 
 	public void createArtwork() {
-		
+
 		Painting painting = null;
 		Sculpture sculpture = null;
-		
+
 		String widthA = width.getText();
 		String heightA = height.getText();
 
@@ -204,10 +202,9 @@ public class AddArtworkController {
 			int depthI = Integer.parseInt(depthA);
 			String materialA = material.getText();
 
-			
 			sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, depthI, materialA, descriptionA);
-			//user.addArtwork(sculpture);
+			user.addArtwork(sculpture);
 			try {
 				Writer.writeSculptureFile(sculpture);
 				copyPictures(titleA);
@@ -219,11 +216,9 @@ public class AddArtworkController {
 
 		} else if (selectPainting.isSelected()) {
 
-
-
 			painting = new Painting(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, descriptionA);
-			//user.addArtwork(painting);
+			user.addArtwork(painting);
 			try {
 				Writer.writePaintingFile(painting);
 				copyPictures(titleA);
@@ -240,12 +235,6 @@ public class AddArtworkController {
 
 		alert.setHeaderText("Artwork has been added to the database");
 		alert.setContentText("Your new auction will appear immediately");
-		try {
-			FileReader.readPaintingFiles();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		alert.showAndWait();
 

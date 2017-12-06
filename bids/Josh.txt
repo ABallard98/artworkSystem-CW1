@@ -1,3 +1,0 @@
-sculpture,Josh,1333,10.0,Tue Dec 05 15:42:20 GMT 2017
-sculpture,Josh,1333,9999.0,Wed Dec 06 00:42:06 GMT 2017
-painting,Josh,5,9999.0,Wed Dec 06 00:42:31 GMT 2017

@@ -1,4 +1,0 @@
-sculpture,buyer,44,33.0,Wed Dec 06 00:44:56 GMT 2017
-sculpture,buyer,44,12123.0,Wed Dec 06 00:45:03 GMT 2017
-sculpture,buyer,El Marko,7777.0,Wed Dec 06 00:45:39 GMT 2017
-sculpture,buyer,77,3.0,Wed Dec 06 00:46:49 GMT 2017

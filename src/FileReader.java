@@ -442,13 +442,16 @@ public class FileReader {
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height, description);
 				seller.addArtwork(painting);
+				System.out.println("has been added");
 				in.close();
 				return painting;
 			} else {
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height);
+				//seller.addArtwork(painting);
 
 				if (seller != null) {
+					System.out.println("has been added");
 					seller.addArtwork(painting);
 				}
 				System.out.println("Painting " + painting.getTitle() + " was created");
@@ -485,7 +488,7 @@ public class FileReader {
 			int depth = in.nextInt();
 			String material = in.next();
 
-			User seller = constructUser(username + ".txt");
+			User seller = getUser(username);
 
 			String description = "";
 			if (in.hasNext()) {
@@ -493,6 +496,8 @@ public class FileReader {
 				Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height, depth, material, description);
 				seller.addArtwork(sculpture);
+				System.out.println("has been added");
+
 				in.close();
 				return sculpture;
 			}
@@ -500,6 +505,7 @@ public class FileReader {
 			Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 					reservePrice, width, height, depth, material);
 			seller.addArtwork(sculpture);
+			System.out.println("has been added");
 
 			System.out.println("Sculpture " + sculpture.getTitle() + " was created");
 			in.close();

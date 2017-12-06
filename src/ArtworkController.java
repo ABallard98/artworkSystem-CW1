@@ -203,6 +203,8 @@ public class ArtworkController {
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
 
 			if (bid.checkBid() == 0) {
+				LoginController.getUser().addBid(bid);
+				currentSculpture.addBidToItem(bid);
 				System.out.println("its okay");
 
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -279,8 +281,7 @@ public class ArtworkController {
 				alert.showAndWait();
 			}
 
-			LoginController.getUser().addBid(bid);
-			currentSculpture.addBidToItem(bid);
+	
 		}
 		if (currentPainting != null) {
 			type = "painting";
