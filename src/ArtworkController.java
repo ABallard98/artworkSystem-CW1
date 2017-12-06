@@ -193,82 +193,18 @@ public class ArtworkController {
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
-			String error1 = "Bidder cannot bid on their own artwork." + "\n";
-			String error2 = "Maximum number of bids has been reached." + "\n";
-			String error3 = "Bid must be higher than current bid." + "\n";
-			switch (bid.checkBid()) {
-				case 0: {
 					LoginController.getUser().addBid(bid);
 					currentSculpture.addBidToItem(bid);
-					System.out.println("Bid placed.");
-					break;
-				}
-				case 1: {
-					System.out.println(error1);
-					break;
-				}
-				case 2: {
-					System.out.println(error2);
-				}
-				case 3: {
-					System.out.println(error3);
-				}
-				case 4: {
-					System.out.println(error1 + error2);
-				}
-				case 5: {
-					System.out.println(error1 + error3);
-				}
-				case 6: {
-					System.out.println(error2 + error3);
-				}
-				default: {
-					System.out.println(error1 + error2 + error3);
-				}
-
 			}
-		}
 		if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-			String error1 = "Bidder cannot bid on their own artwork." + "\n";
-			String error2 = "Maximum number of bids has been reached." + "\n";
-			String error3 = "Bid must be higher than current bid." + "\n";
-
-			switch (bid.checkBid()) {
-				case 0: {
 					LoginController.getUser().addBid(bid);
 					currentPainting.addBidToItem(bid);
 					System.out.println("Bid placed.");
-					break;
-				}
-				case 1: {
-					System.out.println(error1);
-					break;
-				}
-				case 2: {
-					System.out.println(error2);
-				}
-				case 3: {
-					System.out.println(error3);
-				}
-				case 4: {
-					System.out.println(error1 + error2);
-				}
-				case 5: {
-					System.out.println(error1 + error3);
-				}
-				case 6: {
-					System.out.println(error2 + error3);
-				}
-				default: {
-					System.out.println(error1 + error2 + error3);
-				}
-
-			}
 		}
 
 		try {
