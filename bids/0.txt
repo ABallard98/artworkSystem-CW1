@@ -1,0 +1,7 @@
+painting,0,1223123,3.0,Wed Dec 06 02:27:17 GMT 2017
+painting,0,1111111,1.0,Wed Dec 06 02:27:23 GMT 2017
+sculpture,0,gggg,1.0,Wed Dec 06 02:27:28 GMT 2017
+sculpture,0,gggg,1.0E10,Wed Dec 06 02:27:32 GMT 2017
+sculpture,0,gggg,1.0E13,Wed Dec 06 02:27:35 GMT 2017
+sculpture,0,gggg,3.0,Wed Dec 06 02:28:03 GMT 2017
+sculpture,0,gggg,6666.0,Wed Dec 06 02:28:38 GMT 2017

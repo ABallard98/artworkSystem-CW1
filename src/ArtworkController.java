@@ -92,18 +92,16 @@ public class ArtworkController {
 	private static Sculpture currentSculpture;
 
 	public void initialize() {
-		
-		
+
 		if (currentPainting != null) {
 			initializePainting();
-			currentPrice.setText(currentPainting.getHighestBidAmount()+"");
-
+			currentPrice.setText(currentPainting.getHighestBidAmount() + "");
 
 		}
 
 		if (currentSculpture != null) {
 			initializeSculpture();
-			currentPrice.setText(currentSculpture.getHighestBid()+"");
+			currentPrice.setText(currentSculpture.getHighestBid() + "");
 
 		}
 
@@ -185,7 +183,7 @@ public class ArtworkController {
 
 	public static void setCurrentPainting(Painting painting) {
 		currentPainting = painting;
-		System.out.println("Res price: "+ currentPainting.getReservePrice());
+		System.out.println("Res price: " + currentPainting.getReservePrice());
 		currentSculpture = null;
 
 	}
@@ -282,8 +280,7 @@ public class ArtworkController {
 			}
 
 	
-		}
-		if (currentPainting != null) {
+		} else if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
@@ -361,19 +358,22 @@ public class ArtworkController {
 				alert.showAndWait();
 			}
 			
-			
 		}
+		
 
-		try {
-			Writer.writeBidFile(bid);
-			System.out.println("Bid saved successfully");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	try
 
-		System.out.println("Number of bids of user " + LoginController.getUser() + " is "
-				+ LoginController.getUser().getPlacedBids().size());
+	{
+		Writer.writeBidFile(bid);
+		System.out.println("Bid saved successfully");
+	}catch(
+	IOException e)
+	{
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+	System.out.println("Number of bids of user "+LoginController.getUser()+" is "+LoginController.getUser().getPlacedBids().size());
 	}
 
 	public static void setCurrentSculpture(Sculpture sculpture) {

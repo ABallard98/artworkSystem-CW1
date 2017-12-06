@@ -23,7 +23,7 @@ public class FileReader {
 	private static ArrayList<Sculpture> sculptures; // arrayList of Sculpture objects
 	private static ArrayList<Painting> paintings; // arrayList of Painting objects
 
-	private static ArrayList<Bid> bids = new ArrayList<Bid>(); // arrayList of Bid objects
+	private static ArrayList<Bid> bids; // arrayList of Bid objects
 
 	/**
 	 * Method to return a specific painting object
@@ -348,8 +348,8 @@ public class FileReader {
 					User seller = getUser(username);
 					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
 
-							bids.add(bid);
-							seller.addBid(bid);
+					bids.add(bid);
+					seller.addBid(bid);
 
 				}
 				//If the bid was on a sculpture then this block of code is used
@@ -371,6 +371,7 @@ public class FileReader {
 		//ANOTHER DUPLICATE METHOD??
 	public static void readBidFiles() throws FileNotFoundException {
 
+		bids = new ArrayList<Bid>();
 		File[] listOfFiles = new File("bids/").listFiles();
 		for (File e : listOfFiles) {
 
@@ -411,6 +412,57 @@ public class FileReader {
 				}
 			}
 		}
+	}
+	
+	
+	public static ArrayList<Bid> loadBidFiles() throws FileNotFoundException {
+
+		ArrayList<Bid> bids1 = new ArrayList<Bid>();
+		File[] listOfFiles = new File("bids/").listFiles();
+		for (File e : listOfFiles) {
+
+			Scanner sc = new Scanner(e);
+
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				Scanner linear = new Scanner(line);
+				linear.useDelimiter(",");
+				String type = linear.next();
+				String username = linear.next();
+				String artwork = linear.next();
+				String amount = linear.next();
+				String dateString = linear.next();
+				Date date = new Date(dateString);
+				Double amount1 = Double.parseDouble(amount);
+
+				User user = FileReader.getUser(username);
+
+				if (type.equalsIgnoreCase("sculpture")) {
+					Sculpture sculpture = FileReader.getSculpture(artwork);
+					//Date date = new Date();
+					Bid bid = new Bid(type, user, 0, sculpture, date);
+					if(!user.getPlacedBids().contains(bid)) {
+						user.addBid(bid);
+					}
+					sculpture.addBidToItem(bid);
+					// System.out.println(bid.toString());
+					bids1.add(bid);
+
+				} else if (type.equalsIgnoreCase("painting")) {
+					Painting painting = FileReader.getPainting(artwork);
+					//Date date = new Date();
+					Bid bid = new Bid(type, user, amount1, painting, date);
+					if(!user.getPlacedBids().contains(bid)) {
+						user.addBid(bid);
+					}
+					painting.addBidToItem(bid);
+					// System.out.println(bid.toString());
+					bids1.add(bid);
+
+				}
+			}
+		}
+		return bids1;
 	}
 
 	/**

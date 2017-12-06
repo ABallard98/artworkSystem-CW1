@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,92 +16,91 @@ import javafx.scene.image.ImageView;
 
 public class MyBidsController {
 
-    @FXML
-    private RadioButton allAuctions;
+	@FXML
+	private RadioButton allAuctions;
 
-    @FXML
-    private RadioButton active;
+	@FXML
+	private RadioButton active;
 
-    @FXML
-    private RadioButton finished;
+	@FXML
+	private RadioButton finished;
 
-    @FXML
-    private CheckBox sculptures;
+	@FXML
+	private CheckBox sculptures;
 
-    @FXML
-    private CheckBox paintings;
+	@FXML
+	private CheckBox paintings;
 
-    @FXML
-    private Button refreshButton;
+	@FXML
+	private Button refreshButton;
 
-    @FXML
-    private TableView<Bid> table;
+	@FXML
+	private TableView<Bid> table;
 
-    @FXML
-    private TableColumn<Bid, ImageView> picture;
+	@FXML
+	private TableColumn<Bid, ImageView> picture;
 
-    @FXML
-    private TableColumn<Bid, String> creatonNameColumn;
+	@FXML
+	private TableColumn<Bid, String> creatonNameColumn;
 
-    @FXML
-    private TableColumn<Bid,Date> bidLimitColumn;
+	@FXML
+	private TableColumn<Bid, Date> bidLimitColumn;
 
-    @FXML
-    private TableColumn<?, ?> currentPriceColumn;
+	@FXML
+	private TableColumn<?, ?> currentPriceColumn;
 
-    @FXML
-    private TableColumn<?, ?> ongoingColumn;
+	@FXML
+	private TableColumn<?, ?> ongoingColumn;
 
-    @FXML
-    private TableColumn<Bid,String> titleColumn;
-    
-    
+	@FXML
+	private TableColumn<Bid, String> titleColumn;
 
-    @FXML
-    private TableColumn<Bid,Date>dateColumn;
+	@FXML
+	private TableColumn<Bid, Date> dateColumn;
 
-    @FXML
-    private TableColumn<Bid, Double> amountColumn;
-
-    
-
+	@FXML
+	private TableColumn<Bid, Double> amountColumn;
 
 	private ObservableList<Bid> bids;
-    
-    public void initialize() {
-    	ArrayList<Artwork> artworks = new ArrayList<>();
-    	
-    	
-    	bids =  FXCollections.observableArrayList(LoginController.getUser().getPlacedBids());
-    	
-    	
-    	System.out.println("Number of placed bids ----------"+LoginController.getUser().getPlacedBids().size());
-    	//picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
-    	titleColumn.setCellValueFactory(new PropertyValueFactory<Bid,String>("title"));
-    	dateColumn.setCellValueFactory(new PropertyValueFactory<Bid,Date>("bidDate"));
-    	amountColumn.setCellValueFactory(new PropertyValueFactory<Bid,Double>("amount"));
 
-    	for(Bid bid: bids) {
-        	System.out.println("come on"+ bid.getArtwork().getImage().getHeight());
-        	System.out.println("opacity"+ bid.getArtwork().getImageView().getOpacity());
+	public void initialize() {
+		try {
+			FileReader.loadBidFiles();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ArrayList<Artwork> artworks = new ArrayList<>();
 
+		try {
+			bids = FXCollections.observableArrayList(FileReader.loadBidFiles());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-    	}
-    	
-    	
-    	picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
+		System.out.println("Number of placed bids ----------" + LoginController.getUser().getPlacedBids().size());
+		// picture.setCellValueFactory(new
+		// PropertyValueFactory<Bid,ImageView>("imgView"));
+		titleColumn.setCellValueFactory(new PropertyValueFactory<Bid, String>("title"));
+		dateColumn.setCellValueFactory(new PropertyValueFactory<Bid, Date>("bidDate"));
+		amountColumn.setCellValueFactory(new PropertyValueFactory<Bid, Double>("amount"));
 
-    	picture.setMinWidth(100);
-    	table.setItems(bids);
+		for (Bid bid : bids) {
+			System.out.println("come on" + bid.getArtwork().getImage().getHeight());
+			System.out.println("opacity" + bid.getArtwork().getImageView().getOpacity());
 
-    	dateColumn.setMinWidth(200);
-    	dateColumn.setSortType(TableColumn.SortType.DESCENDING);
-    	table.getSortOrder().add(dateColumn);
+		}
 
-    	
-    }
+		picture.setCellValueFactory(new PropertyValueFactory<Bid, ImageView>("imgView"));
+
+		picture.setMinWidth(100);
+		table.setItems(bids);
+
+		dateColumn.setMinWidth(200);
+		dateColumn.setSortType(TableColumn.SortType.DESCENDING);
+		table.getSortOrder().add(dateColumn);
+
+	}
 }
-
-
-
-

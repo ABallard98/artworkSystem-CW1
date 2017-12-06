@@ -253,7 +253,7 @@ public class Artwork {
 		switch (bid.checkBid()) {
 			case 0: {
 				bidsOnItem.add(bid);
-				owner.addBid(bid);
+				//owner.addBid(bid);
 				System.out.println("Bid placed.");
 				break;
 			}
