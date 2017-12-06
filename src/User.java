@@ -442,7 +442,6 @@ public class User {
 		String error3 = "Bid must be higher than current bid." + "\n";
 		switch (b.checkBid()) {
 			case 0: {
-				placedBids.add(b);
 				System.out.println("Bid placed.");
 				break;
 			}
@@ -468,6 +467,9 @@ public class User {
 			default: {
 				System.out.println(error1 + error2 + error3);
 			}
+			
+			placedBids.add(b);
+
 		}
 	}
 

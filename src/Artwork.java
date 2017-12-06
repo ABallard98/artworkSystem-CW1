@@ -51,6 +51,7 @@ public class Artwork {
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
 		this.numberOfBids = numberOfBids;
+		bidsAllowed = numberOfBids;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
@@ -89,6 +90,8 @@ public class Artwork {
 		highestBidAmount = reservePrice;
 		resolveImage();
 		imageView = new ImageView();
+		bidsAllowed = numberOfBids;
+
 	}
 	
 
@@ -284,7 +287,7 @@ public class Artwork {
 	 * @return double - value of highest bid.
 	 */
 	public double getHighestBidAmount() {
-		return getHighestBid().getAmount();
+		return highestBid;
 	}
 
 	/**
@@ -331,6 +334,7 @@ public class Artwork {
 	 */
 	public int getBidsAllowed() {
 		int allowed = bidsAllowed - bidsOnItem.size();
+		System.out.println(allowed+"allowed");
 		return allowed;
 	}
 

@@ -120,46 +120,89 @@ public class Bid {
 	 * @return boolean - True if bid is acceptable, false if not
 	 */
 	public int checkBid() {
-		try {
-			if ((amount > artwork.getHighestBid().amount)
+		
+		if(artwork.getHighestBid() != null) {
+			try {
+				if ((amount > artwork.getHighestBid().amount)
+						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& (bidder != artwork.getOwner())) {
+					return 0;
+				} else if ((amount > artwork.getHighestBid().amount)
+						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& !(bidder != artwork.getOwner())) {
+
+					return 1;
+				} else if ((amount > artwork.getHighestBid().amount)
+						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& (bidder != artwork.getOwner())) {
+
+					return 2;
+				} else if (!(amount > artwork.getHighestBid().amount)
+						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& (bidder != artwork.getOwner())) {
+
+					return 3;
+				} else if (!(amount > artwork.getHighestBid().amount)
+						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& (bidder != artwork.getOwner())) {
+					return 4;
+				} else if (!(amount > artwork.getHighestBid().amount)
+						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& !(bidder != artwork.getOwner())) {
+					return 5;
+				} else if ((amount > artwork.getHighestBid().amount)
+						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+						&& !(bidder != artwork.getOwner())) {
+					return 6;
+				} else {
+					return 7;
+				}
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Not found.");
+				return 7;
+			}
+		} else {
+			if ((amount > artwork.getReservePrice())
 					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& (bidder != artwork.getOwner())) {
 				return 0;
-			} else if ((amount > artwork.getHighestBid().amount)
+			} else if ((amount > artwork.getReservePrice())
 					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& !(bidder != artwork.getOwner())) {
 
 				return 1;
-			} else if ((amount > artwork.getHighestBid().amount)
+			} else if ((amount > artwork.getReservePrice())
 					&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& (bidder != artwork.getOwner())) {
 
 				return 2;
-			} else if (!(amount > artwork.getHighestBid().amount)
+			} else if (!(amount > artwork.getReservePrice())
 					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& (bidder != artwork.getOwner())) {
 
 				return 3;
-			} else if (!(amount > artwork.getHighestBid().amount)
-					&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
+			} else if ((amount >  artwork.getReservePrice())
+					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& (bidder != artwork.getOwner())) {
 				return 4;
-			} else if (!(amount > artwork.getHighestBid().amount)
+			} else if (!(amount >  artwork.getReservePrice())
 					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& !(bidder != artwork.getOwner())) {
 				return 5;
-			} else if ((amount > artwork.getHighestBid().amount)
+			} else if ((amount >  artwork.getReservePrice())
 					&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
 					&& !(bidder != artwork.getOwner())) {
 				return 6;
 			} else {
 				return 7;
 			}
+			
+			
 		}
-		catch (Exception e) {
-			System.out.println("Not found.");
-			return 7;
-		}
+		
+
 	}
 	
 	/**

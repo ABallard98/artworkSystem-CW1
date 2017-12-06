@@ -92,13 +92,18 @@ public class ArtworkController {
 	private static Sculpture currentSculpture;
 
 	public void initialize() {
+		
+		
 		if (currentPainting != null) {
 			initializePainting();
+			currentPrice.setText(currentPainting.getHighestBidAmount()+"");
+
 
 		}
 
 		if (currentSculpture != null) {
 			initializeSculpture();
+			currentPrice.setText(currentSculpture.getHighestBid()+"");
 
 		}
 
@@ -180,6 +185,7 @@ public class ArtworkController {
 
 	public static void setCurrentPainting(Painting painting) {
 		currentPainting = painting;
+		System.out.println("Res price: "+ currentPainting.getReservePrice());
 		currentSculpture = null;
 
 	}
@@ -197,12 +203,13 @@ public class ArtworkController {
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
 
 			if (bid.checkBid() == 0) {
+				System.out.println("its okay");
 
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("1");
 
 				alert.showAndWait();
 
@@ -211,7 +218,7 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("1");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 2) {
@@ -219,7 +226,7 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("2");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 3) {
@@ -227,7 +234,7 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("3");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 4) {
@@ -235,7 +242,7 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("4");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 5) {
@@ -243,7 +250,7 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("5");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 6) {
@@ -251,12 +258,20 @@ public class ArtworkController {
 				alert.setTitle("Success");
 
 				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setContentText("6");
 
 				alert.showAndWait();
 			} else if (bid.checkBid() == 7) {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("7");
+
+				alert.showAndWait();
+			} else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Doesnt work");
 
 				alert.setHeaderText("Bid has been placed");
 				alert.setContentText("Thank you!");
@@ -275,7 +290,10 @@ public class ArtworkController {
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
 			
 			if (bid.checkBid() == 0) {
-
+				System.out.println("its okay");
+				LoginController.getUser().addBid(bid);
+				currentPainting.addBidToItem(bid);
+				System.out.println("Bid placed.");
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Success");
 
@@ -342,9 +360,7 @@ public class ArtworkController {
 				alert.showAndWait();
 			}
 			
-			LoginController.getUser().addBid(bid);
-			currentPainting.addBidToItem(bid);
-			System.out.println("Bid placed.");
+			
 		}
 
 		try {

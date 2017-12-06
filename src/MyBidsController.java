@@ -72,7 +72,9 @@ public class MyBidsController {
     	
     	
     	bids =  FXCollections.observableArrayList(LoginController.getUser().getPlacedBids());
-    	System.out.println("Number of placed bids "+LoginController.getUser().getPlacedBids().size());
+    	
+    	
+    	System.out.println("Number of placed bids ----------"+LoginController.getUser().getPlacedBids().size());
     	//picture.setCellValueFactory(new PropertyValueFactory<Bid,ImageView>("imgView"));
     	titleColumn.setCellValueFactory(new PropertyValueFactory<Bid,String>("title"));
     	dateColumn.setCellValueFactory(new PropertyValueFactory<Bid,Date>("bidDate"));

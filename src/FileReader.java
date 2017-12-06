@@ -324,7 +324,7 @@ public class FileReader {
 	 * @param filename - name of the user whose bids you wants
 	 */
 	public static void constructBid(String filename) {
-		String BID_FILE = "bids//" + filename;
+		String BID_FILE = "bids//" + filename+".txt";
 
 		try {
 			Scanner in = new Scanner(new File(BID_FILE));
@@ -360,8 +360,9 @@ public class FileReader {
 					bids.add(bid);
 					seller.addBid(bid);
 				}
-				in.close();
+				
 			}
+			in.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
