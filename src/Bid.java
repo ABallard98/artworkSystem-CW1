@@ -8,6 +8,13 @@ import java.util.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * A class to hold information about bid placed by user
+ * 
+ * @author Software Engineering Team Three
+ * @version 1.0
+ *
+ */
 public class Bid {
 
 	private String typeOfArtwork; // Type artwork (painting or structure).

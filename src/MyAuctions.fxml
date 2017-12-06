@@ -53,7 +53,7 @@
                   <TableColumn fx:id="placedBidsColumn" prefWidth="97.0" text="Placed bids" />
                   <TableColumn fx:id="bidLimitColumn" prefWidth="107.0" text="Bid limit" />
                   <TableColumn fx:id="currentPriceColumn" prefWidth="115.0" text="Current price" />
-                  <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Ongoing" />
+                  <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Finished" />
               </columns>
                <VBox.margin>
                   <Insets top="20.0" />

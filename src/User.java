@@ -31,6 +31,8 @@ public class User {
 	private int bidsPlaced; // Number of bid the user has placed.
 	private ArrayList<Bid> placedBids; // List of bids placed by the user.
 	private ImageView imgView;
+	private ArrayList<Sculpture> sculptures;
+	private ArrayList<Sculpture> paintings;
 
 	/**
 	 * Constructor for a new User object

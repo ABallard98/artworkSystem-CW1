@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -51,7 +53,7 @@ public class MyAuctionsController {
     private TableColumn<Artwork, Double> currentPriceColumn;
 
     @FXML
-    private TableColumn<Artwork, String> ongoingColumn;
+    private TableColumn<Artwork, Boolean> ongoingColumn;
     
     
     
@@ -65,6 +67,15 @@ public class MyAuctionsController {
     	finished.setToggleGroup(tg);
     	active.setToggleGroup(tg);
     	
+    	
+    	for(Artwork a: LoginController.getUser().getArtForSale()) {
+    		System.out.println(a.getClass());
+    	}
+    	
+    	
+    	
+    	
+    	
     	artworks =  FXCollections.observableArrayList(LoginController.getUser().getArtForSale());
 
     	titleColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
@@ -72,17 +83,65 @@ public class MyAuctionsController {
     	reservePriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("reservePrice"));
     	placedBidsColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("numberOfBids"));
     	bidLimitColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("bidsAllowed"));
-    	//currentPriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,Double>("highestBid"));
-    	ongoingColumn.setCellValueFactory(new PropertyValueFactory<Artwork,String>("title"));
+    	currentPriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork,Double>("highestBidAmount"));
+    	ongoingColumn.setCellValueFactory(new PropertyValueFactory<Artwork,Boolean>("bidIsOver"));
     	
     	System.out.println("No of my artworks is" + artworks.size());
     	
 		table.setItems(artworks);
 
+		paintings.setSelected(true);
+		sculptures.setSelected(true);
 
+		active.setSelected(true);
+		refreshButton.setOnAction(e-> filter());
+
+    
     }
 
 
+    public void filter() {
+    	
+
+    	ArrayList<Artwork> arts = LoginController.getUser().getArtForSale();
+    	ArrayList<Artwork> newArts = new ArrayList<>();
+
+    	ArrayList<Sculpture> sculpturesA = new ArrayList<>();
+    	ArrayList<Painting> paintingsA = new ArrayList<>();
+
+    	
+    	if(active.isSelected()) {
+    		
+    		for(Artwork a: arts) {
+    			if(!a.isBidIsOver()) {
+    				newArts.add(a);
+    			}
+    		}
+    		
+    	} else if (finished.isSelected()) {
+    		for(Artwork a: arts) {
+    			if(a.isBidIsOver()) {
+    				newArts.add(a);
+    			}
+    		}
+    	} else if(allAuctions.isSelected()) {
+    		newArts = arts;
+    	}
+    	
+    	
+    	if(sculptures.isSelected() && paintings.isSelected()) {
+            ObservableList<Artwork> artworksA =  FXCollections.observableArrayList(newArts);
+
+            table.setItems(artworksA);
+
+    	} else if (sculptures.isSelected() && !paintings.isSelected()) {
+    		
+    	
+    	}
+    	
+
+    	
+    }
 
 
 

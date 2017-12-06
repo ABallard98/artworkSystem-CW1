@@ -50,7 +50,7 @@ public class Artwork {
 		this.title = title;
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
-		this.numberOfBids = numberOfBids;
+		this.numberOfBids = 0;
 		bidsAllowed = numberOfBids;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
@@ -59,6 +59,7 @@ public class Artwork {
 		resolveImage();
 		imageView = new ImageView();
 		//imageView.setImage(image);
+		
 
 	}
 
@@ -83,7 +84,7 @@ public class Artwork {
 		this.title = title;
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
-		this.numberOfBids = numberOfBids;
+		this.numberOfBids = 0;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
@@ -91,7 +92,13 @@ public class Artwork {
 		resolveImage();
 		imageView = new ImageView();
 		bidsAllowed = numberOfBids;
+		this.bidIsOver = false;
 
+	}
+	
+	
+	public void increment() {
+		
 	}
 	
 

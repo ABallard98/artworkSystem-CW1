@@ -5,6 +5,11 @@ import java.io.*;
 import java.io.FileReader;
 import java.util.*;
 
+/**
+ * @author Software Engineering Team Three
+ * @version 1.0
+ *
+ */
 public class Writer {
 
 

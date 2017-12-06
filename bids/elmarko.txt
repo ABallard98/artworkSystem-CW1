@@ -22,3 +22,5 @@ painting,elmarko,1223123,123.0,Wed Dec 06 05:07:21 GMT 2017
 painting,elmarko,4,23.0,Wed Dec 06 05:08:26 GMT 2017
 painting,elmarko,lol,9.0,Wed Dec 06 05:18:38 GMT 2017
 painting,elmarko,1223123,3123.0,Wed Dec 06 05:18:49 GMT 2017
+painting,elmarko,4,99.0,Wed Dec 06 15:23:10 GMT 2017
+painting,elmarko,007,32123.0,Wed Dec 06 15:23:18 GMT 2017
