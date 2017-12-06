@@ -111,12 +111,7 @@ public class ArtworkController {
 		}
 
 		placeBid.setOnAction(e -> addBid());
-		try {
-			FileReader.constructBid(LoginController.getUser().getUsername());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		System.out.println("Total no. of bids " + FileReader.getBids().size());
 		System.out.println("Total no. of users " + FileReader.getUsers().size());
 
@@ -244,9 +239,11 @@ public class ArtworkController {
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
 
+			LoginController.getUser().addBid(bid);
+			currentSculpture.addBidToItem(bid);
+			FileReader.addBid(bid);
 			if (bid.checkBid() == 0) {
-				LoginController.getUser().addBid(bid);
-				currentSculpture.addBidToItem(bid);
+				
 				System.out.println("its okay");
 
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -329,11 +326,13 @@ public class ArtworkController {
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
+			LoginController.getUser().addBid(bid);
+			currentPainting.addBidToItem(bid);
+			FileReader.addBid(bid);
 
 			if (bid.checkBid() == 0) {
 				System.out.println("its okay");
-				LoginController.getUser().addBid(bid);
-				currentPainting.addBidToItem(bid);
+
 				System.out.println("Bid placed.");
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Success");

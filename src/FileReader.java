@@ -101,6 +101,17 @@ public class FileReader {
 
 	}
 
+	public static void addBid(Bid bid) {
+		bids.add(bid);
+	}
+	
+	public static void addSculpture(Sculpture sculpture) {
+		sculptures.add(sculpture);
+	}
+	
+	public static void addPainting(Painting painting) {
+		paintings.add(painting);
+	}
 	/**
 	 * Initializes all the file readers ready for use
 	 */
@@ -620,16 +631,18 @@ public class FileReader {
 
 				in.close();
 				return sculpture;
+			} else {
+
+				Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
+						reservePrice, width, height, depth, material);
+				seller.addArtwork(sculpture);
+				System.out.println("has been added");
+
+				System.out.println("Sculpture " + sculpture.getTitle() + " was created");
+				in.close();
+				return sculpture;
 			}
 
-			Sculpture sculpture = new Sculpture(seller, new Date(), name, creator, yearWasMade, numberOfBids,
-					reservePrice, width, height, depth, material);
-			seller.addArtwork(sculpture);
-			System.out.println("has been added");
-
-			System.out.println("Sculpture " + sculpture.getTitle() + " was created");
-			in.close();
-			return sculpture;
 
 		} catch (FileNotFoundException e) {
 			System.out.println("Error constructing sculpture. File " + filename + " was not found");

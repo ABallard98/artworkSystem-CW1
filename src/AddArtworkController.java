@@ -214,6 +214,8 @@ public class AddArtworkController {
 				Writer.writeSculptureFile(sculpture);
 				copyPictures(titleA);
 				sculpture.resolveImage();
+				FileReader.addSculpture(sculpture);
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -228,6 +230,7 @@ public class AddArtworkController {
 				Writer.writePaintingFile(painting);
 				copyPictures(titleA);
 				painting.resolveImage();
+				FileReader.addPainting(painting);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
