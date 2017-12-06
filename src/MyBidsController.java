@@ -64,21 +64,11 @@ public class MyBidsController {
 	private ObservableList<Bid> bids;
 
 	public void initialize() {
-		try {
-			FileReader.loadBidFiles();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		FileReader.constructBid(LoginController.getUser().getUsername());
 		
-		ArrayList<Artwork> artworks = new ArrayList<>();
+		ArrayList<Bid> bids11 = FileReader.constructBids(LoginController.getUser().getUsername());
 
-		try {
-			bids = FXCollections.observableArrayList(FileReader.loadBidFiles());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		bids = FXCollections.observableArrayList(bids11);
 
 		System.out.println("Number of placed bids ----------" + LoginController.getUser().getPlacedBids().size());
 		// picture.setCellValueFactory(new

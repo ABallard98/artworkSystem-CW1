@@ -367,6 +367,57 @@ public class FileReader {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public static ArrayList<Bid> constructBids(String filename) {
+		ArrayList<Bid> listOfBids = new ArrayList<>();
+		String BID_FILE = "bids//" + filename+".txt";
+
+		try {
+			Scanner in = new Scanner(new File(BID_FILE));
+			while (in.hasNext()) {
+				in.useDelimiter(",");
+				String typeOfArtwork = in.next();
+
+				String username = in.next();
+				String artwork = in.next();
+				Double bidAmount = in.nextDouble();
+				String dateString = in.nextLine();
+				Date date = new Date(dateString);
+
+				String error1 = "Bidder cannot bid on their own artwork." + "\n";
+				String error2 = "Maximum number of bids has been reached." + "\n";
+				String error3 = "Bid must be higher than current bid." + "\n";
+
+				//If the bid was on a painting this block of code is used
+				if (typeOfArtwork.equalsIgnoreCase("painting")) {
+					Painting art = constructPainting(artwork + ".txt");
+					User seller = getUser(username);
+					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
+
+					listOfBids.add(bid);
+					seller.addBid(bid);
+
+				}
+				//If the bid was on a sculpture then this block of code is used
+				else {
+					Sculpture art = constructSculptures(artwork + ".txt");
+					User seller = getUser(username);
+					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
+					listOfBids.add(bid);
+					seller.addBid(bid);
+				}
+				
+			}
+			in.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return listOfBids;
+	}
+
+	
 
 		//ANOTHER DUPLICATE METHOD??
 	public static void readBidFiles() throws FileNotFoundException {
@@ -518,6 +569,11 @@ public class FileReader {
 
 		return null;
 	}
+	
+	public ArrayList<Bid> getBidsOfUser(){
+		return null;
+	}
+	
 
 	/**
 	 * Method to read a text file and create a Sculpture object
