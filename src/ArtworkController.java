@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -193,18 +195,156 @@ public class ArtworkController {
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentSculpture, date);
-					LoginController.getUser().addBid(bid);
-					currentSculpture.addBidToItem(bid);
+
+			if (bid.checkBid() == 0) {
+
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+
+			} else if (bid.checkBid() == 1) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 2) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 3) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 4) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 5) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 6) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 7) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
 			}
+
+			LoginController.getUser().addBid(bid);
+			currentSculpture.addBidToItem(bid);
+		}
 		if (currentPainting != null) {
 			type = "painting";
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
 			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-					LoginController.getUser().addBid(bid);
-					currentPainting.addBidToItem(bid);
-					System.out.println("Bid placed.");
+			
+			if (bid.checkBid() == 0) {
+
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+
+			} else if (bid.checkBid() == 1) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 2) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 3) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 4) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 5) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 6) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			} else if (bid.checkBid() == 7) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Success");
+
+				alert.setHeaderText("Bid has been placed");
+				alert.setContentText("Thank you!");
+
+				alert.showAndWait();
+			}
+			
+			LoginController.getUser().addBid(bid);
+			currentPainting.addBidToItem(bid);
+			System.out.println("Bid placed.");
 		}
 
 		try {

@@ -87,7 +87,16 @@ public class FavouriteUsersController {
 	}
 	
 	public void deleteUser() {
-		
+		User user = table1.getSelectionModel().getSelectedItem();
+
+		User loggedUser = LoginController.getUser();
+		if (FileReader.checkIfInFavouriteList(loggedUser, user)) {
+			loggedUser.removeUserFromFavourites(user);
+			Writer.removeFromFavourites(loggedUser, user);
+		}
+		favourites = FXCollections.observableArrayList(LoginController.getUser().getFavouriteUsers());
+		table1.setItems(favourites);
+
 	}
 	
 }
