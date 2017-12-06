@@ -34,12 +34,19 @@ public class User {
 
 	/**
 	 * Constructor for a new User object
-	 * @param username - username of the user.
-	 * @param fname - first name of the user.
-	 * @param lname - last name of the user.
-	 * @param address - address of the user.
-	 * @param postcode - postcode of the user.
-	 * @param phonenumber - phonenumber of the user.
+	 * 
+	 * @param username
+	 *            - username of the user.
+	 * @param fname
+	 *            - first name of the user.
+	 * @param lname
+	 *            - last name of the user.
+	 * @param address
+	 *            - address of the user.
+	 * @param postcode
+	 *            - postcode of the user.
+	 * @param phonenumber
+	 *            - phonenumber of the user.
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
 		setUsername(username);
@@ -65,8 +72,8 @@ public class User {
 	}
 
 	/**
-	 * Makes a new User object with a pre-made avatar as the
-	 * associated image.
+	 * Makes a new User object with a pre-made avatar as the associated image.
+	 * 
 	 * @param username
 	 * @param fname
 	 * @param lname
@@ -75,8 +82,8 @@ public class User {
 	 * @param phonenumber
 	 * @param index
 	 */
-	public User(String username, String fname, String lname,
-				String address, String postcode, long phonenumber, int index) {
+	public User(String username, String fname, String lname, String address, String postcode, long phonenumber,
+			int index) {
 		customImage = false;
 		imgView = new ImageView();
 
@@ -91,18 +98,28 @@ public class User {
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
 		avatarIndex = index;
-		
-		try {
-			image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		if (index < 100) {
+			try {
+				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				image = new Image(new FileInputStream("customAvatars/" + username + ".png"));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		
+
 	}
 
 	/**
 	 * Check if a custom image is being used.
+	 * 
 	 * @return true if a custom image is being used or false otherwise
 	 */
 	public boolean isCustomImage() {
@@ -110,9 +127,9 @@ public class User {
 	}
 
 	/**
-	 * Checks if a custom image is being used first. If no
-	 * custom image is being used then it tries to find a default avatar
-	 * and sets that as the associated image.
+	 * Checks if a custom image is being used first. If no custom image is being
+	 * used then it tries to find a default avatar and sets that as the associated
+	 * image.
 	 */
 	public void resolvePicture() {
 		if (!isCustomImage() && avatarIndex > 0) {
@@ -123,9 +140,10 @@ public class User {
 			}
 		}
 	}
-	
+
 	/**
 	 * Method used to display an image inside an ImageView
+	 * 
 	 * @return ImageView - containing the image
 	 */
 	public ImageView getImgView() {
@@ -137,6 +155,7 @@ public class User {
 
 	/**
 	 * Method to get the image.
+	 * 
 	 * @return Image - image.
 	 */
 	public Image getImage() {
@@ -145,6 +164,7 @@ public class User {
 
 	/**
 	 * Method to get the user's username.
+	 * 
 	 * @return String - username.
 	 */
 	public String getUsername() {
@@ -153,6 +173,7 @@ public class User {
 
 	/**
 	 * Method to get the user's first name.
+	 * 
 	 * @return String - firstName.
 	 */
 	public String getFirstName() {
@@ -161,6 +182,7 @@ public class User {
 
 	/**
 	 * Method to get the user's last name.
+	 * 
 	 * @return String - lastName.
 	 */
 	public String getLastName() {
@@ -169,6 +191,7 @@ public class User {
 
 	/**
 	 * Method to get the user's full name.
+	 * 
 	 * @return String - fullName.
 	 */
 	public String getFullName() {
@@ -177,6 +200,7 @@ public class User {
 
 	/**
 	 * Method to get the user's address.
+	 * 
 	 * @return String - address.
 	 */
 	public String getAddress() {
@@ -185,6 +209,7 @@ public class User {
 
 	/**
 	 * Method to get the user's postcode.
+	 * 
 	 * @return String - postcode.
 	 */
 	public String getPostcode() {
@@ -193,6 +218,7 @@ public class User {
 
 	/**
 	 * Method to get the user's phone number.
+	 * 
 	 * @return long - phonenumber.
 	 */
 	public long getPhonenumber() {
@@ -201,6 +227,7 @@ public class User {
 
 	/**
 	 * Method to set the user's username.
+	 * 
 	 * @param username
 	 */
 	public void setUsername(String username) {
@@ -209,7 +236,9 @@ public class User {
 
 	/**
 	 * Method to set the user's first name.
-	 * @param fname - firstName.
+	 * 
+	 * @param fname
+	 *            - firstName.
 	 */
 	public void setFirstName(String fname) {
 		this.firstName = fname;
@@ -217,6 +246,7 @@ public class User {
 
 	/**
 	 * Method to set the user's last name.
+	 * 
 	 * @param lname
 	 */
 	public void setLastName(String lname) {
@@ -225,6 +255,7 @@ public class User {
 
 	/**
 	 * Method to set the user's address.
+	 * 
 	 * @param address
 	 */
 	public void setAddress(String address) {
@@ -233,6 +264,7 @@ public class User {
 
 	/**
 	 * Method to set the user's postcode.
+	 * 
 	 * @param postcode
 	 */
 	public void setPostcode(String postcode) {
@@ -241,6 +273,7 @@ public class User {
 
 	/**
 	 * Method to set the users phone number.
+	 * 
 	 * @param phonenumber
 	 */
 	public void setPhonenumber(long phonenumber) {
@@ -249,22 +282,26 @@ public class User {
 
 	/**
 	 * Method to add a user to this user's favourites.
-	 * @param u - User.
+	 * 
+	 * @param u
+	 *            - User.
 	 */
 	public void addUserToFavourites(User u) {
 		this.favouriteUsers.add(u);
 	}
 
 	/**
-	 * Method to remove a user from this user's favourites. Tries to
-	 * find the user that should be removed but if that user cannot be found
-	 * then an exception is caught and handled.
-	 * @param u- User.
+	 * Method to remove a user from this user's favourites. Tries to find the user
+	 * that should be removed but if that user cannot be found then an exception is
+	 * caught and handled.
+	 * 
+	 * @param u-
+	 *            User.
 	 */
 	public void removeUserFromFavourites(User u) {
 		try {
 			this.favouriteUsers.remove(u);
-			Writer.removeFromFavourites(this,u);
+			Writer.removeFromFavourites(this, u);
 		} catch (NullPointerException e) {
 			throw new NullPointerException("Error, user not found in favourites.");
 		}
@@ -272,6 +309,7 @@ public class User {
 
 	/**
 	 * Method to get this user's favourites.
+	 * 
 	 * @return ArrayList<User> - favouriteUsers.
 	 */
 	public ArrayList<User> getFavouriteUsers() {
@@ -281,12 +319,13 @@ public class User {
 	/**
 	 * Method to get a string containing the usernames of this user's favourite
 	 * users.
+	 * 
 	 * @return String - output.
 	 */
 	public String getFavouritesString() {
 		String output = "";
 		for (User e : favouriteUsers) {
-				output = e.getUsername() + " " + output;
+			output = e.getUsername() + " " + output;
 		}
 		return output;
 	}
@@ -294,6 +333,7 @@ public class User {
 	/**
 	 * Method to get the text file output which will be used to store the user's
 	 * information.
+	 * 
 	 * @return String - textFileOutput.
 	 */
 	public String getTextFileOutput() {
@@ -304,6 +344,7 @@ public class User {
 
 	/**
 	 * Method to get a string containing all of the user's information.
+	 * 
 	 * @return String - toString.
 	 */
 	public String toString() {
@@ -314,6 +355,7 @@ public class User {
 
 	/**
 	 * Method to return the time date and time last logged in.
+	 * 
 	 * @return Date - timeLastLoggedIn.
 	 */
 	public Date getTimeLastLoggedIn() {
@@ -322,6 +364,7 @@ public class User {
 
 	/**
 	 * Allows setting of time last logged in.
+	 * 
 	 * @param timeLastLoggedIn
 	 */
 	public void setTimeLastLoggedIn(Date timeLastLoggedIn) {
@@ -330,6 +373,7 @@ public class User {
 
 	/**
 	 * Allows setting of an image to a user.
+	 * 
 	 * @param image
 	 */
 	public void setImage(Image image) {
@@ -338,6 +382,7 @@ public class User {
 
 	/**
 	 * Gets the list of artworks for sale.
+	 * 
 	 * @return ArrayList<Artwork> - artsForSale.
 	 */
 	public ArrayList<Artwork> getArtForSale() {
@@ -346,6 +391,7 @@ public class User {
 
 	/**
 	 * Allows setting of artworks for sale
+	 * 
 	 * @param artForSale
 	 */
 	public void setArtForSale(ArrayList<Artwork> artForSale) {
@@ -354,6 +400,7 @@ public class User {
 
 	/**
 	 * Method to get the list of artworks sold by the user.
+	 * 
 	 * @return ArrayList<Artwork> - artSold.
 	 */
 	public ArrayList<Artwork> getArtSold() {
@@ -362,6 +409,7 @@ public class User {
 
 	/**
 	 * Allows the setting of a list of artworkds sold by the user.
+	 * 
 	 * @param artSold
 	 */
 	public void setArtSold(ArrayList<Artwork> artSold) {
@@ -370,6 +418,7 @@ public class User {
 
 	/**
 	 * Method to get a list of artworks won.
+	 * 
 	 * @return ArrayList<Artwork> - artWon.
 	 */
 	public ArrayList<Artwork> getArtWon() {
@@ -378,6 +427,7 @@ public class User {
 
 	/**
 	 * Method to set the list of artwork's a user has won
+	 * 
 	 * @param artWon
 	 */
 	public void setArtWon(ArrayList<Artwork> artWon) {
@@ -386,7 +436,9 @@ public class User {
 
 	/**
 	 * Method to set the full name of a user
-	 * @param fullName - first name and last name
+	 * 
+	 * @param fullName
+	 *            - first name and last name
 	 */
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
@@ -394,6 +446,7 @@ public class User {
 
 	/**
 	 * Method to set a users favourite users
+	 * 
 	 * @param favouriteUsers
 	 */
 	public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
@@ -402,6 +455,7 @@ public class User {
 
 	/**
 	 * Method to add an artwork to a user's auctions
+	 * 
 	 * @param artwork
 	 */
 	public void addArtwork(Artwork artwork) {
@@ -410,6 +464,7 @@ public class User {
 
 	/**
 	 * Method to get number the artworks that are being sold by the user
+	 * 
 	 * @return int - how many artworks are in the ArrayList
 	 */
 	public int getSellingArtworks() {
@@ -418,6 +473,7 @@ public class User {
 
 	/**
 	 * Method to get the bids that a user has placed
+	 * 
 	 * @return ArrayList<Bid> - bids placed by user
 	 */
 	public ArrayList<Bid> getPlacedBids() {
@@ -426,6 +482,7 @@ public class User {
 
 	/**
 	 * Method to set the bids placed by a user
+	 * 
 	 * @param placedBids
 	 */
 	public void setPlacedBids(ArrayList<Bid> placedBids) {
@@ -434,48 +491,50 @@ public class User {
 
 	/**
 	 * Method to add a bid to the users placedBids ArrayList
-	 * @param b - the bid the user has made
+	 * 
+	 * @param b
+	 *            - the bid the user has made
 	 */
 	public void addBid(Bid b) {
 		String error1 = "Bidder cannot bid on their own artwork." + "\n";
 		String error2 = "Maximum number of bids has been reached." + "\n";
 		String error3 = "Bid must be higher than current bid." + "\n";
 		switch (b.checkBid()) {
-			case 0: {
-				System.out.println("Bid placed.");
-				break;
-			}
-			case 1: {
-				System.out.println(error1);
-				break;
-			}
-			case 2: {
-				System.out.println(error2);
-			}
-			case 3: {
-				System.out.println(error3);
-			}
-			case 4: {
-				System.out.println(error1 + error2);
-			}
-			case 5: {
-				System.out.println(error1 + error3);
-			}
-			case 6: {
-				System.out.println(error2 + error3);
-			}
-			default: {
-				System.out.println(error1 + error2 + error3);
-			}
-			
+		case 0: {
+			System.out.println("Bid placed.");
+			break;
+		}
+		case 1: {
+			System.out.println(error1);
+			break;
+		}
+		case 2: {
+			System.out.println(error2);
+		}
+		case 3: {
+			System.out.println(error3);
+		}
+		case 4: {
+			System.out.println(error1 + error2);
+		}
+		case 5: {
+			System.out.println(error1 + error3);
+		}
+		case 6: {
+			System.out.println(error2 + error3);
+		}
+		default: {
+			System.out.println(error1 + error2 + error3);
+		}
+
 			placedBids.add(b);
 
 		}
 	}
 
-
 	/**
 	 * Method to return the avatar index of a user
+	 * 
 	 * @return int - the index of the selected avatar
 	 */
 	public int getAvatarIndex() {
@@ -484,7 +543,9 @@ public class User {
 
 	/**
 	 * Method to set the avatar index of a user
-	 * @param avatarIndex - index of the selected avatar
+	 * 
+	 * @param avatarIndex
+	 *            - index of the selected avatar
 	 */
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;

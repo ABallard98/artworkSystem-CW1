@@ -154,7 +154,7 @@ public class Sculpture extends Artwork {
 				+ "#" + this.getCreator() + "#" + this.getCreationYear() + "#"
 				+ this.getNumberOfBids() + "#" + this.getReservePrice() + "#"
 				+ this.getWidth() + "#" + this.getHeight() + "#" +
-				this.getDepth() + "#" + this.getMaterial() + "#";
+				this.getDepth() + "#" + this.getMaterial() + "#" +this.getDescription();
 		return output;
 	}
 

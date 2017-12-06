@@ -1,6 +1,11 @@
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -104,6 +109,8 @@ public class NewAccountCreatorController {
 		avatar6.setOnAction(e -> updateAvatar(6));
 
 		avatarIndex = 1;
+		
+		
 
 	}
 
@@ -221,6 +228,23 @@ public class NewAccountCreatorController {
 			userdata += "\n Post code: " + postCode;
 			userdata += "\n Phone number: " + phoneNumberLong;
 
+			if(custom) {
+				avatarIndex = 101;
+				
+				File file1 = new File("artworkImages/" + username);
+				file1.mkdir();
+				Path path = Paths.get("customAvatars/" + username + ".png");
+				String path1 = "tmpImg.png";
+				File file = new File(path1);
+
+				try {
+					Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
 			System.out.println(user.getTextFileOutput());
 			FileReader.addUser(user);
@@ -284,7 +308,8 @@ public class NewAccountCreatorController {
 			e.printStackTrace();
 		}
 
-		// this.mainAvatar.
+		custom = true;
+		avatarIndex = 100;
 	}
 
 	public static void setCustom(boolean val) {
