@@ -24,3 +24,4 @@ painting,elmarko,lol,9.0,Wed Dec 06 05:18:38 GMT 2017
 painting,elmarko,1223123,3123.0,Wed Dec 06 05:18:49 GMT 2017
 painting,elmarko,4,99.0,Wed Dec 06 15:23:10 GMT 2017
 painting,elmarko,007,32123.0,Wed Dec 06 15:23:18 GMT 2017
+sculpture,elmarko,desc1,99.0,Thu Dec 07 09:52:44 GMT 2017

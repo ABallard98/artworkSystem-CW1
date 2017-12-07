@@ -259,6 +259,7 @@ public class Artwork {
 		String error2 = "Maximum number of bids has been reached." + "\n";
 		String error3 = "Bid must be higher than current bid." + "\n";
 		numberOfBids++;
+		highestBid = bid.getAmount();
 		switch (bid.checkBid()) {
 			case 0: {
 				bidsOnItem.add(bid);
@@ -408,4 +409,6 @@ public class Artwork {
 	public void setHighestBidAmount(double highestBidAmount) {
 		this.highestBidAmount = highestBidAmount;
 	}
+	
+	
 }// end of class
