@@ -89,9 +89,13 @@ public class Painting extends Artwork{
        String output = this.getTitle() + "#" + this.getOwner().getUsername()
                + "#" + this.getCreator() + "#" + this.getCreationYear() +
                "#" + this.getNumberOfBids() + "#" + this.getReservePrice() +
-               "#" + this.getWidth() + "#" + this.getHeight() + "#";
+               "#" + this.getWidth() + "#" + this.getHeight() + "#" +this.getDescription();;
        return output;
    }
+   
+   
+   
+   
 
    /**
     * Method to print out the information of a painting
