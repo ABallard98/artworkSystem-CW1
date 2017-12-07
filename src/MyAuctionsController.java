@@ -93,23 +93,39 @@ public class MyAuctionsController {
 	public void filter() {
 
 		ArrayList<Artwork> arts = LoginController.getUser().getArtForSale();
-		ArrayList<Artwork> newArts = null;
+		ArrayList<Artwork> newArts = new ArrayList<>();
 
 		ArrayList<Sculpture> sculpturesA = new ArrayList<>();
 		ArrayList<Painting> paintingsA = new ArrayList<>();
 
 		if (active.isSelected()) {
 
-			newArts = new ArrayList<>();
-			
 			for (Artwork a : arts) {
+
 				if (!a.isBidIsOver()) {
-					newArts.add(a);
+
+					if (paintings.isSelected()) {
+						if (a instanceof Painting) {
+							newArts.add(a);
+							System.out.println("yess");
+
+						}
+
+					}
+					if (sculptures.isSelected()) {
+						if (a instanceof Sculpture) {
+							newArts.add(a);
+						}
+
+					}
+
 				}
 			}
+			ObservableList<Artwork> artworksA = FXCollections.observableArrayList(newArts);
+
+			table.setItems(artworksA);
 
 		} else if (finished.isSelected()) {
-			newArts = new ArrayList<>();
 			for (Artwork a : arts) {
 				if (a.isBidIsOver()) {
 					newArts.add(a);
@@ -117,7 +133,6 @@ public class MyAuctionsController {
 			}
 		} else if (allAuctions.isSelected()) {
 			newArts = arts;
-			//newArts = new ArrayList<>();
 		}
 
 		if (sculptures.isSelected() && paintings.isSelected()) {
