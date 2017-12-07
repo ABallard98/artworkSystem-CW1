@@ -170,6 +170,12 @@ public class ArtworkController {
 		mainPic.setImage(currentPainting.getImage());
 		// sellerAvatar.setImage(currentPainting.getOwner().getImage());
 		sellerA.setText(currentPainting.getOwner().getUsername());
+		User owner = currentPainting.getOwner();
+		
+		Image image = owner.getImage();
+		sellerAvatar.setImage(image);
+
+		
 	}
 
 	public void initializeSculpture() {
