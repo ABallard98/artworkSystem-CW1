@@ -176,10 +176,11 @@ public class AddArtworkController {
 
 	
 	public void createArtwork() {
-
+		try{			
 		Painting painting = null;
 		Sculpture sculpture = null;
 
+		
 		String widthA = width.getText();
 		String heightA = height.getText();
 
@@ -201,15 +202,26 @@ public class AddArtworkController {
 
 		User user = LoginController.getUser();
 		System.out.println(user);
-
+			
+		
 		if (selectSculpture.isSelected()) {
 			String depthA = depth.getText();
 			int depthI = Integer.parseInt(depthA);
 			String materialA = material.getText();
+			if(depthA.isEmpty() || materialA.isEmpty()){
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Error");
 
+				alert.setHeaderText("Could not create an artwork");
+				alert.setContentText("Make sure you fill all fields and press button again");
+				alert.showAndWait();
+
+				return;
+			} else{
 			sculpture = new Sculpture(user, null, titleA, creatorA, creationYearI, bidLimitI, reservePriceD, widthI,
 					heightI, depthI, materialA, descriptionA);
 			user.addArtwork(sculpture);
+			}
 			try {
 				Writer.writeSculptureFile(sculpture);
 				copyPictures(titleA);
@@ -247,7 +259,19 @@ public class AddArtworkController {
 		alert.showAndWait();
 
 		closeWindow();
+		} catch(NumberFormatException e){
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
 
+			alert.setHeaderText("Could not create an artwork");
+			alert.setContentText("Make sure you fill all fields and press button again");
+			alert.showAndWait();
+
+			return;
+		}
+
+		
+		
 	}
 
 	/**
