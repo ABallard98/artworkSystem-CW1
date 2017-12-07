@@ -206,14 +206,9 @@ public class ArtworkController {
 		String path = "avatars/avatar" + owner.getAvatarIndex() + ".png";
 		System.out.println("Avatar path is " + path);
 		Image image;
-		try {
-			image = new Image(new FileInputStream(path));
-			sellerAvatar.setImage(image);
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		image = owner.getImage();
+		sellerAvatar.setImage(image);
 
 		// sellerAvatar.setImage(currentSculpture.getOwner().getImage());
 		sellerA.setText(currentSculpture.getOwner().getUsername());

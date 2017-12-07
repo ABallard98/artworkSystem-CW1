@@ -258,6 +258,7 @@ public class Artwork {
 		String error1 = "Bidder cannot bid on their own artwork." + "\n";
 		String error2 = "Maximum number of bids has been reached." + "\n";
 		String error3 = "Bid must be higher than current bid." + "\n";
+		numberOfBids++;
 		switch (bid.checkBid()) {
 			case 0: {
 				bidsOnItem.add(bid);
