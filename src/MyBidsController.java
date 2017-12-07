@@ -1,7 +1,4 @@
-/**
- * @author Thomas
- * @date 4/12/2017
- */
+
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -18,7 +15,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+/**
+ * @author Thomas
+ * @date 4/12/2017
+ */
 public class MyBidsController {
 
 	@FXML

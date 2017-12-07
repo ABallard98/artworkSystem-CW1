@@ -21,6 +21,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * @author Joshua
+ * @date 1/12/2017
+ */
 public class NewAccountCreatorController {
 
 	@FXML

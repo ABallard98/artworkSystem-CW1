@@ -1,3 +1,5 @@
+
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -20,7 +22,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
-
+/**
+ * @author Ayden
+ * @date 6/12/2017
+ */
 public class AvatarDrawingController {
 
 	@FXML

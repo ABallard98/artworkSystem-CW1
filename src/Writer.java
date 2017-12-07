@@ -1,14 +1,12 @@
-/* Created by ayden on 10/11/2017.
- */
+
 
 import java.io.*;
 import java.io.FileReader;
 import java.util.*;
 
 /**
- * @author Software Engineering Team Three
- * @version 1.0
- *
+ * @author Daniel
+ * @date 20/11/2017
  */
 public class Writer {
 

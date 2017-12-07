@@ -1,12 +1,14 @@
 
-/**
- * Created by ayden on 10/11/2017.
- */
+
 
 import java.util.*;
 
 import javafx.scene.image.Image;
 
+/**
+ * @author Marwan
+ * @date 21/11/2017
+ */
 public class Sculpture extends Artwork {
 
 	private int width; 

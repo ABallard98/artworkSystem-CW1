@@ -1,12 +1,12 @@
-/**
- * CLASS FOR BASIC TESTING ON USER CREATION AND METHODS
- * <<<THESE TESTS WILL BE IMPLEMENTED IN JUNIT>>>>
- * Created by ayden on 10/11/2017.
- */
+
 
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @author Marwan
+ * @date 08/12/2017
+ */
 public class UserTesting {
 
     public static void main (String[] args){

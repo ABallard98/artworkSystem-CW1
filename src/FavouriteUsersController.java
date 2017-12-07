@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
@@ -14,6 +15,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+/**
+ * @author Joshua
+ * @date 05/12/2017
+ */
 
 public class FavouriteUsersController {
 

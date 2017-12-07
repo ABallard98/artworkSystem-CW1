@@ -10,6 +10,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * @author Joshua and Ayden
+ * @date 04/12/2017
+ */
 public class UserDisplayController {
 
 	private static User user;

@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.*;
+/**
+ * @author Daniel
+ * @date 5/12/2017
+ */
 
 public class ArtworkController {
 

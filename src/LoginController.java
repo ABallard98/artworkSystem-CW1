@@ -15,6 +15,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * @author Marcin
+ * @date 22/11/2017
+ */
 public class LoginController {
 
 	

@@ -1,7 +1,4 @@
 
-/**
- * Created by ayden on 10/11/2017.
- */
 
 import java.util.*;
 
@@ -11,10 +8,8 @@ import java.io.*;
 import java.text.*;
 
 /**
- * 
- * @author Software Engineering Team Three
- * @version 1.0
- * 
+ * @author Daniel
+ * @date 23/11/2017
  */
 public class FileReader {
 

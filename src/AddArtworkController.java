@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,10 +24,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
- * 
- * @author Software Engineering Team Three
- * @version 1.0
+ * @author Daniel
+ * @date 5/12/2017
  */
+
 public class AddArtworkController {
 
 	@FXML

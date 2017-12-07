@@ -1,9 +1,10 @@
-/**
-* Created by ayden on 10/11/2017.
-*/
+
 
 import java.util.*;
-
+/**
+ * @author Marwan
+ * @date 21/11/2017
+ */
 public class Painting extends Artwork{
 
    private int width; //width of painting in cm

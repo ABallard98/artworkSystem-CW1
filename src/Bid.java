@@ -1,19 +1,12 @@
 
-/**
- * Created by Thomas on 10/11/2017.
- */
-
 import java.util.*;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * A class to hold information about bid placed by user
- * 
- * @author Software Engineering Team Three
- * @version 1.0
- *
+ * @author Thomas
+ * @date 20/11/2017
  */
 public class Bid {
 

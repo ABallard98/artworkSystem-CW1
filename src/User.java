@@ -1,7 +1,5 @@
 
-/**
- * Created by ayden on 10/11/2017.
- */
+
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,7 +7,10 @@ import java.util.*;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+/**
+ * @author Joshua
+ * @date 20/11/2017
+ */
 public class User {
 
 	private String username; // Username of the user.

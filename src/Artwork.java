@@ -1,7 +1,4 @@
 
-/**
- * Created by ayden on 10/11/2017.
- */
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,6 +7,10 @@ import java.util.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * @author Marwan
+ * @date 15/11/2017
+ */
 public class Artwork {
 
 	protected String title; // Name of the artwork.

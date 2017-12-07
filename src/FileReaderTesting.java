@@ -1,3 +1,4 @@
+
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -8,12 +9,12 @@ import java.util.ArrayList;
 
 import java.util.*;
 import java.io.*;
-
 /**
- * @author Software Engineering Team Three
- * @version 1.0
+ * @author Marwan
+ * @date 08/12/2017
  *
  */
+
 public class FileReaderTesting {
 
     public static void main (String[] args){

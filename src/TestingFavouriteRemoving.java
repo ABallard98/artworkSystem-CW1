@@ -1,8 +1,8 @@
 import java.io.FileWriter;
 
 /**
- * @author Software Engineering Team Three
- * @version 1.0
+ * @author Marwan
+ * @date 07/12/2017
  */
 public class TestingFavouriteRemoving {
 

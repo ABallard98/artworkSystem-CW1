@@ -1,7 +1,4 @@
-/**
- * @author Thomas
- * @date 20/11/2017
- */
+
 
 import java.util.ArrayList;
 
@@ -15,7 +12,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+/**
+ * @author Thomas
+ * @date 20/11/2017
+ */
 public class MyAuctionsController {
 
 	@FXML
