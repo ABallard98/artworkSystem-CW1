@@ -95,6 +95,7 @@ public class Artwork {
 		this.bidIsOver = false;
 
 	}
+	//
 	
 	
 	public void increment() {
