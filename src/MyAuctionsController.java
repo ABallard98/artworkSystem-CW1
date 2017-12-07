@@ -126,11 +126,16 @@ public class MyAuctionsController {
 			table.setItems(artworksA);
 
 		} else if (finished.isSelected()) {
+			newArts = new ArrayList<>();
 			for (Artwork a : arts) {
 				if (a.isBidIsOver()) {
 					newArts.add(a);
 				}
 			}
+			
+			ObservableList<Artwork> artworksA = FXCollections.observableArrayList(newArts);
+
+			table.setItems(artworksA);
 		} else if (allAuctions.isSelected()) {
 			newArts = arts;
 		}
