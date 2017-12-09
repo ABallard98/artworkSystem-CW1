@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BrowsingController">
+<BorderPane fx:id="mainSection" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BrowsingController">
    <left>
       <VBox prefHeight="470.0" prefWidth="166.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -27,7 +27,7 @@
                         <Font size="14.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox fx:id="sculptureSelected" mnemonicParsing="false" text="Artworks" textFill="WHITE">
+                  <CheckBox fx:id="sculptureSelected" mnemonicParsing="false" text="Sculptures" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -35,6 +35,7 @@
                   <Button fx:id="refresh" mnemonicParsing="false" text="Refresh" />
                </children>
             </VBox>
+            <Button fx:id="displaySelected" mnemonicParsing="false" text="Display selected" />
          </children></VBox>
    </left>
    <right>

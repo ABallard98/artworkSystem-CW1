@@ -373,5 +373,9 @@ public class GUIController {
 		}
 
 	}
+	
+	public BorderPane getMainSection() {
+		return mainSection;
+	}
 
 }

@@ -287,4 +287,11 @@
          </children>
       </VBox>
    </right>
+   <top>
+      <VBox prefHeight="34.0" prefWidth="817.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Back to Browsing" />
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
