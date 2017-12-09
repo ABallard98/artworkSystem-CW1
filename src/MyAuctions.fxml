@@ -48,12 +48,12 @@
             <TableView fx:id="table" prefHeight="329.0" prefWidth="692.0">
               <columns>
                 <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Title" />
-                <TableColumn fx:id="creatonNameColumn" prefWidth="117.0" text="Creator name" />
                   <TableColumn fx:id="reservePriceColumn" prefWidth="97.0" text="Reserve price" />
                   <TableColumn fx:id="placedBidsColumn" prefWidth="97.0" text="Placed bids" />
                   <TableColumn fx:id="bidLimitColumn" prefWidth="107.0" text="Bid limit" />
                   <TableColumn fx:id="currentPriceColumn" prefWidth="115.0" text="Current price" />
                   <TableColumn fx:id="ongoingColumn" prefWidth="92.0" text="Finished" />
+                <TableColumn fx:id="creatonNameColumn" prefWidth="117.0" text="Won by" />
               </columns>
                <VBox.margin>
                   <Insets top="20.0" />

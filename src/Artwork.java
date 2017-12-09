@@ -385,6 +385,13 @@ public class Artwork {
 
 
 	public String getWinnerName() {
+		winnerName = "";
+		if(bidIsOver) {
+			if(this.getHighestBid() != null) {
+				return this.getHighestBid().getBidder().getUsername();
+			}
+		}
+		
 		return winnerName;
 	}
 	

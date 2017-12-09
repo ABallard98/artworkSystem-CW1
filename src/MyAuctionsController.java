@@ -76,7 +76,7 @@ public class MyAuctionsController {
 		artworks = FXCollections.observableArrayList(LoginController.getUser().getArtForSale());
 
 		titleColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("title"));
-		creatonNameColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("creatorName"));
+		creatonNameColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("winnerName"));
 		reservePriceColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("reservePrice"));
 		placedBidsColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("numberOfBids"));
 		bidLimitColumn.setCellValueFactory(new PropertyValueFactory<Artwork, String>("bidsAllowed"));
