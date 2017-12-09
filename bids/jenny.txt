@@ -1,0 +1,8 @@
+sculpture,jenny,Cloud gate,2000.0,Sat Dec 09 16:07:48 GMT 2017
+sculpture,jenny,Cloud gate,9999.0,Sat Dec 09 16:09:53 GMT 2017
+painting,jenny,Dogs Playing poker,110.0,Sat Dec 09 16:16:34 GMT 2017
+painting,jenny,Dogs Playing poker,110.0,Sat Dec 09 16:29:52 GMT 2017
+painting,jenny,Dogs Playing poker,111.0,Sat Dec 09 16:32:10 GMT 2017
+sculpture,jenny,Cloud gate,10000.0,Sat Dec 09 16:34:40 GMT 2017
+sculpture,jenny,Cloud gate,110000.0,Sat Dec 09 16:34:48 GMT 2017
+sculpture,jenny,Cloud gate,1200000.0,Sat Dec 09 16:39:31 GMT 2017
