@@ -4,3 +4,7 @@ How to compile our programme in command line:
 path of where the programme src code is stored e.g "cd example\filename\src". 
 2) then type in 'javac *.java' which will compile all of the java files in the src folder. 
 3) then type in 'java Main' which will run the programme.
+
+The programme was developed using JavaFX version 9.0.1.
+Will work perfectly fine on Java version 9 and will run on Java version 8
+but will show warnings due to the FXML files.
