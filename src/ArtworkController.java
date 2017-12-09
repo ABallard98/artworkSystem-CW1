@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -27,6 +28,8 @@ import java.util.*;
  */
 
 public class ArtworkController {
+	
+
 
 	@FXML
 	private Button back;
@@ -113,13 +116,27 @@ public class ArtworkController {
 
 		if (currentPainting != null) {
 			initializePainting();
-			currentPrice.setText(currentPainting.getHighestBidAmount() + "");
+			if (currentPainting.getNumberOfBids() > 0) {
+				currentPrice.setText(currentPainting.getHighestBidAmount() + "");
+
+			} else {
+				currentPrice.setText(currentPainting.getReservePrice() + "");
+
+			}
+			categoryA.setText("Painting");
 
 		}
 
 		if (currentSculpture != null) {
 			initializeSculpture();
-			currentPrice.setText(currentSculpture.getHighestBidAmount() + "");
+			if (currentSculpture.getNumberOfBids() > 0) {
+				currentPrice.setText(currentSculpture.getHighestBidAmount() + "");
+
+			} else {
+				currentPrice.setText(currentSculpture.getReservePrice() + "");
+
+			}
+			categoryA.setText("Sculpture");
 
 		}
 
@@ -291,6 +308,15 @@ public class ArtworkController {
 					alert.setContentText("1");
 					alert.showAndWait();
 
+					
+					if(bid.isWinningBid()) {
+						Alert alert1 = new Alert(AlertType.INFORMATION);
+						alert1.setTitle("You won");
+						alert1.setHeaderText("You have won the auction");
+						alert1.setContentText("Contact the seller to finish the auction");
+						alert1.showAndWait();
+					}
+					
 				} else {
 					Alert alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("Something went wrong");
@@ -298,7 +324,7 @@ public class ArtworkController {
 					alert.showAndWait();
 
 				}
-				
+
 			} catch (Exception e) {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Wrong input");
@@ -306,7 +332,6 @@ public class ArtworkController {
 				alert.showAndWait();
 
 			}
-	
 
 		} else if (currentPainting != null) {
 			type = "painting";
@@ -332,7 +357,7 @@ public class ArtworkController {
 
 				alert.showAndWait();
 
-			} else  {
+			} else {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Something went wrong");
 
@@ -340,7 +365,7 @@ public class ArtworkController {
 				alert.setContentText("Thank you!");
 
 				alert.showAndWait();
-			} 
+			}
 
 		}
 

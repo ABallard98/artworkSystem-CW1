@@ -12,6 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,20 +22,20 @@ import javafx.scene.image.ImageView;
  */
 public class MyBidsController {
 
-	@FXML
-	private RadioButton allAuctions;
 
-	@FXML
-	private RadioButton active;
+    @FXML
+    private RadioButton allAuctions;
 
-	@FXML
-	private RadioButton finished;
+    @FXML
+    private RadioButton active;
 
-	@FXML
-	private CheckBox sculptures;
+    @FXML
+    private RadioButton won;
 
-	@FXML
-	private CheckBox paintings;
+    @FXML
+    private RadioButton finished;
+
+
 
 	@FXML
 	private Button refreshButton;
@@ -51,11 +52,6 @@ public class MyBidsController {
 	@FXML
 	private TableColumn<Bid, Date> bidLimitColumn;
 
-	@FXML
-	private TableColumn<?, ?> currentPriceColumn;
-
-	@FXML
-	private TableColumn<?, ?> ongoingColumn;
 
 	@FXML
 	private TableColumn<Bid, String> titleColumn;
@@ -69,14 +65,15 @@ public class MyBidsController {
 	private ObservableList<Bid> bids;
 
 	public void initialize() {
-		
+		ToggleGroup tg = new ToggleGroup();
+		allAuctions.setToggleGroup(tg);
+		active.setToggleGroup(tg);
+		won.setToggleGroup(tg);
+		finished.setToggleGroup(tg);
 		ArrayList<Bid> bids11 = FileReader.getBidsOfUser(LoginController.getUser());
 
 		bids = FXCollections.observableArrayList(bids11);
 
-		System.out.println("Number of placed bids ----------" + LoginController.getUser().getPlacedBids().size());
-		// picture.setCellValueFactory(new
-		// PropertyValueFactory<Bid,ImageView>("imgView"));
 		titleColumn.setCellValueFactory(new PropertyValueFactory<Bid, String>("title"));
 		dateColumn.setCellValueFactory(new PropertyValueFactory<Bid, Date>("bidDate"));
 		amountColumn.setCellValueFactory(new PropertyValueFactory<Bid, Double>("amount"));
@@ -89,5 +86,28 @@ public class MyBidsController {
 		dateColumn.setSortType(TableColumn.SortType.DESCENDING);
 		table.getSortOrder().add(dateColumn);
 
+		refreshButton.setOnAction(e-> refresh());
+		
+		
 	}
+	
+	
+	
+	
+	public void refresh() {
+		
+		ArrayList<Bid> tempBids = new ArrayList<>();
+		
+
+		if(allAuctions.isSelected()) {
+			tempBids = FileReader.getBidsOfUser(LoginController.getUser());
+		} else if (won.isSelected()) {
+			tempBids = LoginController.getUser().getWonBids();
+		}
+		
+		
+		bids = FXCollections.observableArrayList(tempBids);
+		table.setItems(bids);
+
+	} 
 }

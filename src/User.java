@@ -1,12 +1,11 @@
 
-
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 /**
  * @author Joshua
  * @date 20/11/2017
@@ -34,7 +33,7 @@ public class User {
 	private ImageView imgView;
 	private ArrayList<Sculpture> sculptures;
 	private ArrayList<Sculpture> paintings;
-
+	private ArrayList<Bid> wonBids;
 	/**
 	 * Constructor for a new User object
 	 * 
@@ -101,7 +100,8 @@ public class User {
 		artForSale = new ArrayList<>();
 		placedBids = new ArrayList<>();
 		avatarIndex = index;
-
+		this.wonBids = new ArrayList<>();
+		
 		if (index < 100) {
 			try {
 				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
@@ -553,6 +553,21 @@ public class User {
 	public void setAvatarIndex(int avatarIndex) {
 		this.avatarIndex = avatarIndex;
 		// resolvePicture();
+	}
+
+	public ArrayList<Bid> getWonBids() {
+		ArrayList<Bid> wonBids = new ArrayList<>();
+		for (Bid b : wonBids) {
+
+			if (b.isWinningBid()) {
+				wonBids.add(b);
+			}
+		}
+		return wonBids;
+	}
+	
+	public void addToWon(Bid bid) {
+		wonBids.add(bid);
 	}
 
 } // end of class

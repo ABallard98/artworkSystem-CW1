@@ -27,8 +27,8 @@ public class Artwork {
 	private boolean bidIsOver; //Boolean depending on whether the bid is over or not.
 	private double highestBid; // Current highest bid placed on the artwork.
 	private ImageView imageView; // image view of the artwork
-	private double highestBidAmount; // Current highest bid placed on the artwork.
-
+	private double highestBidAmount; // Current highest bid placed on the artwork
+	private String winnerName;
 
 
 	
@@ -382,6 +382,13 @@ public class Artwork {
 	public void setHighestBidAmount(double highestBidAmount) {
 		this.highestBidAmount = highestBidAmount;
 	}
+
+
+	public String getWinnerName() {
+		return winnerName;
+	}
+	
+	
 	
 	
 }// end of class

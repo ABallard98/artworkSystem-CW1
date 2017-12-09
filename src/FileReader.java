@@ -16,14 +16,12 @@ public class FileReader {
 	private static ArrayList<Artwork> artworks; // arrayList of Artwork objects
 	private static ArrayList<Sculpture> sculptures; // arrayList of Sculpture objects
 	private static ArrayList<Painting> paintings; // arrayList of Painting objects
-
 	private static ArrayList<Bid> bids; // arrayList of Bid objects
 
 	/**
 	 * Method to return a specific painting object
 	 * 
-	 * @param str
-	 *            - the title of the required painting
+	 * @param str - the title of the required painting
 	 * @return Painting - the painting with the required title
 	 */
 	public static Painting getPainting(String str) {
@@ -35,14 +33,12 @@ public class FileReader {
 		}
 
 		return null;
-
 	}
 
 	/**
 	 * Method to add a User object to the User ArrayList
 	 * 
-	 * @param user
-	 *            - A User object
+	 * @param user - A User object
 	 */
 	public static void addUser(User user) {
 		users.add(user);
@@ -51,8 +47,7 @@ public class FileReader {
 	/**
 	 * Method to return a specific User object
 	 * 
-	 * @param str
-	 *            - username of the required User
+	 * @param str - username of the required User
 	 * @return user - the User object with the specific username
 	 */
 	public static User getUser(String str) {
@@ -229,32 +224,40 @@ public class FileReader {
 		Scanner fileScanner = new Scanner(new File(FAVOURITES_PATH));
 
 		while (fileScanner.hasNextLine()) {
-			String line = fileScanner.nextLine();
+			
+			try {
+				String line = fileScanner.nextLine();
 
-			Scanner in = new Scanner(line);
-			in.useDelimiter(",");
-			User user1 = null;
-			User user2 = null;
+				Scanner in = new Scanner(line);
+				in.useDelimiter(",");
+				User user1 = null;
+				User user2 = null;
 
-			String firstUser = in.next();
-			String secondUser = in.next();
+				String firstUser = in.next();
+				String secondUser = in.next();
 
-			// for loop to find the users1
-			for (User u : users) {
-				System.out.println("user" + u.getAddress());
+				// for loop to find the users1
+				for (User u : users) {
+					System.out.println("user" + u.getAddress());
 
-				if (u.getUsername().equals(firstUser)) {
-					user1 = u;
+					if (u.getUsername().equals(firstUser)) {
+						user1 = u;
+					}
+					if (u.getUsername().equals(secondUser)) {
+						user2 = u;
+					}
 				}
-				if (u.getUsername().equals(secondUser)) {
-					user2 = u;
+
+				user1.addUserToFavourites(user2);
+				if (in.hasNext()) {
+					in.nextLine();
+				}
+			} catch (Exception e) {
+				if(fileScanner.hasNextLine()) {
+					fileScanner.nextLine();
 				}
 			}
-
-			user1.addUserToFavourites(user2);
-			if (in.hasNext()) {
-				in.nextLine();
-			}
+			
 		}
 		fileScanner.close();
 	}
@@ -490,7 +493,7 @@ public class FileReader {
 
 					}
 				} catch (Exception e2) {
-					sc.nextLine();
+					
 					
 
 				}

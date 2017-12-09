@@ -1,1 +1,1 @@
-Marko,1,1,1,1,1,1
+MarKo,Marcin,Kolber,Swansea,7733883123,101,SA1
