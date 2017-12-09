@@ -13,12 +13,11 @@ public class Bid {
 	private double amount; // Price the user placed.
 	private Artwork artwork; // The artwork that the bid is placed on.
 	private Date bidDate; // The date the bid was placed.
-
-	private ImageView imgView;//?
+	private ImageView imgView;// Container for an image
 	private String title;// Title of the artwork bid is placed on
 	private String bidDateString; // date when bid was placed
 	private Image image;// image of the artwork bid was placed on
-	private boolean winningBid;
+	private boolean winningBid; // Checks if your bid is the last bid
 
 	/**
 	 * Creates a new bid object.
@@ -39,18 +38,7 @@ public class Bid {
 		this.title = artwork.getTitle();
 	}
 
-	public Bid(String typeOfArtwork, User bidder,double amount, Artwork artwork, String bid) {
 
-		this.typeOfArtwork = typeOfArtwork;
-		this.bidder = bidder;
-		this.artwork = artwork;
-		this.amount = amount;
-		imgView = new ImageView();
-
-
-		image = artwork.getImage();
-		this.title = artwork.getTitle();
-	}
 
 	/**
 	 * This method returns an image of the art that the bid was 
@@ -86,14 +74,6 @@ public class Bid {
 	}
 
 	/**
-	 * Method to set the date of the bid in String form
-	 * @param bidDateString - date bid was placed
-	 */
-	public void setBidDateString(String bidDateString) {
-		this.bidDateString = bidDateString;
-	}
-
-	/**
 	 * Method to display an ImageView window containing the 
 	 * image of the art
 	 * @return imgView - a display of the art image
@@ -104,120 +84,13 @@ public class Bid {
 		imgView.setImage(image);
 		return imgView;
 	}
-
-	/**
-	 * Method to set the amount of the bid being placed
-	 * @param amount - how much the bid is worth in pounds
-	 */
-	public void setAmount(double amount)
-	{
-		this.amount = amount;
-	}
-
-	/**
-	 * Method to check if the bid is acceptable or not
-	 * @return boolean - True if bid is acceptable, false if not
-	 */
-	public int checkBid() {
 		
-		if(artwork.getHighestBid() != null) {
-			try {
-				if ((amount > artwork.getHighestBid().amount)
-						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& (bidder != artwork.getOwner())) {
-					return 0;
-				} else if ((amount > artwork.getHighestBid().amount)
-						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& !(bidder != artwork.getOwner())) {
-
-					return 1;
-				} else if ((amount > artwork.getHighestBid().amount)
-						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& (bidder != artwork.getOwner())) {
-
-					return 2;
-				} else if (!(amount > artwork.getHighestBid().amount)
-						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& (bidder != artwork.getOwner())) {
-
-					return 3;
-				} else if (!(amount > artwork.getHighestBid().amount)
-						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& (bidder != artwork.getOwner())) {
-					return 4;
-				} else if (!(amount > artwork.getHighestBid().amount)
-						&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& !(bidder != artwork.getOwner())) {
-					return 5;
-				} else if ((amount > artwork.getHighestBid().amount)
-						&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
-						&& !(bidder != artwork.getOwner())) {
-					return 6;
-				} else {
-					return 7;
-				}
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("Not found.");
-				return 7;
-			}
-		} else {
-			if ((amount > artwork.getReservePrice())
-					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& (bidder != artwork.getOwner())) {
-				return 0;
-			} else if ((amount > artwork.getReservePrice())
-					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& !(bidder != artwork.getOwner())) {
-
-				return 1;
-			} else if ((amount > artwork.getReservePrice())
-					&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& (bidder != artwork.getOwner())) {
-
-				return 2;
-			} else if (!(amount > artwork.getReservePrice())
-					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& (bidder != artwork.getOwner())) {
-
-				return 3;
-			} else if ((amount >  artwork.getReservePrice())
-					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& (bidder != artwork.getOwner())) {
-				return 4;
-			} else if (!(amount >  artwork.getReservePrice())
-					&& (artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& !(bidder != artwork.getOwner())) {
-				return 5;
-			} else if ((amount >  artwork.getReservePrice())
-					&& !(artwork.getBidsAllowed() > artwork.getNumberOfBids())
-					&& !(bidder != artwork.getOwner())) {
-				return 6;
-			} else {
-				return 7;
-			}
-			
-			
-		}
-		
-
-	}
-	
 	/**
 	 * Method to return the title of the artwork being bid upon
 	 * @return String - title of the artwork
 	 */
 	public String getTitle() {
 		return title;
-	}
-
-	/**
-	 * Method to set the title of the artwork being bid upon
-	 * @param title - title of the artwork
-	 */
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	/**
@@ -252,13 +125,20 @@ public class Bid {
 		return this.bidDate;
 	}
 	
-	
-	
-
+	/**
+	 * Method to get see check if a bid is the 
+	 * winning bid
+	 * @return Boolean - winningBid, True if it is 
+	 * false otherwise
+	 */
 	public boolean isWinningBid() {
 		return winningBid;
 	}
 
+	/**
+	 * Method to set the winningBid boolean
+	 * @param winningBid
+	 */
 	public void setWinningBid(boolean winningBid) {
 		this.winningBid = winningBid;
 	}
@@ -285,5 +165,4 @@ public class Bid {
 				this.getAmount() + " on " + this.getBidDate();
 		return output;
 	}
-
-} // end of class
+} 

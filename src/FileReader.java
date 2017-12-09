@@ -1,11 +1,7 @@
-
 import java.util.*;
-
 import javafx.scene.image.Image;
-
 import java.io.*;
 import java.text.*;
-
 /**
  * @author Daniel
  * @date 23/11/2017
@@ -20,24 +16,20 @@ public class FileReader {
 
 	/**
 	 * Method to return a specific painting object
-	 * 
 	 * @param str - the title of the required painting
 	 * @return Painting - the painting with the required title
 	 */
 	public static Painting getPainting(String str) {
-
 		for (Painting paint : paintings) { // searches the arrayList
 			if (paint.getTitle().equalsIgnoreCase(str)) {
 				return paint;
 			}
 		}
-
 		return null;
 	}
 
 	/**
 	 * Method to add a User object to the User ArrayList
-	 * 
 	 * @param user - A User object
 	 */
 	public static void addUser(User user) {
@@ -46,68 +38,68 @@ public class FileReader {
 
 	/**
 	 * Method to return a specific User object
-	 * 
 	 * @param str - username of the required User
 	 * @return user - the User object with the specific username
 	 */
 	public static User getUser(String str) {
-
 		for (User user : users) {
 			if (user.getUsername().equalsIgnoreCase(str)) {
 				return user;
 			}
 		}
-
 		return null;
-
 	}
 
 	/**
 	 * Method to return a specific Sculpture object
-	 * 
 	 * @param str
 	 *            - title of the required Sculpture
 	 * @return user - the Sculpture object with the specific title
 	 */
 	public static Sculpture getSculpture(String str) {
-
 		for (Sculpture sculpture : sculptures) {
 			if (sculpture.getTitle().equalsIgnoreCase(str)) {
 				return sculpture;
 			}
 		}
-
 		return null;
-
 	}
 
 	/**
 	 * Method to return a specific Artwork object
-	 * 
 	 * @param str
 	 *            - title of the required Artwork
 	 * @return user - the Artwork object with the specific title
 	 */
 	public static Artwork getArtwork(String str) {
-
 		for (Artwork art : artworks) {
 			if (art.getTitle().equalsIgnoreCase(str)) {
 				return art;
 			}
 		}
-
 		return null;
-
 	}
 
+	/**
+	 * Method to add a bid to an ArrayList
+	 * @param bid - the bid made
+	 */
 	public static void addBid(Bid bid) {
 		bids.add(bid);
 	}
 
+	/**
+	 * Method to add a sculpture to an ArrayList
+	 * @param sculpture - the sculpture made
+	 */
 	public static void addSculpture(Sculpture sculpture) {
 		sculptures.add(sculpture);
 	}
 
+	/**
+	 * Method to add a painting to an ArrayList
+	 * @param painting
+	 */
 	public static void addPainting(Painting painting) {
 		paintings.add(painting);
 	}
@@ -161,7 +153,6 @@ public class FileReader {
 
 	/**
 	 * Method to return an arrayList containing all of the users in the system
-	 * 
 	 * @return ArrayList<User> - ArrayList of users
 	 * @throws FileNotFoundException
 	 */
@@ -171,8 +162,6 @@ public class FileReader {
 		for (File e : listOfFiles) {
 			users.add(constructUser(e.getName()));
 		}
-		// favourites must be added here
-
 		users = readFavouritesFile(users);
 
 		return users;
@@ -180,7 +169,10 @@ public class FileReader {
 	}
 
 	/**
-	 * THIS WRONG, DON'T REMOVE YET THOUGH PLEASE
+	 * Method for reading an arrayList of users to get the favourites
+	 * @param users
+	 * @return users
+	 * @throws FileNotFoundException
 	 */
 	public static ArrayList<User> readFavouritesFile(ArrayList<User> users) throws FileNotFoundException {
 		final String FAVOURITES_PATH = "favourites.txt";
@@ -215,7 +207,6 @@ public class FileReader {
 	/**
 	 * Method to read the favourite user text file and adds 2 users to an ArrayList
 	 * of favourite users
-	 * 
 	 * @throws FileNotFoundException
 	 *             - if file doesn't exist
 	 */
@@ -224,10 +215,9 @@ public class FileReader {
 		Scanner fileScanner = new Scanner(new File(FAVOURITES_PATH));
 
 		while (fileScanner.hasNextLine()) {
-			
 			try {
 				String line = fileScanner.nextLine();
-
+				
 				Scanner in = new Scanner(line);
 				in.useDelimiter(",");
 				User user1 = null;
@@ -284,31 +274,13 @@ public class FileReader {
 	 * @return ArrayList<Painting> - ArrayList of paintings
 	 * @throws FileNotFoundException
 	 */
-	public static ArrayList<Painting> readPaintingFile() throws FileNotFoundException {
-		ArrayList<Painting> paintings1 = new ArrayList<>();
-		File[] listOfFiles = new File("artworkFiles//paintings").listFiles();
-		for (File e : listOfFiles) {
-			paintings1.add(constructPainting(e.getName()));
-		}
-		return paintings1;
-	}
-
-	// WHY ARE THERE TWO OF THESE METHODS??
+	
 	public static void readPaintingFiles() throws FileNotFoundException {
 		paintings = new ArrayList<>();
 		File[] listOfFiles = new File("artworkFiles//paintings").listFiles();
 		for (File e : listOfFiles) {
 			paintings.add(constructPainting(e.getName()));
 		}
-	}
-
-	public static ArrayList<Sculpture> readSculptureFile() throws FileNotFoundException {
-		ArrayList<Sculpture> sculptures1 = new ArrayList<>();
-		File[] listOfFiles = new File("artworkFiles//sculptures").listFiles();
-		for (File e : listOfFiles) {
-			sculptures1.add(constructSculptures(e.getName()));
-		}
-		return sculptures1;
 	}
 
 	/**
@@ -327,22 +299,7 @@ public class FileReader {
 		}
 		return sculptures;
 	}
-
-	/**
-	 * Method to return an ArrayList of Bids using the constructBid() method
-	 * 
-	 * @param filename
-	 * @return ArrayList<Bid> - an arrayList of all bids made by a user
-	 * @throws FileNotFoundException
-	 *             - if file doesn't exist
-	 */
-	public static ArrayList<Bid> readBidFile(String filename) throws FileNotFoundException {
-
-		constructBid(filename);
-
-		return bids;
-	}
-
+	
 	/**
 	 * Method to read the user's bid files and create bid objects which are then
 	 * added to an ArrayList
@@ -350,105 +307,16 @@ public class FileReader {
 	 * @param filename
 	 *            - name of the user whose bids you wants
 	 */
-	public static void constructBid(String filename) {
-		String BID_FILE = "bids//" + filename + ".txt";
-
-		try {
-			Scanner in = new Scanner(new File(BID_FILE));
-			while (in.hasNext()) {
-				in.useDelimiter(",");
-				String typeOfArtwork = in.next();
-
-				String username = in.next();
-				String artwork = in.next();
-				Double bidAmount = in.nextDouble();
-				String dateString = in.nextLine();
-				Date date = new Date(dateString);
-
-				String error1 = "Bidder cannot bid on their own artwork." + "\n";
-				String error2 = "Maximum number of bids has been reached." + "\n";
-				String error3 = "Bid must be higher than current bid." + "\n";
-
-				// If the bid was on a painting this block of code is used
-				if (typeOfArtwork.equalsIgnoreCase("painting")) {
-					Painting art = constructPainting(artwork + ".txt");
-					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-
-					bids.add(bid);
-					seller.addBid(bid);
-
-				}
-				// If the bid was on a sculpture then this block of code is used
-				else {
-					Sculpture art = constructSculptures(artwork + ".txt");
-					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					bids.add(bid);
-					seller.addBid(bid);
-				}
-
-			}
-			in.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static ArrayList<Bid> constructBids(String filename) {
-		ArrayList<Bid> listOfBids = new ArrayList<>();
-		String BID_FILE = "bids//" + filename + ".txt";
-
-		try {
-			Scanner in = new Scanner(new File(BID_FILE));
-			while (in.hasNext()) {
-				in.useDelimiter(",");
-				String typeOfArtwork = in.next();
-
-				String username = in.next();
-				String artwork = in.next();
-				Double bidAmount = in.nextDouble();
-				String dateString = in.nextLine();
-				Date date = new Date(dateString);
-
-				String error1 = "Bidder cannot bid on their own artwork." + "\n";
-				String error2 = "Maximum number of bids has been reached." + "\n";
-				String error3 = "Bid must be higher than current bid." + "\n";
-
-				// If the bid was on a painting this block of code is used
-				if (typeOfArtwork.equalsIgnoreCase("painting")) {
-					Painting art = constructPainting(artwork + ".txt");
-					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-
-					listOfBids.add(bid);
-					// seller.addBid(bid);
-
-				}
-				// If the bid was on a sculpture then this block of code is used
-				else {
-					Sculpture art = constructSculptures(artwork + ".txt");
-					User seller = getUser(username);
-					Bid bid = new Bid(typeOfArtwork, seller, bidAmount, art, date);
-					listOfBids.add(bid);
-					// seller.addBid(bid);
-				}
-
-			}
-			in.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		return listOfBids;
-	}
 
 	public static ArrayList<Artwork> getUserArtworks() {
 		ArrayList<Artwork> arts = new ArrayList<>();
 		return null;
 	}
 
-	// ANOTHER DUPLICATE METHOD??
+	/**
+	 * Method to read the bid txt files
+	 * @throws FileNotFoundException
+	 */
 	public static void readBidFiles() throws FileNotFoundException {
 
 		bids = new ArrayList<Bid>();
@@ -475,82 +343,23 @@ public class FileReader {
 
 					if (type.equalsIgnoreCase("sculpture")) {
 						Sculpture sculpture = FileReader.getSculpture(artwork);
-						// Date date = new Date();
 						Bid bid = new Bid(type, user, amount1, sculpture, date);
 						user.addBid(bid);
 						sculpture.addBidToItem(bid);
-						// System.out.println(bid.toString());
 						bids.add(bid);
 
 					} else if (type.equalsIgnoreCase("painting")) {
 						Painting painting = FileReader.getPainting(artwork);
-						// Date date = new Date();
 						Bid bid = new Bid(type, user, amount1, painting, date);
 						user.addBid(bid);
 						painting.addBidToItem(bid);
-						// System.out.println(bid.toString());
 						bids.add(bid);
 
 					}
 				} catch (Exception e2) {
-					
-					
-
-				}
-
-			}
-		}
-
-	}
-
-	public static ArrayList<Bid> loadBidFile1s() throws FileNotFoundException {
-
-		ArrayList<Bid> bids1 = new ArrayList<Bid>();
-		File[] listOfFiles = new File("bids/").listFiles();
-		for (File e : listOfFiles) {
-
-			Scanner sc = new Scanner(e);
-
-			while (sc.hasNextLine()) {
-				String line = sc.nextLine();
-				Scanner linear = new Scanner(line);
-				linear.useDelimiter(",");
-				String type = linear.next();
-				String username = linear.next();
-				String artwork = linear.next();
-				String amount = linear.next();
-				String dateString = linear.next();
-				Date date = new Date(dateString);
-				Double amount1 = Double.parseDouble(amount);
-
-				User user = FileReader.getUser(username);
-
-				if (type.equalsIgnoreCase("sculpture")) {
-					Sculpture sculpture = FileReader.getSculpture(artwork);
-					// Date date = new Date();
-					Bid bid = new Bid(type, user, 0, sculpture, date);
-					if (!user.getPlacedBids().contains(bid)) {
-						user.addBid(bid);
-					}
-					sculpture.addBidToItem(bid);
-					// System.out.println(bid.toString());
-					bids1.add(bid);
-
-				} else if (type.equalsIgnoreCase("painting")) {
-					Painting painting = FileReader.getPainting(artwork);
-					// Date date = new Date();
-					Bid bid = new Bid(type, user, amount1, painting, date);
-					if (!user.getPlacedBids().contains(bid)) {
-						user.addBid(bid);
-					}
-					painting.addBidToItem(bid);
-					// System.out.println(bid.toString());
-					bids1.add(bid);
-
 				}
 			}
 		}
-		return bids1;
 	}
 
 	/**
@@ -588,7 +397,6 @@ public class FileReader {
 			} else {
 				Painting painting = new Painting(seller, new Date(), name, creator, yearWasMade, numberOfBids,
 						reservePrice, width, height);
-				// seller.addArtwork(painting);
 
 				if (seller != null) {
 					System.out.println("has been added");
@@ -603,10 +411,14 @@ public class FileReader {
 		catch (FileNotFoundException e) {
 			System.out.println("Error constructing painting. File " + filename + " was not found");
 		}
-
 		return null;
 	}
 
+	/**
+	 * Method to get the bids placed by a specific user
+	 * @param user - the user whose bid we want to check
+	 * @return ArrayList<Bid> - an ArrayList of bids
+	 */
 	public static ArrayList<Bid> getBidsOfUser(User user) {
 
 		ArrayList<Bid> userBid = new ArrayList<>();
@@ -616,7 +428,6 @@ public class FileReader {
 				userBid.add(b);
 			}
 		}
-
 		return userBid;
 	}
 
@@ -681,7 +492,7 @@ public class FileReader {
 	 * @return User
 	 */
 	public static User constructUser(String filename) {
-		DateFormat formatter = new SimpleDateFormat("MM/dd/yy h:mm a");
+		
 		try {
 			Scanner in = new Scanner(new File("userFiles//" + filename));
 			in.useDelimiter(",");
@@ -699,7 +510,8 @@ public class FileReader {
 			in.close();
 			return user;
 		} catch (FileNotFoundException e) {
-			// TODO WHY DOES THIS ALWAYS CATCH EVEN WHEN IT WORKS
+			
+			e.printStackTrace();
 		}
 		return null;
 	}
@@ -713,16 +525,7 @@ public class FileReader {
 		return users;
 	}
 
-	/**
-	 * Method to set the users ArrayList
-	 * 
-	 * @param users
-	 *            - an arraylist of users in the system
-	 */
-	public static void setUsers(ArrayList<User> users) {
-		FileReader.users = users;
-	}
-
+	
 	/**
 	 * Method to return the artwork ArrayList
 	 * 
@@ -803,10 +606,7 @@ public class FileReader {
 		return bids;
 	}
 
-	public static void setBids(ArrayList<Bid> bids) {
-		FileReader.bids = bids;
-	}
-
+	
 	/**
 	 * Method to check if 2 users are one anothers favourite user
 	 * 

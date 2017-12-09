@@ -6,9 +6,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+/**
+ * This class launches the overall application
+ * @author Daniel
+ *
+ */
 public class Main extends Application {
 
+	/**
+	 * This method sets the GUI
+	 */
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("LoginScreen.fxml"));

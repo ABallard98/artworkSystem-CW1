@@ -26,7 +26,7 @@ public class FileReaderTesting {
 
         try{
         	FileReader.initialize();
-        	bids = FileReader.readBidFile("elmarko.txt");
+        	
         	for(Bid b : bids){
         		System.out.println(b.getBidder().getFirstName() + " placed a bid of " + b.getAmount() + " on " + b.getArtwork().getTitle()
 				+ " at " + b.getBidDate());
@@ -39,14 +39,14 @@ public class FileReaderTesting {
 
             System.out.println("\n");
 
-            paintings = FileReader.readPaintingFile();
+            paintings = FileReader.getPaintings();
             for(Painting p : paintings){
                 System.out.println(p.getTitle() + " was found and added to the system");
             }
 
             System.out.println("\n");
 
-            sculptures = FileReader.readSculptureFile();
+            sculptures = FileReader.getSculptures();
             for(Sculpture s : sculptures){
                 System.out.println(s.getTitle() + " was found and added to the system");
             }

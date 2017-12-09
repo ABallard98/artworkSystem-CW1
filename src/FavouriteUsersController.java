@@ -28,9 +28,6 @@ public class FavouriteUsersController {
 	@FXML
 	private TableView<User> table1;
 
-
-	private ObservableList<User> favourites;
-
 	@FXML
 	private TableColumn<User, String> usernameColumn;
 
@@ -44,6 +41,8 @@ public class FavouriteUsersController {
     @FXML
     private Button deleteUser;
 	
+	private ObservableList<User> favourites;
+
 
 	public void initialize() {
 
@@ -70,9 +69,6 @@ public class FavouriteUsersController {
 			FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("/UserDisplay.fxml"));
 			try {
 				Parent root = fxmlL.load();
-				// NewAccountCreatorController newAccountController =
-				// fxmlL.<NewAccountCreatorController>getController();
-
 				Scene scene = new Scene(root, 450, 300);
 
 				Stage stage = new Stage();
@@ -83,7 +79,6 @@ public class FavouriteUsersController {
 				stage.show();
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

@@ -28,8 +28,6 @@ import java.util.*;
  */
 
 public class ArtworkController {
-	
-
 
 	@FXML
 	private Button back;
@@ -207,12 +205,9 @@ public class ArtworkController {
 		heightA.setText(currentPainting.getHeight() + "");
 		yearA.setText(currentPainting.getCreationYear() + "");
 		creatorA.setText(currentPainting.getCreator());
-		titleA.setText(currentPainting.getTitle());
-		titleA.setText(currentPainting.getTitle());
 		noOfBidsA.setText(currentPainting.getNumberOfPlacedBids() + "");
 		bidsLimitA.setText(currentPainting.getBidsAllowed() + "");
 		mainPic.setImage(currentPainting.getImage());
-		// sellerAvatar.setImage(currentPainting.getOwner().getImage());
 		sellerA.setText(currentPainting.getOwner().getUsername());
 		User owner = currentPainting.getOwner();
 
@@ -245,28 +240,21 @@ public class ArtworkController {
 		materialA.setText(currentSculpture.getMaterial());
 		yearA.setText(currentSculpture.getCreationYear() + "");
 		creatorA.setText(currentSculpture.getCreator());
-		titleA.setText(currentSculpture.getTitle());
-		titleA.setText(currentSculpture.getTitle());
 		noOfBidsA.setText(currentSculpture.getNumberOfPlacedBids() + "");
-		System.out.println("Number of bids----------------------- is " + currentSculpture.getNumberOfPlacedBids());
 		bidsLimitA.setText(currentSculpture.getBidsAllowed() + "");
 
 		User owner = currentSculpture.getOwner();
-		String path = "avatars/avatar" + owner.getAvatarIndex() + ".png";
-		System.out.println("Avatar path is " + path);
 		Image image;
 
 		image = owner.getImage();
 		sellerAvatar.setImage(image);
 
-		// sellerAvatar.setImage(currentSculpture.getOwner().getImage());
 		sellerA.setText(currentSculpture.getOwner().getUsername());
 
 	}
 
 	public static void setCurrentPainting(Painting painting) {
 		currentPainting = painting;
-		System.out.println("Res price: " + currentPainting.getReservePrice());
 		currentSculpture = null;
 
 	}
@@ -290,10 +278,69 @@ public class ArtworkController {
 						&& !LoginController.getUser().getUsername().equals(currentSculpture.getCurrentHighestBidder())
 						&& LoginController.getUser() != currentSculpture.getOwner()) {
 
-					System.out.println("its okay");
-
 					LoginController.getUser().addBid(bid);
 					currentSculpture.addBidToItem(bid);
+					FileReader.addBid(bid);
+
+					try {
+						Writer.writeBidFile(bid);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Success");
+					alert.setHeaderText("Bid has been placed");
+					alert.setContentText("Thank you!");
+					alert.showAndWait();
+
+					if (bid.isWinningBid()) {
+						Alert alert1 = new Alert(AlertType.INFORMATION);
+						alert1.setTitle("You won");
+						alert1.setHeaderText("You have won the auction");
+						alert1.setContentText("Contact the seller to finish the auction");
+						alert1.showAndWait();
+					}
+
+				} else {
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Something went wrong");
+					alert.setHeaderText("Bid could not be placed");
+					alert.showAndWait();
+
+				}
+
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Wrong input");
+				alert.setHeaderText("Bid could not be placed");
+				alert.showAndWait();
+
+			}
+
+		} else if (currentPainting != null) {
+			try {
+				type = "painting";
+				String amountStr = bidAmount.getText();
+				double amount = Double.parseDouble(amountStr);
+				Date date = new Date();
+
+				if (currentPainting.getBidsAllowed() > currentPainting.getNumberOfPlacedBids()
+						&& amount > currentPainting.getReservePrice() && amount > currentPainting.getHighestBidAmount()
+						&& !LoginController.getUser().getUsername().equals(currentPainting.getCurrentHighestBidder())
+						&& LoginController.getUser() != currentPainting.getOwner()) {
+					System.out.println("its okay");
+
+					System.out.println("Bid placed.");
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Success");
+
+					alert.setHeaderText("Bid has been placed");
+					alert.setContentText("Thank you!");
+
+					bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
+					LoginController.getUser().addBid(bid);
+					currentPainting.addBidToItem(bid);
 					FileReader.addBid(bid);
 
 					try {
@@ -304,98 +351,33 @@ public class ArtworkController {
 						System.out.println("not working");
 						e.printStackTrace();
 					}
-
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("Success");
-					alert.setHeaderText("Bid has been placed");
-					alert.setContentText("1");
 					alert.showAndWait();
 
-					
-					if(bid.isWinningBid()) {
-						Alert alert1 = new Alert(AlertType.INFORMATION);
-						alert1.setTitle("You won");
-						alert1.setHeaderText("You have won the auction");
-						alert1.setContentText("Contact the seller to finish the auction");
-						alert1.showAndWait();
-					}
-					
 				} else {
 					Alert alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("Something went wrong");
-					alert.setHeaderText("Bid could not be placed");
+
+					alert.setHeaderText("Bid has not been placed");
+					alert.setContentText("Try again");
+
 					alert.showAndWait();
 
 				}
-
-			} catch (Exception e) {
-				Alert alert = new Alert(AlertType.INFORMATION);
+			} catch (NumberFormatException e) {
+				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Wrong input");
 				alert.setHeaderText("Bid could not be placed");
 				alert.showAndWait();
 
 			}
 
-		} else if (currentPainting != null) {
-			type = "painting";
-			String amountStr = bidAmount.getText();
-			double amount = Double.parseDouble(amountStr);
-			Date date = new Date();
-			
-			if (currentPainting.getBidsAllowed() > currentPainting.getNumberOfPlacedBids()
-					&& amount > currentPainting.getReservePrice()
-					&& amount > currentPainting.getHighestBidAmount()
-					&& !LoginController.getUser().getUsername().equals(currentPainting.getCurrentHighestBidder())
-					&& LoginController.getUser() != currentPainting.getOwner()) {
-				System.out.println("its okay");
-
-				System.out.println("Bid placed.");
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Success");
-
-				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
-
-				
-				bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-				LoginController.getUser().addBid(bid);
-				currentPainting.addBidToItem(bid);
-				FileReader.addBid(bid);
-
-				try {
-					Writer.writeBidFile(bid);
-					System.out.println("Bid saved successfully");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					System.out.println("not working");
-					e.printStackTrace();
-				}
-				alert.showAndWait();
-
-			} else {
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Something went wrong");
-
-				alert.setHeaderText("Bid has not been placed");
-				alert.setContentText("Try again");
-
-				alert.showAndWait();
-				
-			}
-
 		}
 
-		System.out.println("Number of bids of user " + LoginController.getUser() + " is "
-				+ LoginController.getUser().getPlacedBids().size());
 	}
 
 	public static void setCurrentSculpture(Sculpture sculpture) {
 		currentPainting = null;
 		currentSculpture = sculpture;
-	}
-	
-	public void refresh() {
-		
 	}
 
 }

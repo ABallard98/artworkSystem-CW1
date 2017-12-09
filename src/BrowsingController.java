@@ -72,7 +72,6 @@ public class BrowsingController {
 
 		artworks = FXCollections.observableArrayList(FileReader.getArtworks());
 
-		System.out.println("Artworks number: " + artworks.size());
 		image.setCellValueFactory(new PropertyValueFactory<Artwork, ImageView>("imageView"));
 		title.setCellValueFactory(new PropertyValueFactory<Artwork, String>("title"));
 		title.setPrefWidth(200);
@@ -138,7 +137,6 @@ public class BrowsingController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -1,15 +1,11 @@
-
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.*;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
+ * This class contains information about the user
  * @author Marwan
- * @date 15/11/2017
+ * @date 9/12/2017
  */
 public class Artwork {
 
@@ -28,13 +24,13 @@ public class Artwork {
 	private double highestBid; // Current highest bid placed on the artwork.
 	private ImageView imageView; // image view of the artwork
 	private double highestBidAmount; // Current highest bid placed on the artwork
-	private String winnerName;
-	private String currentHighestBid;
+	private String winnerName; // Name of who won the auction
+	private String currentHighestBid; // Name of who has the current bid
 
 	
 	/**
 	 * Creates a new general Artwork object without a description. Also
-	 * creates the imageview.
+	 * creates the ImageView.
 	 * @param owner - seller of the artwork.
 	 * @param date - date added to the system.
 	 * @param title - name of the artwork.
@@ -58,10 +54,8 @@ public class Artwork {
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
 		resolveImage();
-		imageView = new ImageView();
-		//imageView.setImage(image);
+		this.imageView = new ImageView();
 		
-
 	}
 
 
@@ -90,32 +84,28 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.description = description;
-		highestBidAmount = reservePrice;
+		this.highestBidAmount = reservePrice;
 		resolveImage();
-		imageView = new ImageView();
+		this.imageView = new ImageView();
 		this.bidsAllowed = numberOfBids;
 		this.bidIsOver = false;
 
 	}
-	//
 	
-	public String getCurrentHighestBidder(){
+	public String getCurrentHighestBidder() {
 		return this.currentHighestBid;
 	}
-	public void increment() {
-		
-	}
+	
 	
 
 	public void resolveImage() {
 		this.image = FileReader.retrieveImage(title);
-		//System.out.println("image "+ image.toString());
 	}
 	
 
 	/**
 	 * Method to get the name of the artwork.
-	 * @return String - name.
+	 * @return String - title of the artwork.
 	 */
 	public String getTitle() {
 		return this.title;
@@ -123,7 +113,7 @@ public class Artwork {
 
 	/**
 	 * Method to get the seller of the artwork.
-	 * @return User - seller.
+	 * @return User - seller of the artwork.
 	 */
 	public User getOwner() {
 		return this.owner;
@@ -131,7 +121,7 @@ public class Artwork {
 
 	/**
 	 * Method to get the date the artwork was added to the system.
-	 * @return Date - dateAdded.
+	 * @return Date - date and time when Artwork was added.
 	 */
 	public Date getDateAdded() {
 		return this.timeAdded;
@@ -140,7 +130,7 @@ public class Artwork {
 	/**
 	 * Method to get the description of the artwork. Returns
 	 * either an empty string or a string that has been given.
-	 * @return String - description
+	 * @return String - description of the artwork
 	 */
 	public String getDescription() {
 		if (this.description == null) {
@@ -160,7 +150,7 @@ public class Artwork {
 
 	/**
 	 * Method to get the year the artwork was made.
-	 * @return int - year.
+	 * @return int - year when artwork was created.
 	 */
 	public int getCreationYear() {
 		return this.creationYear;
@@ -182,62 +172,7 @@ public class Artwork {
 		return this.reservePrice;
 	}
 
-	/**
-	 * Method to set the seller of the artwork.
-	 * @param owner
-	 */
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
-	/**
-	 * Method to set the date added of the artwork.
-	 * @param timeAdded
-	 */
-	public void setTimeAdded(Date timeAdded) {
-		this.timeAdded = timeAdded;
-	}
-
-	/**
-	 * Method to set the name of the artwork.
-	 * @param title
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	/**
-	 * Method to set the description of the artwork.
-	 * @param description
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	/**
-	 * Method to set the creator of the artwork.
-	 * @param creator
-	 */
-	public void setCreator(String creator) {
-		this.creatorName = creator;
-	}
-
-	/**
-	 * Method to set the year the artwork was made.
-	 * @param year
-	 */
-	public void setCreationYear(int year) {
-		this.creationYear = year;
-	}
-
-	/**
-	 * Method to set the number of bids possible on the artwork.
-	 * @param bids
-	 */
-	public void setNumberOfBids(int bids) {
-		this.numberOfBids = bids;
-	}
-
+	
 	/**
 	 * Method to get the number of bid currently placed.
 	 * @return int - number of bids placed.
@@ -246,13 +181,7 @@ public class Artwork {
 		return numberOfBids;
 	} 
 	
-	/**
-	 * Method to set the reservePrice of the artwork.
-	 * @param price
-	 */
-	public void setReservePrice(float price) {
-		this.reservePrice = price;
-	}
+	
 
 	/**
 	 * Method to place a bid on the artwork.
@@ -326,9 +255,6 @@ public class Artwork {
 		return bidsAllowed;
 	}
 
-	public void saveChanges() {
-		// to implement
-	}
 
 	/**
 	 * Method to get the image assigned to an artwork
@@ -375,19 +301,6 @@ public class Artwork {
 	public ArrayList<Bid> getBidsOnItem() {
 		return bidsOnItem;
 	}
-
-	/**
-	 * Method to allow the setting of a new highest bid.
-	 * @param highestBid
-	 */
-	public void setHighestBid(Bid highestBid) {
-		this.highestBid = highestBidAmount;
-	}
-
-	public void setHighestBidAmount(double highestBidAmount) {
-		this.highestBidAmount = highestBidAmount;
-	}
-
 
 	public String getWinnerName() {
 		winnerName = "";

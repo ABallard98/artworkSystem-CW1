@@ -52,8 +52,6 @@ public class LoginController {
 			FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("MainGUI.fxml"));
 			try {
 				BorderPane login = (BorderPane) fxmlL.load();
-				// NewAccountCreatorController newAccountController =
-				// fxmlL.<NewAccountCreatorController>getController();
 
 				Scene scene = new Scene(login, 1360, 705);
 				
@@ -68,12 +66,8 @@ public class LoginController {
 				
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			// Access the controller that was created by the FXML loader
-
-			
+			}			
 			
 		} else {
 
@@ -86,7 +80,6 @@ public class LoginController {
 			try {
 				FileReader.readPaintingFiles();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -105,8 +98,6 @@ public class LoginController {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("NewAccountCreator.fxml"));
 		try {
 			BorderPane login = (BorderPane) fxmlL.load();
-			// NewAccountCreatorController newAccountController =
-			// fxmlL.<NewAccountCreatorController>getController();
 
 			Scene scene = new Scene(login, 728, 728);
 
@@ -117,7 +108,6 @@ public class LoginController {
 			stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -127,8 +117,4 @@ public class LoginController {
 		return user;
 	}
 	
-	
-	
-	
-
 }

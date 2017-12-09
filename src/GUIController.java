@@ -126,7 +126,6 @@ public class GUIController {
 		user1.setText("Nice to see you " + LoginController.getUser().getFullName());
 		LocalDate date = LocalDate.now();
 		today.setText("Today is " + date.getDayOfMonth() + "." + date.getMonthValue() + "." + date.getYear());
-		// eelm
 		userSettingsLink.setOnAction(e -> userSettings());
 
 		createNewArtworkButton.setOnAction(e -> createNewArtwork());
@@ -137,7 +136,6 @@ public class GUIController {
 
 		myBidsLink.setOnAction(e-> displayMyBids());
 		dashboardLink.setOnAction(e -> displayMainDashboard());
-		// names.add(stringSet);
 
 	}
 
@@ -149,8 +147,6 @@ public class GUIController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error");
 			e.printStackTrace();
 		}
 	}
@@ -217,8 +213,6 @@ public class GUIController {
 				FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("/UserDisplay.fxml"));
 				try {
 					Parent root = fxmlL.load();
-					// NewAccountCreatorController newAccountController =
-					// fxmlL.<NewAccountCreatorController>getController();
 
 					Scene scene = new Scene(root, 450, 300);
 
@@ -230,7 +224,6 @@ public class GUIController {
 					stage.show();
 
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -252,8 +245,6 @@ public class GUIController {
 
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error");
 			e.printStackTrace();
 		}
 
@@ -283,8 +274,6 @@ public class GUIController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error");
 			e.printStackTrace();
 		}
 	}
@@ -301,8 +290,6 @@ public class GUIController {
 
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error");
 			e.printStackTrace();
 		}
 	}
@@ -314,8 +301,6 @@ public class GUIController {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AddArtwork.fxml"));
 		try {
 			Parent root = fxmlL.load();
-			// NewAccountCreatorController newAccountController =
-			// fxmlL.<NewAccountCreatorController>getController();
 
 			Scene scene = new Scene(root, 1009, 750);
 
@@ -327,7 +312,6 @@ public class GUIController {
 			stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -341,7 +325,6 @@ public class GUIController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -355,7 +338,6 @@ public class GUIController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -368,7 +350,6 @@ public class GUIController {
 			mainSection.getChildren().setAll(bp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

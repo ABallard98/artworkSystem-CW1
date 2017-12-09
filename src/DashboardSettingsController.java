@@ -33,10 +33,8 @@ public class DashboardSettingsController {
 	@FXML
 	private Label phoneNumber;
 	
-	
     @FXML
     private ImageView avatar;
-
 
 	private User user;
 
@@ -46,16 +44,11 @@ public class DashboardSettingsController {
 
 		username.setText(user.getUsername());
 		firstName.setText(user.getFirstName());
-
 		lastName.setText(user.getLastName());
-
 		fullName.setText(user.getFullName());
-
 		address.setText(user.getAddress());
 		postcode.setText(user.getPostcode());
-
-		//lastLogin.setText(user.getLastLogin());
-		phoneNumber.setText(""+user.getPhonenumber());
+		phoneNumber.setText(user.getPhonenumber()+"");
 		avatar.setImage(user.getImage());
 		
 	}

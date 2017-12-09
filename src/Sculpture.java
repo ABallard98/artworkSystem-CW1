@@ -1,10 +1,5 @@
-
-
-
 import java.util.*;
-
 import javafx.scene.image.Image;
-
 /**
  * @author Marwan
  * @date 21/11/2017
@@ -18,7 +13,7 @@ public class Sculpture extends Artwork {
 	private ArrayList<Image> additionalImages;
 
 	/**
-	* Constructor to create a sculpture object without a description
+	* Constructor to create a sculpture object without a description.
 	* @param seller - the user who is selling the sculpture
     * @param date - date when put up for sale
     * @param name - title of the sculpture
@@ -34,15 +29,15 @@ public class Sculpture extends Artwork {
 	public Sculpture(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
 			double reservePrice, int width, int height, int depth, String material) {
 		super(seller, date, name, creatorName, yearWasMade, numberOfBids, reservePrice);
-		setWidth(width);
-		setHeight(height);
-		setDepth(depth);
-		setMaterial(material);
+		this.width = width;
+		this.height = height;
+		this.depth = depth;
+		this.material = material;
 		additionalImages = new ArrayList<>();
 	}
 
 	/**
-	* Constructor to create a sculpture object with a description
+	* Constructor to create a sculpture object with a description.
 	* @param seller - the user who is selling the sculpture
     * @param date - date when put up for sale
     * @param name - title of the sculpture
@@ -59,10 +54,10 @@ public class Sculpture extends Artwork {
 	public Sculpture(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
 			double reservePrice, int width, int height, int depth, String material, String description) {
 		super(seller, date, name, creatorName, yearWasMade, numberOfBids, reservePrice, description);
-		setWidth(width);
-		setHeight(height);
-		setDepth(depth);
-		setMaterial(material);
+		this.width = width;
+		this.height = height;
+		this.depth = depth;
+		this.material = material;
 		additionalImages = new ArrayList<>();
 
 	}
@@ -71,19 +66,16 @@ public class Sculpture extends Artwork {
 		additionalImages = FileReader.retrieveAdditionalImages(title);
 	}
 	
-	
-	
-
+	/**
+	 * Method to get the ArrayList of additional images of an artwork.
+	 * @return ArrayList<Image> - the images of the artwork
+	 */
 	public ArrayList<Image> getAdditionalImages() {
 		return additionalImages;
 	}
 
-	public void setAdditionalImages(ArrayList<Image> additionalImages) {
-		this.additionalImages = additionalImages;
-	}
-
 	/**
-	 * Method to return the width of the sculpture
+	 * Method to return the width of the sculpture.
 	 * @return int - width of the sculpture
 	 */
 	public int getWidth() {
@@ -91,7 +83,7 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method to return the height of the sculpture
+	 * Method to return the height of the sculpture.
 	 * @return int - height of the sculpture
 	 */
 	public int getHeight() {
@@ -99,7 +91,7 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method to return the depth of the sculpture
+	 * Method to return the depth of the sculpture.
 	 * @return depth - depth of the sculpture
 	 */
 	public int getDepth() {
@@ -107,7 +99,7 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method to return the material of the sculpture
+	 * Method to return the material of the sculpture.
 	 * @return String - material of the sculpture
 	 */
 	public String getMaterial() {
@@ -115,40 +107,8 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method to set the width of the sculpture
-	 * @param width - width of the sculpture
-	 */
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	/**
-	 * Method to set the height of the sculpture
-	 * @param height - height of the sculpture
-	 */
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	/**
-	 * Method to set the depth of the sculpture
-	 * @param depth - depth of the sculpture
-	 */
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-
-	/**
-	 * Method to set the material of the sculpture
-	 * @param material - material of the sculpture
-	 */
-	public void setMaterial(String material) {
-		this.material = material;
-	}
-
-	/**
 	 * Method to format the sculptures information to be put into
-	 * a text file for easier reading
+	 * a text file for easier reading.
 	 * @return String - text file output for a sculpture
 	 */
 	public String getTextFileOutput() {
@@ -161,18 +121,21 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Prints out the sculptures information
+	 * Prints out the sculptures information.
 	 */
 	public String toString() {
 		String output = "\nSculpture Name: " + this.getTitle() + "\nCreator: " + this.getCreator() + "\nSeller: "
 				+ this.getOwner() + "\nYear: " + this.getCreationYear() + "\nNumber of available bids: "
-				+ this.getNumberOfBids() + "\nReserve price " + this.getReservePrice() + "\nWidth: " + this.getWidth()
+				+ this.getBidsAllowed() + "\nReserve price " + this.getReservePrice() + "\nWidth: " + this.getWidth()
 				+ "\nHeight: " + this.getHeight() + "\nDepth: " + this.getDepth() + "\nMaterial: " + this.getMaterial()
 				+ "\nDescription: " + this.getDescription();
 		return output;
 	}
 
-	
+	/**
+	 * Method to add an image into the additionalImages ArrayList<Image>.
+	 * @param img - the addtional images of the sculpture
+	 */
 	public void addPhoto(Image img) {
 		additionalImages.add(img);
 	}

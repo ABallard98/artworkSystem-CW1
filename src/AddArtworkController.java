@@ -49,40 +49,40 @@ public class AddArtworkController {
 	private RadioButton selectPainting; // Radio button to choose a painting type
 
 	@FXML
-	private TextField title;
+	private TextField title; // Text field that takes a title of the artwork
 
 	@FXML
-	private TextField creator;
+	private TextField creator; // Text field that takes a creator of the artwork
 
 	@FXML
-	private TextField creationYear;
+	private TextField creationYear; // Text field that takes a creation year
 
 	@FXML
-	private TextArea description;
+	private TextArea description; // Text field that takes a title
 
 	@FXML
-	private TextField bidLimit;
+	private TextField bidLimit; // Text field that takes a limit of bids
 
 	@FXML
-	private TextField reservePrice;
+	private TextField reservePrice; // Text field that takes a reserve price
 
 	@FXML
-	private Button addArtwork;
+	private Button addArtwork; // Button that creates an artwork
 
 	@FXML
-	private Button addImages;
+	private Button addImages; //  Button to choose images
 
 	@FXML
-	private ImageView pic1;
+	private ImageView pic1; // View of the first image
 
 	@FXML
-	private ImageView pic2;
+	private ImageView pic2; // View of the second image
 
 	@FXML
-	private ImageView pic3;
+	private ImageView pic3; // View of the third image
 
 	@FXML
-	private ImageView pic4;
+	private ImageView pic4; // View of the fourth image
 
 
 	// Images for artworks
@@ -94,42 +94,63 @@ public class AddArtworkController {
 	// ArrayList of images
 	private ArrayList<Image> images1;
 
+	// List of files for images
 	private List<File> list;
+	
+	// ArrayList of Image Views for images
 	private ArrayList<ImageView> imagesView;
 
+	/**
+	 * Initialises the GUI for adding an artwork
+	 */
 	public void initialize() {
 		
+		// Sets the button to add an artwork on action
 		addArtwork.setOnAction(e -> createArtwork());
+		
+		// Toggle Group for radio buttons 
 		final ToggleGroup group = new ToggleGroup();
 
+		// Adds radio button to a toggle group
 		selectSculpture.setToggleGroup(group);
 		selectPainting.setToggleGroup(group);
 		imagesView = new ArrayList<ImageView>();
 		images1 = new ArrayList<Image>();
 
+		// Adds images for viewing
 		imagesView.add(pic1);
 		imagesView.add(pic2);
 		imagesView.add(pic3);
 		imagesView.add(pic4);
 
+		// Adds images to an Array List
 		images1.add(img1);
 		images1.add(img2);
 		images1.add(img3);
 		images1.add(img4);
 
+		// If painting is pressed, disable depth and material
 		selectPainting.setOnAction(e -> {
 			depth.setDisable(true);
 			material.setDisable(true);
 		});
 
+		// If sculpture is pressed, ensure that
+		// fields for depth and material are enabled
 		selectSculpture.setOnAction(e -> {
 			depth.setDisable(false);
 			material.setDisable(false);
 		});
+		
+		// If button for adding images is pressed,
+		// open a new window
 		addImages.setOnAction(e -> addPictures());
 
 	}
 
+	/**
+	 * Opens a window for selecting images
+	 */
 	public void addPictures() {
 
 		FileChooser fileChooser = new FileChooser();
@@ -164,7 +185,7 @@ public class AddArtworkController {
 			try {
 				Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
@@ -193,8 +214,13 @@ public class AddArtworkController {
 		String creationYearA = creationYear.getText();
 
 		int creationYearI = Integer.parseInt(creationYearA);
-
-		String descriptionA = description.getText();
+		
+		String descriptionA = "";
+		if(description.getText().isEmpty()){
+			descriptionA = "";
+		} else{
+		    descriptionA = description.getText();
+		}
 		String reservePriceA = reservePrice.getText();
 		String bidLimitA = bidLimit.getText();
 

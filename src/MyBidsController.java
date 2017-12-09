@@ -35,8 +35,6 @@ public class MyBidsController {
     @FXML
     private RadioButton finished;
 
-
-
 	@FXML
 	private Button refreshButton;
 
@@ -51,7 +49,6 @@ public class MyBidsController {
 
 	@FXML
 	private TableColumn<Bid, Date> bidLimitColumn;
-
 
 	@FXML
 	private TableColumn<Bid, String> titleColumn;
@@ -70,15 +67,15 @@ public class MyBidsController {
 		active.setToggleGroup(tg);
 		won.setToggleGroup(tg);
 		finished.setToggleGroup(tg);
+		
 		ArrayList<Bid> bids11 = FileReader.getBidsOfUser(LoginController.getUser());
-
 		bids = FXCollections.observableArrayList(bids11);
 
 		titleColumn.setCellValueFactory(new PropertyValueFactory<Bid, String>("title"));
 		dateColumn.setCellValueFactory(new PropertyValueFactory<Bid, Date>("bidDate"));
 		amountColumn.setCellValueFactory(new PropertyValueFactory<Bid, Double>("amount"));
 		picture.setCellValueFactory(new PropertyValueFactory<Bid, ImageView>("imgView"));
-
+		
 		picture.setMinWidth(100);
 		table.setItems(bids);
 
@@ -86,9 +83,7 @@ public class MyBidsController {
 		dateColumn.setSortType(TableColumn.SortType.DESCENDING);
 		table.getSortOrder().add(dateColumn);
 
-		refreshButton.setOnAction(e-> refresh());
-		
-		
+		refreshButton.setOnAction(e-> refresh());		
 	}
 	
 	
@@ -98,16 +93,12 @@ public class MyBidsController {
 		
 		ArrayList<Bid> tempBids = new ArrayList<>();
 		
-
 		if(allAuctions.isSelected()) {
 			tempBids = FileReader.getBidsOfUser(LoginController.getUser());
 		} else if (won.isSelected()) {
 			tempBids = LoginController.getUser().getWonBids();
 		}
-		
-		
 		bids = FXCollections.observableArrayList(tempBids);
 		table.setItems(bids);
-
 	} 
 }

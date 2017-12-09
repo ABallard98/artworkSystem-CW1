@@ -112,8 +112,6 @@ public class MyAuctionsController {
 					if (paintings.isSelected()) {
 						if (a instanceof Painting) {
 							newArts.add(a);
-							System.out.println("yess");
-
 						}
 
 					}

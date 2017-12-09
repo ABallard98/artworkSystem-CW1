@@ -250,13 +250,12 @@ public class NewAccountCreatorController {
 			}
 			
 			User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
-			System.out.println(user.getTextFileOutput());
 			FileReader.addUser(user);
 
 			try {
 				Writer.writeUserFile(user);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
 			System.out.println(userdata);

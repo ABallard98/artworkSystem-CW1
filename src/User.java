@@ -18,24 +18,21 @@ public class User {
 	private String fullName; // Full name of the user.
 	private long phonenumber; // Phone number of the user.
 	private String address; // Address of the user.
-	private String postcode; // Post code of the user.
-	private Date timeLastLoggedIn; // Time of last login.
+	private String postcode; // Post code of the user
 	private Image image; // Image associated with the user.
 	private ArrayList<Artwork> artForSale; // List of Artworks put up for auction.
 	private ArrayList<Artwork> artSold; // List of Artworks sold.
 	private ArrayList<Artwork> artWon; // List of Artworks won.
 	private ArrayList<User> favouriteUsers; // List of favourite users.
-	private Integer sellingArtworks; // Number of Artworks currently being sold.
 	private boolean customImage; // True or false depending on image type.
 	private int avatarIndex; // Index of the avatar chosen.
-	private int bidsPlaced; // Number of bid the user has placed.
 	private ArrayList<Bid> placedBids; // List of bids placed by the user.
 	private ImageView imgView;
-	private ArrayList<Sculpture> sculptures;
-	private ArrayList<Sculpture> paintings;
-	private ArrayList<Bid> wonBids;
+	private ArrayList<Sculpture> sculptures;  // ArrayList of the users Sculptures for auction
+	private ArrayList<Painting> paintings; // ArrayList of the users paintings for auction
+	private ArrayList<Bid> wonBids; // ArrayList of the artworks the user has won
 	/**
-	 * Constructor for a new User object
+	 * Constructor for a new User object.
 	 * 
 	 * @param username
 	 *            - username of the user.
@@ -52,23 +49,21 @@ public class User {
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber) {
 		setUsername(username);
-		customImage = false;
-		imgView = new ImageView();
-
 		setFirstName(fname);
 		setLastName(lname);
 		setAddress(address);
 		setPostcode(postcode);
 		setPhonenumber(phonenumber);
 		this.favouriteUsers = new ArrayList<>();
-		this.sellingArtworks = 0;
-		artForSale = new ArrayList<>();
-		placedBids = new ArrayList<>();
-		avatarIndex = 1;
+		this.artForSale = new ArrayList<>();
+		this.placedBids = new ArrayList<>();
+		this.avatarIndex = 1;
+		this.customImage = false;
+		this.imgView = new ImageView();
 		try {
-			image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
+			this.image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -77,12 +72,17 @@ public class User {
 	 * Makes a new User object with a pre-made avatar as the associated image.
 	 * 
 	 * @param username
+	 *            - username of the user.
 	 * @param fname
+	 *            - first name of the user.
 	 * @param lname
+	 *            - last name of the user.
 	 * @param address
+	 *            - address of the user.
 	 * @param postcode
+	 *            - postcode of the user.
 	 * @param phonenumber
-	 * @param index
+	 *            - phonenumber of the user.
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber,
 			int index) {
@@ -96,24 +96,23 @@ public class User {
 		setPostcode(postcode);
 		setPhonenumber(phonenumber);
 		this.favouriteUsers = new ArrayList<>();
-		this.sellingArtworks = 0;
-		artForSale = new ArrayList<>();
-		placedBids = new ArrayList<>();
-		avatarIndex = index;
+		this.artForSale = new ArrayList<>();
+		this.placedBids = new ArrayList<>();
+		this.avatarIndex = index;
 		this.wonBids = new ArrayList<>();
 		
 		if (index < 100) {
 			try {
-				image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
+				this.image = new Image(new FileInputStream("avatars/avatar" + avatarIndex + ".png"));
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				image = new Image(new FileInputStream("customAvatars/" + username + ".png"));
+				this.image = new Image(new FileInputStream("customAvatars/" + username + ".png"));
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
@@ -145,7 +144,7 @@ public class User {
 	}
 
 	/**
-	 * Method used to display an image inside an ImageView
+	 * Method used to display an image inside an ImageView.
 	 * 
 	 * @return ImageView - containing the image
 	 */
@@ -231,7 +230,7 @@ public class User {
 	/**
 	 * Method to set the user's username.
 	 * 
-	 * @param username
+	 * @param String - username.
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -348,7 +347,7 @@ public class User {
 	/**
 	 * Method to get a string containing all of the user's information.
 	 * 
-	 * @return String - toString.
+	 * @return String - output
 	 */
 	public String toString() {
 		String output = this.username + ": \n" + "Name: " + this.getFullName() + "\n" + "Address: " + this.getAddress()
@@ -356,24 +355,7 @@ public class User {
 		return output;
 	}
 
-	/**
-	 * Method to return the time date and time last logged in.
-	 * 
-	 * @return Date - timeLastLoggedIn.
-	 */
-	public Date getTimeLastLoggedIn() {
-		return timeLastLoggedIn;
-	}
-
-	/**
-	 * Allows setting of time last logged in.
-	 * 
-	 * @param timeLastLoggedIn
-	 */
-	public void setTimeLastLoggedIn(Date timeLastLoggedIn) {
-		this.timeLastLoggedIn = timeLastLoggedIn;
-	}
-
+	
 	/**
 	 * Allows setting of an image to a user.
 	 * 
@@ -392,14 +374,6 @@ public class User {
 		return artForSale;
 	}
 
-	/**
-	 * Allows setting of artworks for sale
-	 * 
-	 * @param artForSale
-	 */
-	public void setArtForSale(ArrayList<Artwork> artForSale) {
-		this.artForSale = artForSale;
-	}
 
 	/**
 	 * Method to get the list of artworks sold by the user.
@@ -410,15 +384,7 @@ public class User {
 		return artSold;
 	}
 
-	/**
-	 * Allows the setting of a list of artworkds sold by the user.
-	 * 
-	 * @param artSold
-	 */
-	public void setArtSold(ArrayList<Artwork> artSold) {
-		this.artSold = artSold;
-	}
-
+	
 	/**
 	 * Method to get a list of artworks won.
 	 * 
@@ -428,15 +394,7 @@ public class User {
 		return artWon;
 	}
 
-	/**
-	 * Method to set the list of artwork's a user has won
-	 * 
-	 * @param artWon
-	 */
-	public void setArtWon(ArrayList<Artwork> artWon) {
-		this.artWon = artWon;
-	}
-
+	
 	/**
 	 * Method to set the full name of a user
 	 * 
@@ -447,14 +405,6 @@ public class User {
 		this.fullName = fullName;
 	}
 
-	/**
-	 * Method to set a users favourite users
-	 * 
-	 * @param favouriteUsers
-	 */
-	public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
-		this.favouriteUsers = favouriteUsers;
-	}
 
 	/**
 	 * Method to add an artwork to a user's auctions
@@ -483,14 +433,6 @@ public class User {
 		return placedBids;
 	}
 
-	/**
-	 * Method to set the bids placed by a user
-	 * 
-	 * @param placedBids
-	 */
-	public void setPlacedBids(ArrayList<Bid> placedBids) {
-		this.placedBids = placedBids;
-	}
 
 	/**
 	 * Method to add a bid to the users placedBids ArrayList
@@ -498,42 +440,11 @@ public class User {
 	 * @param b
 	 *            - the bid the user has made
 	 */
-	public void addBid(Bid b) {
-		String error1 = "Bidder cannot bid on their own artwork." + "\n";
-		String error2 = "Maximum number of bids has been reached." + "\n";
-		String error3 = "Bid must be higher than current bid." + "\n";
-		switch (b.checkBid()) {
-		case 0: {
-			System.out.println("Bid placed.");
-			break;
+	public void addBid(Bid b){
+			
+		placedBids.add(b);
 		}
-		case 1: {
-			System.out.println(error1);
-			break;
-		}
-		case 2: {
-			System.out.println(error2);
-		}
-		case 3: {
-			System.out.println(error3);
-		}
-		case 4: {
-			System.out.println(error1 + error2);
-		}
-		case 5: {
-			System.out.println(error1 + error3);
-		}
-		case 6: {
-			System.out.println(error2 + error3);
-		}
-		default: {
-			System.out.println(error1 + error2 + error3);
-		}
-
-			placedBids.add(b);
-
-		}
-	}
+	
 
 	/**
 	 * Method to return the avatar index of a user
@@ -554,7 +465,11 @@ public class User {
 		this.avatarIndex = avatarIndex;
 		// resolvePicture();
 	}
-
+	
+	/**
+	 * Method to return the bids that the user has won
+	 * @return ArrayList<Bid> - the won bids
+	 */
 	public ArrayList<Bid> getWonBids() {
 		ArrayList<Bid> wonBids = new ArrayList<>();
 		for (Bid b : wonBids) {
@@ -566,8 +481,12 @@ public class User {
 		return wonBids;
 	}
 	
+	/**
+	 * Adds a bid to the ArrayList of winning bids
+	 * @param bid - bid the user made
+	 */
 	public void addToWon(Bid bid) {
 		wonBids.add(bid);
 	}
 
-} // end of class
+}

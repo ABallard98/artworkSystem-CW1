@@ -1,5 +1,3 @@
-
-
 import java.util.*;
 /**
  * @author Marwan
@@ -25,8 +23,8 @@ public class Painting extends Artwork{
    public Painting(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
                     double reservePrice, int width, int height){
        super(seller,date,name,creatorName,yearWasMade,numberOfBids,reservePrice);
-       setWidth(width);
-       setHeight(height);
+       this.width = width;
+       this.height = height;
    }
 
    /**
@@ -45,8 +43,8 @@ public class Painting extends Artwork{
    public Painting(User seller, Date date, String name, String creatorName, int yearWasMade, int numberOfBids,
                    double reservePrice, int width, int height, String description){
        super(seller,date,name,creatorName,yearWasMade,numberOfBids,reservePrice,description);
-       setWidth(width);
-       setHeight(height);
+       this.width = width;
+       this.height = height;
    }
 
    /**
@@ -66,22 +64,6 @@ public class Painting extends Artwork{
    }
 
    /**
-    * Method to set the width of the painting
-    * @param width - width of the painting
-    */
-   public void setWidth(int width){
-       this.width = width;
-   }
-
-   /**
-    * Method to set the height of the painting
-    * @param height = height of the painting
-    */
-   public void setHeight(int height){
-       this.height = height;
-   }
-
-   /**
     * Method to format how the painting information
     * is written to a text file for easier reading
     * @return String - text file format of the painting info
@@ -89,14 +71,10 @@ public class Painting extends Artwork{
    public String getTextFileOutput(){
        String output = this.getTitle() + "#" + this.getOwner().getUsername()
                + "#" + this.getCreator() + "#" + this.getCreationYear() +
-               "#" + this.bidsAllowed + "#" + this.getReservePrice() +
+               "#" + this.getBidsAllowed() + "#" + this.getReservePrice() +
                "#" + this.getWidth() + "#" + this.getHeight() + "#" +this.getDescription();;
        return output;
-   }
-   
-   
-   
-   
+   }   
 
    /**
     * Method to print out the information of a painting
@@ -114,5 +92,4 @@ public class Painting extends Artwork{
                "\nDescription: " + this.getDescription();
        return output;
    }
-
 }

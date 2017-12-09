@@ -1,0 +1,6 @@
+READ ME:
+How to compile our programme in command line:
+1) change directory using the 'cd' command followed by the 
+path of where the programme src code is stored e.g "cd example\filename\src". 
+2) then type in 'javac *.java' which will compile all of the java files in the src folder. 
+3) then type in 'java Main' which will run the programme.
