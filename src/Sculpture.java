@@ -154,7 +154,7 @@ public class Sculpture extends Artwork {
 	public String getTextFileOutput() {
 		String output = this.getTitle() + "#" + this.getOwner().getUsername()
 				+ "#" + this.getCreator() + "#" + this.getCreationYear() + "#"
-				+ this.getNumberOfBids() + "#" + this.getReservePrice() + "#"
+				+ this.getBidsAllowed() + "#" + this.getReservePrice() + "#"
 				+ this.getWidth() + "#" + this.getHeight() + "#" +
 				this.getDepth() + "#" + this.getMaterial() + "#" +this.getDescription();
 		return output;

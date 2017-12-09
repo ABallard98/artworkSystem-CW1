@@ -286,6 +286,8 @@ public class ArtworkController {
 
 				if (currentSculpture.getBidsAllowed() > currentSculpture.getNumberOfPlacedBids()
 						&& amount > currentSculpture.getReservePrice()
+						&& amount > currentSculpture.getHighestBidAmount()
+						&& !LoginController.getUser().getUsername().equals(currentSculpture.getCurrentHighestBidder())
 						&& LoginController.getUser() != currentSculpture.getOwner()) {
 
 					System.out.println("its okay");
@@ -299,6 +301,7 @@ public class ArtworkController {
 						System.out.println("Bid saved successfully");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
+						System.out.println("not working");
 						e.printStackTrace();
 					}
 
@@ -338,13 +341,11 @@ public class ArtworkController {
 			String amountStr = bidAmount.getText();
 			double amount = Double.parseDouble(amountStr);
 			Date date = new Date();
-			bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
-			LoginController.getUser().addBid(bid);
-			currentPainting.addBidToItem(bid);
-			FileReader.addBid(bid);
-
+			
 			if (currentPainting.getBidsAllowed() > currentPainting.getNumberOfPlacedBids()
 					&& amount > currentPainting.getReservePrice()
+					&& amount > currentPainting.getHighestBidAmount()
+					&& !LoginController.getUser().getUsername().equals(currentPainting.getCurrentHighestBidder())
 					&& LoginController.getUser() != currentPainting.getOwner()) {
 				System.out.println("its okay");
 
@@ -355,16 +356,31 @@ public class ArtworkController {
 				alert.setHeaderText("Bid has been placed");
 				alert.setContentText("Thank you!");
 
+				
+				bid = new Bid(type, LoginController.getUser(), amount, currentPainting, date);
+				LoginController.getUser().addBid(bid);
+				currentPainting.addBidToItem(bid);
+				FileReader.addBid(bid);
+
+				try {
+					Writer.writeBidFile(bid);
+					System.out.println("Bid saved successfully");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("not working");
+					e.printStackTrace();
+				}
 				alert.showAndWait();
 
 			} else {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Something went wrong");
 
-				alert.setHeaderText("Bid has been placed");
-				alert.setContentText("Thank you!");
+				alert.setHeaderText("Bid has not been placed");
+				alert.setContentText("Try again");
 
 				alert.showAndWait();
+				
 			}
 
 		}

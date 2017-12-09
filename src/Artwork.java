@@ -29,7 +29,7 @@ public class Artwork {
 	private ImageView imageView; // image view of the artwork
 	private double highestBidAmount; // Current highest bid placed on the artwork
 	private String winnerName;
-
+	private String currentHighestBid;
 
 	
 	/**
@@ -46,13 +46,14 @@ public class Artwork {
 	public Artwork(User owner, Date date, String title, String creatorName,
 				   int creationYear, int numberOfBids, double reservePrice) {
 
+		this.currentHighestBid = "";
 		this.owner = owner;
 		this.timeAdded = date;
 		this.title = title;
 		this.creatorName = creatorName;
 		this.creationYear = creationYear;
 		this.numberOfBids = 0;
-		bidsAllowed = numberOfBids;
+		this.bidsAllowed = numberOfBids;
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
@@ -79,6 +80,7 @@ public class Artwork {
 	public Artwork(User owner, Date date, String title, String creatorName,
 				   int creationYear, int numberOfBids, double reservePrice,
 				   String description) {
+		this.currentHighestBid = "";
 		this.owner = owner;
 		this.timeAdded = date;
 		this.title = title;
@@ -91,13 +93,15 @@ public class Artwork {
 		highestBidAmount = reservePrice;
 		resolveImage();
 		imageView = new ImageView();
-		bidsAllowed = numberOfBids;
+		this.bidsAllowed = numberOfBids;
 		this.bidIsOver = false;
 
 	}
 	//
 	
-	
+	public String getCurrentHighestBidder(){
+		return this.currentHighestBid;
+	}
 	public void increment() {
 		
 	}
@@ -258,6 +262,7 @@ public class Artwork {
 		numberOfBids++;
 		highestBid = bid.getAmount();
 		bidsOnItem.add(bid);
+		currentHighestBid = bid.getBidder().getUsername();
 		
 
 		if(bidsOnItem.size() == bidsAllowed) {

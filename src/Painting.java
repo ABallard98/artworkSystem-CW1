@@ -89,7 +89,7 @@ public class Painting extends Artwork{
    public String getTextFileOutput(){
        String output = this.getTitle() + "#" + this.getOwner().getUsername()
                + "#" + this.getCreator() + "#" + this.getCreationYear() +
-               "#" + this.getNumberOfBids() + "#" + this.getReservePrice() +
+               "#" + this.bidsAllowed + "#" + this.getReservePrice() +
                "#" + this.getWidth() + "#" + this.getHeight() + "#" +this.getDescription();;
        return output;
    }
@@ -107,7 +107,7 @@ public class Painting extends Artwork{
                "\nCreator: " + this.getCreator() +
                "\nSeller: " + this.getOwner().getFullName() +
                "\nYear: " + this.getCreationYear() +
-               "\nNumber of available bids: " + this.getNumberOfBids() +
+               "\nNumber of available bids: " + this.getBidsAllowed() +
                "\nReserve price " + this.getReservePrice() +
                "\nWidth: " + this.getWidth() +
                "\nHeight: " + this.getHeight() +
