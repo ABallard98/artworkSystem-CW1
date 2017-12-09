@@ -1,6 +1,4 @@
-
 import java.util.*;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -15,6 +13,7 @@ public class Bid {
 	private double amount; // Price the user placed.
 	private Artwork artwork; // The artwork that the bid is placed on.
 	private Date bidDate; // The date the bid was placed.
+
 	private ImageView imgView;//?
 	private String title;// Title of the artwork bid is placed on
 	private String bidDateString; // date when bid was placed

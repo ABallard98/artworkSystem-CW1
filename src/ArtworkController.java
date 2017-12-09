@@ -377,5 +377,9 @@ public class ArtworkController {
 		currentPainting = null;
 		currentSculpture = sculpture;
 	}
+	
+	public void refresh() {
+		
+	}
 
 }

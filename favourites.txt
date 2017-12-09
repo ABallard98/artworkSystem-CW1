@@ -1,9 +1,0 @@
-Marko,Marko
-l,elmarko1
-mk,elmarko
-0,elmarko1
-0,elmarko
-elmarko,elmarko
-elmarko,elmarko1
-elmarko,l
-Marcin,elmarko
