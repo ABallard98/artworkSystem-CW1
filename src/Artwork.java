@@ -56,7 +56,6 @@ public class Artwork {
 		this.reservePrice = reservePrice;
 		this.bidsOnItem = new ArrayList<>();
 		this.bidIsOver = false;
-		highestBidAmount = reservePrice;
 		resolveImage();
 		imageView = new ImageView();
 		//imageView.setImage(image);
@@ -240,7 +239,7 @@ public class Artwork {
 	 * @return int - number of bids placed.
 	 */
 	public int getNumberOfPlacedBids() {
-		return bidsOnItem.size();
+		return numberOfBids;
 	} 
 	
 	/**
@@ -256,41 +255,16 @@ public class Artwork {
 	 * @param bid
 	 */
 	public void addBidToItem(Bid bid) {
-		String error1 = "Bidder cannot bid on their own artwork." + "\n";
-		String error2 = "Maximum number of bids has been reached." + "\n";
-		String error3 = "Bid must be higher than current bid." + "\n";
 		numberOfBids++;
 		highestBid = bid.getAmount();
-		switch (bid.checkBid()) {
-			case 0: {
-				bidsOnItem.add(bid);
-				//owner.addBid(bid);
-				System.out.println("Bid placed.");
-				break;
-			}
-			case 1: {
-				System.out.println(error1);
-				break;
-			}
-			case 2: {
-				System.out.println(error2);
-			}
-			case 3: {
-				System.out.println(error3);
-			}
-			case 4: {
-				System.out.println(error1 + error2);
-			}
-			case 5: {
-				System.out.println(error1 + error3);
-			}
-			case 6: {
-				System.out.println(error2 + error3);
-			}
-			default: {
-				System.out.println(error1 + error2 + error3);
-			}
+		bidsOnItem.add(bid);
+		
+
+		if(bidsOnItem.size() == bidsAllowed) {
+			bidIsOver = true;
+			bid.setWinningBid(true);
 		}
+		
 	}
 
 	/**
@@ -344,9 +318,7 @@ public class Artwork {
 	 * @return int - number of bids allowed.
 	 */
 	public int getBidsAllowed() {
-		int allowed = bidsAllowed - bidsOnItem.size();
-		System.out.println(allowed+"allowed");
-		return allowed;
+		return bidsAllowed;
 	}
 
 	public void saveChanges() {

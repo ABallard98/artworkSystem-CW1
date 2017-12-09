@@ -473,7 +473,7 @@ public class FileReader {
 					if (type.equalsIgnoreCase("sculpture")) {
 						Sculpture sculpture = FileReader.getSculpture(artwork);
 						// Date date = new Date();
-						Bid bid = new Bid(type, user, 0, sculpture, date);
+						Bid bid = new Bid(type, user, amount1, sculpture, date);
 						user.addBid(bid);
 						sculpture.addBidToItem(bid);
 						// System.out.println(bid.toString());

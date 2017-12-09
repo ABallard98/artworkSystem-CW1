@@ -20,6 +20,7 @@ public class Bid {
 	private String title;// Title of the artwork bid is placed on
 	private String bidDateString; // date when bid was placed
 	private Image image;// image of the artwork bid was placed on
+	private boolean winningBid;
 
 	/**
 	 * Creates a new bid object.
@@ -251,6 +252,17 @@ public class Bid {
 	 */
 	public Date getBidDate() {
 		return this.bidDate;
+	}
+	
+	
+	
+
+	public boolean isWinningBid() {
+		return winningBid;
+	}
+
+	public void setWinningBid(boolean winningBid) {
+		this.winningBid = winningBid;
 	}
 
 	/**

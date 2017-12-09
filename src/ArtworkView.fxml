@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ArtworkController">
+<BorderPane fx:id="mainSection" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ArtworkController">
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>
@@ -37,7 +37,7 @@
                   <Insets bottom="50.0" top="10.0" />
                </padding>
             </Label>
-            <GridPane prefHeight="199.0" prefWidth="280.0">
+            <GridPane hgap="10.0" prefHeight="199.0" prefWidth="280.0" vgap="20.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -290,7 +290,7 @@
    <top>
       <VBox prefHeight="34.0" prefWidth="817.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Back to Browsing" />
+            <Button fx:id="back" mnemonicParsing="false" text="Back to Browsing" />
          </children>
       </VBox>
    </top>
