@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 /**
+ * This is the GUI class that allows users to favourite eachother and displays those users
  * @author Joshua
  * Created on 05/12/2017
  */
@@ -21,25 +22,24 @@ import javafx.stage.Stage;
 public class FavouriteUsersController {
 
 	@FXML
-	private Label favUsers;
+	private Label favUsers; // Shows favourite users
 
 	@FXML
-	private TableView<User> table1;
+	private TableView<User> table1; // Displays a table
 
 	@FXML
-	private TableColumn<User, String> usernameColumn;
+	private TableColumn<User, String> usernameColumn; // Creates column for table
 
 	@FXML
-	private TableColumn<User, ImageView> avatar;
+	private TableColumn<User, ImageView> avatar; // Creates column for table
 	
+    @FXML
+    private Button displayUser; // Button to display a favourite user
 
     @FXML
-    private Button displayUser;
-
-    @FXML
-    private Button deleteUser;
+    private Button deleteUser; // Button to delete a favourite user
 	
-	private ObservableList<User> favourites;
+	private ObservableList<User> favourites; // List of favourited users
 
 	/**
 	 * Initialises the favourite users window
@@ -94,7 +94,7 @@ public class FavouriteUsersController {
 	 */
 	public void deleteUser() {
 		User user = table1.getSelectionModel().getSelectedItem();
-
+		//Removes selected user from memory
 		User loggedUser = LoginController.getUser();
 		if (FileReader.checkIfInFavouriteList(loggedUser, user)) {
 			loggedUser.removeUserFromFavourites(user);

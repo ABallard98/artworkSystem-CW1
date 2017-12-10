@@ -1,8 +1,8 @@
 import java.util.*;
 import javafx.scene.image.Image;
 import java.io.*;
-import java.text.*;
 /**
+ * This class reads through all the text files in the system
  * @author Daniel
  * Created on 23/11/2017
  */
@@ -112,28 +112,24 @@ public class FileReader {
 		try {
 			readUserFiles();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		try {
 			readPaintingFiles();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		try {
 			readSculptureFiles();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		try {
 			readFavouritesFiles();
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -145,10 +141,8 @@ public class FileReader {
 			readBidFiles();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	/**

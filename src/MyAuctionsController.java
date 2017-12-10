@@ -1,7 +1,4 @@
-
-
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,55 +9,57 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 /**
+ * This is the GUI class to display the artwork a user has uploaded for auction
  * @author Thomas
  * Created on 20/11/2017
  */
 public class MyAuctionsController {
 
 	@FXML
-	private Button refreshButton;
+	private Button refreshButton; // Button to refresh the page
 
 	@FXML
-	private RadioButton allAuctions;
+	private RadioButton allAuctions; // Button to filter auctions
 
 	@FXML
-	private RadioButton active;
+	private RadioButton active; // Button to filter auctions
 
 	@FXML
-	private RadioButton finished;
+	private RadioButton finished; // Button to filter auctions
 
 	@FXML
-	private CheckBox sculptures;
+	private CheckBox sculptures; // Checkbox to filter auctions
 
 	@FXML
-	private CheckBox paintings;
+	private CheckBox paintings; // Checkbox to filter auctions
 
 	@FXML
-	private TableView<Artwork> table;
+	private TableView<Artwork> table; // Table for viewing
 
 	@FXML
-	private TableColumn<Artwork, String> titleColumn;
+	private TableColumn<Artwork, String> titleColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, String> creatonNameColumn;
+	private TableColumn<Artwork, String> creatonNameColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, String> reservePriceColumn;
+	private TableColumn<Artwork, String> reservePriceColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, String> placedBidsColumn;
+	private TableColumn<Artwork, String> placedBidsColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, String> bidLimitColumn;
+	private TableColumn<Artwork, String> bidLimitColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, Double> currentPriceColumn;
+	private TableColumn<Artwork, Double> currentPriceColumn; // Creating a column for the table
 
 	@FXML
-	private TableColumn<Artwork, Boolean> ongoingColumn;
+	private TableColumn<Artwork, Boolean> ongoingColumn; // Creating a column for the table
 
-	private ObservableList<Artwork> artworks;
+	private ObservableList<Artwork> artworks; // List of artworks in auction
 
 	/**
 	 * Method to initialise my auction view
@@ -106,9 +105,6 @@ public class MyAuctionsController {
 		ArrayList<Artwork> arts = LoginController.getUser().getArtForSale();
 		ArrayList<Artwork> newArts = new ArrayList<>();
 
-		ArrayList<Sculpture> sculpturesA = new ArrayList<>();
-		ArrayList<Painting> paintingsA = new ArrayList<>();
-
 		if (active.isSelected()) {
 
 			for (Artwork a : arts) {
@@ -119,15 +115,12 @@ public class MyAuctionsController {
 						if (a instanceof Painting) {
 							newArts.add(a);
 						}
-
 					}
 					if (sculptures.isSelected()) {
 						if (a instanceof Sculpture) {
 							newArts.add(a);
 						}
-
 					}
-
 				}
 			}
 			ObservableList<Artwork> artworksA = FXCollections.observableArrayList(newArts);
@@ -157,7 +150,5 @@ public class MyAuctionsController {
 		} else if (sculptures.isSelected() && !paintings.isSelected()) {
 
 		}
-
 	}
-
 }

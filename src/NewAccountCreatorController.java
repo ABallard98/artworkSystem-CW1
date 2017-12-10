@@ -6,8 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,77 +20,78 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * This is the GUI class that handles the creation of a new user into the system
  * @author Joshua
  * Created on 1/12/2017
  */
 public class NewAccountCreatorController {
 
 	@FXML
-	private TextField usernameField;
+	private TextField usernameField; // Allows input for a username
 
 	@FXML
-	private TextField firstNameField;
+	private TextField firstNameField; // Allows input for a first name
 
 	@FXML
-	private TextField lastNameField;
+	private TextField lastNameField; // Allows input for a last name
+
+	@FXML 
+	private TextField addressField; // Allows input for an address
 
 	@FXML
-	private TextField addressField;
+	private TextField postcodeField; // Allows input for a postcode
 
 	@FXML
-	private TextField postcodeField;
+	private TextField phoneNumberField; // Allows input for a phone number
 
 	@FXML
-	private TextField phoneNumberField;
+	private Button createAccountButton; // Button to create the new account
 
 	@FXML
-	private Button createAccountButton;
+	private Button openGeneratorButton; // Button to create a custom image
 
 	@FXML
-	private Button openGeneratorButton;
+	private Button avatar1; // Button to select an avatar
 
 	@FXML
-	private Button avatar1;
+	private ImageView av1; // Container to display an avatar
 
 	@FXML
-	private ImageView av1;
+	private Button avatar3; // Button to select an avatar
 
 	@FXML
-	private Button avatar3;
+	private ImageView av3; // Container to display an avatar
 
 	@FXML
-	private ImageView av3;
+	private Button avatar2; // Button to select an avatar
 
 	@FXML
-	private Button avatar2;
+	private ImageView av2; // Container to display an avatar
 
 	@FXML
-	private ImageView av2;
+	private Button avatar4; // Button to select an avatar
 
 	@FXML
-	private Button avatar4;
+	private ImageView av4; // Container to display an avatar
 
 	@FXML
-	private ImageView av4;
+	private Button avatar5; // Button to select an avatar
 
 	@FXML
-	private Button avatar5;
+	private ImageView av5; // Container to display an avatar
 
 	@FXML
-	private ImageView av5;
+	private Button avatar6; // Button to select an avatar
 
 	@FXML
-	private Button avatar6;
+	private ImageView av6; // Container to display an avatar
 
 	@FXML
-	private ImageView av6;
+	private ImageView mainAvatar; // Container to display the main avatar
 
-	@FXML
-	private ImageView mainAvatar;
+	private static boolean custom; // Boolean to check if custom image is used
 
-	private static boolean custom;
-
-	private int avatarIndex;
+	private int avatarIndex; // Reference for which avatar was selected
 	private Image image1 = null;
 	private Image image2 = null;
 	private Image image3 = null;
@@ -126,9 +125,9 @@ public class NewAccountCreatorController {
 			Image img1;
 			try {
 				img1 = new Image(new FileInputStream("tmpImg.png"));
-				mainAvatar.setImage(img1);
+				mainAvatar.setImage(img1); // Sets main user avatar as the custom image
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
@@ -139,7 +138,7 @@ public class NewAccountCreatorController {
 	 * @param i - index of the avatar
 	 */
 	public void updateAvatar(int i) {
-
+		// Sets the users avatar to one of the 6 avatars available
 		if (i == 1) {
 			mainAvatar.setImage(image1);
 			avatarIndex = 1;
@@ -199,7 +198,7 @@ public class NewAccountCreatorController {
 	 * Method to create an account from GUI input
 	 */
 	public void createAccount() {
-
+		// Assigns variables based on user input
 		String username = usernameField.getText();
 		String firstName = firstNameField.getText();
 		String lastName = lastNameField.getText();
@@ -208,9 +207,9 @@ public class NewAccountCreatorController {
 		String phoneNumber = phoneNumberField.getText();
 		long phoneNumberLong;
 		if (username.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || postCode.isEmpty()
-				|| phoneNumber.isEmpty()) {
+				|| phoneNumber.isEmpty()) { // Checks if number is correct format
 
-			Alert alert = new Alert(AlertType.ERROR);
+			Alert alert = new Alert(AlertType.ERROR); // Error message
 			alert.setTitle("Error");
 
 			alert.setHeaderText("Could not create an user");
@@ -243,7 +242,7 @@ public class NewAccountCreatorController {
 
 			if(custom) {
 				avatarIndex = 101;
-				
+				// Gives users the custom avatar
 				File file1 = new File("artworkImages/" + username);
 				file1.mkdir();
 				Path path = Paths.get("customAvatars/" + username + ".png");
@@ -259,17 +258,17 @@ public class NewAccountCreatorController {
 			}
 			
 			User user = new User(username, firstName, lastName, address, postCode, phoneNumberLong, avatarIndex);
-			FileReader.addUser(user);
+			FileReader.addUser(user); // Creates user
 
 			try {
-				Writer.writeUserFile(user);
+				Writer.writeUserFile(user); // Adds user to memory
 			} catch (IOException e) {
 			
 				e.printStackTrace();
 			}
 			
 
-			Alert alert = new Alert(AlertType.INFORMATION);
+			Alert alert = new Alert(AlertType.INFORMATION); // Success message
 			alert.setTitle("Success");
 
 			alert.setHeaderText("The user has been created");
@@ -301,12 +300,10 @@ public class NewAccountCreatorController {
 			if(custom) {
 				setImg();
 			}
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -330,14 +327,11 @@ public class NewAccountCreatorController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		custom = true;
 		avatarIndex = 100;
 	}
 
 	public static void setCustom(boolean val) {
 		custom = val;
-
 	}
-
 }

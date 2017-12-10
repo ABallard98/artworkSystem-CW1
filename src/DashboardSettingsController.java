@@ -1,43 +1,46 @@
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-/**
+
+/** 
+ * This is the GUI class for displaying user information
  * @author Marcin
  * Created on 04/12/2017
  */
 public class DashboardSettingsController {
 
 	@FXML
-	private Label username;
+	private Label username; // Shows username of user
 
 	@FXML
-	private Label firstName;
+	private Label firstName; // Shows first name of user
 
 	@FXML
-	private Label lastName;
+	private Label lastName; // Shows last name of user
 
 	@FXML
-	private Label fullName;
+	private Label fullName; // Shows full name of user
 
 	@FXML
-	private Label address;
+	private Label address; // Shows address of user
 
 	@FXML
-	private Label postcode;
+	private Label postcode; // Shows postcode of user
 
 	@FXML
-	private Label lastLogin;
+	private Label lastLogin; // Shows last time logged in
 
 	@FXML
-	private Label phoneNumber;
+	private Label phoneNumber; // Shows phone number of user
 	
     @FXML
-    private ImageView avatar;
+    private ImageView avatar; // Container for the user's avatar image
 
-	private User user;
+	private User user; // A user object
 
+	/**
+	 * Method to intialise the dashboard window
+	 */
 	public void initialize() {
 		
 		user = LoginController.getUser();

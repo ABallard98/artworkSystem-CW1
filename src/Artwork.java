@@ -3,7 +3,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * This class contains information about the user
+ * This class constructs and contains information about artwork objects
  * @author Marwan
  * Created on 21/11/2017
  */

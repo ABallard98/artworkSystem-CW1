@@ -3,6 +3,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
+ * This class constructs and contains information about bids on artwork
  * @author Thomas
  * Created on 20/11/2017
  */

@@ -1,16 +1,18 @@
 import java.util.*;
 import javafx.scene.image.Image;
 /**
+ * This is a subclass of Artwork which creates sculpture objects
+ * and contains the information for them
  * @author Marwan
  * Created on 21/11/2017
  */
 public class Sculpture extends Artwork {
 
-	private int width; 
-	private int height;
-	private int depth;
-	private String material;
-	private ArrayList<Image> additionalImages;
+	private int width; // Width of the sculpture in cm
+	private int height; // Height of the sculpture in cm
+	private int depth; // Depth of the sculpture in cm
+	private String material; // What the sculpture is made of
+	private ArrayList<Image> additionalImages; // Extra images of the sculpture
 
 	/**
 	* Constructor to create a sculpture object without a description.

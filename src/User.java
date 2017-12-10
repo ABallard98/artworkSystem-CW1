@@ -1,12 +1,11 @@
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
+ * This class constructs a new user object and contains information of that user
  * @author Joshua
  * Created on 5/12/2017
  */

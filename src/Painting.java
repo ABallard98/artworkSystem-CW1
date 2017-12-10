@@ -1,5 +1,7 @@
 import java.util.*;
 /**
+ * This class is a subclass of Artwork which creates painting objects and 
+ * contains the information for them
  * @author Marwan
  * Created on 21/11/2017
  */

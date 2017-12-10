@@ -14,9 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
-
-
 /**
+ * This is the GUI class for browsing all artworks for sale
  * @author Marcin
  * Created on 04/12/2017
  */
@@ -24,39 +23,39 @@ import javafx.scene.layout.BorderPane;
 public class BrowsingController {
 
 	@FXML
-	private RadioButton database;
+	private RadioButton database; // Button to select database filter
 
 	@FXML
-	private RadioButton fav;
+	private RadioButton fav; // Button to select favourites filter
 
 	@FXML
-	private BorderPane mainSection; // central section of the display
+	private BorderPane mainSection; // Central section of the display
 
 	@FXML
-	private Button displaySelected; // a button to display selected artwork
+	private Button displaySelected; // A button to display selected artwork
 
 	@FXML
-	private TableView<Artwork> table; // table containing a list of artworks
+	private TableView<Artwork> table; // Table containing a list of artworks
 
 	@FXML
-	private TableColumn<Artwork, ImageView> image; // column with artwork images
+	private TableColumn<Artwork, ImageView> image; // Column with artwork images
 
 	@FXML
-	private TableColumn<Artwork, String> title; // column with artwork titles
+	private TableColumn<Artwork, String> title; // Column with artwork titles
 
 	@FXML
-	private TableColumn<Artwork, String> description; // column with artwork descriptions
+	private TableColumn<Artwork, String> description; // Column with artwork descriptions
 
-	private ObservableList<Artwork> artworks;
-
-	@FXML
-	private CheckBox paintingSelected;
+	private ObservableList<Artwork> artworks; // List of artwork
 
 	@FXML
-	private CheckBox sculptureSelected;
+	private CheckBox paintingSelected; // Checkbox to filter paintings
 
 	@FXML
-	private Button refresh;
+	private CheckBox sculptureSelected; // Checkbox to filter sculptures
+
+	@FXML
+	private Button refresh; // Button to refresh the browser
 	
 	/**
 	 * Method to intialise the browsing window
@@ -91,7 +90,7 @@ public class BrowsingController {
 	 * Method to update the artworks shown
 	 */
 	public void update() {
-
+			// Displays either sculpture or paintings or both
 		if (database.isSelected()) {
 			if (sculptureSelected.isSelected() && paintingSelected.isSelected()) {
 				artworks = FXCollections.observableArrayList(FileReader.getArtworks());
@@ -104,7 +103,7 @@ public class BrowsingController {
 			}
 
 			table.setItems(artworks);
-
+			// Displays favourites
 		} else if (fav.isSelected()) {
 			ArrayList<Artwork> artworks1 = new ArrayList<>();
 			ArrayList<User> favs = LoginController.getUser().getFavouriteUsers();

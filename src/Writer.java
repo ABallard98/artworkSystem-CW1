@@ -1,10 +1,9 @@
-
-
 import java.io.*;
 import java.io.FileReader;
-import java.util.*;
+
 
 /**
+ * This class writes information in the system to memory
  * @author Daniel
  * Created on 5/12/2017
  */
@@ -99,7 +98,6 @@ public class Writer {
 		    writer.close();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

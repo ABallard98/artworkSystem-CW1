@@ -1,6 +1,3 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -11,24 +8,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
+ * This is the GUI class for displaying a user and allowing favouriting of users
  * @author Joshua and Ayden
  * Created on 04/12/2017
  */
 public class UserDisplayController {
 
-	private static User user;
+	private static User user; // A user object
 
 	@FXML
-	private ImageView avatar;
+	private ImageView avatar; // Container to display avatar
 
 	@FXML
-	private Label username;
+	private Label username; // Shows a users username
 
 	@FXML
-	private CheckBox favourite;
+	private CheckBox favourite; // Checkbox to favourite a user
 
 	@FXML
-	private Button confirm;
+	private Button confirm; // Button to confirm your choice
 
 	/**
 	 * Method to initialise the user display window
@@ -103,8 +101,6 @@ public class UserDisplayController {
 				loggedUser.removeUserFromFavourites(user);
 				Writer.removeFromFavourites(loggedUser, user);
 			}
-
 		}
 	}
-
 }

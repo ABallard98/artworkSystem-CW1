@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
+ * This is the GUI class for displaying artwork
  * @author Daniel
  * Created on 5/12/2017
  */

@@ -1,11 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import javafx.application.Application;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,22 +12,23 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * This is the GUI class for logging in to the system
  * @author Marcin
  * Created on 22/11/2017
  */
 public class LoginController {
 
 	
-	private static User user;
+	private static User user; // A user object
 	
 	@FXML
-	private TextField loginField;
+	private TextField loginField; // Text field for a username to log in
 
 	@FXML
-	private Button loginButton;
+	private Button loginButton; // Button to log a user in
 
 	@FXML
-	private Button registerButton;
+	private Button registerButton; // Button to register a new user
 
 	/**
 	 * Initialise the login screen
@@ -51,7 +48,7 @@ public class LoginController {
 		System.out.println("User of name " + username + " is logging in");
 
 		User userA = FileReader.getUser(username);
-
+		// Checks if user is in memory then logs in if it is
 		if (userA != null) {
 			System.out.println("Logging in was successful");
 			user = userA;
@@ -75,7 +72,7 @@ public class LoginController {
 				e.printStackTrace();
 			}			
 			
-		} else {
+		} else { // Error message if user does not exist
 
 
 			Alert alert = new Alert(AlertType.WARNING);
@@ -91,7 +88,6 @@ public class LoginController {
 
 			alert.showAndWait();
 		}
-
 	}
 	
 	/**
@@ -101,7 +97,6 @@ public class LoginController {
 		loginButton.getScene().getWindow().hide();
 	}
 	
-
 	/**
 	 * Method to let a new user register
 	 */
@@ -121,7 +116,6 @@ public class LoginController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -130,6 +124,5 @@ public class LoginController {
 	 */
 	public static User getUser() {
 		return user;
-	}
-	
+	}	
 }

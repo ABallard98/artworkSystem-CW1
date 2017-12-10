@@ -26,86 +26,87 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * This is the main GUI class which links to all other GUI classes
  * @author Marcin
  * Created on 22/11/2017
  */
 public class GUIController {
 
 	@FXML
-	private ListView<String> searchList;
+	private ListView<String> searchList; // A list of searched items
 
 	@FXML
-	private Hyperlink dashboardLink;
+	private Hyperlink dashboardLink; // Hyperlink for navigation
 
 	@FXML
-	private Hyperlink myAuctionsLink;
+	private Hyperlink myAuctionsLink; // Hyperlink for navigation
 
 	@FXML
-	private Hyperlink myBidsLink;
+	private Hyperlink myBidsLink; // Hyperlink for navigation
 
 	@FXML
-	private Hyperlink userSettingsLink;
+	private Hyperlink userSettingsLink; // Hyperlink for navigation
 
 	@FXML
-	private Button createNewArtworkButton;
+	private Button createNewArtworkButton; // Button for creating new Artwork
 
 	@FXML
-	private Hyperlink favouriteUsers;
+	private Hyperlink favouriteUsers; // Hyperlink for navigation
 
 	@FXML
-	private Label username;
+	private Label username; // Shows a users username
 	@FXML
-	private Label firstName;
+	private Label firstName; // Shows a users first name
 
 	@FXML
-	private Label lastName;
+	private Label lastName; // Shows a users last name
 
 	@FXML
-	private Label fullName;
+	private Label fullName; // Shows a users full name
 
 	@FXML
-	private Label address;
+	private Label address; // Shows a users address
 
 	@FXML
-	private Label postcode;
+	private Label postcode; // Shows a users postcode
 
 	@FXML
-	private Label lastLogin;
+	private Label lastLogin; // Shows a users last log in time
 
 	@FXML
-	private Label phoneNumber;
+	private Label phoneNumber; // Shows a users phone number
 
 	@FXML
-	private BorderPane mainSection;
+	private BorderPane mainSection; // The main window
 
 	@FXML
-	private RadioButton artworkSelect;
+	private RadioButton artworkSelect; // Button to filter artwork
 
 	@FXML
-	private RadioButton userSelect;
+	private RadioButton userSelect; // Button to filter user
 
 	@FXML
-	private CheckBox sculptureSelect;
+	private CheckBox sculptureSelect; // Checkbox to filter sculptures
 
 	@FXML
-	private CheckBox paintingSelect;
+	private CheckBox paintingSelect; // Checkbox to filter paintings
 
-	private ObservableList<String> observableList;
-
-	@FXML
-	private Button searchButton;
+	private ObservableList<String> observableList; // A list of strings
 
 	@FXML
-	private TextField searching;
+	private Button searchButton; // Button to implement a search/filter
 
 	@FXML
-	private Button display;
+	private TextField searching; // allows search input
 
 	@FXML
-	private Label user1;
+	private Button display; // Displays an item
 
 	@FXML
-	private Label today;
+	private Label user1; // Shows user1
+
+	@FXML
+	private Label today; // Shows the date
 
 	/**
 	 * Initialises the main elements of GUI

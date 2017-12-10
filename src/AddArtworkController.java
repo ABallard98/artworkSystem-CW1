@@ -24,6 +24,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
+ * This is the GUI class for handling the adding of artwork
  * @author Daniel
  * Created on 5/12/2017
  */
