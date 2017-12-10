@@ -18,7 +18,7 @@ import javafx.scene.layout.BorderPane;
 
 /**
  * @author Marcin
- * @date 04/12/2017
+ * Created on 04/12/2017
  */
 
 public class BrowsingController {
@@ -57,13 +57,15 @@ public class BrowsingController {
 
 	@FXML
 	private Button refresh;
-
+	
+	/**
+	 * Method to intialise the browsing window
+	 */
 	public void initialize() {
 		
 		ToggleGroup tg = new ToggleGroup();
 		database.setToggleGroup(tg);		
 		fav.setToggleGroup(tg);
-
 
 		sculptureSelected.setSelected(true);
 		paintingSelected.setSelected(true);
@@ -85,6 +87,9 @@ public class BrowsingController {
 
 	}
 
+	/**
+	 * Method to update the artworks shown
+	 */
 	public void update() {
 
 		if (database.isSelected()) {
@@ -116,9 +121,10 @@ public class BrowsingController {
 		}
 
 	}
-
 	
-
+	/**
+	 * Filters browser window by painting or sculpture
+	 */
 	public void displaySelection() {
 		Artwork artwork = table.getSelectionModel().getSelectedItem();
 
@@ -139,7 +145,5 @@ public class BrowsingController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

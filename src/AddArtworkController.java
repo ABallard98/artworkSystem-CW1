@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Daniel
- * @date 5/12/2017
+ * Created on 5/12/2017
  */
 
 public class AddArtworkController {
@@ -174,7 +174,11 @@ public class AddArtworkController {
 		}
 
 	}
-
+	
+	/**
+	 * Method to compy and image to a new directory
+	 * @param name - name of the artwork image
+	 */
 	public void copyPictures(String name) {
 
 		int counter = 0;
@@ -195,8 +199,10 @@ public class AddArtworkController {
 	}
 
 	
-
 	
+	/**
+	 * Method to create a new artwork from GUI input
+	 */
 	public void createArtwork() {
 		try{			
 		Painting painting = null;
@@ -216,10 +222,10 @@ public class AddArtworkController {
 		int creationYearI = Integer.parseInt(creationYearA);
 		
 		String descriptionA = "";
-		if(description.getText().isEmpty()){
-			descriptionA = "";
-		} else{
-		    descriptionA = description.getText();
+			if(description.getText().isEmpty()){
+				descriptionA = "";
+			} else{
+				descriptionA = description.getText();
 		}
 		String reservePriceA = reservePrice.getText();
 		String bidLimitA = bidLimit.getText();
@@ -256,7 +262,7 @@ public class AddArtworkController {
 				FileReader.addSculpture(sculpture);
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
@@ -271,12 +277,13 @@ public class AddArtworkController {
 				painting.resolveImage();
 				FileReader.addPainting(painting);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 
 		}
-
+		
+		//Message to let user know creation was successful
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Success");
 
@@ -286,7 +293,7 @@ public class AddArtworkController {
 		alert.showAndWait();
 
 		closeWindow();
-		} catch(NumberFormatException e){
+		} catch(NumberFormatException e){ //Error checking for input
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 

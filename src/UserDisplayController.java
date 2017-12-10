@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Joshua and Ayden
- * @date 04/12/2017
+ * Created on 04/12/2017
  */
 public class UserDisplayController {
 
@@ -30,6 +30,9 @@ public class UserDisplayController {
 	@FXML
 	private Button confirm;
 
+	/**
+	 * Method to initialise the user display window
+	 */
 	public void initialize() {
 		username.setText(user.getUsername());
 		System.out.println(user.getFullName() + "   " + user.getAvatarIndex());
@@ -43,6 +46,9 @@ public class UserDisplayController {
 
 	}
 
+	/**
+	 * Method to allow a user to check another user as a favourite
+	 */
 	public void checkboxes() {
 		User loggedUser = LoginController.getUser();
 
@@ -54,18 +60,27 @@ public class UserDisplayController {
 
 	}
 
+	/**
+	 * Method to return a user
+	 * @return user - a displayed user
+	 */
 	public static User getUser() {
 		return user;
 	}
 
+	/**
+	 * Method to set a user
+	 * @param user1 - a user object
+	 */
 	public static void setUser(User user1) {
 		user = user1;
 	}
 
+	/**
+	 * Method to add a favourite user
+	 */
 	public void handleFavourites() {
 		User loggedUser = LoginController.getUser();
-		
-		
 
 		if (favourite.isSelected()) {
 			if (!FileReader.checkIfInFavouriteList(loggedUser, user)) {

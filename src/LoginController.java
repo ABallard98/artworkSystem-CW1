@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Marcin
- * @date 22/11/2017
+ * Created on 22/11/2017
  */
 public class LoginController {
 
@@ -33,12 +33,18 @@ public class LoginController {
 	@FXML
 	private Button registerButton;
 
+	/**
+	 * Initialise the login screen
+	 */
 	public void initialize() {
 
 		loginButton.setOnAction(e -> handleLogin());
 		registerButton.setOnAction(e -> handleRegistration());
 	}
 
+	/**
+	 * Allows a user to log in to the system
+	 */
 	public void handleLogin() {
 
 		String username = loginField.getText();
@@ -88,12 +94,17 @@ public class LoginController {
 
 	}
 	
+	/**
+	 * Method to close the log in window
+	 */
 	public void closeWindow() {
 		loginButton.getScene().getWindow().hide();
 	}
 	
 
-
+	/**
+	 * Method to let a new user register
+	 */
 	public void handleRegistration() {
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("NewAccountCreator.fxml"));
 		try {
@@ -113,6 +124,10 @@ public class LoginController {
 
 	}
 
+	/**
+	 * Method to return a user
+	 * @return user - desired user
+	 */
 	public static User getUser() {
 		return user;
 	}

@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Joshua
- * @date 1/12/2017
+ * Created on 1/12/2017
  */
 public class NewAccountCreatorController {
 
@@ -100,6 +100,9 @@ public class NewAccountCreatorController {
 	private Image image5 = null;
 	private Image image6 = null;
 
+	/**
+	 * Method to initialise the account registration window
+	 */
 	public void initialize() {
 		initialiseAvatars();
 		createAccountButton.setOnAction(e -> createAccount());
@@ -113,11 +116,11 @@ public class NewAccountCreatorController {
 		avatar6.setOnAction(e -> updateAvatar(6));
 
 		avatarIndex = 1;
-		
-		
-
 	}
 
+	/**
+	 * Method to set the users images
+	 */
 	public void setImg() {
 		if (custom) {
 			Image img1;
@@ -131,10 +134,10 @@ public class NewAccountCreatorController {
 		}
 	}
 	
-	public static void refreshImg() {
-
-	}
-
+	/**
+	 * Method to change the avatar selected
+	 * @param i - index of the avatar
+	 */
 	public void updateAvatar(int i) {
 
 		if (i == 1) {
@@ -159,6 +162,9 @@ public class NewAccountCreatorController {
 
 	}
 
+	/**
+	 * Method to intialise the avatars for selection
+	 */
 	public void initialiseAvatars() {
 
 		image1 = null;
@@ -189,6 +195,9 @@ public class NewAccountCreatorController {
 
 	}
 
+	/**
+	 * Method to create an account from GUI input
+	 */
 	public void createAccount() {
 
 		String username = usernameField.getText();
@@ -244,7 +253,7 @@ public class NewAccountCreatorController {
 				try {
 					Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+			
 					e.printStackTrace();
 				}
 			}
@@ -258,7 +267,7 @@ public class NewAccountCreatorController {
 			
 				e.printStackTrace();
 			}
-			System.out.println(userdata);
+			
 
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Success");
@@ -272,6 +281,9 @@ public class NewAccountCreatorController {
 
 	}
 
+	/**
+	 * Method to open the window which allows an avatar to be drawn
+	 */
 	public void openCustomPictureCreator() {
 
 		FXMLLoader fxmlL = new FXMLLoader(getClass().getResource("AvatarDrawingTool.fxml"));
@@ -297,10 +309,18 @@ public class NewAccountCreatorController {
 
 	}
 
+	/**
+	 * Method to get a users main avatar
+	 * @return mainAvatar - picture chosen by user
+	 */
 	public ImageView getMainAvatar() {
 		return mainAvatar;
 	}
 
+	/**
+	 * Method to set a users main avatar
+	 * @param mainAvatar - picture chosen by user
+	 */
 	public void setMainAvatar(ImageView mainAvatar) {
 		String path = "tmpImg.png";
 

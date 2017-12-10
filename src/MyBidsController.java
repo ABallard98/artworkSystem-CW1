@@ -18,7 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 /**
  * @author Thomas
- * @date 4/12/2017
+ * Created on 4/12/2017
  */
 public class MyBidsController {
 
@@ -61,6 +61,9 @@ public class MyBidsController {
 
 	private ObservableList<Bid> bids;
 
+	/**
+	 * Method to initialise the my bids display window
+	 */
 	public void initialize() {
 		ToggleGroup tg = new ToggleGroup();
 		allAuctions.setToggleGroup(tg);
@@ -86,9 +89,9 @@ public class MyBidsController {
 		refreshButton.setOnAction(e-> refresh());		
 	}
 	
-	
-	
-	
+	/**
+	 * Refreshes the list of bids
+	 */
 	public void refresh() {
 		
 		ArrayList<Bid> tempBids = new ArrayList<>();

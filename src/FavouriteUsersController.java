@@ -1,6 +1,4 @@
-
 import java.io.IOException;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 /**
  * @author Joshua
- * @date 05/12/2017
+ * Created on 05/12/2017
  */
 
 public class FavouriteUsersController {
@@ -43,7 +41,9 @@ public class FavouriteUsersController {
 	
 	private ObservableList<User> favourites;
 
-
+	/**
+	 * Initialises the favourite users window
+	 */
 	public void initialize() {
 
 		favourites = FXCollections.observableArrayList(LoginController.getUser().getFavouriteUsers());
@@ -58,6 +58,9 @@ public class FavouriteUsersController {
 		displayUser.setOnAction(e-> showUser());
 	}
 
+	/**
+	 * Displays a specific user
+	 */
 	public void showUser() {
 		User displayedUser = table1.getSelectionModel().getSelectedItem();
 		
@@ -86,6 +89,9 @@ public class FavouriteUsersController {
 		}
 	}
 	
+	/**
+	 * Deletes a user from the favourites table
+	 */
 	public void deleteUser() {
 		User user = table1.getSelectionModel().getSelectedItem();
 

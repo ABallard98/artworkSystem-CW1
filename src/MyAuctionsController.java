@@ -14,7 +14,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * @author Thomas
- * @date 20/11/2017
+ * Created on 20/11/2017
  */
 public class MyAuctionsController {
 
@@ -62,6 +62,9 @@ public class MyAuctionsController {
 
 	private ObservableList<Artwork> artworks;
 
+	/**
+	 * Method to initialise my auction view
+	 */
 	public void initialize() {
 
 		ToggleGroup tg = new ToggleGroup();
@@ -94,7 +97,10 @@ public class MyAuctionsController {
 		refreshButton.setOnAction(e -> filter());
 
 	}
-
+	
+	/**
+	 * Method to filter artwork
+	 */
 	public void filter() {
 
 		ArrayList<Artwork> arts = LoginController.getUser().getArtForSale();

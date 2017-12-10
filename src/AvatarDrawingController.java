@@ -1,10 +1,5 @@
-
-
 import java.io.File;
-import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
-
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,12 +14,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Line;
+
 /**
  * @author Ayden
- * @date 6/12/2017
+ * Created on 6/12/2017
  */
 public class AvatarDrawingController {
 
@@ -64,9 +57,10 @@ public class AvatarDrawingController {
     @FXML
     private Button confirmColor;
 
-
+    /**
+     * Method it initialise the custom drawing window
+     */
 	public void initialize() {
-		//color = Color.PURPLE;
 
 		colorPicker.setOnAction(e-> {
 			
@@ -77,15 +71,11 @@ public class AvatarDrawingController {
 					
 		});
 		
-		// canvas.setStyle("border-color: red; border-width: 5px");
-
 		clear.setOnAction(e -> clearCanvas());
 
 		gc = canvas.getGraphicsContext2D();
 		initDraw(gc);
 
-		// gc.lineTo(startX, startY);
-		// gc.stroke();
 		gc.closePath();
 		gc.beginPath();
 
@@ -100,6 +90,9 @@ public class AvatarDrawingController {
 
 	}
 
+	/**
+	 * Method to draw lines on a canvas
+	 */
 	public void generateLines() {
 
 		if (pressed2 != null && released2 != null) {
@@ -118,7 +111,7 @@ public class AvatarDrawingController {
 		};
 
 		released1 = new EventHandler<MouseEvent>() {
-
+			
 			public void handle(MouseEvent event) {
 				gc.lineTo(event.getX(), event.getY());
 
@@ -138,6 +131,9 @@ public class AvatarDrawingController {
 
 	}
 
+	/**
+	 * Method to draw circles on the canvas
+	 */
 	public void generateCircles() {
 
 		if (pressed1 != null && released1 != null) {
@@ -181,6 +177,9 @@ public class AvatarDrawingController {
 
 	}
 
+	/**
+	 * Method to save the custom drawn image
+	 */
 	public void saveImg() {
 
 		WritableImage writableImg = new WritableImage(200, 200);
@@ -207,20 +206,23 @@ public class AvatarDrawingController {
 
 	}
 
+	/**
+	 * Method to reset the canvas
+	 */
 	public void clearCanvas() {
 		gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
 	}
 	
-	
+	/**
+	 * Changes the colour of the drawing
+	 * @param gc contents of the images
+	 */
 
 	public void initDraw(GraphicsContext gc) {
 		
-		//color = colorPicker.getValue();
-		
 		gc.setFill(color);
 		gc.setStroke(color);
-
 		gc.fill();
 
 	}

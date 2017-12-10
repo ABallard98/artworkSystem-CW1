@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * @author Daniel
- * @date 20/11/2017
+ * Created on 5/12/2017
  */
 public class Writer {
 
@@ -14,7 +14,7 @@ public class Writer {
     /**
      * Method to write a user text file containing all of the users information
      * @param user - user of the file
-     * @throws IOException
+     * @throws IOException  - if user cannot be saved
      */
     public static void writeUserFile(User user) throws IOException{
         String path = "userFiles//"+user.getUsername()+".txt";
@@ -31,7 +31,7 @@ public class Writer {
     /**
      * Method to create and append a text file of a unique users bid history
      * @param bid - the bids a user has made
-     * @throws IOException
+     * @throws IOException - error if file cannot be written
      */
     public static void writeBidFile(Bid bid) throws IOException{
         String path = "bids//"+bid.getBidder().getUsername() +".txt";
@@ -51,7 +51,7 @@ public class Writer {
     /**
      * Method to write a painting text file containing all of the paintings information
      * @param painting - painting of the file
-     * @throws IOException
+     * @throws IOException - catch error if file cannot be found
      */
     public static void writePaintingFile(Painting painting) throws IOException{
         String path = "artworkFiles//paintings//"+painting.getTitle()+".txt";
@@ -68,7 +68,7 @@ public class Writer {
     /**
      * Method to write a sculpture text file containing all of the sculptures information
      * @param sculpture - sculpture of the file
-     * @throws IOException
+     * @throws IOException if sculpture cannot be saved
      */
     public static void writeSculptureFile(Sculpture sculpture) throws IOException{
         String path = "artworkFiles//sculptures//"+sculpture.getTitle()+".txt";
@@ -89,7 +89,6 @@ public class Writer {
      * @param user2 - the user that the main user wants to favourite
      */
     public static void addToFavourites(User user1, User user2) {
-    	String path = "favourites.txt";
     	
 		File file = new File("favourites.txt");
 		PrintWriter writer;
@@ -112,7 +111,7 @@ public class Writer {
      * @return boolean - true if users were successfully removed, false otherwise
      */
     public static boolean removeFromFavourites(User user1, User user2){
-        final String FAVOURITES_FILE = "favourites.txt";
+        
         final File FAVOURITES = new File("favourites.txt");
         final File TEMP_FILE = new File("temp-favourites.txt");
         String toRemove = user1.getUsername()+","+user2.getUsername();
@@ -139,8 +138,4 @@ public class Writer {
             return false;
         }
     }
-
-    
-
-
-}//end of class
+}

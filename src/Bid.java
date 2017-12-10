@@ -4,7 +4,7 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Thomas
- * @date 20/11/2017
+ * Created on 20/11/2017
  */
 public class Bid {
 
@@ -21,10 +21,11 @@ public class Bid {
 
 	/**
 	 * Creates a new bid object.
-	 * @param typeOfArtwork
-	 * @param bidder
-	 * @param artwork
-	 * @param bidDate
+	 * @param typeOfArtwork sculpture or painting
+	 * @param bidder user who made the bid
+	 * @param artwork which artwork bid was on
+	 * @param bidDate date of bid
+	 * @param amount how much the bid is worth in £'s
 	 */
 	public Bid(String typeOfArtwork, User bidder, double amount, Artwork artwork, Date bidDate) {
 
@@ -137,7 +138,7 @@ public class Bid {
 
 	/**
 	 * Method to set the winningBid boolean
-	 * @param winningBid
+	 * @param winningBid the winning bid
 	 */
 	public void setWinningBid(boolean winningBid) {
 		this.winningBid = winningBid;

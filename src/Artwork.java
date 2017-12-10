@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 /**
  * This class contains information about the user
  * @author Marwan
- * @date 9/12/2017
+ * Created on 21/11/2017
  */
 public class Artwork {
 
@@ -92,12 +92,17 @@ public class Artwork {
 
 	}
 	
+	/**
+	 * Method to get the name of the highest bidder.
+	 * @return String - currentHighestBidder
+	 */
 	public String getCurrentHighestBidder() {
 		return this.currentHighestBid;
 	}
 	
-	
-
+	/**
+	 * Method to get the image of the artwork.
+	 */
 	public void resolveImage() {
 		this.image = FileReader.retrieveImage(title);
 	}
@@ -180,12 +185,10 @@ public class Artwork {
 	public int getNumberOfPlacedBids() {
 		return numberOfBids;
 	} 
-	
-	
 
 	/**
 	 * Method to place a bid on the artwork.
-	 * @param bid
+	 * @param bid bid to be added to an artwork
 	 */
 	public void addBidToItem(Bid bid) {
 		numberOfBids++;
@@ -229,7 +232,7 @@ public class Artwork {
 	}
 
 	/**
-	 * Checks if the auction is over
+	 * Checks if the auction is over.
 	 * @return boolean - true or false depending on whether
 	 * the auction is over or not.
 	 */
@@ -240,7 +243,7 @@ public class Artwork {
 	/**
 	 * Allows the setting of a boolean, true or false, to determine
 	 * if the auction is over.
-	 * @param bidIsOver
+	 * @param bidIsOver true if bid is over, false otherwise
 	 */
 	public void setBidIsOver(boolean bidIsOver) {
 		this.bidIsOver = bidIsOver;
@@ -255,9 +258,8 @@ public class Artwork {
 		return bidsAllowed;
 	}
 
-
 	/**
-	 * Method to get the image assigned to an artwork
+	 * Method to get the image assigned to an artwork.
 	 * @return image - the picture the user uploads for
 	 * the artwork
 	 */
@@ -267,7 +269,7 @@ public class Artwork {
 
 	/**
 	 * Method to display the image assigned to the artwork
-	 * in an imageView window
+	 * in an imageView window.
 	 * @return imageView - display window containing the image
 	 */
 	public ImageView getImageView() {
@@ -280,14 +282,14 @@ public class Artwork {
 
 	/**
 	 * Allows the setting of an image to an artwork.
-	 * @param image
+	 * @param image image of the artwork
 	 */
 	public void setImage(Image image) {
 		this.image = image;
 	}
 
 	/**
-	 * Method to return the name of the creater of the artwork.
+	 * Method to return the name of the creator of the artwork.
 	 * @return String - creator name.
 	 */
 	public String getCreatorName() {
@@ -296,7 +298,7 @@ public class Artwork {
 
 	/**
 	 * Method to return the all of the bids on an Artwork.
-	 * @return ArrayList<Bid> - arraylist of all bids on artwork.
+	 * @return arraylist of all bids on artwork.
 	 */
 	public ArrayList<Bid> getBidsOnItem() {
 		return bidsOnItem;
@@ -311,9 +313,5 @@ public class Artwork {
 		}
 		
 		return winnerName;
-	}
-	
-	
-	
-	
-}// end of class
+	}	
+}

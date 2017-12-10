@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Joshua
- * @date 20/11/2017
+ * Created on 5/12/2017
  */
 public class User {
 
@@ -71,18 +71,13 @@ public class User {
 	/**
 	 * Makes a new User object with a pre-made avatar as the associated image.
 	 * 
-	 * @param username
-	 *            - username of the user.
-	 * @param fname
-	 *            - first name of the user.
-	 * @param lname
-	 *            - last name of the user.
-	 * @param address
-	 *            - address of the user.
-	 * @param postcode
-	 *            - postcode of the user.
-	 * @param phonenumber
-	 *            - phonenumber of the user.
+	 * @param username - username of the user.
+	 * @param fname - first name of the user.
+	 * @param lname - last name of the user.
+	 * @param address - address of the user.
+	 * @param postcode - postcode of the user.
+	 * @param phonenumber - phonenumber of the user.
+	 * @param index - index of the image
 	 */
 	public User(String username, String fname, String lname, String address, String postcode, long phonenumber,
 			int index) {
@@ -230,7 +225,7 @@ public class User {
 	/**
 	 * Method to set the user's username.
 	 * 
-	 * @param String - username.
+	 * @param username - username of the user.
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -249,7 +244,7 @@ public class User {
 	/**
 	 * Method to set the user's last name.
 	 * 
-	 * @param lname
+	 * @param lname last name to be set
 	 */
 	public void setLastName(String lname) {
 		this.lastName = lname;
@@ -258,7 +253,7 @@ public class User {
 	/**
 	 * Method to set the user's address.
 	 * 
-	 * @param address
+	 * @param address address to be set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -267,7 +262,7 @@ public class User {
 	/**
 	 * Method to set the user's postcode.
 	 * 
-	 * @param postcode
+	 * @param postcode postcode to be set
 	 */
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
@@ -276,7 +271,7 @@ public class User {
 	/**
 	 * Method to set the users phone number.
 	 * 
-	 * @param phonenumber
+	 * @param phonenumber phone number to be set
 	 */
 	public void setPhonenumber(long phonenumber) {
 		this.phonenumber = phonenumber;
@@ -312,7 +307,7 @@ public class User {
 	/**
 	 * Method to get this user's favourites.
 	 * 
-	 * @return ArrayList<User> - favouriteUsers.
+	 * @return list of favourite users.
 	 */
 	public ArrayList<User> getFavouriteUsers() {
 		return this.favouriteUsers;
@@ -359,7 +354,7 @@ public class User {
 	/**
 	 * Allows setting of an image to a user.
 	 * 
-	 * @param image
+	 * @param image image of the user
 	 */
 	public void setImage(Image image) {
 		this.image = image;
@@ -368,7 +363,7 @@ public class User {
 	/**
 	 * Gets the list of artworks for sale.
 	 * 
-	 * @return ArrayList<Artwork> - artsForSale.
+	 * @return artworks for sale.
 	 */
 	public ArrayList<Artwork> getArtForSale() {
 		return artForSale;
@@ -378,7 +373,7 @@ public class User {
 	/**
 	 * Method to get the list of artworks sold by the user.
 	 * 
-	 * @return ArrayList<Artwork> - artSold.
+	 * @return artworks being sold
 	 */
 	public ArrayList<Artwork> getArtSold() {
 		return artSold;
@@ -388,7 +383,7 @@ public class User {
 	/**
 	 * Method to get a list of artworks won.
 	 * 
-	 * @return ArrayList<Artwork> - artWon.
+	 * @return  won auctions
 	 */
 	public ArrayList<Artwork> getArtWon() {
 		return artWon;
@@ -409,7 +404,7 @@ public class User {
 	/**
 	 * Method to add an artwork to a user's auctions
 	 * 
-	 * @param artwork
+	 * @param artwork artwork object to be added
 	 */
 	public void addArtwork(Artwork artwork) {
 		artForSale.add(artwork);
@@ -427,7 +422,7 @@ public class User {
 	/**
 	 * Method to get the bids that a user has placed
 	 * 
-	 * @return ArrayList<Bid> - bids placed by user
+	 * @return - bids placed by user
 	 */
 	public ArrayList<Bid> getPlacedBids() {
 		return placedBids;
@@ -468,7 +463,7 @@ public class User {
 	
 	/**
 	 * Method to return the bids that the user has won
-	 * @return ArrayList<Bid> - the won bids
+	 * @return the won bids
 	 */
 	public ArrayList<Bid> getWonBids() {
 		ArrayList<Bid> wonBids = new ArrayList<>();

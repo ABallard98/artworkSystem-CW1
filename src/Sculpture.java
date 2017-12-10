@@ -2,7 +2,7 @@ import java.util.*;
 import javafx.scene.image.Image;
 /**
  * @author Marwan
- * @date 21/11/2017
+ * Created on 21/11/2017
  */
 public class Sculpture extends Artwork {
 
@@ -62,13 +62,16 @@ public class Sculpture extends Artwork {
 
 	}
 	
+	/**
+	 * Gets the additional images of a sculpture
+	 */
 	public void resolveAdditionalImages() {
 		additionalImages = FileReader.retrieveAdditionalImages(title);
 	}
 	
 	/**
 	 * Method to get the ArrayList of additional images of an artwork.
-	 * @return ArrayList<Image> - the images of the artwork
+	 * @return the images of the artwork
 	 */
 	public ArrayList<Image> getAdditionalImages() {
 		return additionalImages;
@@ -133,7 +136,7 @@ public class Sculpture extends Artwork {
 	}
 
 	/**
-	 * Method to add an image into the additionalImages ArrayList<Image>.
+	 * Method to add an image into the additionalImages.
 	 * @param img - the addtional images of the sculpture
 	 */
 	public void addPhoto(Image img) {

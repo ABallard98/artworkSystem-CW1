@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 /**
  * @author Marcin
- * @date 22/11/2017
+ * Created on 22/11/2017
  */
 public class GUIController {
 
@@ -138,7 +138,10 @@ public class GUIController {
 		dashboardLink.setOnAction(e -> displayMainDashboard());
 
 	}
-
+	
+	/**
+	 * Method to display my bids
+	 */
 	public void displayMyBids() {
 		BorderPane bp; // Border Pane to load the new BorderPane in
 
@@ -151,6 +154,9 @@ public class GUIController {
 		}
 	}
 	
+	/**
+	 * Method to filter by artwork or users
+	 */
 	public void handleSearch() {
 
 		if (artworkSelect.isSelected()) {
@@ -161,6 +167,9 @@ public class GUIController {
 
 	}
 
+	/**
+	 * Displays chosen artwork
+	 */
 	public void displayArtworks() {
 		ArrayList<String> sculptures = new ArrayList<>();
 		ArrayList<String> paintings = new ArrayList<>();
@@ -196,6 +205,9 @@ public class GUIController {
 
 	}
 
+	/**
+	 * Displays selected object
+	 */
 	public void getSearchSelection() {
 		String s = searchList.getSelectionModel().getSelectedItem();
 
@@ -249,7 +261,10 @@ public class GUIController {
 		}
 
 	}
-
+	
+	/**
+	 * Displays a user
+	 */
 	public void displayUsers() {
 		ArrayList<String> users = new ArrayList<>();
 
@@ -317,6 +332,9 @@ public class GUIController {
 
 	}
 
+	/**
+	 * Displays the users information
+	 */
 	public void userSettings() {
 
 		BorderPane bp;
@@ -330,6 +348,9 @@ public class GUIController {
 
 	}
 
+	/**
+	 * Displays the main page
+	 */
 	public void displayMainDashboard() {
 
 		BorderPane bp;
@@ -342,6 +363,9 @@ public class GUIController {
 		}
 	}
 
+	/**
+	 * Show the favourite users settings
+	 */
 	public void userSettings1() {
 
 		BorderPane bp;
@@ -355,6 +379,10 @@ public class GUIController {
 
 	}
 	
+	/**
+	 * Returns the main section
+	 * @return mainSection - the main GUI
+	 */
 	public BorderPane getMainSection() {
 		return mainSection;
 	}

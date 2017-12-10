@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 /**
  * @author Marcin
- * @date 04/12/2017
+ * Created on 04/12/2017
  */
 public class DashboardSettingsController {
 

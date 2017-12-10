@@ -4,7 +4,7 @@ import java.io.*;
 import java.text.*;
 /**
  * @author Daniel
- * @date 23/11/2017
+ * Created on 23/11/2017
  */
 public class FileReader {
 
@@ -98,7 +98,7 @@ public class FileReader {
 
 	/**
 	 * Method to add a painting to an ArrayList
-	 * @param painting
+	 * @param painting painting to be added
 	 */
 	public static void addPainting(Painting painting) {
 		paintings.add(painting);
@@ -153,8 +153,8 @@ public class FileReader {
 
 	/**
 	 * Method to return an arrayList containing all of the users in the system
-	 * @return ArrayList<User> - ArrayList of users
-	 * @throws FileNotFoundException
+	 * @return ArrayList of users
+	 * @throws FileNotFoundException if file not found
 	 */
 	public static ArrayList<User> readUserFile() throws FileNotFoundException {
 		ArrayList<User> users = new ArrayList<>();
@@ -170,9 +170,9 @@ public class FileReader {
 
 	/**
 	 * Method for reading an arrayList of users to get the favourites
-	 * @param users
-	 * @return users
-	 * @throws FileNotFoundException
+	 * @param users ArrayList of all users
+	 * @return users ArrayList of favourite users
+	 * @throws FileNotFoundException if file can't be found
 	 */
 	public static ArrayList<User> readFavouritesFile(ArrayList<User> users) throws FileNotFoundException {
 		final String FAVOURITES_PATH = "favourites.txt";
@@ -270,9 +270,7 @@ public class FileReader {
 
 	/**
 	 * Method to return an arrayList containing all of the paintings in the file
-	 * 
-	 * @return ArrayList<Painting> - ArrayList of paintings
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if file can't be found
 	 */
 	
 	public static void readPaintingFiles() throws FileNotFoundException {
@@ -287,7 +285,7 @@ public class FileReader {
 	 * Method to return an arrayList containing all of the sculptures in the list of
 	 * files
 	 * 
-	 * @return ArrayList<Sculpture> - ArrayList of sculptures
+	 * @return ArrayList of sculptures
 	 * @throws FileNotFoundException
 	 *             - if the file doesn't exist
 	 */
@@ -301,21 +299,8 @@ public class FileReader {
 	}
 	
 	/**
-	 * Method to read the user's bid files and create bid objects which are then
-	 * added to an ArrayList
-	 * 
-	 * @param filename
-	 *            - name of the user whose bids you wants
-	 */
-
-	public static ArrayList<Artwork> getUserArtworks() {
-		ArrayList<Artwork> arts = new ArrayList<>();
-		return null;
-	}
-
-	/**
 	 * Method to read the bid txt files
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException if file can't be found
 	 */
 	public static void readBidFiles() throws FileNotFoundException {
 
@@ -417,7 +402,7 @@ public class FileReader {
 	/**
 	 * Method to get the bids placed by a specific user
 	 * @param user - the user whose bid we want to check
-	 * @return ArrayList<Bid> - an ArrayList of bids
+	 * @return ArrayList of bids
 	 */
 	public static ArrayList<Bid> getBidsOfUser(User user) {
 
@@ -519,7 +504,7 @@ public class FileReader {
 	/**
 	 * Method to return the users ArrayList
 	 * 
-	 * @return ArrayList<User> - all users in the system
+	 * @return all users in the system
 	 */
 	public static ArrayList<User> getUsers() {
 		return users;
@@ -529,7 +514,7 @@ public class FileReader {
 	/**
 	 * Method to return the artwork ArrayList
 	 * 
-	 * @return ArrayList<Artwork> - all artworks in the system
+	 * @return all artworks in the system
 	 */
 	public static ArrayList<Artwork> getArtworks() {
 		return artworks;
@@ -538,7 +523,7 @@ public class FileReader {
 	/**
 	 * Method to return the sculptures ArrayList
 	 * 
-	 * @return ArrayList<Sculpture> - all sculptures in the system
+	 * @return all sculptures in the system
 	 */
 	public static ArrayList<Sculpture> getSculptures() {
 		return sculptures;
@@ -547,7 +532,7 @@ public class FileReader {
 	/**
 	 * Method to return the painting ArrayList
 	 * 
-	 * @return ArrayList<Painting> - all paintings in the system
+	 * @return  all paintings in the system
 	 */
 	public static ArrayList<Painting> getPaintings() {
 		return paintings;
@@ -580,8 +565,8 @@ public class FileReader {
 
 	/**
 	 * Method to return the ArrayList of additional images
-	 * 
-	 * @return ArrayList<Image> - all additional sculpture images
+	 * @param name - name of the artwork
+	 * @return all additional sculpture images
 	 */
 	public static ArrayList<Image> retrieveAdditionalImages(String name) {
 		ArrayList<Image> images = new ArrayList<>();
@@ -600,7 +585,7 @@ public class FileReader {
 	/**
 	 * Method to return the bids ArrayList
 	 * 
-	 * @return ArrayList<Bids> - all bids in the system
+	 * @return  all bids in the system
 	 */
 	public static ArrayList<Bid> getBids() {
 		return bids;
